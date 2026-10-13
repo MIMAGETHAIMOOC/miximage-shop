@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initPromptTabs();
   initBriefForm();
   initAudioPlayer();
+  initPortfolio();
   initCopyButtons();
   initServiceSelection();
 });
@@ -410,9 +411,27 @@ function initAudioPlayer() {
   const updateUI = (playing) => {
     if (playIcon) playIcon.textContent = playing ? '⏸' : '▶';
     playBtn.setAttribute('aria-label', playing ? 'หยุดเล่นตัวอย่าง' : 'เล่นตัวอย่างเพลง');
+    const box = document.getElementById('music-player-box') || document.querySelector('.player-box');
+    if (box) box.classList.toggle('playing', playing);
   };
 
   playBtn.addEventListener('click', togglePlay);
+
+  // Click on progress bar to seek
+  const progressBar = document.querySelector('.progress-bar');
+  if (progressBar) {
+    progressBar.addEventListener('click', (e) => {
+      const rect = progressBar.getBoundingClientRect();
+      const pos = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+      if (audio && audio.duration) {
+        audio.currentTime = pos * audio.duration;
+      } else {
+        simulatedSeconds = Math.floor(pos * simulatedDuration);
+        if (progress) progress.style.width = `${pos * 100}%`;
+        if (timeCurrent) timeCurrent.textContent = formatTime(simulatedSeconds);
+      }
+    });
+  }
 
   if (audio) {
     audio.addEventListener('timeupdate', () => {
@@ -427,6 +446,69 @@ function initAudioPlayer() {
     audio.addEventListener('ended', () => {
       isPlaying = false;
       updateUI(false);
+    });
+  }
+}
+
+/* ==========================================================================
+   6.1 Portfolio Filters & Lightbox
+   ========================================================================== */
+function initPortfolio() {
+  const filterBtns = document.querySelectorAll('.filters button');
+  const items = document.querySelectorAll('.grid-work .work');
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lb-img');
+  const lbCap = document.getElementById('lb-caption');
+  const lbClose = document.getElementById('lb-close');
+
+  if (filterBtns.length && items.length) {
+    filterBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const cat = btn.dataset.filter || 'all';
+        filterBtns.forEach((b) => {
+          b.classList.toggle('active', b === btn);
+          b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+        });
+
+        items.forEach((item) => {
+          const itemCat = item.dataset.category || '';
+          if (cat === 'all' || itemCat.includes(cat)) {
+            item.removeAttribute('hidden');
+          } else {
+            item.setAttribute('hidden', '');
+          }
+        });
+      });
+    });
+  }
+
+  // Lightbox
+  if (lightbox && items.length) {
+    items.forEach((item) => {
+      item.addEventListener('click', () => {
+        const img = item.querySelector('img');
+        const cap = item.querySelector('.cap strong') || item.querySelector('.cap span');
+        if (img && lbImg) {
+          lbImg.src = img.src;
+          lbImg.alt = img.alt || '';
+          if (lbCap) lbCap.textContent = cap ? cap.textContent : '';
+          lightbox.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    };
+
+    if (lbClose) lbClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
     });
   }
 }
