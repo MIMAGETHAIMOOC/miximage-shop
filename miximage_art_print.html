@@ -451,19 +451,21 @@ section {
 }
 
 .service-thumb {
-  height: 180px;
+  aspect-ratio: 4 / 3;
   border-radius: 14px;
   overflow: hidden;
   margin-bottom: 16px;
   position: relative;
   border: 1px solid rgba(255, 255, 255, 0.8);
   box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+  width: 100%;
 }
 
 .service-thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
   transition: transform 0.4s ease;
 }
 
@@ -617,7 +619,7 @@ section {
 }
 
 .portfolio-thumb {
-  height: 220px;
+  aspect-ratio: 4 / 3;
   border-radius: 12px;
   overflow: hidden;
   position: relative;
@@ -625,12 +627,14 @@ section {
   border: 1px solid rgba(255,255,255,0.8);
   box-shadow: 0 4px 14px rgba(0,0,0,0.15);
   background: #090a10;
+  width: 100%;
 }
 
 .portfolio-thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
   transition: transform 0.4s ease;
 }
 
@@ -1129,29 +1133,29 @@ section {
       <!-- Popular Auspicious Themes with Art Previews -->
       <div class="grid-4" style="margin-bottom: 28px;">
         <div class="glass-panel" style="padding: 16px;">
-          <div style="height:140px; border-radius:10px; overflow:hidden; margin-bottom:12px;">
-            <img src="assets/work/auspicious-sacred-g5-1.webp" alt="ท้าวเวสสุวรรณโณ มหาราช" style="width:100%; height:100%; object-fit:cover;">
+          <div style="aspect-ratio:3/2; border-radius:10px; overflow:hidden; margin-bottom:12px; width:100%;">
+            <img src="assets/work/auspicious-sacred-g5-1.webp" alt="ท้าวเวสสุวรรณโณ มหาราช" style="width:100%; height:100%; object-fit:cover; display:block;">
           </div>
           <h3 style="font-size: 16px; font-weight: 700; color: #b45309; margin-bottom: 4px;">ท้าวเวสสุวรรณ &amp; พระพิฆเนศ</h3>
           <p style="font-size: 13px; color: var(--text-secondary);">เสริมบารมี ปกป้องคุ้มครอง แคล้วคลาด และประทานความสำเร็จด้านการค้าขายและโชคลาภ</p>
         </div>
         <div class="glass-panel" style="padding: 16px;">
-          <div style="height:140px; border-radius:10px; overflow:hidden; margin-bottom:12px;">
-            <img src="assets/images/card-frame.jpg" alt="กรอบหลุยส์พุทธศิลป์มงคล" style="width:100%; height:100%; object-fit:cover;">
+          <div style="aspect-ratio:3/2; border-radius:10px; overflow:hidden; margin-bottom:12px; width:100%;">
+            <img src="assets/images/card-frame.jpg" alt="กรอบหลุยส์พุทธศิลป์มงคล" style="width:100%; height:100%; object-fit:cover; display:block;">
           </div>
           <h3 style="font-size: 16px; font-weight: 700; color: #b45309; margin-bottom: 4px;">พระเกจิอาจารย์สายอีสาน</h3>
           <p style="font-size: 13px; color: var(--text-secondary);">ภาพหลวงปู่มั่น ภูริทัตโต, หลวงปู่มหาศิลา, หลวงพ่อคูณ, หลวงปู่ชา คมชัดระดับหิ้งบูชา</p>
         </div>
         <div class="glass-panel" style="padding: 16px;">
-          <div style="height:140px; border-radius:10px; overflow:hidden; margin-bottom:12px;">
-            <img src="assets/work/auspicious-koi-g5-1.webp" alt="ฝูงปลาคาร์ฟมงคล 8 เซียน" style="width:100%; height:100%; object-fit:cover;">
+          <div style="aspect-ratio:3/2; border-radius:10px; overflow:hidden; margin-bottom:12px; width:100%;">
+            <img src="assets/work/auspicious-koi-g5-1.webp" alt="ฝูงปลาคาร์ฟมงคล 8 เซียน" style="width:100%; height:100%; object-fit:cover; display:block;">
           </div>
           <h3 style="font-size: 16px; font-weight: 700; color: #b45309; margin-bottom: 4px;">ปลาคาร์ฟ 8 ตัว &amp; สำเภาทอง</h3>
           <p style="font-size: 13px; color: var(--text-secondary);">สัญลักษณ์ฮวงจุ้ยเรียกทรัพย์ การค้าขายราบรื่น มั่งคั่งร่ำรวย เหมาะติดห้องรับแขกและหน้าร้าน</p>
         </div>
         <div class="glass-panel" style="padding: 16px;">
-          <div style="height:140px; border-radius:10px; overflow:hidden; margin-bottom:12px;">
-            <img src="assets/work/wedding-sunset-veil.webp" alt="ภาพครอบครัวและพรีเวดดิ้ง" style="width:100%; height:100%; object-fit:cover;">
+          <div style="aspect-ratio:3/2; border-radius:10px; overflow:hidden; margin-bottom:12px; width:100%;">
+            <img src="assets/work/wedding-sunset-veil.webp" alt="ภาพครอบครัวและพรีเวดดิ้ง" style="width:100%; height:100%; object-fit:cover; display:block;">
           </div>
           <h3 style="font-size: 16px; font-weight: 700; color: #b45309; margin-bottom: 4px;">อัดภาพครอบครัว &amp; รับปริญญา</h3>
           <p style="font-size: 13px; color: var(--text-secondary);">ส่งไฟล์ภาพของคุณมาให้ร้านรีทัชปรับแสงสี แล้วอัดใส่กรอบหลุยส์หรือกรอบลอยโมเดิร์นพร้อมส่ง</p>
