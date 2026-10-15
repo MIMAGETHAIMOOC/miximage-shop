@@ -1,768 +1,1832 @@
 <!DOCTYPE html>
-<html lang="th" class="scroll-smooth">
+<html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>งานภาพ &amp; รีทัชระดับสูง | MIX-IMAGE™ Art Studio</title>
-<meta name="description" content="สตูดิโองานภาพบุคคลและพุทธศิลป์ระดับพรีเมียม รูปติดบัตรข้าราชการ/สูทสากล รีทัชผิวธรรมชาติ พรีเวดดิ้ง AI และภาพมงคลแคนวาสพร้อมกรอบหลุยส์ โดย ร้านสร้างภาพ (MIX-IMAGE) อ.บรบือ จ.มหาสารคาม">
-<link rel="canonical" href="https://miximage.shop/image.html">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://miximage.shop/image.html">
-<meta property="og:title" content="งานภาพ &amp; รีทัชระดับสูง | MIX-IMAGE™ Art Studio">
-<meta property="og:description" content="ล็อกสัดส่วนกะโหลกและรูปหน้าแท้ 100% ไม่เกลี่ยผิวพลาสติก รูปติดบัตร พรีเวดดิ้ง กู้ภาพเก่า ภาพมงคลแคนวาส">
-<meta property="og:image" content="https://miximage.shop/assets/images/card-image.jpg">
-<link rel="icon" href="assets/images/mark-light.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Syncopate:wght@700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/base.css">
-<link rel="stylesheet" href="assets/css/ui.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ร้านสร้างภาพ (MIX IMAGE ART&amp;AUDIO) | รูปติดบัตร รีทัช ซ่อมภาพเก่า &amp; กรอบรูปมงคลส่งทั่วประเทศ</title>
+  <meta name="description" content="ร้านสร้างภาพ (MIX IMAGE ART&AUDIO) บริการรูปติดบัตรออนไลน์ถูกระเบียบราชการ 100% รีทัชและซ่อมภาพเก่าบรรพบุรุษ และทำภาพมงคลพร้อมกรอบหลุยส์-โมเดิร์นจัดส่งทั่วประเทศ">
+  <link rel="canonical" href="https://miximage.shop/">
+  <link rel="icon" type="image/png" href="assets/images/mark-light.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg-obsidian: #050508;
+  --bg-deep: #090a10;
+  --glass-bg: linear-gradient(135deg, rgba(241, 245, 249, 0.90) 0%, rgba(203, 213, 225, 0.85) 55%, rgba(226, 232, 240, 0.88) 100%);
+  --glass-bg-hover: linear-gradient(135deg, rgba(248, 250, 252, 0.95) 0%, rgba(214, 222, 235, 0.92) 100%);
+  --glass-bg-strong: linear-gradient(135deg, rgba(241, 245, 249, 0.95) 0%, rgba(203, 213, 225, 0.92) 100%);
+  --glass-border: rgba(255, 255, 255, 0.82);
+  --glass-border-highlight: #ffffff;
+  --glass-shadow: 0 20px 48px rgba(0, 0, 0, 0.75), inset 0 1px 2px rgba(255, 255, 255, 0.95), inset 0 -1px 1px rgba(148, 163, 184, 0.35);
+  --text-primary: #090a0f;
+  --text-secondary: #1e293b;
+  --text-muted: #334155;
+  --accent-purple: #7c3aed;
+  --accent-indigo: #4f46e5;
+  --accent-cyan: #0284c7;
+  --accent-gold: #b45309;
+  --accent-gold-soft: rgba(245, 158, 11, 0.16);
+  --line-green: #06c755;
+  --line-green-hover: #05b04a;
+  --danger: #ef4444;
+  --success: #15803d;
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 26px;
+  --radius-pill: 999px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-obsidian);
+  color: var(--text-primary);
+  font-family: 'Sarabun', 'Anuphan', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--bg-obsidian);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Ambient glowing background orbs */
+.ambient-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 12% 14%, rgba(139, 92, 246, 0.18) 0%, transparent 38%),
+    radial-gradient(circle at 86% 20%, rgba(6, 182, 212, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 75% 68%, rgba(245, 158, 11, 0.12) 0%, transparent 42%),
+    radial-gradient(circle at 20% 82%, rgba(6, 199, 85, 0.10) 0%, transparent 40%),
+    linear-gradient(180deg, #040407 0%, #090b12 50%, #040407 100%);
+}
+
+.ambient-grid {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(circle at 50% 35%, black 30%, transparent 85%);
+}
+
+/* Frosted Matte Glass Utility */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(22px) saturate(165%);
+  -webkit-backdrop-filter: blur(22px) saturate(165%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--radius-md);
+  transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+}
+
+.glass-panel:hover {
+  border-color: var(--glass-border-highlight);
+}
+
+.glass-card-interactive:hover {
+  transform: translateY(-4px);
+  background: var(--glass-bg-hover);
+  border-color: rgba(124, 58, 237, 0.45);
+}
+
+.glass-pill {
+  background: linear-gradient(135deg, rgba(248, 250, 252, 0.90), rgba(203, 213, 225, 0.85));
+  color: #090a0f;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: var(--radius-pill);
+}
+
+.container {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Sticky Top Navigation */
+.site-header {
+  position: sticky;
+  top: 14px;
+  z-index: 50;
+  margin: 14px auto 0;
+  max-width: 1220px;
+  padding: 0 20px;
+}
+
+.navbar-glass {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 22px;
+  background: linear-gradient(135deg, rgba(241, 245, 249, 0.92) 0%, rgba(203, 213, 225, 0.88) 100%);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.brand-logo-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  flex-shrink: 0;
+  background: #090a10;
+}
+
+.brand-text-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  line-height: 1.2;
+  color: #090a0f;
+}
+
+.brand-sub {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  letter-spacing: 0.3px;
+}
+
+.page-switcher {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px;
+  background: rgba(226, 232, 240, 0.88);
+  color: #090a0f;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: var(--radius-pill);
+}
+
+.page-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.page-tab:hover {
+  color: #090a0f;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.page-tab.active {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.25), rgba(2, 132, 199, 0.22));
+  color: #090a0f;
+  border: 1px solid rgba(124, 58, 237, 0.55);
+  box-shadow: 0 4px 16px rgba(124, 58, 237, 0.2);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.18s ease;
+}
+
+.nav-links a:hover {
+  color: #090a0f;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 22px;
+  border-radius: var(--radius-pill);
+  font-size: 14.5px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.btn-line {
+  background: linear-gradient(135deg, #06c755 0%, #049f43 100%);
+  color: #ffffff !important;
+  box-shadow: 0 8px 24px rgba(6, 199, 85, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.btn-line:hover {
+  background: linear-gradient(135deg, #07d65c 0%, #05b04a 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(6, 199, 85, 0.48);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #7c3aed 0%, #0284c7 100%);
+  color: #ffffff !important;
+  box-shadow: 0 8px 26px rgba(124, 58, 237, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 32px rgba(124, 58, 237, 0.52);
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #090a10 !important;
+  font-weight: 700;
+  box-shadow: 0 8px 26px rgba(245, 158, 11, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.btn-gold:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 30px rgba(245, 158, 11, 0.5);
+}
+
+.btn-glass {
+  background: linear-gradient(135deg, rgba(248, 250, 252, 0.90), rgba(203, 213, 225, 0.85));
+  color: #090a0f;
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.btn-glass:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+}
+
+/* Sections */
+section {
+  padding: 68px 0;
+  scroll-margin-top: 96px;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 44px;
+  background: linear-gradient(135deg, rgba(241, 245, 249, 0.90) 0%, rgba(203, 213, 225, 0.85) 100%);
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.72), inset 0 1px 2px rgba(255, 255, 255, 0.95);
+  border-radius: 24px;
+  padding: 28px 32px;
+  color: #090a0f;
+}
+
+.eyebrow-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #090a0f;
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-size: clamp(26px, 3.5vw, 38px);
+  font-weight: 800;
+  line-height: 1.28;
+  margin-bottom: 12px;
+  color: #090a0f !important;
+}
+
+.section-desc {
+  color: var(--text-secondary);
+  font-size: 16px;
+}
+
+/* Hero Section */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 32px;
+  align-items: center;
+  padding-top: 28px;
+}
+
+.hero-grid > div:first-child {
+  background: linear-gradient(135deg, rgba(241, 245, 249, 0.90) 0%, rgba(203, 213, 225, 0.85) 100%);
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.72), inset 0 1px 2px rgba(255, 255, 255, 0.95);
+  border-radius: 24px;
+  padding: 28px 32px;
+  color: #090a0f;
+}
+
+.hero-title {
+  font-size: clamp(30px, 4.2vw, 48px);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  color: #090a0f;
+}
+
+.text-gradient-art {
+  background: linear-gradient(135deg, #4c1d95 0%, #0369a1 55%, #b45309 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.hero-logo-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.hero-logo-banner img {
+  width: 76px;
+  height: 76px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+  background: #090a10;
+}
+
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0 28px;
+}
+
+.trust-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  font-size: 13px;
+  color: #090a0f;
+  background: rgba(226, 232, 240, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+/* Grid utilities */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* Service Card */
+.service-card {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-thumb {
+  height: 180px;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+}
+
+.service-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.service-card:hover .service-thumb img {
+  transform: scale(1.05);
+}
+
+.price-list {
+  list-style: none;
+  margin: 16px 0 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 12px;
+}
+
+.price-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 8px 0;
+  font-size: 13.5px;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+.price-tag {
+  font-weight: 700;
+  color: #b45309;
+  white-space: nowrap;
+  margin-left: 10px;
+}
+
+/* Before / After Interactive Slider */
+.ba-wrapper {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  user-select: none;
+  background: #0d101b;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.ba-layer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.ba-layer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ba-after {
+  clip-path: inset(0 0 0 50%);
+}
+
+.ba-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  background: #f59e0b;
+  box-shadow: 0 0 16px rgba(245, 158, 11, 0.9);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.ba-knob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.92);
+  border: 2px solid #f59e0b;
+  color: #fbbf24;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.ba-tag {
+  position: absolute;
+  top: 14px;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  z-index: 5;
+  backdrop-filter: blur(8px);
+}
+
+.ba-tag-before {
+  left: 14px;
+  background: rgba(0,0,0,0.75);
+  color: #f8fafc;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.ba-tag-after {
+  right: 14px;
+  background: rgba(255,255,255,0.92);
+  color: #090a0f;
+  border: 1px solid #ffffff;
+}
+
+/* Auspicious Frame Table */
+.frame-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14.5px;
+}
+
+.frame-table th, .frame-table td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.frame-table th {
+  color: #b45309;
+  font-weight: 700;
+  background: rgba(245, 158, 11, 0.1);
+  font-size: 13.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.frame-table tr:hover td {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Portfolio Cards */
+.portfolio-card {
+  padding: 18px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio-thumb {
+  height: 220px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 14px;
+  border: 1px solid rgba(255,255,255,0.8);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+  background: #090a10;
+}
+
+.portfolio-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.portfolio-card:hover .portfolio-thumb img {
+  transform: scale(1.05);
+}
+
+/* Form Styles */
+.order-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.step-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7c3aed, #0284c7);
+  color: #ffffff !important;
+  font-size: 13px;
+  font-weight: 700;
+  margin-right: 8px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-label {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #090a0f;
+  margin-bottom: 7px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 15px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #090a0f;
+  border: 1px solid rgba(100, 116, 139, 0.45);
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 14.5px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.22);
+}
+
+.upload-dropzone {
+  border: 1.5px dashed rgba(124, 58, 237, 0.45);
+  background: rgba(124, 58, 237, 0.05);
+  border-radius: 16px;
+  padding: 22px 18px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.upload-dropzone:hover {
+  border-color: var(--accent-cyan);
+  background: rgba(2, 132, 199, 0.08);
+}
+
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.preview-item {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.95);
+  padding: 6px;
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.preview-item img {
+  width: 100%;
+  height: 74px;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* Lightbox Modal */
+.lightbox-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  background: rgba(0,0,0,0.92);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.lightbox-modal.open {
+  display: flex;
+}
+
+.lightbox-modal img {
+  max-height: 84vh;
+  max-width: min(1100px, 92vw);
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.4);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+/* Toast */
+.toast-banner {
+  position: fixed;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%) translateY(120px);
+  z-index: 120;
+  padding: 13px 24px;
+  border-radius: var(--radius-pill);
+  background: rgba(12, 16, 28, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(6, 199, 85, 0.55);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toast-banner.show {
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Floating LINE */
+.floating-line {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: var(--radius-pill);
+  background: rgba(6, 199, 85, 0.92);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff !important;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 14px 34px rgba(6, 199, 85, 0.42);
+  transition: all 0.2s ease;
+}
+
+.floating-line:hover {
+  transform: translateY(-3px) scale(1.02);
+  background: #06c755;
+}
+
+/* Footer */
+.site-footer {
+  padding: 56px 0 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(3, 4, 8, 0.88);
+  backdrop-filter: blur(20px);
+  position: relative;
+  z-index: 2;
+}
+
+.site-footer .container {
+  background: linear-gradient(135deg, rgba(241, 245, 249, 0.90) 0%, rgba(203, 213, 225, 0.85) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  padding: 22px 30px;
+  color: #090a0f;
+}
+
+@media (max-width: 980px) {
+  .hero-grid, .order-layout {
+    grid-template-columns: 1fr;
+  }
+  .grid-3, .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .nav-links {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid-3, .grid-4 {
+    grid-template-columns: 1fr;
+  }
+  .navbar-glass {
+    flex-wrap: wrap;
+    border-radius: 22px;
+  }
+}
+  </style>
 </head>
 <body>
-<a class="skip" href="#main">ข้ามไปยังเนื้อหาหลัก</a>
+  <div class="ambient-canvas"></div>
+  <div class="ambient-grid"></div>
 
-<!-- =====================================================================
-     HEADER (Glass Navbar)
-     ===================================================================== -->
-<header class="hdr" id="site-header">
-  <div class="wrap">
-    <a class="mark" href="index.html" aria-label="MIX-IMAGE หน้าแรก">
-      <img src="assets/images/mark-light.png" alt="" width="30" height="22">
-      <b>MIX-IMAGE</b>
-    </a>
+  <!-- Top Navigation -->
+  <header class="site-header">
+    <nav class="navbar-glass" aria-label="เมนูหลัก">
+      <a href="index.html" class="brand-lockup">
+        <img src="assets/images/logo-3d.png" alt="โลโก้ MIX IMAGE ART&amp;AUDIO" class="brand-logo-img">
+        <div class="brand-text-wrap">
+          <span class="brand-title">MIX IMAGE ART&amp;AUDIO</span>
+          <span class="brand-sub">ร้านสร้างภาพ • งานภาพ รูปติดบัตร รีทัช &amp; กรอบรูปมงคล</span>
+        </div>
+      </a>
 
-    <nav aria-label="เมนูหลัก">
-      <ul class="nav">
-        <li><a href="index.html">หน้าแรก</a></li>
-        <li><a href="image.html" aria-current="page">งานภาพ &amp; รีทัช</a></li>
-        <li><a href="music.html">สตูดิโอเพลง AI</a></li>
-        <li><a href="#services">บริการทั้งหมด</a></li>
-        <li><a href="#portfolio">ผลงานจริง</a></li>
-        <li><a href="#pricing">อัตราค่าบริการ</a></li>
-        <li><a href="#prompts">คลังพรอมต์โปร</a></li>
-      </ul>
+      <!-- 2-Page Switcher -->
+      <div class="page-switcher" role="navigation" aria-label="สลับหน้าบริการ">
+        <a href="index.html" class="page-tab active" aria-current="page">
+          <span>🖼️</span> หน้าที่ 1: งานภาพ &amp; กรอบรูปมงคล
+        </a>
+        <a href="miximage_audio_studio.html" class="page-tab">
+          <span>🎵</span> หน้าที่ 2: บริการรับทำเพลง AI
+        </a>
+      </div>
+
+      <div class="nav-links">
+        <a href="#services">บริการรับทำรูป</a>
+        <a href="#auspicious-frames">กรอบรูปมงคล</a>
+        <a href="#before-after">ตัวอย่างงานจริง</a>
+        <a href="#order-studio">ส่งรูป/แจ้งมัดจำ</a>
+      </div>
+
+      <a href="#order-studio" class="btn btn-line">
+        <span>💬</span> สั่งทำรูป / เชื่อมต่อ LINE
+      </a>
     </nav>
+  </header>
 
-    <div class="hdr-r">
-      <a class="txt" href="https://line.me/ti/p/~miximage" target="_blank" rel="noopener">LINE: miximage</a>
-      <a class="btn btn-chrome btn-sm" href="https://line.me/ti/p/~miximage" target="_blank" rel="noopener">ส่งภาพประเมินงาน →</a>
-      <button class="burger" id="hamburger-btn" aria-label="เปิดเมนู" aria-expanded="false" aria-controls="mobile-nav">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
-    </div>
-  </div>
-</header>
-
-<!-- Mobile Drawer -->
-<div class="drawer" id="mobile-nav" role="dialog" aria-modal="true" aria-label="เมนูนำทาง">
-  <div class="drawer-top">
-    <span class="label">Navigation</span>
-    <button class="burger" id="mobile-close" style="display:grid" aria-label="ปิดเมนู">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg>
-    </button>
-  </div>
-  <a class="big" href="index.html">หน้าแรก <span>00</span></a>
-  <a class="big" href="image.html">งานภาพ &amp; รีทัช <span>01</span></a>
-  <a class="big" href="music.html">สตูดิโอเพลง AI <span>02</span></a>
-  <a class="big" href="#pricing">ราคาบริการ <span>03</span></a>
-  <a class="big" href="#prompts">คลังพรอมต์โปร <span>04</span></a>
-  <a class="big" href="https://line.me/ti/p/~miximage" target="_blank" rel="noopener">แอด LINE คุยงาน <span>05</span></a>
-</div>
-
-<main id="main">
-
-  <!-- =====================================================================
-       HERO SECTION (Image Studio)
-       ===================================================================== -->
-  <section class="hero compact" aria-labelledby="image-hero-title">
-    <div class="hero-side t" aria-hidden="true">
-      BIOMETRIC<br>PRECISION.<br>ZERO AI SLOP.
-    </div>
-    <div class="hero-side b" aria-hidden="true">
-      ORIGINAL<br>FACIAL BONE<br>PRESERVED.
-    </div>
-
-    <!-- 3D Chrome Floating Lens Artwork -->
-    <div class="hero-art" aria-hidden="true">
-      <img src="assets/images/card-image.jpg" alt="" width="1024" height="768">
-    </div>
-
-    <div class="wrap">
-      <div class="hero-copy rv in">
-        <span class="label">IMAGE ARCHITECTURE &amp; BIOMETRIC PRECISION</span>
-        <h1 id="image-hero-title" class="wordmark chrome">IMAGE STUDIO</h1>
-        <p class="h1">สตูดิโองานภาพบุคคล รีทัชชั้นสูง และพุทธศิลป์แคนวาส</p>
-        <p class="lead">
-          ก้าวข้ามข้อจำกัดของเอไอทั่วไป ด้วยสถาปัตยกรรม Identity Lock ที่ล็อกสัดส่วนกะโหลก รูขุมขน และเบ้าตาเดิม 100% ไม่สร้างหน้าใหม่ ไม่เกลี่ยเป็นวุ้น พร้อมจัดส่งไฟล์ความละเอียดสูงสุด 300 DPI สำหรับใช้งานราชการ งานแต่งงาน และตกแต่งสถานที่
+  <main id="top" class="container">
+    <!-- HERO SECTION -->
+    <section class="hero-grid">
+      <div>
+        <div class="glass-pill eyebrow-badge">
+          <span style="color:#15803d;">●</span> บริการสั่งทำรายชิ้น • ไม่มีแพ็กเกจรายเดือน • จัดส่งทั่วประเทศ
+        </div>
+        <div class="hero-logo-banner">
+          <img src="assets/images/logo-3d.png" alt="MIX IMAGE ART&amp;AUDIO 3D Logo">
+          <div>
+            <div style="font-size:14px; font-weight:700; color:#4c1d95;">ร้านสร้างภาพ (MIX IMAGE ART&amp;AUDIO)</div>
+            <div style="font-size:12.5px; color:#334155;">สตูดิโอภาพถ่าย งานพิมพ์ และเสียงเชิงพาณิชย์ อ.บรบือ จ.มหาสารคาม</div>
+          </div>
+        </div>
+        <h1 class="hero-title">
+          MIX IMAGE ART&amp;AUDIO<br><span style="font-size:0.68em; font-weight:700;">มากกว่าแค่สร้างภาพ</span><br>
+          <span class="text-gradient-art">แต่เราสร้างความรู้สึก</span>
+        </h1>
+        <p style="font-size: 16px; color: var(--text-secondary); margin-bottom: 16px;">
+          <strong>บริการงานภาพและเสียงเชิงพาณิชย์ ผสมผสานความประณีตของช่างมืออาชีพเข้ากับเทคโนโลยี Generative AI ตรวจสอบความถูกต้องตามระเบียบราชการ ดูแลงานรูปติดบัตร สิ่งพิมพ์ งานกราฟิก และผลิตเพลงโฆษณาเชิงพาณิชย์ลิขสิทธิ์แท้</strong> — รับทำรูปติดบัตรออนไลน์ รีทัชซ่อมแซมภาพเก่าบรรพบุรุษ และจัดทำภาพมงคลพร้อมกรอบหลุยส์–โมเดิร์นจัดส่งทั่วประเทศ โดย <strong>ร้านถ่ายเอกสารพิส (MIX IMAGE ART&amp;AUDIO) ข้างธนาคารกสิกรไทย สาขาบรบือ จ.มหาสารคาม</strong>
         </p>
 
-        <div class="hero-btns">
-          <a class="btn btn-chrome" href="https://line.me/ti/p/~miximage" target="_blank" rel="noopener">ส่งภาพทำรูปผ่าน LINE →</a>
-          <a class="btn btn-ghost" href="#portfolio">ดูตัวอย่างผลงานจริง</a>
+        <div class="badge-row">
+          <span class="trust-chip">✅ รูปติดบัตรถูกระเบียบราชการ 100%</span>
+          <span class="trust-chip">✨ รีทัชเนียนธรรมชาติ ไม่เป็นวุ้น</span>
+          <span class="trust-chip">🖼️ กรอบรูปมงคลแคนวาสเคลือบกัน UV</span>
+          <span class="trust-chip">🚚 แพ็กกันกระแทก 3 ชั้น ส่งทั่วประเทศ</span>
         </div>
 
-        <div class="trusted">
-          <span class="label">มาตรฐานการส่งมอบระดับสากล</span>
-          <ul>
-            <li>DOPA THAI ID</li>
-            <li>VISA COMPLIANCE</li>
-            <li>300 DPI PRINT</li>
-            <li>NATURAL SKIN PORES</li>
-            <li>FINE ART CANVAS</li>
-          </ul>
+        <div style="display: flex; flex-wrap: wrap; gap: 14px;">
+          <a href="#order-studio" class="btn btn-line" style="padding: 14px 26px; font-size: 15.5px;">
+            📤 ส่งภาพอ้างอิง &amp; สั่งทำผ่านเว็บเชื่อม LINE
+          </a>
+          <a href="#auspicious-frames" class="btn btn-glass" style="padding: 14px 22px;">
+            ดูตารางราคากรอบรูปมงคล
+          </a>
+          <a href="miximage_audio_studio.html" class="btn btn-glass" style="padding: 14px 22px; border-color: rgba(6,182,212,0.6);">
+            🎵 ไปที่หน้า 2: บริการรับทำเพลง AI →
+          </a>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- =====================================================================
-       STATS BAR (4 Metrics)
-       ===================================================================== -->
-  <section class="stats" aria-label="สถิติและมาตรฐานงานภาพ">
-    <div class="stat rv in">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19h16M7 15l4-8 4 6 3-2"/></svg>
-      <div>
-        <b>฿100.-</b>
-        <span class="label">รูปติดบัตร &amp; สูทสากล</span>
-        <p>เริ่มต้นเพียง 100 บาท ถูกต้องตามระเบียบ</p>
-      </div>
-    </div>
-    <div class="stat rv in">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zM12 6v6l4 2"/></svg>
-      <div>
-        <b>100%</b>
-        <span class="label">Identity Lock</span>
-        <p>ล็อกโครงหน้าแท้ ไม่บิดเบือน ไม่เกลี่ยผิวพลาสติก</p>
-      </div>
-    </div>
-    <div class="stat rv in">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-      <div>
-        <b>300 DPI</b>
-        <span class="label">ความคมชัดพร้อมพิมพ์</span>
-        <p>รองรับทั้งไฟล์ดิจิทัล และอัดขยายใส่กรอบรูป</p>
-      </div>
-    </div>
-    <div class="stat rv in">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 8v4l3 3M12 2a10 10 0 100 20 10 10 0 000-20z"/></svg>
-      <div>
-        <b>24 ชั่วโมง</b>
-        <span class="label">ส่งมอบงานรวดเร็ว</span>
-        <p>รับงานด่วนพร้อมตรวจเช็กขนาดมิลลิเมตร</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- =====================================================================
-       CORE SERVICES (4 Dedicated Pillars)
-       ===================================================================== -->
-  <section class="sec" id="services" aria-labelledby="sec-svcs-title">
-    <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <span class="label">SERVICES &amp; CAPABILITIES</span>
-          <h2 id="sec-svcs-title" class="h2">บริการงานภาพที่ออกแบบเพื่อความเป็นมืออาชีพ</h2>
-        </div>
-        <div class="aside">AUTHENTIC FACIAL GEOMETRY.<br>ZERO AI DISTORTION.</div>
-      </div>
-
-      <div class="svcs">
-        <!-- 01 รูปติดบัตร & สูทสากล -->
-        <article class="glass svc rv in">
-          <figure>
-            <img src="assets/work/id-sample-thai-civil-man.webp" alt="รูปติดบัตรข้าราชการไทยและชุดสูทสากล" loading="lazy">
-          </figure>
-          <div class="in">
-            <div class="row">
-              <h3 class="h3" style="font-size:20px;">รูปติดบัตร &amp; เปลี่ยนชุดสูท</h3>
-              <span>01</span>
-            </div>
-            <p>
-              เปลี่ยนรูปถ่ายธรรมดาจากมือถือ ให้เป็นรูปติดบัตรทางการ จัดไฟสตูดิโอ 3 ทิศทาง เปลี่ยนชุดข้าราชการ พลเรือน ครู ทหาร ตำรวจ หรือสูทสากล คมชัดระดับ 300 DPI
-            </p>
-            <div class="chips" style="margin-bottom:14px;">
-              <span class="chip">ระเบียบ ก.พ.</span>
-              <span class="chip">สูทสากล</span>
-              <span class="chip">ขนาด 1.5" / 2"</span>
-              <span class="chip">ฉากหลังขาว/ฟ้า</span>
-            </div>
-            <div class="foot">
-              <div>
-                <small>เริ่มต้นเพียง</small>
-                <b>฿100.-</b>
-              </div>
-              <a class="btn btn-chrome btn-sm" href="https://line.me/ti/p/~miximage" target="_blank" rel="noopener">สั่งทำรูป →</a>
-            </div>
+      <!-- Hero Frosted Glass Showcase Card with Real Photos -->
+      <div class="glass-panel" style="padding: 26px; position: relative;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:10px;">
+          <div>
+            <span style="font-size:12px; color:#0369a1; font-weight:700; letter-spacing:0.5px;">มาตรฐานความประณีตและการตรวจสอบก่อนส่งงาน</span>
+            <h2 style="font-size:19px; font-weight:700; margin-top:2px;" id="ba-title">เปรียบเทียบงานรีทัช &amp; ตัดต่อชุด</h2>
           </div>
+          <!-- Switch case buttons -->
+          <div style="display:flex; gap:6px;">
+            <button type="button" class="btn btn-glass" id="caseBtn1" style="padding:4px 10px; font-size:12px; background:#fff; font-weight:700;" onclick="switchBACase(1)">รูปติดบัตร</button>
+            <button type="button" class="btn btn-glass" id="caseBtn2" style="padding:4px 10px; font-size:12px;" onclick="switchBACase(2)">กู้ภาพเก่า</button>
+          </div>
+        </div>
+
+        <div class="ba-wrapper" id="ba-container">
+          <!-- Before Layer -->
+          <div class="ba-layer ba-before">
+            <img id="ba-img-before" src="assets/work/id-sample-before-after.webp" alt="ภาพก่อนรีทัช">
+            <span class="ba-tag ba-tag-before" id="ba-label-before">◀ ภาพเดิมก่อนทำ</span>
+          </div>
+          <!-- After Layer -->
+          <div class="ba-layer ba-after" id="ba-after-layer">
+            <img id="ba-img-after" src="assets/work/id-sample-thai-civil-man.webp" alt="ภาพหลังตัดต่อชุดข้าราชการสมบูรณ์">
+            <span class="ba-tag ba-tag-after" id="ba-label-after">ส่งมอบงาน 300 DPI ▶</span>
+          </div>
+          <div class="ba-handle" id="ba-handle">
+            <div class="ba-knob">↔</div>
+          </div>
+        </div>
+
+        <input type="range" id="ba-slider" min="5" max="95" value="50" aria-label="สไลเดอร์เปรียบเทียบภาพก่อนและหลัง" style="width:100%; margin-top:14px; accent-color:#b45309; cursor:pointer;">
+
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:14px; text-align:center;">
+          <div class="glass-panel" style="padding:10px; border-radius:12px;">
+            <div style="font-size:17px; font-weight:800; color:#b45309;">300 DPI</div>
+            <div style="font-size:11.5px; color:var(--text-muted);">ความละเอียดมาตรฐานพิมพ์</div>
+          </div>
+          <div class="glass-panel" style="padding:10px; border-radius:12px;">
+            <div style="font-size:17px; font-weight:800; color:#0369a1;">แก้ฟรี 100%</div>
+            <div style="font-size:11.5px; color:var(--text-muted);">หากไม่ผ่านระเบียบหน่วยงาน</div>
+          </div>
+          <div class="glass-panel" style="padding:10px; border-radius:12px;">
+            <div style="font-size:17px; font-weight:800; color:#15803d;">10:00–22:00</div>
+            <div style="font-size:11.5px; color:var(--text-muted);">รับงานออนไลน์ทุกวัน</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CORE SERVICES SECTION (NO SUBSCRIPTIONS - PER JOB PRICING) -->
+    <section id="services">
+      <div class="section-header">
+        <div class="glass-pill eyebrow-badge">บริการหลักของร้านสร้างภาพ (สั่งทำรายชิ้น)</div>
+        <h2 class="section-title">บริการรับทำรูปและงานพิมพ์ครบวงจร (คิดราคาตามชิ้นงาน)</h2>
+        <p class="section-desc">
+          ไม่มีพันธะผูกพันรายเดือน สั่งทำได้ตั้งแต่ 1 ชิ้นงาน เลือกบริการที่ต้องการเพื่อให้ระบบคำนวณยอดและส่งรูปอ้างอิงเข้า LINE ร้านได้ทันที
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <!-- Service 1: ID Photo & Uniform -->
+        <article class="glass-panel glass-card-interactive service-card">
+          <div>
+            <div class="service-thumb">
+              <img src="assets/work/id-sample-thai-civil-man.webp" alt="ตัวอย่างรูปติดบัตรข้าราชการชาย">
+            </div>
+            <span class="glass-pill" style="padding:4px 10px; font-size:11.5px; color:#0369a1;">ยอดนิยม • ถูกระเบียบราชการ 100%</span>
+            <h3 style="font-size:20px; font-weight:700; margin:10px 0 6px;">1. รูปติดบัตรออนไลน์ &amp; ตัดต่อชุด</h3>
+            <p style="font-size:14px; color:var(--text-secondary);">
+              ปรับแสง รีทัชผิวเนียนเป็นธรรมชาติ ตัดต่อชุดข้าราชการ (ปกติขาว/กากี/อินทรธนูตรงชั้นยศ) ชุดสูทสากล ชุดครุย นักเรียน–นักศึกษา และรูปวีซ่า/พาสปอร์ต
+            </p>
+            <ul class="price-list">
+              <li>
+                <span><strong>ชุดประหยัด (Good)</strong>: อัดรูป 1" หรือ 1.5" (8–12 ใบ) กระดาษด้านกันน้ำ</span>
+                <span class="price-tag">59 ฿</span>
+              </li>
+              <li>
+                <span><strong>ชุดยอดนิยม (Better)</strong>: อัดรูป 8–12 ใบ + รีทัชผิวเนียน ลบสิว ปรับแสงสวย</span>
+                <span class="price-tag">89 ฿</span>
+              </li>
+              <li>
+                <span><strong>เฉพาะไฟล์ดิจิทัลตัดต่อชุด</strong> (ข้าราชการ/สูท/ครุย + รีทัช + ไฟล์ 300 DPI)</span>
+                <span class="price-tag">150 ฿</span>
+              </li>
+              <li>
+                <span><strong>ชุดสมบูรณ์แบบ (Best)</strong>: ตัดต่อชุดข้าราชการ/สูท + ไฟล์ HD + อัดรูป 1 โหล</span>
+                <span class="price-tag">220 ฿</span>
+              </li>
+            </ul>
+          </div>
+          <button type="button" class="btn btn-primary" onclick="selectServiceAndScroll('id_best', 'รูปติดบัตรตัดต่อชุดราชการ/สูท + ไฟล์ HD + อัดรูป 1 โหล', 220)">
+            เลือกรายการนี้ &amp; ส่งรูปหน้าตรง →
+          </button>
         </article>
 
-        <!-- 02 รีทัชผิว & กู้ภาพเก่า -->
-        <article class="glass svc rv in">
-          <figure>
-            <img src="assets/work/zip-restore-beforeafter-3x2.webp" alt="ตัวอย่างการกู้ภาพเก่าและรีทัชผิวธรรมชาติ" loading="lazy">
-          </figure>
-          <div class="in">
-            <div class="row">
-              <h3 class="h3" style="font-size:20px;">กู้ภาพเก่า &amp; รีทัชผิวธรรมชาติ</h3>
-              <span>02</span>
+        <!-- Service 2: Photo Retouch & Old Photo Restoration -->
+        <article class="glass-panel glass-card-interactive service-card">
+          <div>
+            <div class="service-thumb">
+              <img src="assets/work/zip-restore-family.webp" alt="ตัวอย่างการบูรณะภาพเก่าครอบครัว">
             </div>
-            <p>
-              ฟื้นฟูรูปถ่ายเก่า ชำรุด ลบจุดด่าง รอยพับ คืนความคมชัดระดับ HD พร้อมลงสีธรรมชาติคงความเหมือนจริง โดยไม่ทำลายโครงหน้าและรายละเอียดดั้งเดิมของบรรพบุรุษ
+            <span class="glass-pill" style="padding:4px 10px; font-size:11.5px; color:#6d28d9;">งานฝีมือประณีต • แก้ไขจนพึงพอใจ</span>
+            <h3 style="font-size:20px; font-weight:700; margin:10px 0 6px;">2. รีทัชภาพ &amp; ซ่อมภาพเก่าบรรพบุรุษ</h3>
+            <p style="font-size:14px; color:var(--text-secondary);">
+              รีทัชภาพโปรไฟล์สมัครงาน/พอร์ตโฟลิโอ และฟื้นฟูภาพถ่ายเก่าที่ฉีกขาด มีคราบเชื้อรา หรือสีซีดจาง รวมถึงเปลี่ยนภาพขาวดำเป็นภาพสีธรรมชาติและทำรูปหน้าพิธีด่วน
             </p>
-            <div class="chips" style="margin-bottom:14px;">
-              <span class="chip">ซ่อมรอยฉีกขาด</span>
-              <span class="chip">ลงสีภาพขาวดำ</span>
-              <span class="chip">ขยายขนาด Ultra-HD</span>
-              <span class="chip">คงรูปหน้าเดิม 100%</span>
-            </div>
-            <div class="foot">
-              <div>
-                <small>ราคาเริ่มต้น</small>
-                <b>฿200 – ฿490.-</b>
-              </div>
-              <a class="btn btn-chrome btn-sm" href="https://line.me/ti/p/~miximage" target="_blank" rel="noopener">ประเมินภาพ →</a>
-            </div>
+            <ul class="price-list">
+              <li>
+                <span><strong>รีทัชภาพบุคคลพรีเมียม</strong> (ปรับผิวเนียน แสงเงา โครงหน้าธรรมชาติ)</span>
+                <span class="price-tag">200 ฿</span>
+              </li>
+              <li>
+                <span><strong>ฟื้นฟูรูปเก่ามาตรฐาน</strong> (ลบรอยขีดข่วน คราบด่าง ปรับสีชัด + ไฟล์ HD)</span>
+                <span class="price-tag">450 ฿</span>
+              </li>
+              <li>
+                <span><strong>ฟื้นฟูรูปเก่าพรีเมียม + เติมสี</strong> (ซ่อมรอยขาด/แหว่ง + ลงสีธรรมชาติ)</span>
+                <span class="price-tag">700 ฿</span>
+              </li>
+              <li>
+                <span><strong>รูปหน้าพิธีศพด่วน 24 ชม.</strong> (รีทัชสง่างาม + ไฟล์ + อัด 16×20" กรอบหลุยส์)</span>
+                <span class="price-tag">1,290 ฿</span>
+              </li>
+            </ul>
           </div>
+          <button type="button" class="btn btn-primary" onclick="selectServiceAndScroll('restore_std', 'ฟื้นฟูรูปเก่ามาตรฐาน (ลบรอยขีดข่วน ปรับความคมชัด + ไฟล์ HD)', 450)">
+            เลือกรายการนี้ &amp; ส่งภาพที่ต้องการรีทัช →
+          </button>
         </article>
 
-        <!-- 03 พรีเวดดิ้งภาพคู่ AI -->
-        <article class="glass svc rv in">
-          <figure>
-            <img src="assets/work/wedding-sunset-veil.webp" alt="พรีเวดดิ้งภาพคู่ AI Cinematic Sunset Veil" loading="lazy">
-          </figure>
-          <div class="in">
-            <div class="row">
-              <h3 class="h3" style="font-size:20px;">พรีเวดดิ้งภาพคู่ AI Cinematic</h3>
-              <span>03</span>
+        <!-- Service 3: Auspicious Art & Framing Nationwide -->
+        <article class="glass-panel glass-card-interactive service-card" style="border-color: rgba(245, 158, 11, 0.4);">
+          <div>
+            <div class="service-thumb">
+              <img src="assets/work/zip-auspicious-frame-01.webp" alt="ตัวอย่างภาพมงคลพร้อมกรอบหลุยส์สีทอง">
             </div>
-            <p>
-              สร้างภาพพรีเวดดิ้งในฝันโดยไม่ต้องเช่าชุดและไม่ต้องเดินทางไกล คุมแสงธรรมชาติ Golden Hour 3200K ล็อกใบหน้าคู่รักทั้งสองท่านอย่างสมบูรณ์แบบ
+            <span class="glass-pill" style="padding:4px 10px; font-size:11.5px; color:#b45309;">เสริมสิริมงคล • จัดส่งทั่วประเทศ</span>
+            <h3 style="font-size:20px; font-weight:700; margin:10px 0 6px;">3. ภาพมงคลพร้อมกรอบ &amp; งานสิ่งพิมพ์</h3>
+            <p style="font-size:14px; color:var(--text-secondary);">
+              บริการจัดทำภาพมงคลพร้อมกรอบหลุยส์สีทองและกรอบโมเดิร์น พิมพ์ลงผ้าแคนวาสหรือโฟโต้พรีเมียมเคลือบกัน UV ห่อกันกระแทกหนา 3 ชั้น ส่งทั่วไทย พร้อมรับทำป้ายไวนิลและนามบัตร
             </p>
-            <div class="chips" style="margin-bottom:14px;">
-              <span class="chip">Sunset Veil</span>
-              <span class="chip">European Palace</span>
-              <span class="chip">Minimal Studio</span>
-              <span class="chip">พร้อมอัดขยาย</span>
-            </div>
-            <div class="foot">
-              <div>
-                <small>แพ็กเกจเริ่มต้น</small>
-                <b>฿399 – ฿1,399.-</b>
-              </div>
-              <a class="btn btn-chrome btn-sm" href="#prewedding-pack">ดูแพ็กเกจ →</a>
-            </div>
+            <ul class="price-list">
+              <li>
+                <span><strong>ขนาด A4 (8.3×11.7")</strong> กรอบโมเดิร์น / ไม้ / อลูมิเนียม</span>
+                <span class="price-tag">390 ฿</span>
+              </li>
+              <li>
+                <span><strong>ขนาด 10×12 นิ้ว</strong> กรอบหลุยส์สีทองคลาสสิก</span>
+                <span class="price-tag">590 ฿</span>
+              </li>
+              <li>
+                <span><strong>ขนาด 12×18 นิ้ว</strong> ผ้าแคนวาสแท้ + กรอบโมเดิร์นลอย / หลุยส์</span>
+                <span class="price-tag">690 ฿</span>
+              </li>
+              <li>
+                <span><strong>ขนาด 16×20 นิ้ว / 20×30 นิ้ว</strong> แคนวาสพิมพ์ UV + กรอบหลุยส์ใหญ่</span>
+                <span class="price-tag">990 / 1,490 ฿</span>
+              </li>
+            </ul>
           </div>
+          <button type="button" class="btn btn-gold" onclick="selectServiceAndScroll('frame_12x18', 'ภาพมงคลพร้อมกรอบ ขนาด 12x18 นิ้ว (ผ้าแคนวาส + กรอบหลุยส์/โมเดิร์น)', 690)">
+            สั่งทำภาพมงคลพร้อมกรอบ →
+          </button>
         </article>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- =====================================================================
-       BEFORE / AFTER COMPARISON SECTION
-       ===================================================================== -->
-  <section class="sec" aria-labelledby="sec-compare-title">
-    <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <span class="label">PRECISION COMPARISON</span>
-          <h2 id="sec-compare-title" class="h2">เปรียบเทียบผลลัพธ์ความเนียนแบบไร้ที่ติ</h2>
-        </div>
-        <div class="aside">REAL RECONSTRUCTION.<br>NOT A GENERIC FILTER.</div>
+    <!-- AUSPICIOUS ART & FRAME CATALOG SECTION -->
+    <section id="auspicious-frames">
+      <div class="section-header">
+        <div class="glass-pill eyebrow-badge" style="color:#b45309; border-color:rgba(245,158,11,0.35);">บริการภาพมงคลพร้อมกรอบหลุยส์และโมเดิร์น</div>
+        <h2 class="section-title">แคตตาล็อกภาพมงคลพร้อมกรอบรูป ส่งตรงถึงบ้านทั่วไทย</h2>
+        <p class="section-desc">
+          คัดสรรภาพมงคลความละเอียดสูงพิมพ์ลงผ้าแคนวาสและกระดาษโฟโต้เคลือบกันรังสี UV เข้ามุมกรอบหลุยส์ 45 องศาอย่างประณีต พร้อมหูแขวนและสลิงรับน้ำหนักแข็งแรง เหมาะสำหรับตกแต่งบ้าน ร้านค้า หรือมอบเป็นของขวัญขึ้นบ้านใหม่และเปิดกิจการ
+        </p>
       </div>
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
-        <!-- ID Photo Compare -->
-        <div class="glass panel rv in">
-          <span class="label">CASE 01: รูปติดบัตรจากภาพเซลฟี่มือถือ</span>
-          <h3 class="h3" style="margin:8px 0 16px;">สัดส่วนกรามและดวงตาเดิม ปรับแสงสตูดิโอ 3 จุด</h3>
-          <div class="compare-card">
-            <div class="compare-side">
-              <img src="assets/work/id-sample-before-after.webp" alt="ภาพก่อนและหลังแต่งรูปติดบัตร">
-              <span class="compare-tag">เปรียบเทียบ ก่อน/หลัง</span>
-            </div>
-            <div class="compare-side after">
-              <img src="assets/work/id-sample-thai-civil-woman.webp" alt="ผลลัพธ์ชุดข้าราชการหญิงส่งมอบ">
-              <span class="compare-tag">ส่งมอบงาน ก.พ. สมบูรณ์</span>
-            </div>
+      <!-- Popular Auspicious Themes with Art Previews -->
+      <div class="grid-4" style="margin-bottom: 28px;">
+        <div class="glass-panel" style="padding: 16px;">
+          <div style="height:140px; border-radius:10px; overflow:hidden; margin-bottom:12px;">
+            <img src="assets/work/auspicious-sacred-g5-1.webp" alt="ท้าวเวสสุวรรณโณ มหาราช" style="width:100%; height:100%; object-fit:cover;">
           </div>
-          <p style="font-size:13px;color:var(--muted);margin-top:14px;">
-            ✓ สัดส่วนศีรษะถูกต้องตามระเบียบ 70-80% ของพื้นที่ภาพ | รูขุมขนชัดเจน ไม่หลอกตา
-          </p>
+          <h3 style="font-size: 16px; font-weight: 700; color: #b45309; margin-bottom: 4px;">ท้าวเวสสุวรรณ &amp; พระพิฆเนศ</h3>
+          <p style="font-size: 13px; color: var(--text-secondary);">เสริมบารมี ปกป้องคุ้มครอง แคล้วคลาด และประทานความสำเร็จด้านการค้าขายและโชคลาภ</p>
         </div>
-
-        <!-- Restoration Compare -->
-        <div class="glass panel rv in">
-          <span class="label">CASE 02: กู้ภาพถ่ายเก่า ชำรุด ยับและขาด</span>
-          <h3 class="h3" style="margin:8px 0 16px;">ฟื้นฟูมิติภาพและลงสีผิว โดยไม่เปลี่ยนรูปหน้า</h3>
-          <div class="compare-card">
-            <div class="compare-side">
-              <img src="assets/work/zip-restore-beforeafter-3x2.webp" alt="ภาพถ่ายเก่าก่อนและหลังการซ่อมแซม">
-              <span class="compare-tag">ภาพต้นฉบับ ชำรุด</span>
-            </div>
-            <div class="compare-side after">
-              <img src="assets/work/zip-restore-family.webp" alt="ภาพครอบครัวหลังการบูรณะสีและความคมชัด">
-              <span class="compare-tag">ฟื้นฟู Ultra-HD สมบูรณ์</span>
-            </div>
+        <div class="glass-panel" style="padding: 16px;">
+          <div style="height:140px; border-radius:10px; overflow:hidden; margin-bottom:12px;">
+            <img src="assets/images/card-frame.jpg" alt="กรอบหลุยส์พุทธศิลป์มงคล" style="width:100%; height:100%; object-fit:cover;">
           </div>
-          <p style="font-size:13px;color:var(--muted);margin-top:14px;">
-            ✓ คืนความสดใสให้ภาพทรงคุณค่าของครอบครัว ขยายขนาดพิมพ์ลงกรอบรูปได้ทันที
-          </p>
+          <h3 style="font-size: 16px; font-weight: 700; color: #b45309; margin-bottom: 4px;">พระเกจิอาจารย์สายอีสาน</h3>
+          <p style="font-size: 13px; color: var(--text-secondary);">ภาพหลวงปู่มั่น ภูริทัตโต, หลวงปู่มหาศิลา, หลวงพ่อคูณ, หลวงปู่ชา คมชัดระดับหิ้งบูชา</p>
+        </div>
+        <div class="glass-panel" style="padding: 16px;">
+          <div style="height:140px; border-radius:10px; overflow:hidden; margin-bottom:12px;">
+            <img src="assets/work/auspicious-koi-g5-1.webp" alt="ฝูงปลาคาร์ฟมงคล 8 เซียน" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+          <h3 style="font-size: 16px; font-weight: 700; color: #b45309; margin-bottom: 4px;">ปลาคาร์ฟ 8 ตัว &amp; สำเภาทอง</h3>
+          <p style="font-size: 13px; color: var(--text-secondary);">สัญลักษณ์ฮวงจุ้ยเรียกทรัพย์ การค้าขายราบรื่น มั่งคั่งร่ำรวย เหมาะติดห้องรับแขกและหน้าร้าน</p>
+        </div>
+        <div class="glass-panel" style="padding: 16px;">
+          <div style="height:140px; border-radius:10px; overflow:hidden; margin-bottom:12px;">
+            <img src="assets/work/wedding-sunset-veil.webp" alt="ภาพครอบครัวและพรีเวดดิ้ง" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+          <h3 style="font-size: 16px; font-weight: 700; color: #b45309; margin-bottom: 4px;">อัดภาพครอบครัว &amp; รับปริญญา</h3>
+          <p style="font-size: 13px; color: var(--text-secondary);">ส่งไฟล์ภาพของคุณมาให้ร้านรีทัชปรับแสงสี แล้วอัดใส่กรอบหลุยส์หรือกรอบลอยโมเดิร์นพร้อมส่ง</p>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- =====================================================================
-       SACRED ART & LUXURY FRAMES (Pillar 04 Detailed)
-       ===================================================================== -->
-  <section class="sec" id="sacred" aria-labelledby="sec-sacred-title">
-    <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <span class="label">SACRED ART &amp; LUXURY FRAMES</span>
-          <h2 id="sec-sacred-title" class="h2">ภาพมงคลพุทธศิลป์ ผ้าแคนวาสแท้ พร้อมกรอบหลุยส์</h2>
-        </div>
-        <div class="aside">SACRED CONTEMPORARY ART.<br>GALLERY EXHIBITION GRADE.</div>
+      <!-- Frame Size & Pricing Table -->
+      <div class="glass-panel" style="padding: 26px; overflow-x: auto;">
+        <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 14px;">ตารางขนาดและราคาภาพพร้อมกรอบ (รวมพิมพ์ภาพ + เข้ากรอบพร้อมแขวน)</h3>
+        <table class="frame-table">
+          <thead>
+            <tr>
+              <th>ขนาดกรอบรูป</th>
+              <th>วัสดุภาพและชนิดกรอบ</th>
+              <th>ความเหมาะสมในการจัดวาง</th>
+              <th>ราคาเริ่มต้น</th>
+              <th>สั่งทำทันที</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>A4</strong> (8.3 × 11.7 นิ้ว)</td>
+              <td>กระดาษโฟโต้พรีเมียม / แคนวาสบาง + กรอบโมเดิร์น / ไม้ / อลูมิเนียม</td>
+              <td>ตั้งโต๊ะทำงาน หิ้งพระคอนโด ของขวัญที่ระลึก</td>
+              <td style="color:#b45309; font-weight:700;">390 ฿</td>
+              <td><button type="button" class="btn btn-glass" style="padding:6px 14px; font-size:13px;" onclick="selectServiceAndScroll('frame_a4', 'ภาพมงคล/ภาพครอบครัวพร้อมกรอบ ขนาด A4', 390)">เลือกขนาด A4</button></td>
+            </tr>
+            <tr>
+              <td><strong>10 × 12 นิ้ว</strong></td>
+              <td>กระดาษโฟโต้เคลือบด้าน / แคนวาส + กรอบหลุยส์สีทองคลาสสิก</td>
+              <td>หิ้งบูชา ห้องพระ มอบเป็นของขวัญผู้ใหญ่</td>
+              <td style="color:#b45309; font-weight:700;">590 ฿</td>
+              <td><button type="button" class="btn btn-glass" style="padding:6px 14px; font-size:13px;" onclick="selectServiceAndScroll('frame_10x12', 'ภาพมงคลพร้อมกรอบหลุยส์สีทอง ขนาด 10x12 นิ้ว', 590)">เลือก 10×12"</button></td>
+            </tr>
+            <tr>
+              <td><strong>12 × 18 นิ้ว</strong></td>
+              <td>ผ้าแคนวาสแท้หนาปานกลาง + กรอบโมเดิร์นลอย / กรอบหลุยส์</td>
+              <td>ผนังห้องรับแขก ห้องทำงาน เคาน์เตอร์ร้านค้า</td>
+              <td style="color:#b45309; font-weight:700;">690 ฿</td>
+              <td><button type="button" class="btn btn-glass" style="padding:6px 14px; font-size:13px;" onclick="selectServiceAndScroll('frame_12x18', 'ภาพมงคลพร้อมกรอบ ขนาด 12x18 นิ้ว (ผ้าแคนวาสแท้)', 690)">เลือก 12×18"</button></td>
+            </tr>
+            <tr>
+              <td><strong>16 × 20 นิ้ว</strong></td>
+              <td>ผ้าแคนวาสพิมพ์ยูวีความละเอียดสูง + กรอบหลุยส์สีทองโครงแข็ง</td>
+              <td>โถงบ้าน ห้องประชุม ภาพบรรพบุรุษ / ของขวัญขึ้นบ้านใหม่</td>
+              <td style="color:#b45309; font-weight:700;">990 ฿</td>
+              <td><button type="button" class="btn btn-glass" style="padding:6px 14px; font-size:13px;" onclick="selectServiceAndScroll('frame_16x20', 'ภาพมงคลพร้อมกรอบหลุยส์ ขนาด 16x20 นิ้ว (แคนวาส UV)', 990)">เลือก 16×20"</button></td>
+            </tr>
+            <tr>
+              <td><strong>20 × 30 นิ้ว</strong></td>
+              <td>ผ้าแคนวาสผืนใหญ่เคลือบกัน UV + กรอบหลุยส์สีทองอลังการเสริมเหล็ก</td>
+              <td>ผนังหลักบ้าน/อาคารสำนักงาน ของขวัญเปิดกิจการมงคล</td>
+              <td style="color:#b45309; font-weight:700;">1,490 ฿</td>
+              <td><button type="button" class="btn btn-glass" style="padding:6px 14px; font-size:13px;" onclick="selectServiceAndScroll('frame_20x30', 'ภาพมงคลพร้อมกรอบหลุยส์ใหญ่ ขนาด 20x30 นิ้ว (เสริมโครงเหล็ก)', 1490)">เลือก 20×30"</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO SHOWCASE (REAL PHOTOS + LIGHTBOX) -->
+    <section id="before-after">
+      <div class="section-header">
+        <div class="glass-pill eyebrow-badge">ผลงานจริงจากสตูดิโอ (คลิกดูภาพขยาย)</div>
+        <h2 class="section-title">ตัวอย่างหมวดงานจริงและมาตรฐานความประณีต</h2>
+        <p class="section-desc">คลิกตัวกรองเพื่อดูรายละเอียดงานแต่ละหมวด หรือคลิกที่ภาพเพื่อขยายดูความคมชัดระดับ 300 DPI</p>
       </div>
 
-      <div class="split">
-        <!-- Visual Art Frame -->
-        <div class="glass panel rv in" style="display:flex;flex-direction:column;justify-content:center;align-items:center;padding:24px;text-align:center;">
-          <img src="assets/images/card-frame.jpg" alt="กรอบหลุยส์ทองและภาพมงคลพุทธศิลป์" style="max-width:100%;height:auto;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,.6);" loading="lazy">
-          <div style="margin-top:18px;">
-            <b>พิมพ์บนผ้าใบ Cotton Canvas แท้ 100% เคลือบผิวกันรอยและ UV</b>
-            <p style="font-size:13px;color:var(--muted);margin-top:4px;">พร้อมเข้ากรอบหลุยส์ไม้แท้สีทอง หรือกรอบโมเดิร์นลอยมินิมอลตามความต้องการ</p>
+      <div style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-bottom:26px;">
+        <button type="button" class="btn btn-primary filter-btn" data-filter="all" onclick="filterPortfolio('all', this)">ทั้งหมด (8)</button>
+        <button type="button" class="btn btn-glass filter-btn" data-filter="idphoto" onclick="filterPortfolio('idphoto', this)">รูปติดบัตร &amp; ชุดราชการ</button>
+        <button type="button" class="btn btn-glass filter-btn" data-filter="retouch" onclick="filterPortfolio('retouch', this)">รีทัช &amp; ซ่อมภาพเก่า</button>
+        <button type="button" class="btn btn-glass filter-btn" data-filter="auspicious" onclick="filterPortfolio('auspicious', this)">ภาพมงคลพร้อมกรอบ</button>
+      </div>
+
+      <div class="grid-4" id="portfolio-grid">
+        <!-- 1. Thai Civil Man -->
+        <div class="glass-panel portfolio-card portfolio-item" data-category="idphoto" onclick="openLightbox('assets/work/id-sample-thai-civil-man.webp', 'ชุดปกติขาวข้าราชการชาย — ตรวจสอบชั้นยศและระเบียบ ก.พ. 100%')">
+          <div class="portfolio-thumb">
+            <img src="assets/work/id-sample-thai-civil-man.webp" alt="รูปติดบัตรข้าราชการชาย">
+            <span class="glass-pill" style="position:absolute; bottom:8px; left:8px; font-size:11px; padding:3px 8px;">ก.พ. 300 DPI</span>
           </div>
+          <h3 style="font-size:15.5px; font-weight:700;">ข้าราชการพลเรือนชาย</h3>
+          <p style="font-size:12.5px; color:var(--text-secondary); margin-top:2px;">จัดแสงไฟสตูดิโอ 3 จุด ล็อกโครงหน้าเดิม</p>
         </div>
 
-        <!-- Sacred Details & Sizes -->
-        <div class="glass panel rv in">
-          <span class="label">FINE ART COLLECTION</span>
-          <h3 class="h3" style="margin:8px 0 16px;">สิริมงคลเสริมดวงการค้า การงาน และบารมี</h3>
-          
-          <ul class="caps" style="margin-top:16px;">
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <div>
-                <b>ท้าวเวสสุวรรณโณ มหาราช</b>
-                <span>มหาเทพแห่งขุมทรัพย์และการปกป้องคุ้มครอง ลายเส้นพุทธศิลป์ร่วมสมัย เกราะทองคำประดับอัญมณี</span>
+        <!-- 2. Thai Civil Woman -->
+        <div class="glass-panel portfolio-card portfolio-item" data-category="idphoto" onclick="openLightbox('assets/work/id-sample-thai-civil-woman.webp', 'ชุดปกติขาวข้าราชการหญิง — ปรับผิวเนียนสวยสุภาพถูกต้องตามระเบียบ')">
+          <div class="portfolio-thumb">
+            <img src="assets/work/id-sample-thai-civil-woman.webp" alt="รูปติดบัตรข้าราชการหญิง">
+            <span class="glass-pill" style="position:absolute; bottom:8px; left:8px; font-size:11px; padding:3px 8px;">ระเบียบ ก.พ.</span>
+          </div>
+          <h3 style="font-size:15.5px; font-weight:700;">ข้าราชการพลเรือนหญิง</h3>
+          <p style="font-size:12.5px; color:var(--text-secondary); margin-top:2px;">อินทรธนูตรงตำแหน่ง ผิวพรรณสดใสธรรมชาติ</p>
+        </div>
+
+        <!-- 3. Suit Woman -->
+        <div class="glass-panel portfolio-card portfolio-item" data-category="idphoto" onclick="openLightbox('assets/work/id-sample-thai-woman-suit.webp', 'ชุดสูทสากลหญิง — รูปสมัครงาน วีซ่า และพาสปอร์ต')">
+          <div class="portfolio-thumb">
+            <img src="assets/work/id-sample-thai-woman-suit.webp" alt="รูปสูทสากลหญิง">
+            <span class="glass-pill" style="position:absolute; bottom:8px; left:8px; font-size:11px; padding:3px 8px;">สูทสากล</span>
+          </div>
+          <h3 style="font-size:15.5px; font-weight:700;">สูทสากลสมัครงาน / วีซ่า</h3>
+          <p style="font-size:12.5px; color:var(--text-secondary); margin-top:2px;">ตัดต่อสูทเนี๊ยบระดับผู้บริหาร คมชัด 300 DPI</p>
+        </div>
+
+        <!-- 4. Restore Couple -->
+        <div class="glass-panel portfolio-card portfolio-item" data-category="retouch" onclick="openLightbox('assets/work/zip-restore-couple.webp', 'บูรณะภาพถ่ายเก่าคู่ขาวดำ — ซ่อมแซมรอยพับและลงสีเสมือนจริง')">
+          <div class="portfolio-thumb">
+            <img src="assets/work/zip-restore-couple.webp" alt="ซ่อมภาพถ่ายเก่าคู่">
+            <span class="glass-pill" style="position:absolute; bottom:8px; left:8px; font-size:11px; padding:3px 8px;">ลงสีธรรมชาติ</span>
+          </div>
+          <h3 style="font-size:15.5px; font-weight:700;">บูรณะภาพเก่าคู่ขาวดำ</h3>
+          <p style="font-size:12.5px; color:var(--text-secondary); margin-top:2px;">ลบรอยฉีกขาด คืนมิติสีผิวบรรพบุรุษ 100%</p>
+        </div>
+
+        <!-- 5. Restore Family -->
+        <div class="glass-panel portfolio-card portfolio-item" data-category="retouch" onclick="openLightbox('assets/work/zip-restore-family.webp', 'ฟื้นฟูภาพถ่ายครอบครัวทรงคุณค่า — เพิ่มความคมชัดระดับ HD พร้อมพิมพ์ลงกรอบ')">
+          <div class="portfolio-thumb">
+            <img src="assets/work/zip-restore-family.webp" alt="ภาพครอบครัวฟื้นฟูสี">
+            <span class="glass-pill" style="position:absolute; bottom:8px; left:8px; font-size:11px; padding:3px 8px;">Ultra-HD</span>
+          </div>
+          <h3 style="font-size:15.5px; font-weight:700;">ฟื้นฟูภาพถ่ายครอบครัว</h3>
+          <p style="font-size:12.5px; color:var(--text-secondary); margin-top:2px;">ลบรอยด่างและเชื้อรา ขยายขนาดใส่กรอบรูปได้</p>
+        </div>
+
+        <!-- 6. Auspicious Dragon -->
+        <div class="glass-panel portfolio-card portfolio-item" data-category="auspicious" onclick="openLightbox('assets/work/auspicious-dragon-g5-1.webp', 'มังกรทองเหินเวหา — ศิลปะมงคลฮวงจุ้ยเสริมอำนาจบารมีและการค้า')">
+          <div class="portfolio-thumb">
+            <img src="assets/work/auspicious-dragon-g5-1.webp" alt="ภาพมงคลมังกรทอง">
+            <span class="glass-pill" style="position:absolute; bottom:8px; left:8px; font-size:11px; padding:3px 8px;">แคนวาสแท้</span>
+          </div>
+          <h3 style="font-size:15.5px; font-weight:700;">มังกรทองเหินเวหา</h3>
+          <p style="font-size:12.5px; color:var(--text-secondary); margin-top:2px;">สัญลักษณ์ความเจริญก้าวหน้า ลายเส้นวิจิตร</p>
+        </div>
+
+        <!-- 7. Auspicious Sacred (Thao Wessuwan) -->
+        <div class="glass-panel portfolio-card portfolio-item" data-category="auspicious" onclick="openLightbox('assets/work/auspicious-sacred-g5-1.webp', 'ท้าวเวสสุวรรณโณ มหาราช — มหาเทพแห่งขุมทรัพย์และการปกป้องคุ้มครอง')">
+          <div class="portfolio-thumb">
+            <img src="assets/work/auspicious-sacred-g5-1.webp" alt="ภาพท้าวเวสสุวรรณโณ">
+            <span class="glass-pill" style="position:absolute; bottom:8px; left:8px; font-size:11px; padding:3px 8px;">พุทธศิลป์</span>
+          </div>
+          <h3 style="font-size:15.5px; font-weight:700;">ท้าวเวสสุวรรณโณ มหาราช</h3>
+          <p style="font-size:12.5px; color:var(--text-secondary); margin-top:2px;">พิมพ์ผ้าใบแคนวาสสีทองสดใส เสริมบารมี</p>
+        </div>
+
+        <!-- 8. Auspicious Koi -->
+        <div class="glass-panel portfolio-card portfolio-item" data-category="auspicious" onclick="openLightbox('assets/work/auspicious-koi-g5-1.webp', 'ฝูงปลาคาร์ฟ 8 เซียน — สัญลักษณ์การเงินไหลมาเทมาตามหลักฮวงจุ้ย')">
+          <div class="portfolio-thumb">
+            <img src="assets/work/auspicious-koi-g5-1.webp" alt="ภาพปลาคาร์ฟมงคล 8 ตัว">
+            <span class="glass-pill" style="position:absolute; bottom:8px; left:8px; font-size:11px; padding:3px 8px;">ฮวงจุ้ยการค้า</span>
+          </div>
+          <h3 style="font-size:15.5px; font-weight:700;">ปลาคาร์ฟมงคล 8 เซียน</h3>
+          <p style="font-size:12.5px; color:var(--text-secondary); margin-top:2px;">เรียกเงินเรียกทอง ติดหน้าร้านหรือห้องทำงาน</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SMART ORDER, REFERENCE UPLOAD, DEPOSIT CONFIRMATION & LINE STUDIO -->
+    <section id="order-studio">
+      <div class="section-header">
+        <div class="glass-pill eyebrow-badge" style="color:#15803d; border-color:rgba(74,222,128,0.35);">ระบบสั่งทำออนไลน์ • ส่งภาพอ้างอิง • ยืนยันการมัดจำเชื่อม LINE</div>
+        <h2 class="section-title">ระบบสั่งทำรูป ส่งภาพอ้างอิง &amp; ยืนยันมัดจำเชื่อม LINE</h2>
+        <p class="section-desc">
+          กรอกรายละเอียด เลือกแนบภาพอ้างอิง และยืนยันการมัดจำ (50%) หรือชำระเต็มจำนวน ระบบจะสร้างใบสั่งงานพร้อมเปิดแชท <strong>LINE: miximage</strong> ให้ทันที
+        </p>
+      </div>
+
+      <div class="order-layout">
+        <!-- Left Column: Interactive Order Form -->
+        <div class="glass-panel" style="padding: 30px;">
+          <form id="artOrderForm" onsubmit="handleArtOrderSubmit(event)">
+            <!-- Step 1 -->
+            <h3 style="font-size:18px; font-weight:700; margin-bottom:16px;">
+              <span class="step-badge">1</span> เลือกบริการและรายละเอียดงาน
+            </h3>
+
+            <div class="form-group">
+              <label class="form-label" for="serviceSelect">ประเภทบริการที่ต้องการสั่งทำ</label>
+              <select class="form-control" id="serviceSelect" onchange="recalculateArtPrice()">
+                <optgroup label="หมวดที่ 1: รูปติดบัตรออนไลน์ &amp; ตัดต่อชุด">
+                  <option value="59" data-name="รูปติดบัตรชุดประหยัด (Good) อัดรูป 8-12 ใบ">รูปติดบัตรชุดประหยัด (Good) อัดรูป 8–12 ใบ — 59 บาท</option>
+                  <option value="89" data-name="รูปติดบัตรชุดยอดนิยม (Better) รีทัชผิวเนียน + อัดรูป 8-12 ใบ">รูปติดบัตรชุดยอดนิยม (Better) รีทัชผิวเนียน + อัดรูป 8–12 ใบ — 89 บาท</option>
+                  <option value="150" data-name="รูปติดบัตรตัดต่อชุดข้าราชการ/สูท/ครุย (รับเฉพาะไฟล์ 300 DPI)">รูปติดบัตรตัดต่อชุดข้าราชการ/สูท/ครุย (เฉพาะไฟล์ดิจิทัล 300 DPI) — 150 บาท</option>
+                  <option value="220" data-name="รูปติดบัตรชุดสมบูรณ์แบบ (Best) ตัดต่อชุดราชการ/สูท + ไฟล์ HD + อัดรูป 1 โหล" selected>รูปติดบัตรชุดสมบูรณ์แบบ (Best) ตัดต่อชุดราชการ/สูท + ไฟล์ HD + อัดรูป 1 โหล — 220 บาท</option>
+                </optgroup>
+                <optgroup label="หมวดที่ 2: รีทัชภาพ &amp; ซ่อมภาพเก่าบรรพบุรุษ">
+                  <option value="200" data-name="รีทัชภาพบุคคลพรีเมียม / โปรไฟล์สมัครงาน">รีทัชภาพบุคคลพรีเมียม / โปรไฟล์สมัครงาน — 200 บาท</option>
+                  <option value="450" data-name="ฟื้นฟูรูปเก่ามาตรฐาน (ลบรอยขีดข่วน ปรับความคมชัด + ไฟล์ HD)">ฟื้นฟูรูปเก่ามาตรฐาน (ลบรอยขีดข่วน ปรับความคมชัด + ไฟล์ HD) — 450 บาท</option>
+                  <option value="700" data-name="ฟื้นฟูรูปเก่าพรีเมียม + ลงสีธรรมชาติ">ฟื้นฟูรูปเก่าพรีเมียม (ซ่อมรอยฉีกขาด + ลงสีธรรมชาติ) — 700 บาท</option>
+                  <option value="1290" data-name="แพ็กเกจรูปหน้าพิธีศพด่วน 24 ชม. + กรอบหลุยส์ 16x20 นิ้ว">แพ็กเกจรูปหน้าพิธีศพด่วน 24 ชม. + กรอบหลุยส์ 16×20 นิ้ว — 1,290 บาท</option>
+                </optgroup>
+                <optgroup label="หมวดที่ 3: ภาพมงคลพร้อมกรอบรูป (ส่งทั่วประเทศ)">
+                  <option value="390" data-name="ภาพมงคล/ภาพครอบครัวพร้อมกรอบ ขนาด A4">ภาพมงคล/ภาพครอบครัวพร้อมกรอบ ขนาด A4 (8.3×11.7") — 390 บาท</option>
+                  <option value="590" data-name="ภาพมงคลพร้อมกรอบหลุยส์สีทอง ขนาด 10x12 นิ้ว">ภาพมงคลพร้อมกรอบหลุยส์สีทอง ขนาด 10×12 นิ้ว — 590 บาท</option>
+                  <option value="690" data-name="ภาพมงคลพร้อมกรอบ ขนาด 12x18 นิ้ว (ผ้าแคนวาสแท้)">ภาพมงคลพร้อมกรอบ ขนาด 12×18 นิ้ว (ผ้าแคนวาสแท้) — 690 บาท</option>
+                  <option value="990" data-name="ภาพมงคลพร้อมกรอบหลุยส์ ขนาด 16x20 นิ้ว (แคนวาสพิมพ์ UV)">ภาพมงคลพร้อมกรอบหลุยส์ ขนาด 16×20 นิ้ว (แคนวาสพิมพ์ UV) — 990 บาท</option>
+                  <option value="1490" data-name="ภาพมงคลพร้อมกรอบหลุยส์ใหญ่ ขนาด 20x30 นิ้ว (เสริมโครงเหล็ก)">ภาพมงคลพร้อมกรอบหลุยส์ใหญ่ ขนาด 20×30 นิ้ว (เสริมโครงเหล็ก) — 1,490 บาท</option>
+                </optgroup>
+                <optgroup label="หมวดที่ 4: ออกแบบกราฟิก &amp; สิ่งพิมพ์">
+                  <option value="500" data-name="ออกแบบนามบัตร 2 หน้า (ไฟล์พร้อมพิมพ์)">ออกแบบนามบัตร 2 หน้า (ไฟล์พร้อมพิมพ์) — 500 บาท</option>
+                  <option value="800" data-name="ออกแบบป้ายไวนิลหน้าร้าน/หน่วยงาน">ออกแบบป้ายไวนิลหน้าร้าน/หน่วยงาน — 800 บาท</option>
+                </optgroup>
+              </select>
+            </div>
+
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+              <div class="form-group">
+                <label class="form-label" for="orderQty">จำนวนชุด / ชิ้น</label>
+                <input type="number" id="orderQty" class="form-control" min="1" max="50" value="1" onchange="recalculateArtPrice()">
               </div>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              <div>
-                <b>พระพิฆเนศ มหาเทพแห่งปัญญาและความสำเร็จ</b>
-                <span>ประทานพรการเจรจา การค้าขาย และศิลปวิทยาการ ลวดลายวิจิตรอลังการบนพื้นหลังหมอกสวรรค์</span>
+              <div class="form-group">
+                <label class="form-label" for="deliveryMethod">รูปแบบการรับงาน</label>
+                <select id="deliveryMethod" class="form-control" onchange="recalculateArtPrice()">
+                  <option value="50" data-label="จัดส่งพัสดุทั่วประเทศ (+50 ฿)">🚚 จัดส่งพัสดุทั่วประเทศ (+50 ฿)</option>
+                  <option value="0" data-label="รับเฉพาะไฟล์ดิจิทัลทาง LINE / อีเมล (0 ฿)">📲 รับเฉพาะไฟล์ดิจิทัลทาง LINE (ฟรีค่าส่ง)</option>
+                  <option value="0" data-label="รับที่หน้าร้าน อ.บรบือ ข้าง ธ.กสิกรไทย (0 ฿)">🏪 รับที่หน้าร้าน อ.บรบือ จ.มหาสารคาม (0 ฿)</option>
+                </select>
               </div>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg>
-              <div>
-                <b>มังกรทองเหินเวหา &amp; ฝูงปลาคราฟ 8 เซียน</b>
-                <span>สัญลักษณ์แห่งความเจริญก้าวหน้า ความอุดมสมบูรณ์ และเงินทองไหลมาเทมาตามหลักฮวงจุ้ย</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="jobSpec">รายละเอียดเพิ่มเติม (เช่น ขนาดรูป 1"/1.5", ชนิดชุดราชการ/ชั้นยศ, พื้นหลังสีฟ้า/ขาว, หรือชื่อภาพมงคล)</label>
+              <textarea id="jobSpec" class="form-control" rows="3" placeholder="ตัวอย่าง: ตัดต่อชุดปกติขาว ข้าราชการครู ระดับ ชำนาญการ พื้นหลังสีฟ้า ขนาด 1.5 นิ้ว 1 โหล..."></textarea>
+            </div>
+
+            <!-- Step 2: Reference Image Upload -->
+            <hr style="border:none; border-top:1px solid rgba(0,0,0,0.1); margin: 22px 0;">
+            <h3 style="font-size:18px; font-weight:700; margin-bottom:12px;">
+              <span class="step-badge">2</span> แนบภาพต้นฉบับ / ภาพอ้างอิง (Reference Images)
+            </h3>
+            <p style="font-size:13px; color:var(--text-muted); margin-bottom:12px;">
+              เลือกไฟล์รูปหน้าตรง ภาพเก่าที่ต้องการซ่อม หรือภาพตัวอย่างชุด/กรอบรูป เพื่อตรวจสอบและบันทึกชื่อไฟล์เข้าใบสั่งงาน (เมื่อเปิดแชท LINE สามารถส่งไฟล์ภาพความละเอียดสูงให้ร้านได้ทันที)
+            </p>
+
+            <label class="upload-dropzone" for="refImageInput" style="display:block;">
+              <div style="font-size:28px; margin-bottom:6px;">📸</div>
+              <div style="font-weight:700; color:#090a0f;">คลิกเพื่อเลือกรูปภาพต้นฉบับ / ภาพอ้างอิง (เลือกได้หลายรูป)</div>
+              <div style="font-size:12px; color:var(--text-muted); margin-top:4px;">รองรับ JPG, PNG, HEIC, WEBP • แสดงตัวอย่างภาพทันทีบนหน้าเว็บ</div>
+              <input type="file" id="refImageInput" accept="image/*" multiple style="display:none;" onchange="handleRefFiles(this.files)">
+            </label>
+            <div id="refPreviewGrid" class="preview-grid"></div>
+
+            <!-- Step 3: Deposit / Payment Verification -->
+            <hr style="border:none; border-top:1px solid rgba(0,0,0,0.1); margin: 22px 0;">
+            <h3 style="font-size:18px; font-weight:700; margin-bottom:12px;">
+              <span class="step-badge">3</span> ยืนยันการมัดจำ หรือ ชำระเงิน (Payment &amp; Deposit)
+            </h3>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:16px;">
+              <label class="glass-panel" style="padding:14px; cursor:pointer; display:flex; align-items:center; gap:10px; border-color:rgba(124,58,237,0.5);">
+                <input type="radio" name="payOption" value="deposit50" checked onchange="recalculateArtPrice()" style="accent-color:#7c3aed;">
+                <div>
+                  <div style="font-weight:700; font-size:14px;">มัดจำเริ่มงาน 50%</div>
+                  <div style="font-size:12px; color:var(--text-muted);">ชำระส่วนที่เหลือหลังตรวจแบบ</div>
+                </div>
+              </label>
+              <label class="glass-panel" style="padding:14px; cursor:pointer; display:flex; align-items:center; gap:10px;">
+                <input type="radio" name="payOption" value="full100" onchange="recalculateArtPrice()" style="accent-color:#06c755;">
+                <div>
+                  <div style="font-weight:700; font-size:14px;">ชำระเต็มจำนวน 100%</div>
+                  <div style="font-size:12px; color:var(--text-muted);">พร้อมจัดคิวผลิตและจัดส่งทันที</div>
+                </div>
+              </label>
+            </div>
+
+            <!-- Bank / PromptPay Box -->
+            <div class="glass-panel" style="padding:16px; background:rgba(2, 132, 199, 0.08); border-color:rgba(2, 132, 199, 0.4); margin-bottom:16px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+                <div>
+                  <div style="font-size:12px; color:#0369a1; font-weight:700;">ช่องทางโอนมัดจำ / ชำระเงิน</div>
+                  <div style="font-size:15px; font-weight:700; margin-top:2px;">พร้อมเพย์ (PromptPay): <span id="promptpayNum">081-592-1229</span></div>
+                  <div style="font-size:13px; color:var(--text-secondary);">ชื่อบัญชี: ณัฐนนท์ วงศ์กาศัย (MIX IMAGE ART&amp;AUDIO / ร้านถ่ายเอกสารพิส สาขาบรบือ)</div>
+                </div>
+                <button type="button" class="btn btn-glass" style="padding:7px 14px; font-size:12.5px;" onclick="copyText('0815921229', 'คัดลอกเบอร์พร้อมเพย์ 0815921229 แล้ว')">
+                  📋 คัดลอกพร้อมเพย์
+                </button>
               </div>
-            </li>
-          </ul>
-
-          <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;">
-            <div>
-              <span class="label">ขนาด 12x18 นิ้ว: ฿590 – ฿890.-</span>
-              <div style="font-family:var(--f-head);font-size:20px;font-weight:600;margin-top:2px;">ขนาด 20x30 นิ้ว: ฿990 – ฿1,590.-</div>
             </div>
-            <a class="btn btn-chrome" href="https://line.me/ti/p/~miximage" target="_blank" rel="noopener">สั่งทำภาพมงคล →</a>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px;">
+              <div class="form-group">
+                <label class="form-label" for="paidAmount">ยอดที่โอน (บาท)</label>
+                <input type="number" id="paidAmount" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="paidTime">เวลาโอน (เช่น 14:30)</label>
+                <input type="text" id="paidTime" class="form-control" placeholder="เช่น 14:35 น." required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="slipLast4">เลขท้ายสลิป 4 หลัก</label>
+                <input type="text" id="slipLast4" class="form-control" maxlength="6" placeholder="เช่น 8492" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="upload-dropzone" for="slipInput" style="display:block; padding:14px; border-color:rgba(6,199,85,0.45); background:rgba(6,199,85,0.05);">
+                <span style="font-weight:700; color:#15803d;">🧾 คลิกเพื่อแนบภาพสลิปโอนเงินมัดจำ/ชำระเงิน</span>
+                <input type="file" id="slipInput" accept="image/*" style="display:none;" onchange="handleSlipFile(this.files)">
+              </label>
+              <div id="slipPreviewBox" style="margin-top:8px; font-size:13px; color:#15803d; font-weight:600;"></div>
+            </div>
+
+            <!-- Step 4: Customer Contact & Shipping -->
+            <hr style="border:none; border-top:1px solid rgba(0,0,0,0.1); margin: 22px 0;">
+            <h3 style="font-size:18px; font-weight:700; margin-bottom:12px;">
+              <span class="step-badge">4</span> ข้อมูลติดต่อและที่อยู่จัดส่งพัสดุ
+            </h3>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+              <div class="form-group">
+                <label class="form-label" for="custName">ชื่อ–นามสกุล ลูกค้า</label>
+                <input type="text" id="custName" class="form-control" placeholder="ชื่อผู้สั่งงาน / ผู้รับพัสดุ" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="custPhone">เบอร์โทรศัพท์ / ชื่อ LINE</label>
+                <input type="text" id="custPhone" class="form-control" placeholder="08x-xxx-xxxx" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="custAddress">ที่อยู่สำหรับจัดส่งทั่วประเทศ (กรณีรับเฉพาะไฟล์ใส่ '-' ได้เลย)</label>
+              <textarea id="custAddress" class="form-control" rows="2" placeholder="บ้านเลขที่ ถนน ตำบล อำเภอ จังหวัด รหัสไปรษณีย์"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-line" style="width:100%; padding:15px; font-size:16px; margin-top:8px;">
+              ✅ ยืนยันข้อมูลมัดจำ &amp; สร้างใบสั่งงานส่งเข้า LINE (miximage)
+            </button>
+          </form>
+        </div>
+
+        <!-- Right Column: Sticky Live Summary & Direct LINE Connect -->
+        <div style="position: sticky; top: 96px; display:flex; flex-direction:column; gap:20px;">
+          <div class="glass-panel" style="padding: 26px; border-color: rgba(124, 58, 237, 0.45);">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+              <span style="font-size:12px; font-weight:700; color:#6d28d9; letter-spacing:0.5px;">สรุปยอดประเมินและใบสั่งงานอัตโนมัติ</span>
+              <span id="orderStatusBadge" class="glass-pill" style="padding:3px 10px; font-size:11.5px; color:#b45309;">กำลังกรอกข้อมูล</span>
+            </div>
+            <h3 style="font-size:19px; font-weight:700; margin-bottom:14px;">สรุปยอดประเมิน &amp; มัดจำ</h3>
+
+            <div style="border-top:1px solid rgba(0,0,0,0.1); border-bottom:1px solid rgba(0,0,0,0.1); padding:14px 0; font-size:14px; display:flex; flex-direction:column; gap:8px;">
+              <div style="display:flex; justify-content:space-between;">
+                <span style="color:var(--text-secondary);">บริการที่เลือก:</span>
+                <strong id="summaryServiceName" style="text-align:right; max-width:62%;">รูปติดบัตรชุดสมบูรณ์แบบ (Best)</strong>
+              </div>
+              <div style="display:flex; justify-content:space-between;">
+                <span style="color:var(--text-secondary);">ค่าบริการรวมจำนวนชิ้น:</span>
+                <span id="summaryBaseCost">220 บาท</span>
+              </div>
+              <div style="display:flex; justify-content:space-between;">
+                <span style="color:var(--text-secondary);">ค่าจัดส่งพัสดุ:</span>
+                <span id="summaryShippingCost">50 บาท</span>
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:16px; padding-top:6px; border-top:1px dashed rgba(0,0,0,0.15);">
+                <span>ยอดรวมทั้งสิ้น:</span>
+                <strong id="summaryTotalCost" style="color:#090a0f;">270 บาท</strong>
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:17px; color:#15803d;">
+                <span id="summaryPayTypeLabel">ยอดโอนมัดจำเริ่มงาน (50%):</span>
+                <strong id="summaryPayNow">135 บาท</strong>
+              </div>
+            </div>
+
+            <div style="margin-top:16px;">
+              <label class="form-label">ข้อความใบสั่งงานสำหรับส่งทาง LINE ร้าน:</label>
+              <textarea id="generatedOrderText" class="form-control" rows="7" readonly style="font-size:12.5px; background:rgba(255,255,255,0.92); color:#090a0f;"></textarea>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr; gap:10px; margin-top:14px;">
+              <button type="button" class="btn btn-line" onclick="copyOrderAndOpenLine()">
+                💬 คัดลอกใบสั่งงาน &amp; เปิดแชท LINE: miximage
+              </button>
+              <button type="button" class="btn btn-glass" onclick="copyText(document.getElementById('generatedOrderText').value, 'คัดลอกข้อความใบสั่งงานเรียบร้อยแล้ว!')">
+                📋 คัดลอกเฉพาะข้อความใบสั่งงาน
+              </button>
+            </div>
+          </div>
+
+          <!-- Direct LINE & Store Location Card -->
+          <div class="glass-panel" style="padding: 24px;">
+            <h3 style="font-size:17px; font-weight:700; margin-bottom:10px;">📍 ข้อมูลติดต่อหน้าร้าน &amp; LINE Official</h3>
+            <p style="font-size:13.5px; color:var(--text-secondary); margin-bottom:12px;">
+              <strong>ร้านสร้างภาพ (MIX IMAGE ART&amp;AUDIO)</strong><br>
+              477 หมู่ 1 ถนนแจ้งสนิท เทศบาลตำบลบรบือ อ.บรบือ จ.มหาสารคาม 44130<br>
+              <span style="color:#b45309; font-weight:600;">(ร้านถ่ายเอกสารพิส ข้างธนาคารกสิกรไทย สาขาบรบือ)</span>
+            </p>
+            <div style="font-size:13.5px; display:flex; flex-direction:column; gap:6px; color:var(--text-secondary); margin-bottom:14px;">
+              <div>🟢 <strong>LINE ID:</strong> <code style="color:#15803d; font-weight:700;">miximage</code> <button type="button" onclick="copyText('miximage', 'คัดลอก LINE ID: miximage แล้ว')" style="margin-left:6px; padding:2px 8px; border-radius:6px; border:1px solid rgba(0,0,0,0.2); background:rgba(255,255,255,0.8); color:#090a0f; cursor:pointer; font-size:11.5px;">คัดลอก ID</button></div>
+              <div>📞 <strong>โทรศัพท์:</strong> 081-592-1229 / 081-591-2129</div>
+              <div>✉️ <strong>อีเมล:</strong> kmz.miximage@gmail.com</div>
+              <div>🕒 <strong>เวลาบริการออนไลน์:</strong> 10.00 – 22.00 น. ทุกวัน</div>
+            </div>
+            <a href="https://line.me/ti/p/~miximage" target="_blank" rel="noopener noreferrer" class="btn btn-line" style="width:100%;">
+              แอด LINE: miximage เพื่อคุยกับช่างโดยตรง
+            </a>
           </div>
         </div>
       </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX MODAL -->
+  <div class="lightbox-modal" id="lightbox" role="dialog" aria-modal="true" aria-label="ดูภาพขยาย" onclick="closeLightbox(event)">
+    <button type="button" class="lightbox-close" onclick="closeLightboxDirect()">✕</button>
+    <div style="text-align:center;">
+      <img id="lightboxImg" src="" alt="ภาพขยาย">
+      <div id="lightboxCaption" style="color:#fff; margin-top:12px; font-size:14.5px; font-weight:500;"></div>
     </div>
-  </section>
-
-  <!-- =====================================================================
-       PORTFOLIO GALLERY (Filterable Grid + Lightbox)
-       ===================================================================== -->
-  <section class="sec" id="portfolio" aria-labelledby="sec-port-title">
-    <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <span class="label">CURATED PORTFOLIO</span>
-          <h2 id="sec-port-title" class="h2">แกลเลอรีตัวอย่างผลงานจริงจากสตูดิโอ</h2>
-        </div>
-        <!-- Category Filter Buttons -->
-        <div class="filters" role="group" aria-label="กรองประเภทผลงาน">
-          <button class="active" data-filter="all" aria-pressed="true">ทั้งหมด</button>
-          <button data-filter="id" aria-pressed="false">รูปติดบัตร/สูท</button>
-          <button data-filter="wedding" aria-pressed="false">พรีเวดดิ้ง AI</button>
-          <button data-filter="restore" aria-pressed="false">กู้ภาพเก่า</button>
-          <button data-filter="sacred" aria-pressed="false">ภาพมงคลแคนวาส</button>
-        </div>
-      </div>
-
-      <div class="grid-work">
-        <!-- Item: ID Man Civil -->
-        <button class="work" data-category="id" aria-label="ดูภาพขนาดใหญ่ รูปติดบัตรข้าราชการชาย">
-          <div class="glass">
-            <img src="assets/work/id-sample-thai-civil-man.webp" alt="รูปติดบัตรข้าราชการชาย ก.พ." loading="lazy">
-            <div class="cap">
-              <strong>รูปข้าราชการพลเรือนชาย</strong>
-              <span>ระเบียบ ก.พ.</span>
-            </div>
-          </div>
-        </button>
-
-        <!-- Item: Wedding Sunset Veil -->
-        <button class="work" data-category="wedding" aria-label="ดูภาพขนาดใหญ่ พรีเวดดิ้ง Sunset Veil">
-          <div class="glass">
-            <img src="assets/work/wedding-sunset-veil.webp" alt="พรีเวดดิ้ง AI Sunset Veil" loading="lazy">
-            <div class="cap">
-              <strong>พรีเวดดิ้ง Sunset Veil</strong>
-              <span>Golden Hour 3200K</span>
-            </div>
-          </div>
-        </button>
-
-        <!-- Item: ID Woman Civil -->
-        <button class="work" data-category="id" aria-label="ดูภาพขนาดใหญ่ รูปติดบัตรข้าราชการหญิง">
-          <div class="glass">
-            <img src="assets/work/id-sample-thai-civil-woman.webp" alt="รูปติดบัตรข้าราชการหญิง ก.พ." loading="lazy">
-            <div class="cap">
-              <strong>รูปข้าราชการพลเรือนหญิง</strong>
-              <span>ระเบียบ ก.พ.</span>
-            </div>
-          </div>
-        </button>
-
-        <!-- Item: Sacred Dragon -->
-        <button class="work" data-category="sacred" aria-label="ดูภาพขนาดใหญ่ มังกรทองมงคล">
-          <div class="glass">
-            <img src="assets/work/auspicious-dragon-g5-1.webp" alt="ภาพมงคลมังกรทองพุทธศิลป์" loading="lazy">
-            <div class="cap">
-              <strong>มังกรทองเหินเวหา</strong>
-              <span>Fine Art Canvas</span>
-            </div>
-          </div>
-        </button>
-
-        <!-- Item: Restore Family -->
-        <button class="work" data-category="restore" aria-label="ดูภาพขนาดใหญ่ กู้ภาพถ่ายครอบครัว">
-          <div class="glass">
-            <img src="assets/work/zip-restore-family.webp" alt="ภาพถ่ายครอบครัวบูรณะสีและความคมชัด" loading="lazy">
-            <div class="cap">
-              <strong>บูรณะภาพเก่าครอบครัว</strong>
-              <span>ลงสี &amp; ลบรอยพับ</span>
-            </div>
-          </div>
-        </button>
-
-        <!-- Item: Wedding Lake Heart -->
-        <button class="work" data-category="wedding" aria-label="ดูภาพขนาดใหญ่ พรีเวดดิ้งริมทะเลสาบ">
-          <div class="glass">
-            <img src="assets/work/wedding-lake-heart.webp" alt="พรีเวดดิ้ง AI ริมทะเลสาบ" loading="lazy">
-            <div class="cap">
-              <strong>พรีเวดดิ้ง Scenic Lake</strong>
-              <span>Cinematic Medium Format</span>
-            </div>
-          </div>
-        </button>
-
-        <!-- Item: Sacred Thao Wessuwan -->
-        <button class="work" data-category="sacred" aria-label="ดูภาพขนาดใหญ่ ท้าวเวสสุวรรณโณ">
-          <div class="glass">
-            <img src="assets/work/auspicious-sacred-g5-1.webp" alt="ท้าวเวสสุวรรณโณ มหาราช พุทธศิลป์" loading="lazy">
-            <div class="cap">
-              <strong>ท้าวเวสสุวรรณโณ</strong>
-              <span>เทพแห่งขุมทรัพย์</span>
-            </div>
-          </div>
-        </button>
-
-        <!-- Item: Restore Couple -->
-        <button class="work" data-category="restore" aria-label="ดูภาพขนาดใหญ่ กู้ภาพถ่ายคู่ขาวดำ">
-          <div class="glass">
-            <img src="assets/work/zip-restore-couple.webp" alt="ภาพคู่เก่าขาวดำหลังลงสีและเพิ่มความคมชัด" loading="lazy">
-            <div class="cap">
-              <strong>กู้ภาพคู่ขาวดำดั้งเดิม</strong>
-              <span>คงอัตลักษณ์ใบหน้า</span>
-            </div>
-          </div>
-        </button>
-
-        <!-- Item: Sacred Koi -->
-        <button class="work" data-category="sacred" aria-label="ดูภาพขนาดใหญ่ ฝูงปลาคราฟ 8 เซียน">
-          <div class="glass">
-            <img src="assets/work/auspicious-koi-g5-1.webp" alt="ฝูงปลาคราฟ 8 เซียน ภาพมงคลฮวงจุ้ย" loading="lazy">
-            <div class="cap">
-              <strong>ปลาคราฟมงคล 8 เซียน</strong>
-              <span>ฮวงจุ้ยการเงิน</span>
-            </div>
-          </div>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Lightbox Modal -->
-  <div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="ดูภาพขยาย">
-    <button class="btn btn-chrome btn-sm" id="lb-close" aria-label="ปิดภาพขยาย">✕ ปิด</button>
-    <img id="lb-img" src="" alt="">
-    <p id="lb-caption"></p>
   </div>
 
-  <!-- =====================================================================
-       PROMPT ARCHITECTURE (Anti-AI Slop Proof)
-       ===================================================================== -->
-  <section class="sec" id="prompts" aria-labelledby="sec-prompt-title">
-    <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <span class="label">TECHNICAL TRANSPARENCY</span>
-          <h2 id="sec-prompt-title" class="h2">สถาปัตยกรรมพรอมต์ระดับโปร การันตีผลลัพธ์</h2>
-        </div>
-        <div class="aside">OPEN PROMPT ENGINE.<br>NOTHING HIDDEN.</div>
-      </div>
-
-      <!-- Prompt Tabs -->
-      <div class="tabs" role="tablist" aria-label="เลือกหมวดหมู่พรอมต์">
-        <button class="prompt-tab-btn active" data-prompt-key="identity" role="tab" aria-selected="true">01 Identity Lock (ล็อกหน้า 100%)</button>
-        <button class="prompt-tab-btn" data-prompt-key="idphoto" role="tab" aria-selected="false">02 รูปติดบัตร/สูทสากล</button>
-        <button class="prompt-tab-btn" data-prompt-key="prewedding" role="tab" aria-selected="false">03 พรีเวดดิ้ง Sunset Veil</button>
-        <button class="prompt-tab-btn" data-prompt-key="sacred" role="tab" aria-selected="false">04 ภาพมงคล Fine Art Canvas</button>
-      </div>
-
-      <div class="glass code rv in">
-        <div class="code-bar">
-          <div class="dots"><i></i><i></i><i></i></div>
-          <span id="prompt-title" style="font-family:var(--f-mono);font-size:12px;color:var(--ink-2);">1. โครงสร้าง Identity Lock (ล็อกใบหน้าไม่ให้เพี้ยน 100%)</span>
-          <button class="btn btn-chrome btn-sm" id="prompt-copy-btn">คัดลอกพรอมต์</button>
-        </div>
-        <pre><code id="prompt-code">IDENTITY LOCK - highest priority:
-The supplied customer photo is the sole identity source. Keep exactly the same person: facial proportions, skull and jaw shape, eye spacing, eyelids, eyebrows, nose, lips, ears, hairline, skin tone, scars, moles, wrinkles and apparent age. Do not average, idealize, beautify, symmetrize, slim, whiten, smooth or regenerate the face. Add no makeup and remove no natural marks. If exact identity cannot be preserved, return no usable result rather than inventing a different face.
-
-NEGATIVE PROMPT:
-No identity change, face reconstruction, face swap, beautification, skin whitening, skin smoothing, age change, gender change, ethnicity change, jaw reshaping, eye enlargement, nose reshaping, lip reshaping, symmetry correction, makeup enhancement, fake hairline, invented insignia, fake badges, blurred edges, distorted ears, uncanny plastic skin.</code></pre>
-        <div class="note" id="prompt-desc">
-          ชุดคำสั่งความสำคัญสูงสุด ใช้หัวหรือท้ายพรอมต์เพื่อบังคับ AI ไม่ให้รีเจนใบหน้าใหม่ ไม่เกลี่ยผิวจนเป็นวุ้น และรักษาสัดส่วนหัวกะโหลกเดิม 100%
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =====================================================================
-       PRICING TABLES & PRE-WEDDING PACKAGES
-       ===================================================================== -->
-  <section class="sec" id="pricing" aria-labelledby="sec-price-title">
-    <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <span class="label">CLEAR &amp; TRANSPARENT PRICING</span>
-          <h2 id="sec-price-title" class="h2">อัตราค่าบริการงานภาพและแพ็กเกจ</h2>
-        </div>
-        <div class="aside">DIRECT STUDIO PRICING.<br>NO HIDDEN FEES.</div>
-      </div>
-
-      <!-- Quick List Rows -->
-      <div class="plist" style="margin-bottom:36px;">
-        <div class="glass prow rv in">
-          <div>
-            <b>รูปติดบัตรข้าราชการ &amp; เปลี่ยนสูทสากล</b>
-            <span class="chip" style="margin-top:6px;">ยอดนิยม</span>
-          </div>
-          <p>ส่งภาพเซลฟี่หน้าตรง จัดแสงสตูดิโอ 3 จุด เปลี่ยนชุดสูทหรือข้าราชการ ก.พ. ส่งไฟล์ดิจิทัลพร้อมพิมพ์ 300 DPI ภายใน 24 ชม.</p>
-          <div class="price">
-            ฿100.-
-            <small>ต่อ 1 รูป / 1 ชุด</small>
-          </div>
-          <a class="btn btn-chrome btn-sm" href="https://line.me/ti/p/~miximage" target="_blank" rel="noopener">สั่งทำรูปนี้ →</a>
-        </div>
-
-        <div class="glass prow rv in">
-          <div>
-            <b>รีทัชผิวธรรมชาติ &amp; แต่งภาพบุคคล</b>
-            <span class="chip" style="margin-top:6px;">High-End Retouch</span>
-          </div>
-          <p>ลบรอยสิว ริ้วรอย จัดทรงผม ปรับแสงเงาอย่างเป็นธรรมชาติ คงรูขุมขนแท้ 100% ไม่หลอกตา</p>
-          <div class="price">
-            ฿150 – ฿250.-
-            <small>ขึ้นอยู่กับความละเอียด</small>
-          </div>
-          <a class="btn btn-chrome btn-sm" href="https://line.me/ti/p/~miximage" target="_blank" rel="noopener">ส่งภาพประเมิน →</a>
-        </div>
-
-        <div class="glass prow rv in">
-          <div>
-            <b>กู้ภาพถ่ายเก่า ชำรุด ยับ และขาด</b>
-            <span class="chip" style="margin-top:6px;">Restoration Master</span>
-          </div>
-          <p>ซ่อมแซมภาพบรรพบุรุษ ลบรอยพับ เชื้อรา คืนความคมชัดระดับ HD พร้อมลงสีเสมือนจริง</p>
-          <div class="price">
-            ฿200 – ฿490.-
-            <small>ประเมินตามความเสียหาย</small>
-          </div>
-          <a class="btn btn-chrome btn-sm" href="https://line.me/ti/p/~miximage" target="_blank" rel="noopener">ส่งภาพประเมิน →</a>
-        </div>
-      </div>
-
-      <!-- Pre-Wedding Packages (3 Cards) -->
-      <div class="sec-head" id="prewedding-pack" style="margin-top:48px;">
-        <div>
-          <span class="label">AI PRE-WEDDING PACKAGES</span>
-          <h3 class="h3" style="font-size:26px;">แพ็กเกจภาพคู่พรีเวดดิ้ง AI Cinematic</h3>
-        </div>
-        <div class="aside">ROMANTIC CINEMATOGRAPHY.<br>ANY DREAM LOCATION.</div>
-      </div>
-
-      <div class="packs">
-        <!-- Starter -->
-        <div class="glass pack rv in">
-          <span class="n">TIER 01</span>
-          <h3 class="h3">Starter Package</h3>
-          <p style="font-size:13px;color:var(--muted);">สำหรับคู่รักที่ต้องการภาพพรีเวดดิ้งสวยหรูขนาดกะทัดรัด</p>
-          <div class="price">
-            ฿399.-
-            <small>ส่งมอบ 4 ภาพ</small>
-          </div>
-          <ul>
-            <li>ภาพคู่ความละเอียดสูง 4 ภาพ</li>
-            <li>เลือกได้ 1 บรรยากาศ (เช่น Sunset Veil)</li>
-            <li>ล็อกใบหน้าคู่รักทั้ง 2 ท่าน 100%</li>
-            <li>ไฟล์ดิจิทัลพร้อมนำไปอัดขยาย</li>
-            <li>ส่งงานภายใน 24–48 ชม.</li>
-          </ul>
-          <a class="btn btn-ghost" href="https://line.me/ti/p/~miximage" target="_blank" rel="noopener">จองแพ็กเกจ ฿399 →</a>
-        </div>
-
-        <!-- Gold (Hot) -->
-        <div class="glass pack hot rv in">
-          <span class="badge">คุ้มค่าที่สุด</span>
-          <span class="n">TIER 02</span>
-          <h3 class="h3">Gold Package</h3>
-          <p style="font-size:13px;color:var(--muted);">แพ็กเกจยอดนิยม ครอบคลุมชุดและบรรยากาศหลากหลาย</p>
-          <div class="price">
-            ฿899.-
-            <small>ส่งมอบ 12 ภาพ</small>
-          </div>
-          <ul>
-            <li>ภาพคู่ความละเอียดสูง 12 ภาพ</li>
-            <li>เลือกได้ 3 ธีม (ริมทะเล, วังยุโรป, สตูดิโอเกาหลี)</li>
-            <li>ล็อกสัดส่วนและรูปหน้าคู่รักทั้งสองท่าน</li>
-            <li>ไฟล์ Master Ultra-HD สำหรับพิมพ์หน้างาน</li>
-            <li>ส่งงานภายใน 48 ชม.</li>
-          </ul>
-          <a class="btn btn-chrome" href="https://line.me/ti/p/~miximage" target="_blank" rel="noopener">จองแพ็กเกจ ฿899 →</a>
-        </div>
-
-        <!-- Diamond -->
-        <div class="glass pack rv in">
-          <span class="n">TIER 03</span>
-          <h3 class="h3">Diamond Package</h3>
-          <p style="font-size:13px;color:var(--muted);">แพ็กเกจจัดเต็มสำหรับอัลบั้มงานแต่งงานและโปสเตอร์ขนาดใหญ่</p>
-          <div class="price">
-            ฿1,399.-
-            <small>ส่งมอบ 24 ภาพ</small>
-          </div>
-          <ul>
-            <li>ภาพคู่ความละเอียดสูงจัดเต็ม 24 ภาพ</li>
-            <li>เลือกได้สูงสุด 5 ธีม และเปลี่ยนชุดได้หลากสไตล์</li>
-            <li>ล็อกสัดส่วนกะโหลกและผิวสัมผัสธรรมชาติ</li>
-            <li>ไฟล์ Master 300 DPI พิมพ์ไวนิลและแคนวาสได้</li>
-            <li>ส่งงานพร้อมแก้ไขได้ 2 ครั้ง</li>
-          </ul>
-          <a class="btn btn-ghost" href="https://line.me/ti/p/~miximage" target="_blank" rel="noopener">จองแพ็กเกจ ฿1,399 →</a>
-        </div>
-
-        <!-- Sacred Canvas Special -->
-        <div class="glass pack rv in">
-          <span class="n">TIER 04</span>
-          <h3 class="h3">Sacred Canvas + กรอบ</h3>
-          <p style="font-size:13px;color:var(--muted);">ภาพมงคลพุทธศิลป์พิมพ์ลงผ้าแคนวาสแท้พร้อมกรอบหลุยส์</p>
-          <div class="price">
-            ฿590 – ฿1,590.-
-            <small>ตามขนาดชิ้นงาน</small>
-          </div>
-          <ul>
-            <li>ผ้าใบ Cotton Canvas แท้ 100% เคลือบกัน UV</li>
-            <li>ขนาด 12x18 นิ้ว (฿590–฿890)</li>
-            <li>ขนาด 20x30 นิ้ว (฿990–฿1,590)</li>
-            <li>กรอบหลุยส์ทองไม้แท้ หรือกรอบโมเดิร์นลอย</li>
-            <li>จัดส่งพัสดุกันกระแทกหนาแน่นทั่วประเทศ</li>
-          </ul>
-          <a class="btn btn-ghost" href="https://line.me/ti/p/~miximage" target="_blank" rel="noopener">สั่งทำภาพมงคล →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =====================================================================
-       BRUSHED METAL CTA BANNER (Antigravity Style)
-       ===================================================================== -->
-  <section class="sec" style="padding-top:20px;border-top:0;" aria-label="ติดต่อสั่งทำผลงาน">
-    <div class="wrap">
-      <div class="cta rv in">
-        <div class="small">
-          BIOMETRIC PRECISION.<br>ZERO AI SLOP.<br>BUILT TO LAST.
-        </div>
-
-        <div class="mid">
-          <h2>LET'S CREATE<br>A TIMELESS MASTERPIECE.</h2>
-          <p>ส่งภาพถ่ายของคุณเพื่อประเมินงานและทดสอบความละเอียดฟรี</p>
-        </div>
-
-        <div class="right">
-          <a class="btn" href="https://line.me/ti/p/~miximage" target="_blank" rel="noopener">
-            <span>แอด LINE ส่งภาพ (miximage)</span>
-            <span>→</span>
-          </a>
-          <a class="row" href="tel:+66815921229">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-            <span>081-592-1229 / 081-591-2129</span>
-          </a>
-          <a class="row" href="https://www.facebook.com/miximage2026/" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-            <span>Facebook: @miximage2026</span>
-          </a>
-          <div class="row" style="border-bottom:0;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0zM12 10a3 3 0 100-6 3 3 0 000 6z"/></svg>
-            <span>ข้าง ธ.กสิกรไทย สาขาบรบือ จ.มหาสารคาม</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<!-- =====================================================================
-     FOOTER
-     ===================================================================== -->
-<footer class="ftr">
-  <div class="wrap">
-    <div class="mark">
-      <img src="assets/images/mark-light.png" alt="" width="30" height="22">
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;">
       <div>
-        <b>MIX-IMAGE™</b>
-        <small>Higher Artistry. Greater Impact.</small>
+        <div style="font-weight:800; font-size:16px;">ร้านสร้างภาพ (MIX IMAGE ART&amp;AUDIO)</div>
+        <div style="font-size:13px; color:var(--text-muted); margin-top:4px;">
+          477 หมู่ 1 ถนนแจ้งสนิท ต.บรบือ อ.บรบือ จ.มหาสารคาม 44130 (ร้านถ่ายเอกสารพิส ข้าง ธ.กสิกรไทย สาขาบรบือ) • LINE: miximage • โทร 081-592-1229
+        </div>
+      </div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a href="index.html" class="page-tab active" style="padding:8px 16px; font-size:13px;">🖼️ หน้าที่ 1: งานภาพ &amp; กรอบรูป</a>
+        <a href="miximage_audio_studio.html" class="btn btn-primary" style="padding:8px 16px; font-size:13px;">🎵 หน้าที่ 2: บริการรับทำเพลง AI →</a>
       </div>
     </div>
+  </footer>
 
-    <nav aria-label="ลิงก์ส่วนท้าย">
-      <a href="index.html">หน้าแรก</a>
-      <a href="image.html">งานภาพ &amp; รีทัช</a>
-      <a href="music.html">สตูดิโอเพลง AI</a>
-      <a href="#prompts">คลังพรอมต์โปร</a>
-      <a href="https://line.me/ti/p/~miximage" target="_blank" rel="noopener">LINE: miximage</a>
-    </nav>
-
-    <div class="copy">
-      © 2026 MIX-IMAGE Art &amp; Audio. All Rights Reserved.
-    </div>
-  </div>
-</footer>
-
-<!-- Mobile Floating LINE Button -->
-<div class="m-line">
-  <a class="btn btn-chrome" href="https://line.me/ti/p/~miximage" target="_blank" rel="noopener">
-    💬 แอด LINE สั่งทำรูปด่วน (miximage)
+  <!-- Floating LINE Quick Button -->
+  <a href="https://line.me/ti/p/~miximage" target="_blank" rel="noopener noreferrer" class="floating-line">
+    <span>💬</span> LINE: miximage
   </a>
-</div>
 
-<script src="assets/js/main.js" defer></script>
+  <!-- Toast Notification -->
+  <div id="toastBanner" class="toast-banner" role="status" aria-live="polite">
+    <span>✅</span> <span id="toastText">ดำเนินการสำเร็จ</span>
+  </div>
+
+  <script>
+    // Before / After Comparison Slider Logic
+    const baSlider = document.getElementById('ba-slider');
+    const baAfter = document.getElementById('ba-after-layer');
+    const baHandle = document.getElementById('ba-handle');
+    if (baSlider) {
+      baSlider.addEventListener('input', (e) => {
+        const val = e.target.value;
+        baAfter.style.clipPath = `inset(0 0 0 ${val}%)`;
+        baHandle.style.left = `${val}%`;
+      });
+    }
+
+    function switchBACase(caseNum) {
+      const imgBefore = document.getElementById('ba-img-before');
+      const imgAfter = document.getElementById('ba-img-after');
+      const lblBefore = document.getElementById('ba-label-before');
+      const lblAfter = document.getElementById('ba-label-after');
+      const title = document.getElementById('ba-title');
+      const btn1 = document.getElementById('caseBtn1');
+      const btn2 = document.getElementById('caseBtn2');
+
+      if (caseNum === 1) {
+        imgBefore.src = 'assets/work/id-sample-before-after.webp';
+        imgAfter.src = 'assets/work/id-sample-thai-civil-man.webp';
+        lblBefore.textContent = '◀ ภาพเซลฟี่มือถือ / ภาพเดิม';
+        lblAfter.textContent = 'ชุดข้าราชการ ก.พ. 300 DPI ▶';
+        title.textContent = 'เปรียบเทียบรูปติดบัตร & ตัดต่อชุดข้าราชการ';
+        btn1.style.background = '#ffffff';
+        btn1.style.fontWeight = '700';
+        btn2.style.background = '';
+        btn2.style.fontWeight = 'normal';
+      } else {
+        imgBefore.src = 'assets/work/zip-restore-beforeafter-3x2.webp';
+        imgAfter.src = 'assets/work/zip-restore-family.webp';
+        lblBefore.textContent = '◀ ภาพเก่าชำรุด / คราบด่าง';
+        lblAfter.textContent = 'บูรณะคมชัดสีธรรมชาติ ▶';
+        title.textContent = 'เปรียบเทียบงานฟื้นฟู & ซ่อมภาพเก่าบรรพบุรุษ';
+        btn2.style.background = '#ffffff';
+        btn2.style.fontWeight = '700';
+        btn1.style.background = '';
+        btn1.style.fontWeight = 'normal';
+      }
+    }
+
+    // Portfolio Filter
+    function filterPortfolio(cat, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.classList.remove('btn-primary');
+        b.classList.add('btn-glass');
+      });
+      btn.classList.remove('btn-glass');
+      btn.classList.add('btn-primary');
+      document.querySelectorAll('.portfolio-item').forEach(item => {
+        if (cat === 'all' || item.dataset.category === cat) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Lightbox
+    function openLightbox(src, caption) {
+      const modal = document.getElementById('lightbox');
+      const img = document.getElementById('lightboxImg');
+      const cap = document.getElementById('lightboxCaption');
+      img.src = src;
+      cap.textContent = caption || '';
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox(e) {
+      if (e.target === document.getElementById('lightbox')) {
+        closeLightboxDirect();
+      }
+    }
+
+    function closeLightboxDirect() {
+      const modal = document.getElementById('lightbox');
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightboxDirect();
+    });
+
+    // Reference files & Slip state
+    let uploadedRefFiles = [];
+    let uploadedSlipName = '';
+
+    function handleRefFiles(fileList) {
+      const grid = document.getElementById('refPreviewGrid');
+      Array.from(fileList).forEach(file => {
+        uploadedRefFiles.push(file.name);
+        const reader = new FileReader();
+        const card = document.createElement('div');
+        card.className = 'preview-item';
+        reader.onload = (e) => {
+          card.innerHTML = `<img src="${e.target.result}" alt="${file.name}"><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${file.name}</div>`;
+        };
+        reader.readAsDataURL(file);
+        grid.appendChild(card);
+      });
+      updateOrderSummaryText();
+      showToast(`แนบภาพอ้างอิง ${fileList.length} ไฟล์แล้ว`);
+    }
+
+    function handleSlipFile(fileList) {
+      if (fileList && fileList[0]) {
+        uploadedSlipName = fileList[0].name;
+        document.getElementById('slipPreviewBox').textContent = `✓ แนบไฟล์สลิป: ${uploadedSlipName} เรียบร้อยแล้ว`;
+        updateOrderSummaryText();
+        showToast('แนบสลิปโอนเงินเรียบร้อยแล้ว');
+      }
+    }
+
+    function selectServiceAndScroll(code, name, price) {
+      const sel = document.getElementById('serviceSelect');
+      for (let i = 0; i < sel.options.length; i++) {
+        if (Number(sel.options[i].value) === price && sel.options[i].dataset.name.includes(name.slice(0, 10))) {
+          sel.selectedIndex = i;
+          break;
+        }
+      }
+      recalculateArtPrice();
+      document.getElementById('order-studio').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function recalculateArtPrice() {
+      const sel = document.getElementById('serviceSelect');
+      const opt = sel.options[sel.selectedIndex];
+      const unitPrice = Number(opt.value) || 0;
+      const serviceName = opt.dataset.name || opt.text;
+      const qty = Math.max(1, Number(document.getElementById('orderQty').value) || 1);
+      const delivSel = document.getElementById('deliveryMethod');
+      const shipping = Number(delivSel.value) || 0;
+      const baseCost = unitPrice * qty;
+      const total = baseCost + shipping;
+
+      const payOption = document.querySelector('input[name="payOption"]:checked').value;
+      const payNow = payOption === 'deposit50' ? Math.ceil(total * 0.5) : total;
+
+      document.getElementById('summaryServiceName').textContent = `${serviceName} (x${qty})`;
+      document.getElementById('summaryBaseCost').textContent = `${baseCost.toLocaleString()} บาท`;
+      document.getElementById('summaryShippingCost').textContent = `${shipping.toLocaleString()} บาท`;
+      document.getElementById('summaryTotalCost').textContent = `${total.toLocaleString()} บาท`;
+      document.getElementById('summaryPayTypeLabel').textContent = payOption === 'deposit50' ? 'ยอดโอนมัดจำเริ่มงาน (50%):' : 'ยอดชำระเต็มจำนวน (100%):';
+      document.getElementById('summaryPayNow').textContent = `${payNow.toLocaleString()} บาท`;
+      document.getElementById('paidAmount').value = payNow;
+
+      updateOrderSummaryText();
+    }
+
+    function updateOrderSummaryText() {
+      const sel = document.getElementById('serviceSelect');
+      const opt = sel.options[sel.selectedIndex];
+      const serviceName = opt.dataset.name || opt.text;
+      const qty = document.getElementById('orderQty').value || 1;
+      const delivSel = document.getElementById('deliveryMethod');
+      const delivLabel = delivSel.options[delivSel.selectedIndex].dataset.label;
+      const totalText = document.getElementById('summaryTotalCost').textContent;
+      const payNowText = document.getElementById('summaryPayNow').textContent;
+      const payOption = document.querySelector('input[name="payOption"]:checked').value === 'deposit50' ? 'มัดจำ 50%' : 'ชำระเต็ม 100%';
+      const spec = document.getElementById('jobSpec').value.trim() || '-';
+      const custName = document.getElementById('custName').value.trim() || '(ระบุชื่อ)';
+      const custPhone = document.getElementById('custPhone').value.trim() || '(ระบุเบอร์โทร)';
+      const custAddr = document.getElementById('custAddress').value.trim() || '-';
+      const paidAmt = document.getElementById('paidAmount').value || payNowText;
+      const paidTime = document.getElementById('paidTime').value.trim() || '(รอระบุเวลาโอน)';
+      const slip4 = document.getElementById('slipLast4').value.trim() || 'xxxx';
+      const refList = uploadedRefFiles.length > 0 ? uploadedRefFiles.join(', ') : 'พร้อมส่งรูปในแชท LINE';
+      const slipInfo = uploadedSlipName ? `แนบสลิป (${uploadedSlipName})` : 'พร้อมส่งรูปสลิปในแชท LINE';
+
+      const msg = [
+        `📋 ใบสั่งทำรูป MIX IMAGE ART&AUDIO`,
+        `• บริการ: ${serviceName} (จำนวน ${qty} ชิ้น)`,
+        `• รายละเอียดงาน: ${spec}`,
+        `• การรับงาน: ${delivLabel}`,
+        `• ภาพอ้างอิง: ${refList}`,
+        `• ยอดรวม: ${totalText} | เลือกชำระ: ${payOption}`,
+        `• ยืนยันโอนแล้ว: ${paidAmt} บาท (เวลา ${paidTime} | ท้ายสลิป ${slip4} | ${slipInfo})`,
+        `• ลูกค้า: ${custName} (โทร/LINE: ${custPhone})`,
+        `• ที่อยู่จัดส่ง: ${custAddr}`
+      ].join('\n');
+
+      document.getElementById('generatedOrderText').value = msg;
+    }
+
+    ['jobSpec', 'custName', 'custPhone', 'custAddress', 'paidAmount', 'paidTime', 'slipLast4'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('input', updateOrderSummaryText);
+    });
+
+    function handleArtOrderSubmit(e) {
+      e.preventDefault();
+      updateOrderSummaryText();
+      const badge = document.getElementById('orderStatusBadge');
+      badge.textContent = '✓ ยืนยันมัดจำแล้ว พร้อมส่ง LINE';
+      badge.style.color = '#15803d';
+      copyText(document.getElementById('generatedOrderText').value, 'บันทึกการยืนยันมัดจำและคัดลอกใบสั่งงานแล้ว! กดส่งใน LINE: miximage ได้เลย');
+    }
+
+    function copyOrderAndOpenLine() {
+      updateOrderSummaryText();
+      const text = document.getElementById('generatedOrderText').value;
+      copyText(text, 'คัดลอกใบสั่งงานแล้ว กำลังเปิดแชท LINE: miximage...');
+      setTimeout(() => {
+        window.open('https://line.me/ti/p/~miximage', '_blank', 'noopener');
+      }, 450);
+    }
+
+    function copyText(text, toastMsg) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => showToast(toastMsg)).catch(() => fallbackCopy(text, toastMsg));
+      } else {
+        fallbackCopy(text, toastMsg);
+      }
+    }
+
+    function fallbackCopy(text, toastMsg) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      showToast(toastMsg);
+    }
+
+    function showToast(msg) {
+      const banner = document.getElementById('toastBanner');
+      document.getElementById('toastText').textContent = msg;
+      banner.classList.add('show');
+      setTimeout(() => banner.classList.remove('show'), 3400);
+    }
+
+    // Initialize on load
+    recalculateArtPrice();
+  </script>
 </body>
 </html>

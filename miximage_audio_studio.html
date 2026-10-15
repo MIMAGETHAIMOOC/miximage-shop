@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ร้านสร้างภาพ (MIX IMAGE ART&amp;AUDIO) | บริการรับทำเพลงและดนตรีประกอบ AI เชิงพาณิชย์ 100%</title>
+  <meta name="description" content="หน้าที่ 2 บริการรับทำเพลงและดนตรีประกอบด้วย AI เชิงพาณิชย์ 100% เพลงโฆษณาแบรนด์ เพลงของขวัญโอกาสพิเศษ และบริการ AI Audio Mastering 24-bit เชื่อมต่อ LINE: miximage">
+  <link rel="canonical" href="https://miximage.shop/music.html">
+  <link rel="icon" type="image/png" href="assets/images/mark-light.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg-obsidian: #050508;
+  --bg-deep: #090a10;
+  --glass-bg: linear-gradient(135deg, rgba(241, 245, 249, 0.90) 0%, rgba(203, 213, 225, 0.85) 55%, rgba(226, 232, 240, 0.88) 100%);
+  --glass-bg-hover: linear-gradient(135deg, rgba(248, 250, 252, 0.95) 0%, rgba(214, 222, 235, 0.92) 100%);
+  --glass-bg-strong: linear-gradient(135deg, rgba(241, 245, 249, 0.95) 0%, rgba(203, 213, 225, 0.92) 100%);
+  --glass-border: rgba(255, 255, 255, 0.82);
+  --glass-border-highlight: #ffffff;
+  --glass-shadow: 0 20px 48px rgba(0, 0, 0, 0.75), inset 0 1px 2px rgba(255, 255, 255, 0.95), inset 0 -1px 1px rgba(148, 163, 184, 0.35);
+  --text-primary: #090a0f;
+  --text-secondary: #1e293b;
+  --text-muted: #334155;
+  --accent-purple: #7c3aed;
+  --accent-indigo: #4f46e5;
+  --accent-cyan: #0284c7;
+  --accent-gold: #b45309;
+  --accent-gold-soft: rgba(245, 158, 11, 0.16);
+  --line-green: #06c755;
+  --line-green-hover: #05b04a;
+  --danger: #ef4444;
+  --success: #15803d;
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 26px;
+  --radius-pill: 999px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-obsidian);
+  color: var(--text-primary);
+  font-family: 'Sarabun', 'Anuphan', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--bg-obsidian);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Ambient glowing background orbs */
+.ambient-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 12% 14%, rgba(139, 92, 246, 0.18) 0%, transparent 38%),
+    radial-gradient(circle at 86% 20%, rgba(6, 182, 212, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 75% 68%, rgba(245, 158, 11, 0.12) 0%, transparent 42%),
+    radial-gradient(circle at 20% 82%, rgba(6, 199, 85, 0.10) 0%, transparent 40%),
+    linear-gradient(180deg, #040407 0%, #090b12 50%, #040407 100%);
+}
+
+.ambient-grid {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(circle at 50% 35%, black 30%, transparent 85%);
+}
+
+/* Frosted Matte Glass Utility */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(22px) saturate(165%);
+  -webkit-backdrop-filter: blur(22px) saturate(165%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--radius-md);
+  transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+}
+
+.glass-panel:hover {
+  border-color: var(--glass-border-highlight);
+}
+
+.glass-card-interactive:hover {
+  transform: translateY(-4px);
+  background: var(--glass-bg-hover);
+  border-color: rgba(6, 182, 212, 0.55);
+}
+
+.glass-pill {
+  background: linear-gradient(135deg, rgba(248, 250, 252, 0.90), rgba(203, 213, 225, 0.85));
+  color: #090a0f;
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: var(--radius-pill);
+}
+
+.container {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Sticky Top Navigation */
+.site-header {
+  position: sticky;
+  top: 14px;
+  z-index: 50;
+  margin: 14px auto 0;
+  max-width: 1220px;
+  padding: 0 20px;
+}
+
+.navbar-glass {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 22px;
+  background: linear-gradient(135deg, rgba(241, 245, 249, 0.92) 0%, rgba(203, 213, 225, 0.88) 100%);
+  backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.brand-logo-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  flex-shrink: 0;
+  background: #090a10;
+}
+
+.brand-text-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  line-height: 1.2;
+  color: #090a0f;
+}
+
+.brand-sub {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  letter-spacing: 0.3px;
+}
+
+.page-switcher {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px;
+  background: rgba(226, 232, 240, 0.88);
+  color: #090a0f;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: var(--radius-pill);
+}
+
+.page-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.page-tab:hover {
+  color: #090a0f;
+  background: #ffffff;
+}
+
+.page-tab.active {
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.25), rgba(124, 58, 237, 0.22));
+  color: #090a0f;
+  border: 1px solid rgba(2, 132, 199, 0.55);
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.2);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.18s ease;
+}
+
+.nav-links a:hover {
+  color: #090a0f;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 22px;
+  border-radius: var(--radius-pill);
+  font-size: 14.5px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.btn-line {
+  background: linear-gradient(135deg, #06c755 0%, #049f43 100%);
+  color: #ffffff !important;
+  box-shadow: 0 8px 24px rgba(6, 199, 85, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.btn-line:hover {
+  background: linear-gradient(135deg, #07d65c 0%, #05b04a 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(6, 199, 85, 0.48);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #0284c7 0%, #7c3aed 100%);
+  color: #ffffff !important;
+  box-shadow: 0 8px 26px rgba(2, 132, 199, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 32px rgba(2, 132, 199, 0.52);
+}
+
+.btn-glass {
+  background: linear-gradient(135deg, rgba(248, 250, 252, 0.90), rgba(203, 213, 225, 0.85));
+  color: #090a0f;
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.btn-glass:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+}
+
+/* Sections */
+section {
+  padding: 68px 0;
+  scroll-margin-top: 96px;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 44px;
+  background: linear-gradient(135deg, rgba(241, 245, 249, 0.90) 0%, rgba(203, 213, 225, 0.85) 100%);
+  backdrop-filter: blur(22px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.72), inset 0 1px 2px rgba(255, 255, 255, 0.95);
+  border-radius: 24px;
+  padding: 28px 32px;
+  color: #090a0f;
+}
+
+.eyebrow-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #090a0f;
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-size: clamp(26px, 3.5vw, 38px);
+  font-weight: 800;
+  line-height: 1.28;
+  margin-bottom: 12px;
+  color: #090a0f !important;
+}
+
+.section-desc {
+  color: var(--text-secondary);
+  font-size: 16px;
+}
+
+/* Hero Audio */
+.hero-audio {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 32px;
+  align-items: center;
+  padding-top: 28px;
+}
+
+.hero-audio > div:first-child {
+  background: linear-gradient(135deg, rgba(241, 245, 249, 0.90) 0%, rgba(203, 213, 225, 0.85) 100%);
+  backdrop-filter: blur(22px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.72), inset 0 1px 2px rgba(255, 255, 255, 0.95);
+  border-radius: 24px;
+  padding: 28px 32px;
+  color: #090a0f;
+}
+
+.hero-title {
+  font-size: clamp(30px, 4.2vw, 46px);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  color: #090a0f;
+}
+
+.text-gradient-audio {
+  background: linear-gradient(135deg, #0284c7 0%, #7c3aed 55%, #e11d48 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.hero-logo-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.hero-logo-banner img {
+  width: 76px;
+  height: 76px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+  background: #090a10;
+}
+
+/* Track list and player */
+.track-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(241, 245, 249, 0.90);
+  color: #090a0f;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.track-item:hover, .track-item.active {
+  background: #ffffff;
+  border-color: rgba(2, 132, 199, 0.7);
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.15);
+}
+
+.play-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0284c7, #7c3aed);
+  color: #ffffff !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.waveform-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  height: 46px;
+  padding: 6px 0;
+}
+
+.wave-bar {
+  flex: 1;
+  background: linear-gradient(180deg, #0284c7, #7c3aed);
+  border-radius: 99px;
+  height: 25%;
+  transition: height 0.18s ease;
+}
+
+.playing .wave-bar {
+  animation: pulseWave 0.75s infinite ease-in-out alternate;
+}
+
+@keyframes pulseWave {
+  0% { height: 18%; opacity: 0.65; }
+  100% { height: 95%; opacity: 1; }
+}
+
+/* Service Card */
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.audio-service-card {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.audio-service-thumb {
+  height: 140px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.audio-service-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.audio-service-card:hover .audio-service-thumb img {
+  transform: scale(1.05);
+}
+
+/* Order Form */
+.order-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.step-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0284c7, #7c3aed);
+  color: #ffffff !important;
+  font-size: 13px;
+  font-weight: 700;
+  margin-right: 8px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-label {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #090a0f;
+  margin-bottom: 7px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 15px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #090a0f;
+  border: 1px solid rgba(100, 116, 139, 0.45);
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 14.5px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.22);
+}
+
+.upload-dropzone {
+  border: 1.5px dashed rgba(2, 132, 199, 0.45);
+  background: rgba(2, 132, 199, 0.05);
+  border-radius: 16px;
+  padding: 20px 18px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.upload-dropzone:hover {
+  border-color: var(--accent-purple);
+  background: rgba(124, 58, 237, 0.08);
+}
+
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.preview-item {
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.95);
+  padding: 8px 10px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Toast */
+.toast-banner {
+  position: fixed;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%) translateY(120px);
+  z-index: 120;
+  padding: 13px 24px;
+  border-radius: var(--radius-pill);
+  background: rgba(12, 16, 28, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(6, 199, 85, 0.55);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toast-banner.show {
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Floating LINE */
+.floating-line {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: var(--radius-pill);
+  background: rgba(6, 199, 85, 0.92);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff !important;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 14px 34px rgba(6, 199, 85, 0.42);
+  transition: all 0.2s ease;
+}
+
+.floating-line:hover {
+  transform: translateY(-3px) scale(1.02);
+  background: #06c755;
+}
+
+/* Footer */
+.site-footer {
+  padding: 56px 0 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(3, 4, 8, 0.88);
+  backdrop-filter: blur(20px);
+  position: relative;
+  z-index: 2;
+}
+
+.site-footer .container {
+  background: linear-gradient(135deg, rgba(241, 245, 249, 0.90) 0%, rgba(203, 213, 225, 0.85) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  padding: 22px 30px;
+  color: #090a0f;
+}
+
+@media (max-width: 980px) {
+  .hero-audio, .order-layout {
+    grid-template-columns: 1fr;
+  }
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .nav-links {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+  .navbar-glass {
+    flex-wrap: wrap;
+    border-radius: 22px;
+  }
+}
+  </style>
+</head>
+<body>
+  <div class="ambient-canvas"></div>
+  <div class="ambient-grid"></div>
+
+  <!-- Top Navigation -->
+  <header class="site-header">
+    <nav class="navbar-glass" aria-label="เมนูหลัก">
+      <a href="index.html" class="brand-lockup">
+        <img src="assets/images/logo-3d.png" alt="โลโก้ MIX IMAGE ART&amp;AUDIO" class="brand-logo-img">
+        <div class="brand-text-wrap">
+          <span class="brand-title">MIX IMAGE ART&amp;AUDIO</span>
+          <span class="brand-sub">ร้านสร้างภาพ • สตูดิโอรับทำเพลงและดนตรีประกอบเชิงพาณิชย์ 100%</span>
+        </div>
+      </a>
+
+      <!-- 2-Page Switcher -->
+      <div class="page-switcher" role="navigation" aria-label="สลับหน้าบริการ">
+        <a href="index.html" class="page-tab">
+          <span>🖼️</span> หน้าที่ 1: งานภาพ &amp; กรอบรูปมงคล
+        </a>
+        <a href="miximage_audio_studio.html" class="page-tab active" aria-current="page">
+          <span>🎵</span> หน้าที่ 2: บริการรับทำเพลง AI
+        </a>
+      </div>
+
+      <div class="nav-links">
+        <a href="#audio-showcase">ฟังเพลงตัวอย่าง</a>
+        <a href="#music-services">บริการรับทำเพลง</a>
+        <a href="#engineering">มาตรฐานเสียง</a>
+        <a href="#music-order">บรีฟเพลง/แจ้งมัดจำ</a>
+      </div>
+
+      <a href="#music-order" class="btn btn-line">
+        <span>💬</span> สั่งทำเพลง / เชื่อมต่อ LINE
+      </a>
+    </nav>
+  </header>
+
+  <main id="top" class="container">
+    <!-- HERO AUDIO SECTION -->
+    <section class="hero-audio">
+      <div>
+        <div class="glass-pill eyebrow-badge">
+          <span style="color:#0284c7;">●</span> หน้าที่ 2: สตูดิโอเพลงและเสียง • ลิขสิทธิ์เชิงพาณิชย์ 100% • ไม่มีรายเดือน
+        </div>
+        <div class="hero-logo-banner">
+          <img src="assets/images/logo-3d.png" alt="MIX IMAGE ART&amp;AUDIO 3D Logo">
+          <div>
+            <div style="font-size:14px; font-weight:700; color:#4c1d95;">ร้านสร้างภาพ (MIX IMAGE ART&amp;AUDIO)</div>
+            <div style="font-size:12.5px; color:#334155;">สตูดิโอภาพถ่าย งานพิมพ์ และเสียงเชิงพาณิชย์ อ.บรบือ จ.มหาสารคาม</div>
+          </div>
+        </div>
+        <h1 class="hero-title">
+          MIX IMAGE ART&amp;AUDIO<br><span style="font-size:0.68em; font-weight:700;">รับทำเพลงและดนตรีประกอบ</span><br>
+          <span class="text-gradient-audio">สร้างเอกลักษณ์เสียงให้แบรนด์และคนพิเศษ</span>
+        </h1>
+        <p style="font-size: 16px; color: var(--text-secondary); margin-bottom: 20px;">
+          บริการแต่งเนื้อร้อง ออกแบบโครงสร้างดนตรีด้วยเทคโนโลยี Generative AI ระดับสตูดิโอ (Suno v6 Pro Architecture) พร้อมปรับแต่งคุณภาพเสียง <strong>AI Audio Mastering 24-bit / 44.1kHz</strong> ส่งมอบสิทธิ์ใช้งานเชิงพาณิชย์ 100% สำหรับโฆษณา ร้านค้า ครีเอเตอร์ และเพลงของขวัญโอกาสพิเศษ
+        </p>
+
+        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:26px;">
+          <span class="glass-pill" style="padding:7px 14px; font-size:13px;">🎼 แต่งเนื้อร้องไทย/อังกฤษเฉพาะคุณ</span>
+          <span class="glass-pill" style="padding:7px 14px; font-size:13px;">🛡️ ลิขสิทธิ์เชิงพาณิชย์ 100% ไม่ติดเคลม</span>
+          <span class="glass-pill" style="padding:7px 14px; font-size:13px;">🎚️ Mastering 24-bit WAV + MP3</span>
+        </div>
+
+        <div style="display:flex; flex-wrap:wrap; gap:14px;">
+          <a href="#music-order" class="btn btn-line" style="padding:14px 26px; font-size:15.5px;">
+            🎙️ ส่งบรีฟเพลง &amp; ยืนยันมัดจำผ่าน LINE
+          </a>
+          <a href="#music-services" class="btn btn-glass" style="padding:14px 22px;">
+            ดูราคาบริการรับทำเพลง
+          </a>
+          <a href="index.html" class="btn btn-glass" style="padding:14px 22px; border-color:rgba(245,158,11,0.5);">
+            ← กลับไปหน้าที่ 1: งานภาพ &amp; กรอบรูปมงคล
+          </a>
+        </div>
+      </div>
+
+      <!-- Interactive Studio Audio Showcase Player -->
+      <div class="glass-panel" id="audio-showcase" style="padding: 26px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+          <div>
+            <span style="font-size:12px; color:#0369a1; font-weight:700;">สตูดิโอทดลองฟังตัวอย่างเพลงและเสียง</span>
+            <h2 style="font-size:18.5px; font-weight:700;" id="nowPlayingTitle">1. เพลงโฆษณาแบรนด์สดใส (เพลงสั้นประจำร้าน)</h2>
+          </div>
+          <span id="playerStatusBadge" class="glass-pill" style="padding:4px 12px; font-size:12px; color:#0369a1;">พร้อมเล่นตัวอย่าง</span>
+        </div>
+
+        <!-- Waveform Visualizer Box -->
+        <div class="glass-panel" id="waveformContainer" style="padding:16px 20px; background:rgba(226,232,240,0.85); border: 1px solid rgba(148,163,184,0.5); margin-bottom:16px;">
+          <div class="waveform-bars" id="waveformBars">
+            <div class="wave-bar" style="animation-delay:0.05s; height:35%"></div>
+            <div class="wave-bar" style="animation-delay:0.15s; height:65%"></div>
+            <div class="wave-bar" style="animation-delay:0.25s; height:45%"></div>
+            <div class="wave-bar" style="animation-delay:0.10s; height:85%"></div>
+            <div class="wave-bar" style="animation-delay:0.35s; height:50%"></div>
+            <div class="wave-bar" style="animation-delay:0.20s; height:90%"></div>
+            <div class="wave-bar" style="animation-delay:0.40s; height:40%"></div>
+            <div class="wave-bar" style="animation-delay:0.12s; height:75%"></div>
+            <div class="wave-bar" style="animation-delay:0.28s; height:60%"></div>
+            <div class="wave-bar" style="animation-delay:0.08s; height:95%"></div>
+            <div class="wave-bar" style="animation-delay:0.32s; height:55%"></div>
+            <div class="wave-bar" style="animation-delay:0.18s; height:80%"></div>
+            <div class="wave-bar" style="animation-delay:0.22s; height:45%"></div>
+            <div class="wave-bar" style="animation-delay:0.14s; height:70%"></div>
+            <div class="wave-bar" style="animation-delay:0.30s; height:38%"></div>
+            <div class="wave-bar" style="animation-delay:0.06s; height:88%"></div>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px; font-size:12px; color:var(--text-muted); flex-wrap:wrap; gap:8px;">
+            <span id="nowPlayingMeta">แนวเพลง: ป๊อปโฆษณาติดหู • จังหวะ 120 BPM • มาสเตอริง 24-bit</span>
+            <button type="button" id="masterToggleBtn" class="btn btn-primary" style="padding:6px 16px; font-size:12.5px;" onclick="togglePreviewSynth()">
+              ▶ เล่นเสียงสาธิต
+            </button>
+          </div>
+        </div>
+
+        <!-- Track List -->
+        <div>
+          <div class="track-item active" onclick="selectDemoTrack(0, '1. เพลงโฆษณาแบรนด์สดใส (เพลงสั้นประจำร้าน)', 'แนวเพลง: ป๊อปโฆษณาติดหู • จังหวะ 120 BPM • เหมาะกับ TikTok/Reels', 523.25, this)">
+            <div style="display:flex; align-items:center; gap:12px;">
+              <button type="button" class="play-circle">♪</button>
+              <div>
+                <div style="font-weight:700; font-size:14px;">1. เพลงโฆษณาแบรนด์สดใส (เพลงสั้นประจำร้าน)</div>
+                <div style="font-size:12px; color:var(--text-muted);">ท่อนฮุกติดหูใน 15 วินาที สำหรับโฆษณาร้านค้าและคลิปรีวิว</div>
+              </div>
+            </div>
+            <span style="font-size:12px; color:#0369a1; font-weight:600;">0:30</span>
+          </div>
+
+          <div class="track-item" onclick="selectDemoTrack(1, '2. เพลงลูกทุ่งอินดี้ / อีสานโมเดิร์น', 'แนวเพลง: ลูกทุ่งอินดี้ / อีสานร่วมสมัย • 108 BPM • สนุกสนานเข้าถึงง่าย', 440.0, this)">
+            <div style="display:flex; align-items:center; gap:12px;">
+              <button type="button" class="play-circle">♪</button>
+              <div>
+                <div style="font-weight:700; font-size:14px;">2. เพลงลูกทุ่งอินดี้ / อีสานโมเดิร์น</div>
+                <div style="font-size:12px; color:var(--text-muted);">ผสานกลิ่นอายพิณ-แคนเข้ากับบีตสมัยใหม่ เหมาะกับแบรนด์ท้องถิ่นและงานอีเวนต์</div>
+              </div>
+            </div>
+            <span style="font-size:12px; color:#0369a1; font-weight:600;">0:30</span>
+          </div>
+
+          <div class="track-item" onclick="selectDemoTrack(2, '3. Glow Up (รักตัวเองให้สุดทาง) — Pop Hip-Hop', 'แนวเพลง: Modern Energetic Thai Pop Hip-Hop • 104 BPM • Key: E Major', 329.63, this)">
+            <div style="display:flex; align-items:center; gap:12px;">
+              <button type="button" class="play-circle">♪</button>
+              <div>
+                <div style="font-weight:700; font-size:14px;">3. Glow Up (รักตัวเองให้สุดทาง) — Pop Hip-Hop</div>
+                <div style="font-size:12px; color:var(--text-muted);">โครงสร้าง Suno v6 Pro • 808 Bass • Originality 96% ป้องกันลิขสิทธิ์ซ้ำซ้อน</div>
+              </div>
+            </div>
+            <span style="font-size:12px; color:#0369a1; font-weight:600;">3:08</span>
+          </div>
+
+          <div class="track-item" onclick="selectDemoTrack(3, '4. เพลงอะคูสติกอบอุ่น (เพลงของขวัญโอกาสพิเศษ)', 'แนวเพลง: อะคูสติกป๊อปอบอุ่น • 76 BPM • เพลงของขวัญวันเกิด/แต่งงาน/เกษียณ', 392.0, this)">
+            <div style="display:flex; align-items:center; gap:12px;">
+              <button type="button" class="play-circle">♪</button>
+              <div>
+                <div style="font-weight:700; font-size:14px;">4. เพลงอะคูสติกอบอุ่น (เพลงของขวัญโอกาสพิเศษ)</div>
+                <div style="font-size:12px; color:var(--text-muted);">ร้อยเรียงชื่อและเรื่องราวความทรงจำ สำหรับงานแต่งงาน วันเกิด หรือเกษียณอายุ</div>
+              </div>
+            </div>
+            <span style="font-size:12px; color:#0369a1; font-weight:600;">0:30</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MUSIC SERVICES SECTION (PER-PROJECT, NO MONTHLY SUBSCRIPTION) -->
+    <section id="music-services">
+      <div class="section-header">
+        <div class="glass-pill eyebrow-badge">บริการรับทำเพลงและดนตรีประกอบด้วย AI เชิงพาณิชย์ 100%</div>
+        <h2 class="section-title">บริการรับทำเพลงและเสียงสั่งทำรายชิ้น (ไม่มีรายเดือน)</h2>
+        <p class="section-desc">
+          เลือกประเภทงานเพลงที่ต้องการ ทุกชิ้นงานดูแลการเขียนเนื้อร้อง เรียบเรียงโครงสร้าง และทำ Mastering ให้พร้อมใช้งานเชิงพาณิชย์
+        </p>
+      </div>
+
+      <div class="grid-4">
+        <article class="glass-panel glass-card-interactive audio-service-card">
+          <div>
+            <div class="audio-service-thumb">
+              <img src="assets/images/tool-music-main.png" alt="เครื่องมือเขียนพรอมต์เพลง Suno v6">
+            </div>
+            <span class="glass-pill" style="padding:3px 10px; font-size:11px; color:#0369a1;">สำหรับร้านค้า &amp; TikTok</span>
+            <h3 style="font-size:18px; font-weight:700; margin:10px 0 6px;">1. เพลงโฆษณาสั้น / Jingle แบรนด์</h3>
+            <p style="font-size:13.5px; color:var(--text-secondary); margin-bottom:14px;">
+              ความยาว 30–60 วินาที เน้นท่อนฮุกจำง่าย ใส่ชื่อร้าน จุดขาย และเบอร์ติดต่อ สำหรับเปิดหน้าร้านหรือยิงแอด TikTok / Reels / Facebook
+            </p>
+          </div>
+          <div>
+            <div style="font-size:20px; font-weight:800; color:#b45309; margin-bottom:12px;">590 บาท / เพลง</div>
+            <button type="button" class="btn btn-primary" style="width:100%;" onclick="selectMusicService('เพลงโฆษณาสั้น / Jingle แบรนด์ (30-60 วินาที)', 590)">
+              เลือกบริการนี้ →
+            </button>
+          </div>
+        </article>
+
+        <article class="glass-panel glass-card-interactive audio-service-card" style="border-color:rgba(124,58,237,0.45);">
+          <div>
+            <div class="audio-service-thumb">
+              <img src="assets/images/tool-mastering.png" alt="เครื่องมือมาสเตอร์ริ่ง ZeroDay DSP">
+            </div>
+            <span class="glass-pill" style="padding:3px 10px; font-size:11px; color:#6d28d9;">ยอดนิยม • เพลงเต็มสมบูรณ์</span>
+            <h3 style="font-size:18px; font-weight:700; margin:10px 0 6px;">2. เพลงเต็มเชิงพาณิชย์ 100%</h3>
+            <p style="font-size:13.5px; color:var(--text-secondary); margin-bottom:14px;">
+              ความยาว 2.30–4.00 นาที แต่งเนื้อร้องใหม่ 100% ครบโครงสร้าง (Intro, Verse, Pre-Chorus, Chorus, Bridge, Outro) พร้อมไฟล์ WAV 24-bit + MP3
+            </p>
+          </div>
+          <div>
+            <div style="font-size:20px; font-weight:800; color:#b45309; margin-bottom:12px;">990 บาท / เพลง</div>
+            <button type="button" class="btn btn-primary" style="width:100%;" onclick="selectMusicService('เพลงเต็มเชิงพาณิชย์ 100% (แต่งเนื้อร้องใหม่ + WAV 24-bit)', 990)">
+              เลือกบริการนี้ →
+            </button>
+          </div>
+        </article>
+
+        <article class="glass-panel glass-card-interactive audio-service-card">
+          <div>
+            <div class="audio-service-thumb">
+              <img src="assets/images/tool-music-result.png" alt="ผลลัพธ์การสร้างและตรวจสอบเพลง">
+            </div>
+            <span class="glass-pill" style="padding:3px 10px; font-size:11px; color:#b45309;">ของขวัญวันสำคัญ</span>
+            <h3 style="font-size:18px; font-weight:700; margin:10px 0 6px;">3. เพลงของขวัญ &amp; วิดีโอเนื้อเพลง</h3>
+            <p style="font-size:13.5px; color:var(--text-secondary); margin-bottom:14px;">
+              แต่งเพลงจากเรื่องราวจริงสำหรับงานแต่งงาน วันครบรอบ วันเกิด หรืองานมุทิตาจิตเกษียณอายุราชการ พร้อมทำคลิป Lyric Video ใส่ภาพความทรงจำ
+            </p>
+          </div>
+          <div>
+            <div style="font-size:20px; font-weight:800; color:#b45309; margin-bottom:12px;">1,490 บาท / เซ็ต</div>
+            <button type="button" class="btn btn-primary" style="width:100%;" onclick="selectMusicService('เพลงของขวัญโอกาสพิเศษ + คลิปวิดีโอเนื้อเพลง (Lyric MV)', 1490)">
+              เลือกบริการนี้ →
+            </button>
+          </div>
+        </article>
+
+        <article class="glass-panel glass-card-interactive audio-service-card">
+          <div>
+            <div class="audio-service-thumb">
+              <img src="assets/work/loudness-guide-2026.jpg" alt="ตารางเกณฑ์ความดังมาตรฐาน LUFS 2026">
+            </div>
+            <span class="glass-pill" style="padding:3px 10px; font-size:11px; color:#15803d;">งานเสียงคุณภาพสูง</span>
+            <h3 style="font-size:18px; font-weight:700; margin:10px 0 6px;">4. AI Mastering &amp; แยก Stem</h3>
+            <p style="font-size:13.5px; color:var(--text-secondary); margin-bottom:14px;">
+              ยกระดับไฟล์เพลงที่มีอยู่ให้ใส มีมิติ และดังได้มาตรฐานสตรีมมิ่ง (Spotify/YouTube/TikTok) หรือแยกเสียงร้อง/ดนตรี (Backing Track)
+            </p>
+          </div>
+          <div>
+            <div style="font-size:20px; font-weight:800; color:#b45309; margin-bottom:12px;">350 บาท / เพลง</div>
+            <button type="button" class="btn btn-primary" style="width:100%;" onclick="selectMusicService('บริการ AI Audio Mastering 24-bit & แยก Stem เสียงร้อง/ดนตรี', 350)">
+              เลือกบริการนี้ →
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- AUDIO ENGINEERING ARCHITECTURE -->
+    <section id="engineering">
+      <div class="section-header">
+        <div class="glass-pill eyebrow-badge" style="color:#0284c7;">ระบบควบคุมคุณภาพเสียงระดับสตูดิโอ</div>
+        <h2 class="section-title">ทำไมเพลง AI ของเราจึงเสียงดีกว่าการกดเจนทั่วไป?</h2>
+        <p class="section-desc">
+          เราใช้สถาปัตยกรรม Suno v6 Pro ขั้นสูง ผสานการมาสเตอร์ริ่งด้วย ZeroDay Multi-AI DSP ปรับจูนความถี่และคุมความดัง True Peak −1.0 dBTP ตามเกณฑ์สตรีมมิ่งสากล
+        </p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px;">
+        <div class="glass-panel" style="padding:20px; text-align:center;">
+          <div style="font-size:30px; margin-bottom:8px;">🎛️</div>
+          <h3 style="font-size:16px; font-weight:700; margin-bottom:6px;">Harmonic EQ</h3>
+          <p style="font-size:13px; color:var(--text-secondary);">ตัดเสียงสะท้อนความถี่กวนในย่าน 250–500Hz และเพิ่มความใสโปร่งให้เสียงร้อง</p>
+        </div>
+        <div class="glass-panel" style="padding:20px; text-align:center;">
+          <div style="font-size:30px; margin-bottom:8px;">🔊</div>
+          <h3 style="font-size:16px; font-weight:700; margin-bottom:6px;">−14 LUFS Norm</h3>
+          <p style="font-size:13px; color:var(--text-secondary);">ความดังมาตรฐานสตรีมมิ่งระดับโลก ไม่โดนระบบลดระดับเสียงอัตโนมัติ</p>
+        </div>
+        <div class="glass-panel" style="padding:20px; text-align:center;">
+          <div style="font-size:30px; margin-bottom:8px;">📱</div>
+          <h3 style="font-size:16px; font-weight:700; margin-bottom:6px;">−9 LUFS TikTok</h3>
+          <p style="font-size:13px; color:var(--text-secondary);">เร่งพลังเสียงให้พุ่งชัดเมื่อเปิดผ่านลำโพงมือถือ ไร้ปัญหาเสียงแตกพร่า</p>
+        </div>
+        <div class="glass-panel" style="padding:20px; text-align:center;">
+          <div style="font-size:30px; margin-bottom:8px;">📜</div>
+          <h3 style="font-size:16px; font-weight:700; margin-bottom:6px;">สิทธิ์ขาด 100%</h3>
+          <p style="font-size:13px; color:var(--text-secondary);">ส่งมอบลิขสิทธิ์เชิงพาณิชย์เต็มตัว นำไปยิงแอด เผยแพร่ และสร้างรายได้ถาวร</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MUSIC BRIEF, REFERENCE UPLOAD, DEPOSIT CONFIRMATION & LINE -->
+    <section id="music-order">
+      <div class="section-header">
+        <div class="glass-pill eyebrow-badge" style="color:#15803d; border-color:rgba(74,222,128,0.35);">แบบฟอร์มบรีฟสั่งทำเพลง • แนบไฟล์อ้างอิง • ยืนยันการมัดจำเชื่อม LINE</div>
+        <h2 class="section-title">ฟอร์มบรีฟสั่งทำเพลง แนบเรฟอ้างอิง &amp; ยืนยันมัดจำเชื่อม LINE</h2>
+        <p class="section-desc">
+          ระบุแนวเพลง เรื่องราวที่ต้องการ แนบภาพ/ไฟล์อ้างอิง และยืนยันการโอนมัดจำ 50% หรือชำระเต็มจำนวนเพื่อส่งเข้า <strong>LINE: miximage</strong>
+        </p>
+      </div>
+
+      <div class="order-layout">
+        <div class="glass-panel" style="padding: 30px;">
+          <form id="musicOrderForm" onsubmit="handleMusicOrderSubmit(event)">
+            <h3 style="font-size:18px; font-weight:700; margin-bottom:16px;">
+              <span class="step-badge">1</span> เลือกประเภทงานเพลงและสไตล์ดนตรี
+            </h3>
+
+            <div class="form-group">
+              <label class="form-label" for="musicServiceSelect">รายการบริการเพลงที่ต้องการสั่งทำ</label>
+              <select id="musicServiceSelect" class="form-control" onchange="recalculateMusicPrice()">
+                <option value="590" data-name="เพลงโฆษณาสั้น / Jingle แบรนด์ (30-60 วินาที)">เพลงโฆษณาสั้น / Jingle แบรนด์ (30–60 วินาที) — 590 บาท</option>
+                <option value="990" data-name="เพลงเต็มเชิงพาณิชย์ 100% (แต่งเนื้อร้องใหม่ + WAV 24-bit)" selected>เพลงเต็มเชิงพาณิชย์ 100% (แต่งเนื้อร้องใหม่ + WAV 24-bit) — 990 บาท</option>
+                <option value="1490" data-name="เพลงของขวัญโอกาสพิเศษ + คลิปวิดีโอเนื้อเพลง (Lyric MV)">เพลงของขวัญโอกาสพิเศษ + คลิปวิดีโอเนื้อเพลง (Lyric MV) — 1,490 บาท</option>
+                <option value="350" data-name="บริการ AI Audio Mastering 24-bit & แยก Stem เสียงร้อง/ดนตรี">บริการ AI Audio Mastering 24-bit &amp; แยก Stem — 350 บาท</option>
+              </select>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+              <div class="form-group">
+                <label class="form-label" for="musicGenre">แนวเพลง (Genre)</label>
+                <select id="musicGenre" class="form-control" onchange="updateMusicSummary()">
+                  <option value="Pop / T-Pop สดใสติดหู">Pop / T-Pop สดใสติดหู</option>
+                  <option value="ลูกทุ่งอินดี้ / หมอลำโมเดิร์น">ลูกทุ่งอินดี้ / หมอลำโมเดิร์น</option>
+                  <option value="Acoustic ซึ้งอบอุ่น">Acoustic ซึ้งอบอุ่น</option>
+                  <option value="Ballad R&B โรแมนติก">Ballad R&amp;B โรแมนติก</option>
+                  <option value="Pop-Rock พลังบวก">Pop-Rock พลังบวก</option>
+                  <option value="Hip-Hop / Rap โฆษณา">Hip-Hop / Rap โฆษณา</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="vocalType">ลักษณะเสียงร้อง</label>
+                <select id="vocalType" class="form-control" onchange="updateMusicSummary()">
+                  <option value="เสียงร้องหญิง (นุ่มใส/มีพลัง)">เสียงร้องหญิง (นุ่มใส/มีพลัง)</option>
+                  <option value="เสียงร้องชาย (อบอุ่น/เท่)">เสียงร้องชาย (อบอุ่น/เท่)</option>
+                  <option value="ร้องคู่ ชาย-หญิง (Duet)">ร้องคู่ ชาย–หญิง (Duet)</option>
+                  <option value="ดนตรีบรรเลงล้วน (Instrumental)">ดนตรีบรรเลงล้วน (Instrumental)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="songStory">คำสำคัญ / ชื่อแบรนด์ / เรื่องราวที่ต้องการใส่ในเนื้อเพลง *</label>
+              <textarea id="songStory" class="form-control" rows="3" placeholder="ระบุชื่อร้าน จุดขาย สโลแกน หรือชื่อคนสำคัญและเรื่องราวความประทับใจที่อยากให้อยู่ในเพลง..." required></textarea>
+            </div>
+
+            <!-- Step 2: Reference Image / Link Upload -->
+            <hr style="border:none; border-top:1px solid rgba(0,0,0,0.1); margin: 22px 0;">
+            <h3 style="font-size:18px; font-weight:700; margin-bottom:12px;">
+              <span class="step-badge">2</span> แนบภาพอ้างอิง / โลโก้ / ลิงก์เพลงตัวอย่าง (References)
+            </h3>
+
+            <div class="form-group">
+              <label class="form-label" for="refLink">ลิงก์เพลงอ้างอิง YouTube / TikTok / Spotify (ถ้ามี)</label>
+              <input type="text" id="refLink" class="form-control" placeholder="วางลิงก์เพลงที่ชอบมู้ดหรือจังหวะใกล้เคียง...">
+            </div>
+
+            <label class="upload-dropzone" for="musicRefInput" style="display:block;">
+              <div style="font-size:26px; margin-bottom:4px;">🖼️</div>
+              <div style="font-weight:700; color:#090a0f;">คลิกเพื่อแนบภาพอ้างอิง / ภาพสินค้า / ภาพความทรงจำสำหรับทำปกหรือ MV</div>
+              <input type="file" id="musicRefInput" accept="image/*,audio/*" multiple style="display:none;" onchange="handleMusicRefFiles(this.files)">
+            </label>
+            <div id="musicRefGrid" class="preview-grid"></div>
+
+            <!-- Step 3: Deposit / Payment Confirmation -->
+            <hr style="border:none; border-top:1px solid rgba(0,0,0,0.1); margin: 22px 0;">
+            <h3 style="font-size:18px; font-weight:700; margin-bottom:12px;">
+              <span class="step-badge">3</span> ยืนยันการมัดจำ (50%) หรือ ชำระเงินเต็มจำนวน
+            </h3>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:16px;">
+              <label class="glass-panel" style="padding:14px; cursor:pointer; display:flex; align-items:center; gap:10px; border-color:rgba(2,132,199,0.5);">
+                <input type="radio" name="musicPayOption" value="deposit50" checked onchange="recalculateMusicPrice()" style="accent-color:#0284c7;">
+                <div>
+                  <div style="font-weight:700; font-size:14px;">มัดจำเริ่มแต่งเพลง 50%</div>
+                  <div style="font-size:12px; color:var(--text-muted);">ชำระส่วนที่เหลือเมื่อฟังเดโมผ่าน</div>
+                </div>
+              </label>
+              <label class="glass-panel" style="padding:14px; cursor:pointer; display:flex; align-items:center; gap:10px;">
+                <input type="radio" name="musicPayOption" value="full100" onchange="recalculateMusicPrice()" style="accent-color:#06c755;">
+                <div>
+                  <div style="font-weight:700; font-size:14px;">ชำระเต็มจำนวน 100%</div>
+                  <div style="font-size:12px; color:var(--text-muted);">ลัดคิวผลิตและส่งมอบไฟล์ Master</div>
+                </div>
+              </label>
+            </div>
+
+            <div class="glass-panel" style="padding:16px; background:rgba(2, 132, 199, 0.08); border-color:rgba(2, 132, 199, 0.35); margin-bottom:16px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+                <div>
+                  <div style="font-size:12px; color:#0369a1; font-weight:700;">บัญชีรับโอนมัดจำ / พร้อมเพย์</div>
+                  <div style="font-size:15px; font-weight:700;">PromptPay: 081-592-1229 (ณัฐนนท์ วงศ์กาศัย • MIX IMAGE ART&amp;AUDIO)</div>
+                </div>
+                <button type="button" class="btn btn-glass" style="padding:6px 14px; font-size:12.5px;" onclick="copyText('0815921229', 'คัดลอกเบอร์พร้อมเพย์ 0815921229 แล้ว')">
+                  📋 คัดลอกพร้อมเพย์
+                </button>
+              </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px;">
+              <div class="form-group">
+                <label class="form-label" for="musicPaidAmount">ยอดที่โอน (บาท)</label>
+                <input type="number" id="musicPaidAmount" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="musicPaidTime">เวลาโอน</label>
+                <input type="text" id="musicPaidTime" class="form-control" placeholder="เช่น 15:20 น." required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="musicSlip4">เลขท้ายสลิป 4 หลัก</label>
+                <input type="text" id="musicSlip4" class="form-control" placeholder="เช่น 3910" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="upload-dropzone" for="musicSlipInput" style="display:block; padding:14px; border-color:rgba(6,199,85,0.45); background:rgba(6,199,85,0.05);">
+                <span style="font-weight:700; color:#15803d;">🧾 คลิกแนบภาพสลิปโอนเงินมัดจำ/ค่าทำเพลง</span>
+                <input type="file" id="musicSlipInput" accept="image/*" style="display:none;" onchange="handleMusicSlip(this.files)">
+              </label>
+              <div id="musicSlipStatus" style="margin-top:8px; font-size:13px; color:#15803d; font-weight:600;"></div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+              <div class="form-group">
+                <label class="form-label" for="musicCustName">ชื่อผู้สั่งทำเพลง / ชื่อแบรนด์</label>
+                <input type="text" id="musicCustName" class="form-control" placeholder="เช่น คุณมิก / บริษัท บรบือการค้า" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="musicCustPhone">เบอร์โทรศัพท์ / LINE ID</label>
+                <input type="text" id="musicCustPhone" class="form-control" placeholder="08x-xxx-xxxx หรือ LINE ID" required>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-line" style="width:100%; padding:15px; font-size:16px;">
+              ✅ ยืนยันมัดจำ &amp; ส่งบรีฟเพลงเข้า LINE (miximage)
+            </button>
+          </form>
+        </div>
+
+        <!-- Right Sticky Summary -->
+        <div style="position: sticky; top: 96px; display:flex; flex-direction:column; gap:20px;">
+          <div class="glass-panel" style="padding: 26px; border-color: rgba(2, 132, 199, 0.45);">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+              <span style="font-size:12px; font-weight:700; color:#0369a1;">สรุปบรีฟสั่งทำเพลงและยอดมัดจำอัตโนมัติ</span>
+              <span id="musicBadge" class="glass-pill" style="padding:3px 10px; font-size:11.5px; color:#b45309;">พร้อมรับบรีฟ</span>
+            </div>
+            <h3 style="font-size:19px; font-weight:700; margin-bottom:14px;">สรุปบรีฟงานเพลง &amp; ยอดมัดจำ</h3>
+
+            <div style="border-top:1px solid rgba(0,0,0,0.1); border-bottom:1px solid rgba(0,0,0,0.1); padding:14px 0; font-size:14px; display:flex; flex-direction:column; gap:8px;">
+              <div style="display:flex; justify-content:space-between;">
+                <span style="color:var(--text-secondary);">แพ็กเกจงานเพลง:</span>
+                <strong id="sumMusicName" style="text-align:right; max-width:62%;">เพลงเต็มเชิงพาณิชย์ 100%</strong>
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:16px; padding-top:6px; border-top:1px dashed rgba(0,0,0,0.15);">
+                <span>ค่าบริการรวม:</span>
+                <strong id="sumMusicTotal">990 บาท</strong>
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:17px; color:#15803d;">
+                <span id="sumMusicPayLabel">ยอดโอนมัดจำเริ่มงาน (50%):</span>
+                <strong id="sumMusicPayNow">495 บาท</strong>
+              </div>
+            </div>
+
+            <div style="margin-top:16px;">
+              <label class="form-label">ข้อความบรีฟเพลงสำหรับส่งแชท LINE:</label>
+              <textarea id="generatedMusicText" class="form-control" rows="7" readonly style="font-size:12.5px; background:rgba(255,255,255,0.92); color:#090a0f;"></textarea>
+            </div>
+
+            <div style="display:grid; gap:10px; margin-top:14px;">
+              <button type="button" class="btn btn-line" onclick="copyMusicAndOpenLine()">
+                💬 คัดลอกบรีฟเพลง &amp; เปิดแชท LINE: miximage
+              </button>
+              <a href="index.html" class="btn btn-glass" style="text-align:center;">
+                🖼️ สลับไปหน้าที่ 1: สั่งทำรูปติดบัตร / กรอบรูปมงคล
+              </a>
+            </div>
+          </div>
+
+          <!-- Studio Location & LINE card -->
+          <div class="glass-panel" style="padding: 24px;">
+            <h3 style="font-size:17px; font-weight:700; margin-bottom:10px;">📍 ข้อมูลติดต่อสตูดิโอเสียง &amp; LINE</h3>
+            <p style="font-size:13.5px; color:var(--text-secondary); margin-bottom:12px;">
+              <strong>ร้านสร้างภาพ (MIX IMAGE ART&amp;AUDIO)</strong><br>
+              477 หมู่ 1 ถนนแจ้งสนิท เทศบาลตำบลบรบือ อ.บรบือ จ.มหาสารคาม 44130<br>
+              <span style="color:#b45309; font-weight:600;">(ข้างธนาคารกสิกรไทย สาขาบรบือ)</span>
+            </p>
+            <div style="font-size:13.5px; display:flex; flex-direction:column; gap:6px; color:var(--text-secondary); margin-bottom:14px;">
+              <div>🟢 <strong>LINE ID:</strong> <code style="color:#15803d; font-weight:700;">miximage</code> <button type="button" onclick="copyText('miximage', 'คัดลอก LINE ID: miximage แล้ว')" style="margin-left:6px; padding:2px 8px; border-radius:6px; border:1px solid rgba(0,0,0,0.2); background:rgba(255,255,255,0.8); color:#090a0f; cursor:pointer; font-size:11.5px;">คัดลอก ID</button></div>
+              <div>📞 <strong>โทรศัพท์:</strong> 081-592-1229 / 081-591-2129</div>
+              <div>✉️ <strong>อีเมล:</strong> kmz.miximage@gmail.com</div>
+              <div>🕒 <strong>เวลาบริการออนไลน์:</strong> 10.00 – 22.00 น. ทุกวัน</div>
+            </div>
+            <a href="https://line.me/ti/p/~miximage" target="_blank" rel="noopener noreferrer" class="btn btn-line" style="width:100%;">
+              แอด LINE: miximage เพื่อคุยกับโปรดิวเซอร์
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;">
+      <div>
+        <div style="font-weight:800; font-size:16px;">MIX IMAGE ART&amp;AUDIO (ร้านสร้างภาพ อ.บรบือ จ.มหาสารคาม)</div>
+        <div style="font-size:13px; color:var(--text-muted); margin-top:4px;">
+          477 หมู่ 1 ถนนแจ้งสนิท ต.บรบือ อ.บรบือ จ.มหาสารคาม 44130 • LINE: miximage • โทร 081-592-1229
+        </div>
+      </div>
+      <div style="display:flex; gap:12px;">
+        <a href="index.html" class="btn btn-primary" style="padding:8px 16px; font-size:13px;">← กลับไปหน้าที่ 1: งานภาพ &amp; กรอบรูปมงคล</a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://line.me/ti/p/~miximage" target="_blank" rel="noopener noreferrer" class="floating-line">
+    <span>💬</span> LINE: miximage
+  </a>
+
+  <div id="toastBanner" class="toast-banner" role="status" aria-live="polite">
+    <span>✅</span> <span id="toastText">ดำเนินการสำเร็จ</span>
+  </div>
+
+  <script>
+    // Web Audio API Demo Synthesizer for real interactive audio preview
+    let audioCtx = null;
+    let isPlaying = false;
+    let demoInterval = null;
+    let baseFreq = 523.25;
+
+    function selectDemoTrack(idx, title, meta, freq, el) {
+      document.querySelectorAll('.track-item').forEach(t => t.classList.remove('active'));
+      el.classList.add('active');
+      document.getElementById('nowPlayingTitle').textContent = title;
+      document.getElementById('nowPlayingMeta').textContent = meta;
+      baseFreq = freq;
+      if (isPlaying) {
+        stopSynth();
+        startSynth();
+      } else {
+        togglePreviewSynth();
+      }
+    }
+
+    function togglePreviewSynth() {
+      if (isPlaying) {
+        stopSynth();
+      } else {
+        startSynth();
+      }
+    }
+
+    function startSynth() {
+      try {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        isPlaying = true;
+        document.getElementById('waveformContainer').classList.add('playing');
+        document.getElementById('masterToggleBtn').textContent = '⏸ พักเสียงสาธิต';
+        document.getElementById('playerStatusBadge').textContent = 'กำลังเล่นตัวอย่างเสียง';
+        const scale = [1, 1.25, 1.5, 1.25, 1.33, 1.5, 1.125, 1];
+        let step = 0;
+        demoInterval = setInterval(() => {
+          if (!isPlaying) return;
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(baseFreq * scale[step % scale.length], audioCtx.currentTime);
+          gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.32);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start();
+          osc.stop(audioCtx.currentTime + 0.34);
+          step++;
+        }, 360);
+      } catch (e) {
+        showToast('เบราว์เซอร์พร้อมเล่นเสียงเมื่อคลิก');
+      }
+    }
+
+    function stopSynth() {
+      isPlaying = false;
+      if (demoInterval) clearInterval(demoInterval);
+      document.getElementById('waveformContainer').classList.remove('playing');
+      document.getElementById('masterToggleBtn').textContent = '▶ เล่นเสียงสาธิต';
+      document.getElementById('playerStatusBadge').textContent = 'พักเสียงชั่วคราว';
+    }
+
+    let musicRefFiles = [];
+    let musicSlipFile = '';
+
+    function handleMusicRefFiles(files) {
+      const grid = document.getElementById('musicRefGrid');
+      Array.from(files).forEach(f => {
+        musicRefFiles.push(f.name);
+        const div = document.createElement('div');
+        div.className = 'preview-item';
+        div.textContent = `📎 ${f.name}`;
+        grid.appendChild(div);
+      });
+      updateMusicSummary();
+      showToast(`แนบไฟล์อ้างอิง ${files.length} รายการแล้ว`);
+    }
+
+    function handleMusicSlip(files) {
+      if (files && files[0]) {
+        musicSlipFile = files[0].name;
+        document.getElementById('musicSlipStatus').textContent = `✓ แนบสลิปโอนเงิน: ${musicSlipFile} เรียบร้อยแล้ว`;
+        updateMusicSummary();
+        showToast('แนบสลิปโอนเงินค่าทำเพลงแล้ว');
+      }
+    }
+
+    function selectMusicService(name, price) {
+      const sel = document.getElementById('musicServiceSelect');
+      for (let i = 0; i < sel.options.length; i++) {
+        if (Number(sel.options[i].value) === price) {
+          sel.selectedIndex = i;
+          break;
+        }
+      }
+      recalculateMusicPrice();
+      document.getElementById('music-order').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function recalculateMusicPrice() {
+      const sel = document.getElementById('musicServiceSelect');
+      const opt = sel.options[sel.selectedIndex];
+      const total = Number(opt.value) || 990;
+      const name = opt.dataset.name || opt.text;
+      const payOpt = document.querySelector('input[name="musicPayOption"]:checked').value;
+      const payNow = payOpt === 'deposit50' ? Math.ceil(total * 0.5) : total;
+
+      document.getElementById('sumMusicName').textContent = name;
+      document.getElementById('sumMusicTotal').textContent = `${total.toLocaleString()} บาท`;
+      document.getElementById('sumMusicPayLabel').textContent = payOpt === 'deposit50' ? 'ยอดโอนมัดจำเริ่มงาน (50%):' : 'ยอดชำระเต็มจำนวน (100%):';
+      document.getElementById('sumMusicPayNow').textContent = `${payNow.toLocaleString()} บาท`;
+      document.getElementById('musicPaidAmount').value = payNow;
+      updateMusicSummary();
+    }
+
+    function updateMusicSummary() {
+      const sel = document.getElementById('musicServiceSelect');
+      const name = sel.options[sel.selectedIndex].dataset.name;
+      const genre = document.getElementById('musicGenre').value;
+      const vocal = document.getElementById('vocalType').value;
+      const story = document.getElementById('songStory').value.trim() || '-';
+      const refLink = document.getElementById('refLink').value.trim() || '-';
+      const total = document.getElementById('sumMusicTotal').textContent;
+      const payOpt = document.querySelector('input[name="musicPayOption"]:checked').value === 'deposit50' ? 'มัดจำ 50%' : 'ชำระเต็ม 100%';
+      const paidAmt = document.getElementById('musicPaidAmount').value;
+      const paidTime = document.getElementById('musicPaidTime').value.trim() || '(รอระบุเวลาโอน)';
+      const slip4 = document.getElementById('musicSlip4').value.trim() || 'xxxx';
+      const custName = document.getElementById('musicCustName').value.trim() || '(ระบุชื่อ)';
+      const custPhone = document.getElementById('musicCustPhone').value.trim() || '(ระบุเบอร์โทร)';
+      const refs = musicRefFiles.length ? musicRefFiles.join(', ') : 'พร้อมส่งในแชท LINE';
+
+      const text = [
+        `🎵 ใบสั่งทำเพลง MIX IMAGE ART&AUDIO`,
+        `• บริการ: ${name}`,
+        `• แนวเพลง: ${genre} | เสียงร้อง: ${vocal}`,
+        `• เรื่องราว/คำสำคัญในเพลง: ${story}`,
+        `• ลิงก์อ้างอิง: ${refLink} | ไฟล์แนบ: ${refs}`,
+        `• ยอดรวม: ${total} (${payOpt})`,
+        `• ยืนยันโอนแล้ว: ${paidAmt} บาท (เวลา ${paidTime} | ท้ายสลิป ${slip4})`,
+        `• ผู้สั่งทำ: ${custName} (โทร/LINE: ${custPhone})`
+      ].join('\n');
+
+      document.getElementById('generatedMusicText').value = text;
+    }
+
+    ['songStory', 'refLink', 'musicPaidAmount', 'musicPaidTime', 'musicSlip4', 'musicCustName', 'musicCustPhone'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('input', updateMusicSummary);
+    });
+
+    function handleMusicOrderSubmit(e) {
+      e.preventDefault();
+      updateMusicSummary();
+      const b = document.getElementById('musicBadge');
+      b.textContent = '✓ ยืนยันมัดจำแล้ว พร้อมส่ง LINE';
+      b.style.color = '#15803d';
+      copyText(document.getElementById('generatedMusicText').value, 'บันทึกบรีฟเพลงและคัดลอกข้อความแล้ว! ส่งในแชท LINE: miximage ได้เลย');
+    }
+
+    function copyMusicAndOpenLine() {
+      updateMusicSummary();
+      copyText(document.getElementById('generatedMusicText').value, 'คัดลอกบรีฟเพลงแล้ว กำลังเปิดแชท LINE: miximage...');
+      setTimeout(() => {
+        window.open('https://line.me/ti/p/~miximage', '_blank', 'noopener');
+      }, 450);
+    }
+
+    function copyText(text, toastMsg) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => showToast(toastMsg));
+      }
+    }
+
+    function showToast(msg) {
+      const banner = document.getElementById('toastBanner');
+      document.getElementById('toastText').textContent = msg;
+      banner.classList.add('show');
+      setTimeout(() => banner.classList.remove('show'), 3400);
+    }
+
+    recalculateMusicPrice();
+  </script>
+</body>
+</html>

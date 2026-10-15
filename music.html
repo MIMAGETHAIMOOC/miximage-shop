@@ -1,698 +1,1371 @@
 <!DOCTYPE html>
-<html lang="th" class="scroll-smooth">
+<html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>สตูดิโอเพลง AI เชิงพาณิชย์ &amp; DSP Mastering | MIX-IMAGE™ Sound Engine</title>
-<meta name="description" content="ผลิตเพลงโฆษณา เพลงแบรนด์ และท่อนฮุกไวรัล TikTok/Reels ด้วย Suno v6.8 Pro ร่วมกับ ZeroDay DSP Mastering ลิขสิทธิ์ขาดเชิงพาณิชย์ 100% โดย มิก ณัฐนนท์ MIX-IMAGE บรบือ มหาสารคาม">
-<link rel="canonical" href="https://miximage.shop/music.html">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://miximage.shop/music.html">
-<meta property="og:title" content="สตูดิโอเพลง AI เชิงพาณิชย์ &amp; DSP Mastering | MIX-IMAGE™">
-<meta property="og:description" content="เปลี่ยนวิสัยทัศน์สินค้าเป็นเพลงโฆษณาฮิตระดับบรอดคาสต์ มาสเตอร์ริ่งมาตรฐานสตรีมมิ่ง สิทธิ์ขาด 100%">
-<meta property="og:image" content="https://miximage.shop/assets/images/card-audio.jpg">
-<link rel="icon" href="assets/images/mark-light.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Syncopate:wght@700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/base.css">
-<link rel="stylesheet" href="assets/css/ui.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ร้านสร้างภาพ (MIX IMAGE ART&amp;AUDIO) | บริการรับทำเพลงและดนตรีประกอบ AI เชิงพาณิชย์ 100%</title>
+  <meta name="description" content="หน้าที่ 2 บริการรับทำเพลงและดนตรีประกอบด้วย AI เชิงพาณิชย์ 100% เพลงโฆษณาแบรนด์ เพลงของขวัญโอกาสพิเศษ และบริการ AI Audio Mastering 24-bit เชื่อมต่อ LINE: miximage">
+  <link rel="canonical" href="https://miximage.shop/music.html">
+  <link rel="icon" type="image/png" href="assets/images/mark-light.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg-obsidian: #050508;
+  --bg-deep: #090a10;
+  --glass-bg: linear-gradient(135deg, rgba(241, 245, 249, 0.90) 0%, rgba(203, 213, 225, 0.85) 55%, rgba(226, 232, 240, 0.88) 100%);
+  --glass-bg-hover: linear-gradient(135deg, rgba(248, 250, 252, 0.95) 0%, rgba(214, 222, 235, 0.92) 100%);
+  --glass-bg-strong: linear-gradient(135deg, rgba(241, 245, 249, 0.95) 0%, rgba(203, 213, 225, 0.92) 100%);
+  --glass-border: rgba(255, 255, 255, 0.82);
+  --glass-border-highlight: #ffffff;
+  --glass-shadow: 0 20px 48px rgba(0, 0, 0, 0.75), inset 0 1px 2px rgba(255, 255, 255, 0.95), inset 0 -1px 1px rgba(148, 163, 184, 0.35);
+  --text-primary: #090a0f;
+  --text-secondary: #1e293b;
+  --text-muted: #334155;
+  --accent-purple: #7c3aed;
+  --accent-indigo: #4f46e5;
+  --accent-cyan: #0284c7;
+  --accent-gold: #b45309;
+  --accent-gold-soft: rgba(245, 158, 11, 0.16);
+  --line-green: #06c755;
+  --line-green-hover: #05b04a;
+  --danger: #ef4444;
+  --success: #15803d;
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 26px;
+  --radius-pill: 999px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-obsidian);
+  color: var(--text-primary);
+  font-family: 'Sarabun', 'Anuphan', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--bg-obsidian);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Ambient glowing background orbs */
+.ambient-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 12% 14%, rgba(139, 92, 246, 0.18) 0%, transparent 38%),
+    radial-gradient(circle at 86% 20%, rgba(6, 182, 212, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 75% 68%, rgba(245, 158, 11, 0.12) 0%, transparent 42%),
+    radial-gradient(circle at 20% 82%, rgba(6, 199, 85, 0.10) 0%, transparent 40%),
+    linear-gradient(180deg, #040407 0%, #090b12 50%, #040407 100%);
+}
+
+.ambient-grid {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(circle at 50% 35%, black 30%, transparent 85%);
+}
+
+/* Frosted Matte Glass Utility */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(22px) saturate(165%);
+  -webkit-backdrop-filter: blur(22px) saturate(165%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--radius-md);
+  transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+}
+
+.glass-panel:hover {
+  border-color: var(--glass-border-highlight);
+}
+
+.glass-card-interactive:hover {
+  transform: translateY(-4px);
+  background: var(--glass-bg-hover);
+  border-color: rgba(6, 182, 212, 0.55);
+}
+
+.glass-pill {
+  background: linear-gradient(135deg, rgba(248, 250, 252, 0.90), rgba(203, 213, 225, 0.85));
+  color: #090a0f;
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: var(--radius-pill);
+}
+
+.container {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Sticky Top Navigation */
+.site-header {
+  position: sticky;
+  top: 14px;
+  z-index: 50;
+  margin: 14px auto 0;
+  max-width: 1220px;
+  padding: 0 20px;
+}
+
+.navbar-glass {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 22px;
+  background: linear-gradient(135deg, rgba(241, 245, 249, 0.92) 0%, rgba(203, 213, 225, 0.88) 100%);
+  backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.brand-logo-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  flex-shrink: 0;
+  background: #090a10;
+}
+
+.brand-text-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  line-height: 1.2;
+  color: #090a0f;
+}
+
+.brand-sub {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  letter-spacing: 0.3px;
+}
+
+.page-switcher {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px;
+  background: rgba(226, 232, 240, 0.88);
+  color: #090a0f;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: var(--radius-pill);
+}
+
+.page-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.page-tab:hover {
+  color: #090a0f;
+  background: #ffffff;
+}
+
+.page-tab.active {
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.25), rgba(124, 58, 237, 0.22));
+  color: #090a0f;
+  border: 1px solid rgba(2, 132, 199, 0.55);
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.2);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.18s ease;
+}
+
+.nav-links a:hover {
+  color: #090a0f;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 22px;
+  border-radius: var(--radius-pill);
+  font-size: 14.5px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.btn-line {
+  background: linear-gradient(135deg, #06c755 0%, #049f43 100%);
+  color: #ffffff !important;
+  box-shadow: 0 8px 24px rgba(6, 199, 85, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.btn-line:hover {
+  background: linear-gradient(135deg, #07d65c 0%, #05b04a 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(6, 199, 85, 0.48);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #0284c7 0%, #7c3aed 100%);
+  color: #ffffff !important;
+  box-shadow: 0 8px 26px rgba(2, 132, 199, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 32px rgba(2, 132, 199, 0.52);
+}
+
+.btn-glass {
+  background: linear-gradient(135deg, rgba(248, 250, 252, 0.90), rgba(203, 213, 225, 0.85));
+  color: #090a0f;
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.btn-glass:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+}
+
+/* Sections */
+section {
+  padding: 68px 0;
+  scroll-margin-top: 96px;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 44px;
+  background: linear-gradient(135deg, rgba(241, 245, 249, 0.90) 0%, rgba(203, 213, 225, 0.85) 100%);
+  backdrop-filter: blur(22px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.72), inset 0 1px 2px rgba(255, 255, 255, 0.95);
+  border-radius: 24px;
+  padding: 28px 32px;
+  color: #090a0f;
+}
+
+.eyebrow-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #090a0f;
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-size: clamp(26px, 3.5vw, 38px);
+  font-weight: 800;
+  line-height: 1.28;
+  margin-bottom: 12px;
+  color: #090a0f !important;
+}
+
+.section-desc {
+  color: var(--text-secondary);
+  font-size: 16px;
+}
+
+/* Hero Audio */
+.hero-audio {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 32px;
+  align-items: center;
+  padding-top: 28px;
+}
+
+.hero-audio > div:first-child {
+  background: linear-gradient(135deg, rgba(241, 245, 249, 0.90) 0%, rgba(203, 213, 225, 0.85) 100%);
+  backdrop-filter: blur(22px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.72), inset 0 1px 2px rgba(255, 255, 255, 0.95);
+  border-radius: 24px;
+  padding: 28px 32px;
+  color: #090a0f;
+}
+
+.hero-title {
+  font-size: clamp(30px, 4.2vw, 46px);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  color: #090a0f;
+}
+
+.text-gradient-audio {
+  background: linear-gradient(135deg, #0284c7 0%, #7c3aed 55%, #e11d48 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.hero-logo-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.hero-logo-banner img {
+  width: 76px;
+  height: 76px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+  background: #090a10;
+}
+
+/* Track list and player */
+.track-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(241, 245, 249, 0.90);
+  color: #090a0f;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.track-item:hover, .track-item.active {
+  background: #ffffff;
+  border-color: rgba(2, 132, 199, 0.7);
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.15);
+}
+
+.play-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0284c7, #7c3aed);
+  color: #ffffff !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.waveform-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  height: 46px;
+  padding: 6px 0;
+}
+
+.wave-bar {
+  flex: 1;
+  background: linear-gradient(180deg, #0284c7, #7c3aed);
+  border-radius: 99px;
+  height: 25%;
+  transition: height 0.18s ease;
+}
+
+.playing .wave-bar {
+  animation: pulseWave 0.75s infinite ease-in-out alternate;
+}
+
+@keyframes pulseWave {
+  0% { height: 18%; opacity: 0.65; }
+  100% { height: 95%; opacity: 1; }
+}
+
+/* Service Card */
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.audio-service-card {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.audio-service-thumb {
+  height: 140px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.audio-service-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.audio-service-card:hover .audio-service-thumb img {
+  transform: scale(1.05);
+}
+
+/* Order Form */
+.order-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.step-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0284c7, #7c3aed);
+  color: #ffffff !important;
+  font-size: 13px;
+  font-weight: 700;
+  margin-right: 8px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-label {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #090a0f;
+  margin-bottom: 7px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 15px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #090a0f;
+  border: 1px solid rgba(100, 116, 139, 0.45);
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 14.5px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.22);
+}
+
+.upload-dropzone {
+  border: 1.5px dashed rgba(2, 132, 199, 0.45);
+  background: rgba(2, 132, 199, 0.05);
+  border-radius: 16px;
+  padding: 20px 18px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.upload-dropzone:hover {
+  border-color: var(--accent-purple);
+  background: rgba(124, 58, 237, 0.08);
+}
+
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.preview-item {
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.95);
+  padding: 8px 10px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Toast */
+.toast-banner {
+  position: fixed;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%) translateY(120px);
+  z-index: 120;
+  padding: 13px 24px;
+  border-radius: var(--radius-pill);
+  background: rgba(12, 16, 28, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(6, 199, 85, 0.55);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toast-banner.show {
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Floating LINE */
+.floating-line {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: var(--radius-pill);
+  background: rgba(6, 199, 85, 0.92);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff !important;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 14px 34px rgba(6, 199, 85, 0.42);
+  transition: all 0.2s ease;
+}
+
+.floating-line:hover {
+  transform: translateY(-3px) scale(1.02);
+  background: #06c755;
+}
+
+/* Footer */
+.site-footer {
+  padding: 56px 0 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(3, 4, 8, 0.88);
+  backdrop-filter: blur(20px);
+  position: relative;
+  z-index: 2;
+}
+
+.site-footer .container {
+  background: linear-gradient(135deg, rgba(241, 245, 249, 0.90) 0%, rgba(203, 213, 225, 0.85) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  padding: 22px 30px;
+  color: #090a0f;
+}
+
+@media (max-width: 980px) {
+  .hero-audio, .order-layout {
+    grid-template-columns: 1fr;
+  }
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .nav-links {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+  .navbar-glass {
+    flex-wrap: wrap;
+    border-radius: 22px;
+  }
+}
+  </style>
 </head>
 <body>
-<a class="skip" href="#main">ข้ามไปยังเนื้อหาหลัก</a>
+  <div class="ambient-canvas"></div>
+  <div class="ambient-grid"></div>
 
-<!-- =====================================================================
-     HEADER (Glass Navbar)
-     ===================================================================== -->
-<header class="hdr" id="site-header">
-  <div class="wrap">
-    <a class="mark" href="index.html" aria-label="MIX-IMAGE หน้าแรก">
-      <img src="assets/images/mark-light.png" alt="" width="30" height="22">
-      <b>MIX-IMAGE</b>
-    </a>
+  <!-- Top Navigation -->
+  <header class="site-header">
+    <nav class="navbar-glass" aria-label="เมนูหลัก">
+      <a href="index.html" class="brand-lockup">
+        <img src="assets/images/logo-3d.png" alt="โลโก้ MIX IMAGE ART&amp;AUDIO" class="brand-logo-img">
+        <div class="brand-text-wrap">
+          <span class="brand-title">MIX IMAGE ART&amp;AUDIO</span>
+          <span class="brand-sub">ร้านสร้างภาพ • สตูดิโอรับทำเพลงและดนตรีประกอบเชิงพาณิชย์ 100%</span>
+        </div>
+      </a>
 
-    <nav aria-label="เมนูหลัก">
-      <ul class="nav">
-        <li><a href="index.html">หน้าแรก</a></li>
-        <li><a href="image.html">งานภาพ &amp; รีทัช</a></li>
-        <li><a href="music.html" aria-current="page">สตูดิโอเพลง AI</a></li>
-        <li><a href="#player">เครื่องเล่นตัวอย่าง</a></li>
-        <li><a href="#mastering">DSP มาสเตอร์ริ่ง</a></li>
-        <li><a href="#pricing">แพ็กเกจราคา</a></li>
-        <li><a href="#brief">ส่งบรีฟงาน</a></li>
-      </ul>
+      <!-- 2-Page Switcher -->
+      <div class="page-switcher" role="navigation" aria-label="สลับหน้าบริการ">
+        <a href="index.html" class="page-tab">
+          <span>🖼️</span> หน้าที่ 1: งานภาพ &amp; กรอบรูปมงคล
+        </a>
+        <a href="miximage_audio_studio.html" class="page-tab active" aria-current="page">
+          <span>🎵</span> หน้าที่ 2: บริการรับทำเพลง AI
+        </a>
+      </div>
+
+      <div class="nav-links">
+        <a href="#audio-showcase">ฟังเพลงตัวอย่าง</a>
+        <a href="#music-services">บริการรับทำเพลง</a>
+        <a href="#engineering">มาตรฐานเสียง</a>
+        <a href="#music-order">บรีฟเพลง/แจ้งมัดจำ</a>
+      </div>
+
+      <a href="#music-order" class="btn btn-line">
+        <span>💬</span> สั่งทำเพลง / เชื่อมต่อ LINE
+      </a>
     </nav>
+  </header>
 
-    <div class="hdr-r">
-      <a class="txt" href="https://line.me/ti/p/~miximage" target="_blank" rel="noopener">LINE: miximage</a>
-      <a class="btn btn-chrome btn-sm" href="#brief">ส่งบรีฟเพลงด่วน →</a>
-      <button class="burger" id="hamburger-btn" aria-label="เปิดเมนู" aria-expanded="false" aria-controls="mobile-nav">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
-    </div>
-  </div>
-</header>
-
-<!-- Mobile Drawer -->
-<div class="drawer" id="mobile-nav" role="dialog" aria-modal="true" aria-label="เมนูนำทาง">
-  <div class="drawer-top">
-    <span class="label">Navigation</span>
-    <button class="burger" id="mobile-close" style="display:grid" aria-label="ปิดเมนู">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg>
-    </button>
-  </div>
-  <a class="big" href="index.html">หน้าแรก <span>00</span></a>
-  <a class="big" href="image.html">งานภาพ &amp; รีทัช <span>01</span></a>
-  <a class="big" href="music.html">สตูดิโอเพลง AI <span>02</span></a>
-  <a class="big" href="#player">ฟังเพลงตัวอย่าง <span>03</span></a>
-  <a class="big" href="#pricing">แพ็กเกจราคา <span>04</span></a>
-  <a class="big" href="#brief">ส่งบรีฟงาน <span>05</span></a>
-</div>
-
-<main id="main">
-
-  <!-- =====================================================================
-       HERO SECTION (Music Studio)
-       ===================================================================== -->
-  <section class="hero compact" aria-labelledby="music-hero-title">
-    <div class="hero-side t" aria-hidden="true">
-      COMMERCIAL SOUND.<br>BROADCAST READY.<br>ZERO PLAGIARISM.
-    </div>
-    <div class="hero-side b" aria-hidden="true">
-      48kHz / 24-BIT<br>LOSSLESS MASTER.<br>100% OWNERSHIP.
-    </div>
-
-    <!-- 3D Chrome Floating Audio Waveform Artwork -->
-    <div class="hero-art" aria-hidden="true">
-      <img src="assets/images/card-audio.jpg" alt="" width="1024" height="768">
-    </div>
-
-    <div class="wrap">
-      <div class="hero-copy rv in">
-        <span class="label">COMMERCIAL SOUND ENGINE &amp; DSP MASTERING</span>
-        <h1 id="music-hero-title" class="wordmark chrome">MUSIC ENGINE</h1>
-        <p class="h1">สตูดิโอผลิตเพลง AI เชิงพาณิชย์ 100% ลิขสิทธิ์ขาด</p>
-        <p class="lead">
-          เปลี่ยนจุดขายสินค้า เรื่องราวแบรนด์ หรือแคมเปญการตลาด เป็นท่อนฮุกไวรัลและเพลงโฆษณาติดหูระดับสตรีมมิ่ง ขับเคลื่อนด้วยสถาปัตยกรรม Suno v6.8 Pro ร่วมกับแร็ค ZeroDay Multi-AI DSP มาสเตอร์ริ่งความดังถูกต้องตามข้อกำหนด Spotify, Apple Music, TikTok และ YouTube ไร้ปัญหาเสียงแตกหรือโดนลดระดับเสียง
+  <main id="top" class="container">
+    <!-- HERO AUDIO SECTION -->
+    <section class="hero-audio">
+      <div>
+        <div class="glass-pill eyebrow-badge">
+          <span style="color:#0284c7;">●</span> หน้าที่ 2: สตูดิโอเพลงและเสียง • ลิขสิทธิ์เชิงพาณิชย์ 100% • ไม่มีรายเดือน
+        </div>
+        <div class="hero-logo-banner">
+          <img src="assets/images/logo-3d.png" alt="MIX IMAGE ART&amp;AUDIO 3D Logo">
+          <div>
+            <div style="font-size:14px; font-weight:700; color:#4c1d95;">ร้านสร้างภาพ (MIX IMAGE ART&amp;AUDIO)</div>
+            <div style="font-size:12.5px; color:#334155;">สตูดิโอภาพถ่าย งานพิมพ์ และเสียงเชิงพาณิชย์ อ.บรบือ จ.มหาสารคาม</div>
+          </div>
+        </div>
+        <h1 class="hero-title">
+          MIX IMAGE ART&amp;AUDIO<br><span style="font-size:0.68em; font-weight:700;">รับทำเพลงและดนตรีประกอบ</span><br>
+          <span class="text-gradient-audio">สร้างเอกลักษณ์เสียงให้แบรนด์และคนพิเศษ</span>
+        </h1>
+        <p style="font-size: 16px; color: var(--text-secondary); margin-bottom: 20px;">
+          บริการแต่งเนื้อร้อง ออกแบบโครงสร้างดนตรีด้วยเทคโนโลยี Generative AI ระดับสตูดิโอ (Suno v6 Pro Architecture) พร้อมปรับแต่งคุณภาพเสียง <strong>AI Audio Mastering 24-bit / 44.1kHz</strong> ส่งมอบสิทธิ์ใช้งานเชิงพาณิชย์ 100% สำหรับโฆษณา ร้านค้า ครีเอเตอร์ และเพลงของขวัญโอกาสพิเศษ
         </p>
 
-        <div class="hero-btns">
-          <a class="btn btn-chrome" href="#brief">กรอกบรีฟเพลงออนไลน์ →</a>
-          <a class="btn btn-ghost" href="#player">
-            <span class="play" aria-hidden="true"><svg viewBox="0 0 10 10" fill="currentColor"><path d="M2 1l7 4-7 4V1z"/></svg></span>
-            ฟังเพลงตัวอย่าง "Glow Up"
+        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:26px;">
+          <span class="glass-pill" style="padding:7px 14px; font-size:13px;">🎼 แต่งเนื้อร้องไทย/อังกฤษเฉพาะคุณ</span>
+          <span class="glass-pill" style="padding:7px 14px; font-size:13px;">🛡️ ลิขสิทธิ์เชิงพาณิชย์ 100% ไม่ติดเคลม</span>
+          <span class="glass-pill" style="padding:7px 14px; font-size:13px;">🎚️ Mastering 24-bit WAV + MP3</span>
+        </div>
+
+        <div style="display:flex; flex-wrap:wrap; gap:14px;">
+          <a href="#music-order" class="btn btn-line" style="padding:14px 26px; font-size:15.5px;">
+            🎙️ ส่งบรีฟเพลง &amp; ยืนยันมัดจำผ่าน LINE
+          </a>
+          <a href="#music-services" class="btn btn-glass" style="padding:14px 22px;">
+            ดูราคาบริการรับทำเพลง
+          </a>
+          <a href="index.html" class="btn btn-glass" style="padding:14px 22px; border-color:rgba(245,158,11,0.5);">
+            ← กลับไปหน้าที่ 1: งานภาพ &amp; กรอบรูปมงคล
           </a>
         </div>
+      </div>
 
-        <div class="trusted">
-          <span class="label">มาตรฐานการส่งมอบระดับสากล</span>
-          <ul>
-            <li>SUNO v6.8 PRO</li>
-            <li>ZERODAY DSP</li>
-            <li>SPOTIFY -14 LUFS</li>
-            <li>TIKTOK -9 LUFS</li>
-            <li>FULL COMMERCIAL RIGHTS</li>
-          </ul>
+      <!-- Interactive Studio Audio Showcase Player -->
+      <div class="glass-panel" id="audio-showcase" style="padding: 26px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+          <div>
+            <span style="font-size:12px; color:#0369a1; font-weight:700;">สตูดิโอทดลองฟังตัวอย่างเพลงและเสียง</span>
+            <h2 style="font-size:18.5px; font-weight:700;" id="nowPlayingTitle">1. เพลงโฆษณาแบรนด์สดใส (เพลงสั้นประจำร้าน)</h2>
+          </div>
+          <span id="playerStatusBadge" class="glass-pill" style="padding:4px 12px; font-size:12px; color:#0369a1;">พร้อมเล่นตัวอย่าง</span>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- =====================================================================
-       STATS BAR (4 Audio Metrics)
-       ===================================================================== -->
-  <section class="stats" aria-label="สถิติและมาตรฐานสตูดิโอเสียง">
-    <div class="stat rv in">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-      <div>
-        <b>−14 LUFS</b>
-        <span class="label">Streaming Master Spec</span>
-        <p>ระดับความดังมาตรฐาน Spotify, Apple Music, YouTube</p>
-      </div>
-    </div>
-    <div class="stat rv in">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18V5l12-2v13M9 18a3 3 0 11-6 0 3 3 0 016 0zm12-2a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-      <div>
-        <b>−9 ถึง −11</b>
-        <span class="label">Punchy TikTok / Reels</span>
-        <p>อัดแน่นด้วยพลังเสียง ชัดเจนผ่านลำโพงสมาร์ตโฟน</p>
-      </div>
-    </div>
-    <div class="stat rv in">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19h16M7 15l4-8 4 6 3-2"/></svg>
-      <div>
-        <b>24-bit / 48kHz</b>
-        <span class="label">Lossless Master Deliverable</span>
-        <p>ส่งมอบไฟล์ WAV ไม่บีบอัด พร้อมไฟล์ MP3 320kbps</p>
-      </div>
-    </div>
-    <div class="stat rv in">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      <div>
-        <b>100%</b>
-        <span class="label">ลิขสิทธิ์ขาดเชิงพาณิชย์</span>
-        <p>ถือครองสิทธิ์เต็ม นำไปยิงแอดและสร้างรายได้ถาวร</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- =====================================================================
-       INTERACTIVE AUDIO PLAYER (Showcasing "Glow Up")
-       ===================================================================== -->
-  <section class="sec" id="player" aria-labelledby="sec-player-title">
-    <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <span class="label">MASTERED AUDIO SHOWCASE</span>
-          <h2 id="sec-player-title" class="h2">ทดลองฟังคุณภาพเสียงระดับ Broadcast Master</h2>
-        </div>
-        <div class="aside">RADIO &amp; STREAMING READY.<br>TRUE PEAK −1.0 dBTP.</div>
-      </div>
-
-      <!-- Main Interactive Player Card -->
-      <div class="glass player-box rv in" id="music-player-box">
-        <div class="player-top">
-          <div class="player-track">
-            <button class="player-btn" id="demo-audio-play" aria-label="เล่นตัวอย่างเพลง">
-              <svg id="demo-play-icon" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M8 5v14l11-7z"/>
-              </svg>
+        <!-- Waveform Visualizer Box -->
+        <div class="glass-panel" id="waveformContainer" style="padding:16px 20px; background:rgba(226,232,240,0.85); border: 1px solid rgba(148,163,184,0.5); margin-bottom:16px;">
+          <div class="waveform-bars" id="waveformBars">
+            <div class="wave-bar" style="animation-delay:0.05s; height:35%"></div>
+            <div class="wave-bar" style="animation-delay:0.15s; height:65%"></div>
+            <div class="wave-bar" style="animation-delay:0.25s; height:45%"></div>
+            <div class="wave-bar" style="animation-delay:0.10s; height:85%"></div>
+            <div class="wave-bar" style="animation-delay:0.35s; height:50%"></div>
+            <div class="wave-bar" style="animation-delay:0.20s; height:90%"></div>
+            <div class="wave-bar" style="animation-delay:0.40s; height:40%"></div>
+            <div class="wave-bar" style="animation-delay:0.12s; height:75%"></div>
+            <div class="wave-bar" style="animation-delay:0.28s; height:60%"></div>
+            <div class="wave-bar" style="animation-delay:0.08s; height:95%"></div>
+            <div class="wave-bar" style="animation-delay:0.32s; height:55%"></div>
+            <div class="wave-bar" style="animation-delay:0.18s; height:80%"></div>
+            <div class="wave-bar" style="animation-delay:0.22s; height:45%"></div>
+            <div class="wave-bar" style="animation-delay:0.14s; height:70%"></div>
+            <div class="wave-bar" style="animation-delay:0.30s; height:38%"></div>
+            <div class="wave-bar" style="animation-delay:0.06s; height:88%"></div>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px; font-size:12px; color:var(--text-muted); flex-wrap:wrap; gap:8px;">
+            <span id="nowPlayingMeta">แนวเพลง: ป๊อปโฆษณาติดหู • จังหวะ 120 BPM • มาสเตอริง 24-bit</span>
+            <button type="button" id="masterToggleBtn" class="btn btn-primary" style="padding:6px 16px; font-size:12.5px;" onclick="togglePreviewSynth()">
+              ▶ เล่นเสียงสาธิต
             </button>
-            <div class="player-info">
-              <h3>Glow Up (รักตัวเองให้สุดทาง)</h3>
-              <p>Modern Energetic Thai Pop Hip-hop • 104 BPM • Key: E Major</p>
-            </div>
-          </div>
-
-          <div class="player-badges">
-            <span class="player-badge">Suno v6.8 Pro</span>
-            <span class="player-badge">ZeroDay DSP</span>
-            <span class="player-badge">−11.2 LUFS</span>
-            <span class="player-badge">Originality 96%</span>
           </div>
         </div>
 
-        <!-- Animated Waveform Bars -->
-        <div class="waveform-bars" aria-hidden="true">
-          <span class="wave-bar" style="height:35%;animation-delay:-.2s;"></span>
-          <span class="wave-bar" style="height:60%;animation-delay:-.5s;"></span>
-          <span class="wave-bar" style="height:85%;animation-delay:-.8s;"></span>
-          <span class="wave-bar" style="height:45%;animation-delay:-.3s;"></span>
-          <span class="wave-bar" style="height:90%;animation-delay:-1.1s;"></span>
-          <span class="wave-bar" style="height:75%;animation-delay:-.6s;"></span>
-          <span class="wave-bar" style="height:100%;animation-delay:-.9s;"></span>
-          <span class="wave-bar" style="height:65%;animation-delay:-.4s;"></span>
-          <span class="wave-bar" style="height:50%;animation-delay:-.7s;"></span>
-          <span class="wave-bar" style="height:80%;animation-delay:-1.0s;"></span>
-          <span class="wave-bar" style="height:95%;animation-delay:-.2s;"></span>
-          <span class="wave-bar" style="height:40%;animation-delay:-.5s;"></span>
-          <span class="wave-bar" style="height:70%;animation-delay:-.8s;"></span>
-          <span class="wave-bar" style="height:85%;animation-delay:-.3s;"></span>
-          <span class="wave-bar" style="height:55%;animation-delay:-.6s;"></span>
-          <span class="wave-bar" style="height:90%;animation-delay:-.9s;"></span>
-          <span class="wave-bar" style="height:75%;animation-delay:-.1s;"></span>
-          <span class="wave-bar" style="height:100%;animation-delay:-.7s;"></span>
-          <span class="wave-bar" style="height:60%;animation-delay:-.4s;"></span>
-          <span class="wave-bar" style="height:85%;animation-delay:-1.0s;"></span>
-          <span class="wave-bar" style="height:40%;animation-delay:-.3s;"></span>
-          <span class="wave-bar" style="height:95%;animation-delay:-.8s;"></span>
-          <span class="wave-bar" style="height:70%;animation-delay:-.5s;"></span>
-          <span class="wave-bar" style="height:50%;animation-delay:-.2s;"></span>
-          <span class="wave-bar" style="height:80%;animation-delay:-.6s;"></span>
-          <span class="wave-bar" style="height:65%;animation-delay:-.9s;"></span>
-          <span class="wave-bar" style="height:90%;animation-delay:-.4s;"></span>
-          <span class="wave-bar" style="height:45%;animation-delay:-.7s;"></span>
-        </div>
-
-        <!-- Timeline & Progress -->
-        <div class="player-timeline">
-          <span id="demo-audio-current">0:00</span>
-          <div class="progress-bar">
-            <div class="progress-fill" id="demo-audio-progress"></div>
-          </div>
-          <span id="demo-audio-total">3:08</span>
-        </div>
-
-        <!-- Optional Audio Element Hook -->
-        <audio id="demo-audio-element" preload="none"></audio>
-
-        <!-- Production Parameters & Lyrics Drawer -->
-        <div class="lyric-card">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;border-bottom:1px solid var(--line);padding-bottom:8px;flex-wrap:wrap;gap:10px;">
-            <span class="label">PRODUCTION ARCHITECTURE &amp; LYRICS</span>
-            <span style="font-family:var(--f-mono);font-size:12px;color:var(--muted);">Suno Style: Modern Energetic Thai Pop Hip-Hop</span>
-          </div>
-          <pre><code><span class="tag">[Style Prompt]</span> Modern energetic Thai pop hip-hop, bright melodic synth plucks, warm punchy 808 bassline, crisp trap hi-hats, uplifting rhythm guitar, confident youthful pop vocals, dynamic hook, radio mix, high energy, hopeful, clear master
-
-<span class="tag">[Intro: Bright synth chime, punchy 808 groove, vinyl stop]</span>
-(Yeah, it's my time now)
-(Watch me shine, let's go)
-
-<span class="tag">[Verse 1: Modern pop vocal, laid-back melodic bounce]</span>
-เคยมีวันที่ล้มลงไป / มองรอบตัวไม่เหลือใครใคร
-ฝนตกพรำในใจทุกวัน / เก็บความฝันซ่อนไว้ข้างใน
-แต่วันนี้ฉันจะไม่ยอม / พร้อมจะลุกและก้าวต่อไป
-บอกตัวเองว่าพร้อมลุยงาน / เปิดประตูรับแสงตะวัน
-
-<span class="tag">[Pre-Chorus: Building energy, rising snare roll]</span>
-รอยแผลเดิมสอนให้เข้าใจ / ชีวิตเราต้องไปข้างหน้า
-ไม่ต้องรอให้ใครเมตตา / กอดตัวเองแล้วยิ้มออกมา
-
-<span class="tag">[Chorus: Explosive hook, driving beat, uplifting anthemic feel]</span>
-I love myself, I'm shining bright / รักตัวเองไม่กลัวสิ่งใด
-ทุกอุปสรรคที่ขวางทางเดิน / จะก้าวข้ามไปด้วยรอยยิ้ม
-I fly so high into the sky / คว้าดวงดาวที่เคยใฝ่ฝัน
-นี่คือชีวิตที่เป็นของฉัน / ไม่มีวันจะยอมถอยไป!
-
-<span class="tag">[Post-Chorus: Catchy chant &amp; claps]</span>
-(Glow up, glow up, do it right / รักตัวเองให้สุดหัวใจ)
-(Level up, we hit the sky / พร้อมจะบินไปตามความฝัน)</code></pre>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =====================================================================
-       ZERODAY DSP MASTERING & ENGINEERING BREAKDOWN
-       ===================================================================== -->
-  <section class="sec" id="mastering" aria-labelledby="sec-dsp-title">
-    <div class="wrap">
-      <div class="sec-head">
+        <!-- Track List -->
         <div>
-          <span class="label">AUDIO ENGINEERING ARCHITECTURE</span>
-          <h2 id="sec-dsp-title" class="h2">ทำไมเพลง AI ของเราจึงเสียงดีกว่าการกดเจนทั่วไป?</h2>
-        </div>
-        <div class="aside">ZERODAY MULTI-AI DSP.<br>PRECISION LOUDNESS METERING.</div>
-      </div>
-
-      <div class="split">
-        <!-- Left: Engineering Explanation -->
-        <div class="glass panel rv in">
-          <span class="label">ZERODAY DSP MULTI-AI PIPELINE</span>
-          <h3 class="h3" style="margin:8px 0 16px;">กระบวนการปรับแต่งเสียง 5 ลำดับขั้น</h3>
-
-          <ul class="caps">
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zM12 6v6l4 2"/></svg>
+          <div class="track-item active" onclick="selectDemoTrack(0, '1. เพลงโฆษณาแบรนด์สดใส (เพลงสั้นประจำร้าน)', 'แนวเพลง: ป๊อปโฆษณาติดหู • จังหวะ 120 BPM • เหมาะกับ TikTok/Reels', 523.25, this)">
+            <div style="display:flex; align-items:center; gap:12px;">
+              <button type="button" class="play-circle">♪</button>
               <div>
-                <b>1. Harmonic Resonant Suppression</b>
-                <span>ขจัดเสียงสะท้อนความถี่กวน (Harsh Highs) และความอื้ออึงในย่าน 250–500Hz ที่มักพบใน AI ทั่วไป</span>
+                <div style="font-weight:700; font-size:14px;">1. เพลงโฆษณาแบรนด์สดใส (เพลงสั้นประจำร้าน)</div>
+                <div style="font-size:12px; color:var(--text-muted);">ท่อนฮุกติดหูใน 15 วินาที สำหรับโฆษณาร้านค้าและคลิปรีวิว</div>
               </div>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18V5l12-2v13M9 18a3 3 0 11-6 0 3 3 0 016 0zm12-2a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-              <div>
-                <b>2. Dynamic EQ &amp; Multi-band Compression</b>
-                <span>จัดระเบียบย่านเบส 808 ให้กระชับหนักแน่น และยกเสียงร้องหลักให้พุ่งเด่นมีมิติ</span>
-              </div>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-              <div>
-                <b>3. True Peak Ceiling −1.0 dBTP</b>
-                <span>คุมเพดานเสียงไม่ให้เกิน −1.0 dBTP เพื่อป้องกันเสียงแตกจากการแปลงไฟล์บน YouTube/TikTok</span>
-              </div>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-              <div>
-                <b>4. Target Loudness Matching</b>
-                <span>มิกซ์ตามปลายทางที่ใช้: −14 LUFS สำหรับสตรีมมิ่ง และ −9 LUFS สำหรับวิดีโอสั้น</span>
-              </div>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              <div>
-                <b>5. Genius API Plagiarism Check</b>
-                <span>สแกนตรวจสอบทำนองและเนื้อเพลง ป้องกันปัญหาลิขสิทธิ์ซ้ำซ้อนกับเพลงอื่นในระบบ</span>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Right: Studio Tool Screenshots Grid -->
-        <div class="glass panel rv in">
-          <span class="label">PRODUCTION TOOL ENGINE</span>
-          <h3 class="h3" style="margin:8px 0 16px;">เครื่องมือมาสเตอร์ริ่งระดับมืออาชีพ</h3>
-
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;">
-            <div style="border-radius:10px;overflow:hidden;border:1px solid var(--line);">
-              <img src="assets/images/tool-mastering.png" alt="เครื่องมือมาสเตอร์ริ่ง ZeroDay DSP" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
             </div>
-            <div style="border-radius:10px;overflow:hidden;border:1px solid var(--line);">
-              <img src="assets/images/tool-music-main.png" alt="เครื่องมือเขียนพรอมต์เพลง Suno AI" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
-            </div>
-            <div style="border-radius:10px;overflow:hidden;border:1px solid var(--line);">
-              <img src="assets/images/tool-music-result.png" alt="ผลลัพธ์การสร้างและตรวจสอบเพลง" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
-            </div>
-            <div style="border-radius:10px;overflow:hidden;border:1px solid var(--line);">
-              <img src="assets/work/loudness-guide-2026.jpg" alt="ตารางเกณฑ์ความดังมาตรฐาน LUFS 2026" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
-            </div>
+            <span style="font-size:12px; color:#0369a1; font-weight:600;">0:30</span>
           </div>
 
-          <div style="margin-top:18px;font-size:13px;color:var(--muted);text-align:center;">
-            ระบบควบคุมคุณภาพเสียง 4 ชั้น ครอบคลุมทั้งไดนามิก ความดัง และความถูกต้องตามกฎหมาย
+          <div class="track-item" onclick="selectDemoTrack(1, '2. เพลงลูกทุ่งอินดี้ / อีสานโมเดิร์น', 'แนวเพลง: ลูกทุ่งอินดี้ / อีสานร่วมสมัย • 108 BPM • สนุกสนานเข้าถึงง่าย', 440.0, this)">
+            <div style="display:flex; align-items:center; gap:12px;">
+              <button type="button" class="play-circle">♪</button>
+              <div>
+                <div style="font-weight:700; font-size:14px;">2. เพลงลูกทุ่งอินดี้ / อีสานโมเดิร์น</div>
+                <div style="font-size:12px; color:var(--text-muted);">ผสานกลิ่นอายพิณ-แคนเข้ากับบีตสมัยใหม่ เหมาะกับแบรนด์ท้องถิ่นและงานอีเวนต์</div>
+              </div>
+            </div>
+            <span style="font-size:12px; color:#0369a1; font-weight:600;">0:30</span>
+          </div>
+
+          <div class="track-item" onclick="selectDemoTrack(2, '3. Glow Up (รักตัวเองให้สุดทาง) — Pop Hip-Hop', 'แนวเพลง: Modern Energetic Thai Pop Hip-Hop • 104 BPM • Key: E Major', 329.63, this)">
+            <div style="display:flex; align-items:center; gap:12px;">
+              <button type="button" class="play-circle">♪</button>
+              <div>
+                <div style="font-weight:700; font-size:14px;">3. Glow Up (รักตัวเองให้สุดทาง) — Pop Hip-Hop</div>
+                <div style="font-size:12px; color:var(--text-muted);">โครงสร้าง Suno v6 Pro • 808 Bass • Originality 96% ป้องกันลิขสิทธิ์ซ้ำซ้อน</div>
+              </div>
+            </div>
+            <span style="font-size:12px; color:#0369a1; font-weight:600;">3:08</span>
+          </div>
+
+          <div class="track-item" onclick="selectDemoTrack(3, '4. เพลงอะคูสติกอบอุ่น (เพลงของขวัญโอกาสพิเศษ)', 'แนวเพลง: อะคูสติกป๊อปอบอุ่น • 76 BPM • เพลงของขวัญวันเกิด/แต่งงาน/เกษียณ', 392.0, this)">
+            <div style="display:flex; align-items:center; gap:12px;">
+              <button type="button" class="play-circle">♪</button>
+              <div>
+                <div style="font-weight:700; font-size:14px;">4. เพลงอะคูสติกอบอุ่น (เพลงของขวัญโอกาสพิเศษ)</div>
+                <div style="font-size:12px; color:var(--text-muted);">ร้อยเรียงชื่อและเรื่องราวความทรงจำ สำหรับงานแต่งงาน วันเกิด หรือเกษียณอายุ</div>
+              </div>
+            </div>
+            <span style="font-size:12px; color:#0369a1; font-weight:600;">0:30</span>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- =====================================================================
-       PRICING PACKAGES (Commercial AI Music)
-       ===================================================================== -->
-  <section class="sec" id="pricing" aria-labelledby="sec-music-price-title">
-    <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <span class="label">TRANSPARENT PRICING TIERS</span>
-          <h2 id="sec-music-price-title" class="h2">แพ็กเกจผลิตเพลง AI เชิงพาณิชย์</h2>
-        </div>
-        <div class="aside">FULL COMMERCIAL OWNERSHIP.<br>WAV + MP3 DELIVERABLE.</div>
+    <!-- MUSIC SERVICES SECTION (PER-PROJECT, NO MONTHLY SUBSCRIPTION) -->
+    <section id="music-services">
+      <div class="section-header">
+        <div class="glass-pill eyebrow-badge">บริการรับทำเพลงและดนตรีประกอบด้วย AI เชิงพาณิชย์ 100%</div>
+        <h2 class="section-title">บริการรับทำเพลงและเสียงสั่งทำรายชิ้น (ไม่มีรายเดือน)</h2>
+        <p class="section-desc">
+          เลือกประเภทงานเพลงที่ต้องการ ทุกชิ้นงานดูแลการเขียนเนื้อร้อง เรียบเรียงโครงสร้าง และทำ Mastering ให้พร้อมใช้งานเชิงพาณิชย์
+        </p>
       </div>
 
-      <div class="packs">
-        <!-- Tier 01: Hook Viral -->
-        <div class="glass pack rv in">
-          <span class="n">TIER 01</span>
-          <h3 class="h3">Hook Viral / Jingle</h3>
-          <p style="font-size:13px;color:var(--muted);">ท่อนฮุก 15–30 วิ ติดหู ยิงแอด TikTok, Reels และ Shopee</p>
-          <div class="price">
-            ฿490 – ฿990.-
-            <small>ความยาว 15–30 วินาที</small>
-          </div>
-          <ul>
-            <li>แต่งท่อนฮุกติดหูพร้อมเนื้อร้องเฉพาะสินค้า</li>
-            <li>มิกซ์ความดังสูตรเร่งพลังสำหรับ TikTok (−9 LUFS)</li>
-            <li>ไฟล์ Master WAV 24-bit + MP3 320kbps</li>
-            <li>สิทธิ์ขาดเชิงพาณิชย์ 100% (ยิงแอดได้ทันที)</li>
-            <li>ส่งมอบงานภายใน 24–48 ชม.</li>
-          </ul>
-          <a class="btn btn-ghost" href="#brief" data-select-service="ท่อนฮุกไวรัล TikTok / Jingle (฿490–฿990)">เลือกแพ็กเกจนี้ →</a>
-        </div>
-
-        <!-- Tier 02: Single Commercial (Hot) -->
-        <div class="glass pack hot rv in">
-          <span class="badge">ยอดนิยมที่สุด</span>
-          <span class="n">TIER 02</span>
-          <h3 class="h3">Commercial Single</h3>
-          <p style="font-size:13px;color:var(--muted);">เพลงเต็ม 2.5–3.5 นาที สำหรับแบรนด์ ธุรกิจ และศิลปิน</p>
-          <div class="price">
-            ฿1,500 – ฿2,500.-
-            <small>เพลงเต็มความยาว 2.5–3.5 นาที</small>
-          </div>
-          <ul>
-            <li>แต่งเนื้อร้องเต็มเพลง (Intro, Verse, Hook, Bridge)</li>
-            <li>เลือกสไตล์ดนตรีและอารมณ์เพลงได้ตามต้องการ</li>
-            <li>ผ่านการมาสเตอร์ริ่ง ZeroDay DSP True Peak −1.0 dBTP</li>
-            <li>สแกนความซ้ำซ้อน Genius API Originality &gt;95%</li>
-            <li>แก้ไขปรับแต่งได้ 2 รอบจนพอใจ</li>
-            <li>สิทธิ์ขาดเชิงพาณิชย์ 100% พร้อมใบอนุญาต</li>
-          </ul>
-          <a class="btn btn-chrome" href="#brief" data-select-service="เพลงเต็มเชิงพาณิชย์ Commercial Single (฿1,500–฿2,500)">เลือกแพ็กเกจนี้ →</a>
-        </div>
-
-        <!-- Tier 03: Corporate Brand Anthem -->
-        <div class="glass pack rv in">
-          <span class="n">TIER 03</span>
-          <h3 class="h3">Corporate Campaign</h3>
-          <p style="font-size:13px;color:var(--muted);">แคมเปญเพลงประจำองค์กร 3 เวอร์ชั่น สำหรับทุกช่องทางสื่อ</p>
-          <div class="price">
-            ฿5,900.-
-            <small>รวม 3 เวอร์ชั่นเพลง</small>
-          </div>
-          <ul>
-            <li>เวอร์ชั่น 1: เพลงหลักฉบับเต็ม Full Production</li>
-            <li>เวอร์ชั่น 2: ดนตรีบรรเลง / อะคูสติกสำหรับเปิดในงาน</li>
-            <li>เวอร์ชั่น 3: ท่อนฮุกสั้น 30 วินาทีสำหรับยิงแอดวิดีโอ</li>
-            <li>มิกซ์แยกไฟล์ตามแพลตฟอร์ม (Streaming vs Social)</li>
-            <li>สิทธิ์ขาดเชิงพาณิชย์สมบูรณ์แบบระดับองค์กร</li>
-            <li>ส่งมอบงานพร้อมไฟล์ Stems และแก้ไขได้ 3 ครั้ง</li>
-          </ul>
-          <a class="btn btn-ghost" href="#brief" data-select-service="แคมเปญเพลงองค์กร Corporate Campaign (฿5,900)">เลือกแพ็กเกจนี้ →</a>
-        </div>
-
-        <!-- Special: Custom Sound Design -->
-        <div class="glass pack rv in">
-          <span class="n">TIER 04</span>
-          <h3 class="h3">Custom Sound ID</h3>
-          <p style="font-size:13px;color:var(--muted);">เสียงโลโก้ ซาวด์เปิดคลิป YouTube และดนตรีประกอบงานอีเวนต์</p>
-          <div class="price">
-            ฿990 – ฿1,900.-
-            <small>เสียงสั้น 5–15 วินาที</small>
-          </div>
-          <ul>
-            <li>Sonic Branding เสียงจำแบรนด์เฉพาะตัว</li>
-            <li>ซาวด์เอฟเฟกต์เปิดคลิป YouTube / Podcast</li>
-            <li>มิกซ์ความคมชัดระดับ Broadcast Master</li>
-            <li>สิทธิ์ขาดตลอดชีพ ไม่ติดลิขสิทธิ์ระบบตรวจจับ</li>
-            <li>ส่งงานรวดเร็วภายใน 24 ชม.</li>
-          </ul>
-          <a class="btn btn-ghost" href="#brief" data-select-service="Custom Sound ID / Sonic Branding (฿990–฿1,900)">เลือกแพ็กเกจนี้ →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =====================================================================
-       INTERACTIVE MUSIC BRIEF FORM & LINE DISPATCHER
-       ===================================================================== -->
-  <section class="sec" id="brief" aria-labelledby="sec-brief-title">
-    <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <span class="label">INTERACTIVE BRIEF GENERATOR</span>
-          <h2 id="sec-brief-title" class="h2">ส่งบรีฟงานเพลงออนไลน์ สะดวก รวดเร็ว ใน 2 นาที</h2>
-        </div>
-        <div class="aside">INSTANT LINE DISPATCH.<br>DETAILED QUESTIONNAIRE.</div>
-      </div>
-
-      <div class="glass form rv in">
-        <form id="music-brief-form" aria-label="ฟอร์มบรีฟเพลง">
-          <div class="fgrid">
-            <!-- 1. Customer Name -->
-            <div class="field">
-              <label for="brief-name">ชื่อผู้ติดต่อ / ชื่อแบรนด์ *</label>
-              <input type="text" id="brief-name" name="customer_name" placeholder="เช่น คุณมิก, บริษัท บรบือค้าส่ง" required>
+      <div class="grid-4">
+        <article class="glass-panel glass-card-interactive audio-service-card">
+          <div>
+            <div class="audio-service-thumb">
+              <img src="assets/images/tool-music-main.png" alt="เครื่องมือเขียนพรอมต์เพลง Suno v6">
             </div>
-
-            <!-- 2. Phone / Contact -->
-            <div class="field">
-              <label for="brief-phone">เบอร์โทรศัพท์ติดต่อ *</label>
-              <input type="tel" id="brief-phone" name="phone" placeholder="เช่น 081-592-1229" required>
-            </div>
-
-            <!-- 3. Contact Method -->
-            <div class="field">
-              <label for="brief-contact">ช่องทางที่สะดวกให้ติดต่อกลับ</label>
-              <input type="text" id="brief-contact" name="contact_method" placeholder="เช่น LINE ID: @yourname หรือโทรกลับ">
-            </div>
-
-            <!-- 4. Service Type -->
-            <div class="field">
-              <label for="brief-service-type">แพ็กเกจบริการที่สนใจ</label>
-              <select id="brief-service-type" name="service_type">
-                <option value="เพลงเต็มเชิงพาณิชย์ Commercial Single (฿1,500–฿2,500)">เพลงเต็มเชิงพาณิชย์ Commercial Single (฿1,500–฿2,500)</option>
-                <option value="ท่อนฮุกไวรัล TikTok / Jingle (฿490–฿990)">ท่อนฮุกไวรัล TikTok / Jingle (฿490–฿990)</option>
-                <option value="แคมเปญเพลงองค์กร Corporate Campaign (฿5,900)">แคมเปญเพลงองค์กร Corporate Campaign (฿5,900)</option>
-                <option value="Custom Sound ID / Sonic Branding (฿990–฿1,900)">Custom Sound ID / Sonic Branding (฿990–฿1,900)</option>
-                <option value="งานแต่งงาน / ของขวัญคนพิเศษ">เพลงงานแต่งงาน / ของขวัญคนพิเศษ</option>
-              </select>
-            </div>
-
-            <!-- 5. Purposes (Checkboxes) -->
-            <fieldset class="field full">
-              <legend>วัตถุประสงค์หลักของการใช้เพลง (เลือกได้หลายข้อ)</legend>
-              <div class="picks" style="margin-top:6px;">
-                <label><input type="checkbox" name="purpose" value="โปรโมตสินค้า/ขายของ" checked><span>โปรโมตสินค้า / ยิงแอด</span></label>
-                <label><input type="checkbox" name="purpose" value="สร้างการจดจำแบรนด์"><span>สร้างการจดจำแบรนด์</span></label>
-                <label><input type="checkbox" name="purpose" value="ทำคอนเทนต์ TikTok/Reels"><span>คอนเทนต์ TikTok / Reels</span></label>
-                <label><input type="checkbox" name="purpose" value="เพลงประจำองค์กร/เปิดในงาน"><span>เพลงองค์กร / เปิดในงาน</span></label>
-                <label><input type="checkbox" name="purpose" value="ของขวัญ/งานแต่ง/โอกาสพิเศษ"><span>งานแต่งงาน / ของขวัญ</span></label>
-              </div>
-            </fieldset>
-
-            <!-- 6. Genre & Ref Song -->
-            <div class="field">
-              <label for="brief-genre">แนวเพลงที่ต้องการ (Genre)</label>
-              <input type="text" id="brief-genre" name="genre" placeholder="เช่น Modern Thai Pop, T-Pop, Hip-hop, ลูกทุ่งอินดี้, R&amp;B, Rock">
-            </div>
-
-            <div class="field">
-              <label for="brief-ref">เพลงอ้างอิงที่ชอบ (Reference Song)</label>
-              <input type="text" id="brief-ref" name="ref_song" placeholder="เช่น สไตล์ Three Man Down, UrboyTJ, นนท์ ธนนท์">
-            </div>
-
-            <!-- 7. Mood & Emotion -->
-            <fieldset class="field full">
-              <legend>อารมณ์เพลงที่ต้องการ (Mood)</legend>
-              <div class="picks" style="margin-top:6px;">
-                <label><input type="checkbox" name="mood" value="สดใส มีพลัง" checked><span>สดใส มีพลัง</span></label>
-                <label><input type="checkbox" name="mood" value="สนุกสนาน เต้นตามได้"><span>สนุกสนาน เต้นตามได้</span></label>
-                <label><input type="checkbox" name="mood" value="ซึ้ง อบอุ่น มีความหวัง"><span>ซึ้ง อบอุ่น มีความหวัง</span></label>
-                <label><input type="checkbox" name="mood" value="หรูหรา น่าเชื่อถือ"><span>หรูหรา น่าเชื่อถือ</span></label>
-                <label><input type="checkbox" name="mood" value="กวนๆ ขี้เล่น ติดหู"><span>กวนๆ ขี้เล่น ติดหู</span></label>
-              </div>
-            </fieldset>
-
-            <!-- 8. Target Platform -->
-            <div class="field">
-              <label for="brief-platform">ช่องทางเผยแพร่หลัก</label>
-              <select id="brief-platform" name="platform">
-                <option value="TikTok / Reels &amp; Facebook">TikTok / Reels &amp; Facebook (เน้นเสียงดังพุ่ง)</option>
-                <option value="Spotify / Apple Music / YouTube Music">Spotify / Apple Music (เน้นมิติความลึก -14 LUFS)</option>
-                <option value="YouTube Ads &amp; วิดีโอโฆษณา">YouTube Ads &amp; วิดีโอโฆษณา</option>
-                <option value="เปิดในร้านค้า / หน้าร้าน / อีเวนต์">เปิดในหน้าร้าน / อีเวนต์</option>
-              </select>
-            </div>
-
-            <!-- 9. Story & Selling Points -->
-            <div class="field full">
-              <label for="brief-keywords">เรื่องราว จุดเด่นสินค้า หรือคำที่ต้องการให้มีในเนื้อเพลง *</label>
-              <textarea id="brief-keywords" name="keywords" placeholder="เช่น ชื่อแบรนด์, จุดเด่นของสินค้า, โปรโมชั่น, ความรู้สึกที่อยากให้คนฟังรู้สึกร่วม, หรือคำขวัญประจำร้าน..."></textarea>
-            </div>
-          </div>
-
-          <!-- Form Buttons & LINE Trigger -->
-          <div class="form-foot">
-            <p>
-              💡 <b>แนะนำ:</b> กดปุ่ม <b>"ส่งบรีฟเข้า LINE"</b> เพื่อให้ระบบจัดรูปแบบข้อความและเปิดแชตคุยกับโปรดิวเซอร์ได้ทันที
+            <span class="glass-pill" style="padding:3px 10px; font-size:11px; color:#0369a1;">สำหรับร้านค้า &amp; TikTok</span>
+            <h3 style="font-size:18px; font-weight:700; margin:10px 0 6px;">1. เพลงโฆษณาสั้น / Jingle แบรนด์</h3>
+            <p style="font-size:13.5px; color:var(--text-secondary); margin-bottom:14px;">
+              ความยาว 30–60 วินาที เน้นท่อนฮุกจำง่าย ใส่ชื่อร้าน จุดขาย และเบอร์ติดต่อ สำหรับเปิดหน้าร้านหรือยิงแอด TikTok / Reels / Facebook
             </p>
-            <div style="display:flex;gap:12px;flex-wrap:wrap;">
-              <button class="btn btn-chrome" id="brief-line-btn" type="button">
-                💬 ส่งบรีฟเข้า LINE (@miximage) →
+          </div>
+          <div>
+            <div style="font-size:20px; font-weight:800; color:#b45309; margin-bottom:12px;">590 บาท / เพลง</div>
+            <button type="button" class="btn btn-primary" style="width:100%;" onclick="selectMusicService('เพลงโฆษณาสั้น / Jingle แบรนด์ (30-60 วินาที)', 590)">
+              เลือกบริการนี้ →
+            </button>
+          </div>
+        </article>
+
+        <article class="glass-panel glass-card-interactive audio-service-card" style="border-color:rgba(124,58,237,0.45);">
+          <div>
+            <div class="audio-service-thumb">
+              <img src="assets/images/tool-mastering.png" alt="เครื่องมือมาสเตอร์ริ่ง ZeroDay DSP">
+            </div>
+            <span class="glass-pill" style="padding:3px 10px; font-size:11px; color:#6d28d9;">ยอดนิยม • เพลงเต็มสมบูรณ์</span>
+            <h3 style="font-size:18px; font-weight:700; margin:10px 0 6px;">2. เพลงเต็มเชิงพาณิชย์ 100%</h3>
+            <p style="font-size:13.5px; color:var(--text-secondary); margin-bottom:14px;">
+              ความยาว 2.30–4.00 นาที แต่งเนื้อร้องใหม่ 100% ครบโครงสร้าง (Intro, Verse, Pre-Chorus, Chorus, Bridge, Outro) พร้อมไฟล์ WAV 24-bit + MP3
+            </p>
+          </div>
+          <div>
+            <div style="font-size:20px; font-weight:800; color:#b45309; margin-bottom:12px;">990 บาท / เพลง</div>
+            <button type="button" class="btn btn-primary" style="width:100%;" onclick="selectMusicService('เพลงเต็มเชิงพาณิชย์ 100% (แต่งเนื้อร้องใหม่ + WAV 24-bit)', 990)">
+              เลือกบริการนี้ →
+            </button>
+          </div>
+        </article>
+
+        <article class="glass-panel glass-card-interactive audio-service-card">
+          <div>
+            <div class="audio-service-thumb">
+              <img src="assets/images/tool-music-result.png" alt="ผลลัพธ์การสร้างและตรวจสอบเพลง">
+            </div>
+            <span class="glass-pill" style="padding:3px 10px; font-size:11px; color:#b45309;">ของขวัญวันสำคัญ</span>
+            <h3 style="font-size:18px; font-weight:700; margin:10px 0 6px;">3. เพลงของขวัญ &amp; วิดีโอเนื้อเพลง</h3>
+            <p style="font-size:13.5px; color:var(--text-secondary); margin-bottom:14px;">
+              แต่งเพลงจากเรื่องราวจริงสำหรับงานแต่งงาน วันครบรอบ วันเกิด หรืองานมุทิตาจิตเกษียณอายุราชการ พร้อมทำคลิป Lyric Video ใส่ภาพความทรงจำ
+            </p>
+          </div>
+          <div>
+            <div style="font-size:20px; font-weight:800; color:#b45309; margin-bottom:12px;">1,490 บาท / เซ็ต</div>
+            <button type="button" class="btn btn-primary" style="width:100%;" onclick="selectMusicService('เพลงของขวัญโอกาสพิเศษ + คลิปวิดีโอเนื้อเพลง (Lyric MV)', 1490)">
+              เลือกบริการนี้ →
+            </button>
+          </div>
+        </article>
+
+        <article class="glass-panel glass-card-interactive audio-service-card">
+          <div>
+            <div class="audio-service-thumb">
+              <img src="assets/work/loudness-guide-2026.jpg" alt="ตารางเกณฑ์ความดังมาตรฐาน LUFS 2026">
+            </div>
+            <span class="glass-pill" style="padding:3px 10px; font-size:11px; color:#15803d;">งานเสียงคุณภาพสูง</span>
+            <h3 style="font-size:18px; font-weight:700; margin:10px 0 6px;">4. AI Mastering &amp; แยก Stem</h3>
+            <p style="font-size:13.5px; color:var(--text-secondary); margin-bottom:14px;">
+              ยกระดับไฟล์เพลงที่มีอยู่ให้ใส มีมิติ และดังได้มาตรฐานสตรีมมิ่ง (Spotify/YouTube/TikTok) หรือแยกเสียงร้อง/ดนตรี (Backing Track)
+            </p>
+          </div>
+          <div>
+            <div style="font-size:20px; font-weight:800; color:#b45309; margin-bottom:12px;">350 บาท / เพลง</div>
+            <button type="button" class="btn btn-primary" style="width:100%;" onclick="selectMusicService('บริการ AI Audio Mastering 24-bit & แยก Stem เสียงร้อง/ดนตรี', 350)">
+              เลือกบริการนี้ →
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- AUDIO ENGINEERING ARCHITECTURE -->
+    <section id="engineering">
+      <div class="section-header">
+        <div class="glass-pill eyebrow-badge" style="color:#0284c7;">ระบบควบคุมคุณภาพเสียงระดับสตูดิโอ</div>
+        <h2 class="section-title">ทำไมเพลง AI ของเราจึงเสียงดีกว่าการกดเจนทั่วไป?</h2>
+        <p class="section-desc">
+          เราใช้สถาปัตยกรรม Suno v6 Pro ขั้นสูง ผสานการมาสเตอร์ริ่งด้วย ZeroDay Multi-AI DSP ปรับจูนความถี่และคุมความดัง True Peak −1.0 dBTP ตามเกณฑ์สตรีมมิ่งสากล
+        </p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px;">
+        <div class="glass-panel" style="padding:20px; text-align:center;">
+          <div style="font-size:30px; margin-bottom:8px;">🎛️</div>
+          <h3 style="font-size:16px; font-weight:700; margin-bottom:6px;">Harmonic EQ</h3>
+          <p style="font-size:13px; color:var(--text-secondary);">ตัดเสียงสะท้อนความถี่กวนในย่าน 250–500Hz และเพิ่มความใสโปร่งให้เสียงร้อง</p>
+        </div>
+        <div class="glass-panel" style="padding:20px; text-align:center;">
+          <div style="font-size:30px; margin-bottom:8px;">🔊</div>
+          <h3 style="font-size:16px; font-weight:700; margin-bottom:6px;">−14 LUFS Norm</h3>
+          <p style="font-size:13px; color:var(--text-secondary);">ความดังมาตรฐานสตรีมมิ่งระดับโลก ไม่โดนระบบลดระดับเสียงอัตโนมัติ</p>
+        </div>
+        <div class="glass-panel" style="padding:20px; text-align:center;">
+          <div style="font-size:30px; margin-bottom:8px;">📱</div>
+          <h3 style="font-size:16px; font-weight:700; margin-bottom:6px;">−9 LUFS TikTok</h3>
+          <p style="font-size:13px; color:var(--text-secondary);">เร่งพลังเสียงให้พุ่งชัดเมื่อเปิดผ่านลำโพงมือถือ ไร้ปัญหาเสียงแตกพร่า</p>
+        </div>
+        <div class="glass-panel" style="padding:20px; text-align:center;">
+          <div style="font-size:30px; margin-bottom:8px;">📜</div>
+          <h3 style="font-size:16px; font-weight:700; margin-bottom:6px;">สิทธิ์ขาด 100%</h3>
+          <p style="font-size:13px; color:var(--text-secondary);">ส่งมอบลิขสิทธิ์เชิงพาณิชย์เต็มตัว นำไปยิงแอด เผยแพร่ และสร้างรายได้ถาวร</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MUSIC BRIEF, REFERENCE UPLOAD, DEPOSIT CONFIRMATION & LINE -->
+    <section id="music-order">
+      <div class="section-header">
+        <div class="glass-pill eyebrow-badge" style="color:#15803d; border-color:rgba(74,222,128,0.35);">แบบฟอร์มบรีฟสั่งทำเพลง • แนบไฟล์อ้างอิง • ยืนยันการมัดจำเชื่อม LINE</div>
+        <h2 class="section-title">ฟอร์มบรีฟสั่งทำเพลง แนบเรฟอ้างอิง &amp; ยืนยันมัดจำเชื่อม LINE</h2>
+        <p class="section-desc">
+          ระบุแนวเพลง เรื่องราวที่ต้องการ แนบภาพ/ไฟล์อ้างอิง และยืนยันการโอนมัดจำ 50% หรือชำระเต็มจำนวนเพื่อส่งเข้า <strong>LINE: miximage</strong>
+        </p>
+      </div>
+
+      <div class="order-layout">
+        <div class="glass-panel" style="padding: 30px;">
+          <form id="musicOrderForm" onsubmit="handleMusicOrderSubmit(event)">
+            <h3 style="font-size:18px; font-weight:700; margin-bottom:16px;">
+              <span class="step-badge">1</span> เลือกประเภทงานเพลงและสไตล์ดนตรี
+            </h3>
+
+            <div class="form-group">
+              <label class="form-label" for="musicServiceSelect">รายการบริการเพลงที่ต้องการสั่งทำ</label>
+              <select id="musicServiceSelect" class="form-control" onchange="recalculateMusicPrice()">
+                <option value="590" data-name="เพลงโฆษณาสั้น / Jingle แบรนด์ (30-60 วินาที)">เพลงโฆษณาสั้น / Jingle แบรนด์ (30–60 วินาที) — 590 บาท</option>
+                <option value="990" data-name="เพลงเต็มเชิงพาณิชย์ 100% (แต่งเนื้อร้องใหม่ + WAV 24-bit)" selected>เพลงเต็มเชิงพาณิชย์ 100% (แต่งเนื้อร้องใหม่ + WAV 24-bit) — 990 บาท</option>
+                <option value="1490" data-name="เพลงของขวัญโอกาสพิเศษ + คลิปวิดีโอเนื้อเพลง (Lyric MV)">เพลงของขวัญโอกาสพิเศษ + คลิปวิดีโอเนื้อเพลง (Lyric MV) — 1,490 บาท</option>
+                <option value="350" data-name="บริการ AI Audio Mastering 24-bit & แยก Stem เสียงร้อง/ดนตรี">บริการ AI Audio Mastering 24-bit &amp; แยก Stem — 350 บาท</option>
+              </select>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+              <div class="form-group">
+                <label class="form-label" for="musicGenre">แนวเพลง (Genre)</label>
+                <select id="musicGenre" class="form-control" onchange="updateMusicSummary()">
+                  <option value="Pop / T-Pop สดใสติดหู">Pop / T-Pop สดใสติดหู</option>
+                  <option value="ลูกทุ่งอินดี้ / หมอลำโมเดิร์น">ลูกทุ่งอินดี้ / หมอลำโมเดิร์น</option>
+                  <option value="Acoustic ซึ้งอบอุ่น">Acoustic ซึ้งอบอุ่น</option>
+                  <option value="Ballad R&B โรแมนติก">Ballad R&amp;B โรแมนติก</option>
+                  <option value="Pop-Rock พลังบวก">Pop-Rock พลังบวก</option>
+                  <option value="Hip-Hop / Rap โฆษณา">Hip-Hop / Rap โฆษณา</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="vocalType">ลักษณะเสียงร้อง</label>
+                <select id="vocalType" class="form-control" onchange="updateMusicSummary()">
+                  <option value="เสียงร้องหญิง (นุ่มใส/มีพลัง)">เสียงร้องหญิง (นุ่มใส/มีพลัง)</option>
+                  <option value="เสียงร้องชาย (อบอุ่น/เท่)">เสียงร้องชาย (อบอุ่น/เท่)</option>
+                  <option value="ร้องคู่ ชาย-หญิง (Duet)">ร้องคู่ ชาย–หญิง (Duet)</option>
+                  <option value="ดนตรีบรรเลงล้วน (Instrumental)">ดนตรีบรรเลงล้วน (Instrumental)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="songStory">คำสำคัญ / ชื่อแบรนด์ / เรื่องราวที่ต้องการใส่ในเนื้อเพลง *</label>
+              <textarea id="songStory" class="form-control" rows="3" placeholder="ระบุชื่อร้าน จุดขาย สโลแกน หรือชื่อคนสำคัญและเรื่องราวความประทับใจที่อยากให้อยู่ในเพลง..." required></textarea>
+            </div>
+
+            <!-- Step 2: Reference Image / Link Upload -->
+            <hr style="border:none; border-top:1px solid rgba(0,0,0,0.1); margin: 22px 0;">
+            <h3 style="font-size:18px; font-weight:700; margin-bottom:12px;">
+              <span class="step-badge">2</span> แนบภาพอ้างอิง / โลโก้ / ลิงก์เพลงตัวอย่าง (References)
+            </h3>
+
+            <div class="form-group">
+              <label class="form-label" for="refLink">ลิงก์เพลงอ้างอิง YouTube / TikTok / Spotify (ถ้ามี)</label>
+              <input type="text" id="refLink" class="form-control" placeholder="วางลิงก์เพลงที่ชอบมู้ดหรือจังหวะใกล้เคียง...">
+            </div>
+
+            <label class="upload-dropzone" for="musicRefInput" style="display:block;">
+              <div style="font-size:26px; margin-bottom:4px;">🖼️</div>
+              <div style="font-weight:700; color:#090a0f;">คลิกเพื่อแนบภาพอ้างอิง / ภาพสินค้า / ภาพความทรงจำสำหรับทำปกหรือ MV</div>
+              <input type="file" id="musicRefInput" accept="image/*,audio/*" multiple style="display:none;" onchange="handleMusicRefFiles(this.files)">
+            </label>
+            <div id="musicRefGrid" class="preview-grid"></div>
+
+            <!-- Step 3: Deposit / Payment Confirmation -->
+            <hr style="border:none; border-top:1px solid rgba(0,0,0,0.1); margin: 22px 0;">
+            <h3 style="font-size:18px; font-weight:700; margin-bottom:12px;">
+              <span class="step-badge">3</span> ยืนยันการมัดจำ (50%) หรือ ชำระเงินเต็มจำนวน
+            </h3>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:16px;">
+              <label class="glass-panel" style="padding:14px; cursor:pointer; display:flex; align-items:center; gap:10px; border-color:rgba(2,132,199,0.5);">
+                <input type="radio" name="musicPayOption" value="deposit50" checked onchange="recalculateMusicPrice()" style="accent-color:#0284c7;">
+                <div>
+                  <div style="font-weight:700; font-size:14px;">มัดจำเริ่มแต่งเพลง 50%</div>
+                  <div style="font-size:12px; color:var(--text-muted);">ชำระส่วนที่เหลือเมื่อฟังเดโมผ่าน</div>
+                </div>
+              </label>
+              <label class="glass-panel" style="padding:14px; cursor:pointer; display:flex; align-items:center; gap:10px;">
+                <input type="radio" name="musicPayOption" value="full100" onchange="recalculateMusicPrice()" style="accent-color:#06c755;">
+                <div>
+                  <div style="font-weight:700; font-size:14px;">ชำระเต็มจำนวน 100%</div>
+                  <div style="font-size:12px; color:var(--text-muted);">ลัดคิวผลิตและส่งมอบไฟล์ Master</div>
+                </div>
+              </label>
+            </div>
+
+            <div class="glass-panel" style="padding:16px; background:rgba(2, 132, 199, 0.08); border-color:rgba(2, 132, 199, 0.35); margin-bottom:16px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+                <div>
+                  <div style="font-size:12px; color:#0369a1; font-weight:700;">บัญชีรับโอนมัดจำ / พร้อมเพย์</div>
+                  <div style="font-size:15px; font-weight:700;">PromptPay: 081-592-1229 (ณัฐนนท์ วงศ์กาศัย • MIX IMAGE ART&amp;AUDIO)</div>
+                </div>
+                <button type="button" class="btn btn-glass" style="padding:6px 14px; font-size:12.5px;" onclick="copyText('0815921229', 'คัดลอกเบอร์พร้อมเพย์ 0815921229 แล้ว')">
+                  📋 คัดลอกพร้อมเพย์
+                </button>
+              </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px;">
+              <div class="form-group">
+                <label class="form-label" for="musicPaidAmount">ยอดที่โอน (บาท)</label>
+                <input type="number" id="musicPaidAmount" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="musicPaidTime">เวลาโอน</label>
+                <input type="text" id="musicPaidTime" class="form-control" placeholder="เช่น 15:20 น." required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="musicSlip4">เลขท้ายสลิป 4 หลัก</label>
+                <input type="text" id="musicSlip4" class="form-control" placeholder="เช่น 3910" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="upload-dropzone" for="musicSlipInput" style="display:block; padding:14px; border-color:rgba(6,199,85,0.45); background:rgba(6,199,85,0.05);">
+                <span style="font-weight:700; color:#15803d;">🧾 คลิกแนบภาพสลิปโอนเงินมัดจำ/ค่าทำเพลง</span>
+                <input type="file" id="musicSlipInput" accept="image/*" style="display:none;" onchange="handleMusicSlip(this.files)">
+              </label>
+              <div id="musicSlipStatus" style="margin-top:8px; font-size:13px; color:#15803d; font-weight:600;"></div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+              <div class="form-group">
+                <label class="form-label" for="musicCustName">ชื่อผู้สั่งทำเพลง / ชื่อแบรนด์</label>
+                <input type="text" id="musicCustName" class="form-control" placeholder="เช่น คุณมิก / บริษัท บรบือการค้า" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="musicCustPhone">เบอร์โทรศัพท์ / LINE ID</label>
+                <input type="text" id="musicCustPhone" class="form-control" placeholder="08x-xxx-xxxx หรือ LINE ID" required>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-line" style="width:100%; padding:15px; font-size:16px;">
+              ✅ ยืนยันมัดจำ &amp; ส่งบรีฟเพลงเข้า LINE (miximage)
+            </button>
+          </form>
+        </div>
+
+        <!-- Right Sticky Summary -->
+        <div style="position: sticky; top: 96px; display:flex; flex-direction:column; gap:20px;">
+          <div class="glass-panel" style="padding: 26px; border-color: rgba(2, 132, 199, 0.45);">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+              <span style="font-size:12px; font-weight:700; color:#0369a1;">สรุปบรีฟสั่งทำเพลงและยอดมัดจำอัตโนมัติ</span>
+              <span id="musicBadge" class="glass-pill" style="padding:3px 10px; font-size:11.5px; color:#b45309;">พร้อมรับบรีฟ</span>
+            </div>
+            <h3 style="font-size:19px; font-weight:700; margin-bottom:14px;">สรุปบรีฟงานเพลง &amp; ยอดมัดจำ</h3>
+
+            <div style="border-top:1px solid rgba(0,0,0,0.1); border-bottom:1px solid rgba(0,0,0,0.1); padding:14px 0; font-size:14px; display:flex; flex-direction:column; gap:8px;">
+              <div style="display:flex; justify-content:space-between;">
+                <span style="color:var(--text-secondary);">แพ็กเกจงานเพลง:</span>
+                <strong id="sumMusicName" style="text-align:right; max-width:62%;">เพลงเต็มเชิงพาณิชย์ 100%</strong>
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:16px; padding-top:6px; border-top:1px dashed rgba(0,0,0,0.15);">
+                <span>ค่าบริการรวม:</span>
+                <strong id="sumMusicTotal">990 บาท</strong>
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:17px; color:#15803d;">
+                <span id="sumMusicPayLabel">ยอดโอนมัดจำเริ่มงาน (50%):</span>
+                <strong id="sumMusicPayNow">495 บาท</strong>
+              </div>
+            </div>
+
+            <div style="margin-top:16px;">
+              <label class="form-label">ข้อความบรีฟเพลงสำหรับส่งแชท LINE:</label>
+              <textarea id="generatedMusicText" class="form-control" rows="7" readonly style="font-size:12.5px; background:rgba(255,255,255,0.92); color:#090a0f;"></textarea>
+            </div>
+
+            <div style="display:grid; gap:10px; margin-top:14px;">
+              <button type="button" class="btn btn-line" onclick="copyMusicAndOpenLine()">
+                💬 คัดลอกบรีฟเพลง &amp; เปิดแชท LINE: miximage
               </button>
-              <button class="btn btn-ghost" type="submit">
-                🚀 ยืนยันและส่งบรีฟงาน
-              </button>
+              <a href="index.html" class="btn btn-glass" style="text-align:center;">
+                🖼️ สลับไปหน้าที่ 1: สั่งทำรูปติดบัตร / กรอบรูปมงคล
+              </a>
             </div>
           </div>
 
-          <div id="form-feedback" class="form-msg"></div>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- =====================================================================
-       FAQ SECTION
-       ===================================================================== -->
-  <section class="sec" aria-labelledby="sec-faq-title">
-    <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <span class="label">FREQUENTLY ASKED QUESTIONS</span>
-          <h2 id="sec-faq-title" class="h2">คำถามที่พบบ่อยเกี่ยวกับการทำเพลง AI</h2>
-        </div>
-        <div class="aside">LEGAL &amp; TECHNICAL CLARITY.</div>
-      </div>
-
-      <div class="faq">
-        <details class="glass">
-          <summary>ลิขสิทธิ์เพลงเป็นของใคร นำไปใช้เชิงพาณิชย์ได้จริงไหม?</summary>
-          <p>
-            ลูกค้าถือครอง <b>สิทธิ์ขาดเชิงพาณิชย์ 100% (Commercial Rights)</b> เนื่องจากเราสร้างสรรค์ผ่านบัญชีผู้ใช้ระดับพรีเมียม (Suno Pro/Premier) และเสริมสถาปัตยกรรมแต่งเนื้อร้องเรียบเรียงเฉพาะตัว สามารถนำไปยิงแอด เผยแพร่ลง Spotify/TikTok หรือใช้ในสื่อโฆษณาทุกช่องทางโดยไม่ติดปัญหาลิขสิทธิ์ย้อนหลัง
-          </p>
-        </details>
-
-        <details class="glass">
-          <summary>ไฟล์ที่ส่งมอบมีอะไรบ้าง และระดับคุณภาพเสียงเป็นอย่างไร?</summary>
-          <p>
-            เราส่งมอบไฟล์ <b>Master 24-bit / 48kHz WAV Lossless</b> สำหรับบรอดคาสต์และตัดต่อวิดีโอ พร้อมไฟล์ <b>MP3 320kbps</b> คุณภาพสูง และไฟล์สรุปเนื้อร้องฉบับสมบูรณ์ ผ่านการคุมความดัง True Peak −1.0 dBTP ตามมาตรฐานสหภาพการกระจายเสียงยุโรป (EBU R128)
-          </p>
-        </details>
-
-        <details class="glass">
-          <summary>ใช้ระยะเวลาในการผลิตกี่วัน?</summary>
-          <p>
-            สำหรับท่อนฮุกไวรัลและเพลงโฆษณาสั้น ส่งมอบดราฟต์แรกภายใน <b>24–48 ชั่วโมง</b> สำหรับเพลงเต็ม Single หรือเพลงแคมเปญองค์กร ใช้เวลาประมาณ <b>2–4 วันทำการ</b> ขึ้นอยู่กับการปรับแต่งเนื้อร้องและความซับซ้อนของแนวดนตรี
-          </p>
-        </details>
-
-        <details class="glass">
-          <summary>หากไม่พอใจ สามารถแก้ไขงานได้กี่ครั้ง?</summary>
-          <p>
-            แพ็กเกจของเราครอบคลุมการปรับจูนเนื้อร้อง ทำนอง และบาลานซ์เสียงได้ <b>2–3 รอบ</b> จนกว่าจะได้ผลลัพธ์ที่ตรงกับภาพลักษณ์แบรนด์และทิศทางที่ลูกค้าต้องการมากที่สุด
-          </p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- =====================================================================
-       BRUSHED METAL CTA BANNER (Antigravity Style)
-       ===================================================================== -->
-  <section class="sec" style="padding-top:20px;border-top:0;" aria-label="ติดต่อสั่งทำผลงาน">
-    <div class="wrap">
-      <div class="cta rv in">
-        <div class="small">
-          NO BOUNDARIES.<br>JUST CREATIVITY.<br>BUILT TO LAST.
-        </div>
-
-        <div class="mid">
-          <h2>LET'S SHAPE<br>THE SOUND OF YOUR BRAND.</h2>
-          <p>ปรึกษาการผลิตเพลงโฆษณาและส่งบรีฟงานกับโปรดิวเซอร์ได้ฟรี</p>
-        </div>
-
-        <div class="right">
-          <a class="btn" href="https://line.me/ti/p/~miximage" target="_blank" rel="noopener">
-            <span>ปรึกษาโปรดิวเซอร์ (LINE)</span>
-            <span>→</span>
-          </a>
-          <a class="row" href="tel:+66815921229">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-            <span>081-592-1229 / 081-591-2129</span>
-          </a>
-          <a class="row" href="https://www.facebook.com/miximage2026/" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-            <span>Facebook: @miximage2026</span>
-          </a>
-          <div class="row" style="border-bottom:0;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0zM12 10a3 3 0 100-6 3 3 0 000 6z"/></svg>
-            <span>ข้าง ธ.กสิกรไทย สาขาบรบือ จ.มหาสารคาม</span>
+          <!-- Studio Location & LINE card -->
+          <div class="glass-panel" style="padding: 24px;">
+            <h3 style="font-size:17px; font-weight:700; margin-bottom:10px;">📍 ข้อมูลติดต่อสตูดิโอเสียง &amp; LINE</h3>
+            <p style="font-size:13.5px; color:var(--text-secondary); margin-bottom:12px;">
+              <strong>ร้านสร้างภาพ (MIX IMAGE ART&amp;AUDIO)</strong><br>
+              477 หมู่ 1 ถนนแจ้งสนิท เทศบาลตำบลบรบือ อ.บรบือ จ.มหาสารคาม 44130<br>
+              <span style="color:#b45309; font-weight:600;">(ข้างธนาคารกสิกรไทย สาขาบรบือ)</span>
+            </p>
+            <div style="font-size:13.5px; display:flex; flex-direction:column; gap:6px; color:var(--text-secondary); margin-bottom:14px;">
+              <div>🟢 <strong>LINE ID:</strong> <code style="color:#15803d; font-weight:700;">miximage</code> <button type="button" onclick="copyText('miximage', 'คัดลอก LINE ID: miximage แล้ว')" style="margin-left:6px; padding:2px 8px; border-radius:6px; border:1px solid rgba(0,0,0,0.2); background:rgba(255,255,255,0.8); color:#090a0f; cursor:pointer; font-size:11.5px;">คัดลอก ID</button></div>
+              <div>📞 <strong>โทรศัพท์:</strong> 081-592-1229 / 081-591-2129</div>
+              <div>✉️ <strong>อีเมล:</strong> kmz.miximage@gmail.com</div>
+              <div>🕒 <strong>เวลาบริการออนไลน์:</strong> 10.00 – 22.00 น. ทุกวัน</div>
+            </div>
+            <a href="https://line.me/ti/p/~miximage" target="_blank" rel="noopener noreferrer" class="btn btn-line" style="width:100%;">
+              แอด LINE: miximage เพื่อคุยกับโปรดิวเซอร์
+            </a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-</main>
-
-<!-- =====================================================================
-     FOOTER
-     ===================================================================== -->
-<footer class="ftr">
-  <div class="wrap">
-    <div class="mark">
-      <img src="assets/images/mark-light.png" alt="" width="30" height="22">
+  <footer class="site-footer">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;">
       <div>
-        <b>MIX-IMAGE™</b>
-        <small>Higher Artistry. Greater Impact.</small>
+        <div style="font-weight:800; font-size:16px;">MIX IMAGE ART&amp;AUDIO (ร้านสร้างภาพ อ.บรบือ จ.มหาสารคาม)</div>
+        <div style="font-size:13px; color:var(--text-muted); margin-top:4px;">
+          477 หมู่ 1 ถนนแจ้งสนิท ต.บรบือ อ.บรบือ จ.มหาสารคาม 44130 • LINE: miximage • โทร 081-592-1229
+        </div>
+      </div>
+      <div style="display:flex; gap:12px;">
+        <a href="index.html" class="btn btn-primary" style="padding:8px 16px; font-size:13px;">← กลับไปหน้าที่ 1: งานภาพ &amp; กรอบรูปมงคล</a>
       </div>
     </div>
+  </footer>
 
-    <nav aria-label="ลิงก์ส่วนท้าย">
-      <a href="index.html">หน้าแรก</a>
-      <a href="image.html">งานภาพ &amp; รีทัช</a>
-      <a href="music.html">สตูดิโอเพลง AI</a>
-      <a href="#player">เครื่องเล่นตัวอย่าง</a>
-      <a href="#brief">ส่งบรีฟงาน</a>
-      <a href="https://line.me/ti/p/~miximage" target="_blank" rel="noopener">LINE: miximage</a>
-    </nav>
-
-    <div class="copy">
-      © 2026 MIX-IMAGE Art &amp; Audio. All Rights Reserved.
-    </div>
-  </div>
-</footer>
-
-<!-- Mobile Floating LINE Button -->
-<div class="m-line">
-  <a class="btn btn-chrome" href="https://line.me/ti/p/~miximage" target="_blank" rel="noopener">
-    💬 แอด LINE สั่งทำเพลงด่วน (miximage)
+  <a href="https://line.me/ti/p/~miximage" target="_blank" rel="noopener noreferrer" class="floating-line">
+    <span>💬</span> LINE: miximage
   </a>
-</div>
 
-<script src="assets/js/main.js" defer></script>
+  <div id="toastBanner" class="toast-banner" role="status" aria-live="polite">
+    <span>✅</span> <span id="toastText">ดำเนินการสำเร็จ</span>
+  </div>
+
+  <script>
+    // Web Audio API Demo Synthesizer for real interactive audio preview
+    let audioCtx = null;
+    let isPlaying = false;
+    let demoInterval = null;
+    let baseFreq = 523.25;
+
+    function selectDemoTrack(idx, title, meta, freq, el) {
+      document.querySelectorAll('.track-item').forEach(t => t.classList.remove('active'));
+      el.classList.add('active');
+      document.getElementById('nowPlayingTitle').textContent = title;
+      document.getElementById('nowPlayingMeta').textContent = meta;
+      baseFreq = freq;
+      if (isPlaying) {
+        stopSynth();
+        startSynth();
+      } else {
+        togglePreviewSynth();
+      }
+    }
+
+    function togglePreviewSynth() {
+      if (isPlaying) {
+        stopSynth();
+      } else {
+        startSynth();
+      }
+    }
+
+    function startSynth() {
+      try {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        isPlaying = true;
+        document.getElementById('waveformContainer').classList.add('playing');
+        document.getElementById('masterToggleBtn').textContent = '⏸ พักเสียงสาธิต';
+        document.getElementById('playerStatusBadge').textContent = 'กำลังเล่นตัวอย่างเสียง';
+        const scale = [1, 1.25, 1.5, 1.25, 1.33, 1.5, 1.125, 1];
+        let step = 0;
+        demoInterval = setInterval(() => {
+          if (!isPlaying) return;
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(baseFreq * scale[step % scale.length], audioCtx.currentTime);
+          gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.32);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start();
+          osc.stop(audioCtx.currentTime + 0.34);
+          step++;
+        }, 360);
+      } catch (e) {
+        showToast('เบราว์เซอร์พร้อมเล่นเสียงเมื่อคลิก');
+      }
+    }
+
+    function stopSynth() {
+      isPlaying = false;
+      if (demoInterval) clearInterval(demoInterval);
+      document.getElementById('waveformContainer').classList.remove('playing');
+      document.getElementById('masterToggleBtn').textContent = '▶ เล่นเสียงสาธิต';
+      document.getElementById('playerStatusBadge').textContent = 'พักเสียงชั่วคราว';
+    }
+
+    let musicRefFiles = [];
+    let musicSlipFile = '';
+
+    function handleMusicRefFiles(files) {
+      const grid = document.getElementById('musicRefGrid');
+      Array.from(files).forEach(f => {
+        musicRefFiles.push(f.name);
+        const div = document.createElement('div');
+        div.className = 'preview-item';
+        div.textContent = `📎 ${f.name}`;
+        grid.appendChild(div);
+      });
+      updateMusicSummary();
+      showToast(`แนบไฟล์อ้างอิง ${files.length} รายการแล้ว`);
+    }
+
+    function handleMusicSlip(files) {
+      if (files && files[0]) {
+        musicSlipFile = files[0].name;
+        document.getElementById('musicSlipStatus').textContent = `✓ แนบสลิปโอนเงิน: ${musicSlipFile} เรียบร้อยแล้ว`;
+        updateMusicSummary();
+        showToast('แนบสลิปโอนเงินค่าทำเพลงแล้ว');
+      }
+    }
+
+    function selectMusicService(name, price) {
+      const sel = document.getElementById('musicServiceSelect');
+      for (let i = 0; i < sel.options.length; i++) {
+        if (Number(sel.options[i].value) === price) {
+          sel.selectedIndex = i;
+          break;
+        }
+      }
+      recalculateMusicPrice();
+      document.getElementById('music-order').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function recalculateMusicPrice() {
+      const sel = document.getElementById('musicServiceSelect');
+      const opt = sel.options[sel.selectedIndex];
+      const total = Number(opt.value) || 990;
+      const name = opt.dataset.name || opt.text;
+      const payOpt = document.querySelector('input[name="musicPayOption"]:checked').value;
+      const payNow = payOpt === 'deposit50' ? Math.ceil(total * 0.5) : total;
+
+      document.getElementById('sumMusicName').textContent = name;
+      document.getElementById('sumMusicTotal').textContent = `${total.toLocaleString()} บาท`;
+      document.getElementById('sumMusicPayLabel').textContent = payOpt === 'deposit50' ? 'ยอดโอนมัดจำเริ่มงาน (50%):' : 'ยอดชำระเต็มจำนวน (100%):';
+      document.getElementById('sumMusicPayNow').textContent = `${payNow.toLocaleString()} บาท`;
+      document.getElementById('musicPaidAmount').value = payNow;
+      updateMusicSummary();
+    }
+
+    function updateMusicSummary() {
+      const sel = document.getElementById('musicServiceSelect');
+      const name = sel.options[sel.selectedIndex].dataset.name;
+      const genre = document.getElementById('musicGenre').value;
+      const vocal = document.getElementById('vocalType').value;
+      const story = document.getElementById('songStory').value.trim() || '-';
+      const refLink = document.getElementById('refLink').value.trim() || '-';
+      const total = document.getElementById('sumMusicTotal').textContent;
+      const payOpt = document.querySelector('input[name="musicPayOption"]:checked').value === 'deposit50' ? 'มัดจำ 50%' : 'ชำระเต็ม 100%';
+      const paidAmt = document.getElementById('musicPaidAmount').value;
+      const paidTime = document.getElementById('musicPaidTime').value.trim() || '(รอระบุเวลาโอน)';
+      const slip4 = document.getElementById('musicSlip4').value.trim() || 'xxxx';
+      const custName = document.getElementById('musicCustName').value.trim() || '(ระบุชื่อ)';
+      const custPhone = document.getElementById('musicCustPhone').value.trim() || '(ระบุเบอร์โทร)';
+      const refs = musicRefFiles.length ? musicRefFiles.join(', ') : 'พร้อมส่งในแชท LINE';
+
+      const text = [
+        `🎵 ใบสั่งทำเพลง MIX IMAGE ART&AUDIO`,
+        `• บริการ: ${name}`,
+        `• แนวเพลง: ${genre} | เสียงร้อง: ${vocal}`,
+        `• เรื่องราว/คำสำคัญในเพลง: ${story}`,
+        `• ลิงก์อ้างอิง: ${refLink} | ไฟล์แนบ: ${refs}`,
+        `• ยอดรวม: ${total} (${payOpt})`,
+        `• ยืนยันโอนแล้ว: ${paidAmt} บาท (เวลา ${paidTime} | ท้ายสลิป ${slip4})`,
+        `• ผู้สั่งทำ: ${custName} (โทร/LINE: ${custPhone})`
+      ].join('\n');
+
+      document.getElementById('generatedMusicText').value = text;
+    }
+
+    ['songStory', 'refLink', 'musicPaidAmount', 'musicPaidTime', 'musicSlip4', 'musicCustName', 'musicCustPhone'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('input', updateMusicSummary);
+    });
+
+    function handleMusicOrderSubmit(e) {
+      e.preventDefault();
+      updateMusicSummary();
+      const b = document.getElementById('musicBadge');
+      b.textContent = '✓ ยืนยันมัดจำแล้ว พร้อมส่ง LINE';
+      b.style.color = '#15803d';
+      copyText(document.getElementById('generatedMusicText').value, 'บันทึกบรีฟเพลงและคัดลอกข้อความแล้ว! ส่งในแชท LINE: miximage ได้เลย');
+    }
+
+    function copyMusicAndOpenLine() {
+      updateMusicSummary();
+      copyText(document.getElementById('generatedMusicText').value, 'คัดลอกบรีฟเพลงแล้ว กำลังเปิดแชท LINE: miximage...');
+      setTimeout(() => {
+        window.open('https://line.me/ti/p/~miximage', '_blank', 'noopener');
+      }, 450);
+    }
+
+    function copyText(text, toastMsg) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => showToast(toastMsg));
+      }
+    }
+
+    function showToast(msg) {
+      const banner = document.getElementById('toastBanner');
+      document.getElementById('toastText').textContent = msg;
+      banner.classList.add('show');
+      setTimeout(() => banner.classList.remove('show'), 3400);
+    }
+
+    recalculateMusicPrice();
+  </script>
 </body>
 </html>
