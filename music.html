@@ -446,6 +446,12 @@ section {
 }
 
 /* Service Card */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
 .grid-4 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -643,7 +649,7 @@ section {
   .hero-audio, .order-layout {
     grid-template-columns: 1fr;
   }
-  .grid-4 {
+  .grid-3, .grid-4 {
     grid-template-columns: repeat(2, 1fr);
   }
   .nav-links {
@@ -652,7 +658,7 @@ section {
 }
 
 @media (max-width: 640px) {
-  .grid-4 {
+  .grid-3, .grid-4 {
     grid-template-columns: 1fr;
   }
   .navbar-glass {
@@ -745,7 +751,7 @@ section {
       <div class="glass-panel" id="audio-showcase" style="padding: 24px;">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; gap:8px; flex-wrap:wrap;">
           <div>
-            <span style="font-size:12px; color:#0369a1; font-weight:700;">🎬 ผลงานจริงจากช่อง YouTube: @MIXNATTANONT (คลิกเลือกหัวข้อด้านล่าง)</span>
+            <span style="font-size:12px; color:#0369a1; font-weight:700;">🎬 ผลงานจริงจากช่อง YouTube: @MIXNATTANONT (คลิกเลือกฟัง 6 หัวข้อด้านล่าง)</span>
             <h2 style="font-size:18px; font-weight:700; margin-top:2px;" id="nowPlayingTitle">1. สุขใจที่บรบือ (Borabue Funky Groove) — เพลงแบรนด์/ท้องถิ่นสดใส</h2>
           </div>
           <a href="https://www.youtube.com/@MIXNATTANONT" target="_blank" rel="noopener noreferrer" id="playerStatusBadge" class="glass-pill" style="padding:4px 12px; font-size:12px; color:#dc2626; font-weight:700; text-decoration:none;">▶ ช่อง @MIXNATTANONT</a>
@@ -772,13 +778,13 @@ section {
           </div>
         </div>
 
-        <!-- Track List (Click to Switch Embedded YouTube Video from @MIXNATTANONT) -->
-        <div>
+        <!-- Track List (Click to Switch Embedded YouTube Video from @MIXNATTANONT - 6 Curated Tracks) -->
+        <div style="max-height: 360px; overflow-y: auto; padding-right: 4px;">
           <div class="track-item active" onclick="selectDemoTrack('SbZHmyVXPrs', '1. สุขใจที่บรบือ (Borabue Funky Groove) — เพลงแบรนด์/ท้องถิ่นสดใส', 'แนวเพลง: Funky Groove / Commercial Pop สดใส • เหมาะกับเพลงประจำร้าน/แบรนด์/โปรโมตสถานที่', this)">
             <div style="display:flex; align-items:center; gap:12px;">
               <button type="button" class="play-circle" aria-label="เล่นเพลงที่ 1">▶</button>
               <div>
-                <div style="font-weight:700; font-size:14px;">1. สุขใจที่บรบือ (Borabue Funky Groove) — เพลงแบรนด์/โปรโมตสดใส</div>
+                <div style="font-weight:700; font-size:13.5px;">1. สุขใจที่บรบือ (Borabue Funky Groove) — เพลงแบรนด์/โปรโมตสดใส</div>
                 <div style="font-size:12px; color:var(--text-muted);">จังหวะ Funky สดใสติดหู สำหรับเพลงประจำร้านค้า แบรนด์ และโปรโมตสถานที่</div>
               </div>
             </div>
@@ -789,7 +795,7 @@ section {
             <div style="display:flex; align-items:center; gap:12px;">
               <button type="button" class="play-circle" aria-label="เล่นเพลงที่ 2">▶</button>
               <div>
-                <div style="font-weight:700; font-size:14px;">2. เสียงแคน แดนบรบือ — เพลงลูกทุ่งอินดี้ / อีสานโมเดิร์น</div>
+                <div style="font-weight:700; font-size:13.5px;">2. เสียงแคน แดนบรบือ — เพลงลูกทุ่งอินดี้ / อีสานโมเดิร์น</div>
                 <div style="font-size:12px; color:var(--text-muted);">ผสานกลิ่นอายเสียงแคน-พิณอีสานเข้ากับดนตรีสมัยใหม่ โดย MIX NATTANONT</div>
               </div>
             </div>
@@ -800,7 +806,7 @@ section {
             <div style="display:flex; align-items:center; gap:12px;">
               <button type="button" class="play-circle" aria-label="เล่นเพลงที่ 3">▶</button>
               <div>
-                <div style="font-weight:700; font-size:14px;">3. เงาเสียง (Echoes of You) [Official MV] — Pop / R&amp;B / Hip-Hop</div>
+                <div style="font-weight:700; font-size:13.5px;">3. เงาเสียง (Echoes of You) [Official MV] — Pop / R&amp;B / Hip-Hop</div>
                 <div style="font-size:12px; color:var(--text-muted);">ซาวด์โมเดิร์น Pop R&amp;B ผสานท่อนแร็พและมิวสิกวิดีโอ AI 4K เต็มรูปแบบ</div>
               </div>
             </div>
@@ -811,34 +817,56 @@ section {
             <div style="display:flex; align-items:center; gap:12px;">
               <button type="button" class="play-circle" aria-label="เล่นเพลงที่ 4">▶</button>
               <div>
-                <div style="font-weight:700; font-size:14px;">4. กลับไปซบตักแม่ — เพลงอบอุ่นหัวใจ (เพลงของขวัญโอกาสพิเศษ)</div>
+                <div style="font-weight:700; font-size:13.5px;">4. กลับไปซบตักแม่ — เพลงอบอุ่นหัวใจ (เพลงของขวัญโอกาสพิเศษ)</div>
                 <div style="font-size:12px; color:var(--text-muted);">ร้อยเรียงเรื่องราวความผูกพันและครอบครัว สำหรับเป็นของขวัญวันสำคัญ</div>
               </div>
             </div>
             <span style="font-size:12px; color:#0369a1; font-weight:700; white-space:nowrap;">▶ 4:38</span>
           </div>
+
+          <div class="track-item" onclick="selectDemoTrack('ooaI-Ls67gI', '5. มุมเดิม (Same Corner) — เพลงป๊อปฟังสบาย / เปิดคลอในร้านคาเฟ่', 'แนวเพลง: Acoustic Cafe Pop ฟังสบาย • เหมาะสำหรับเปิดในร้านกาแฟ คาเฟ่ และช่อง Vlog', this)">
+            <div style="display:flex; align-items:center; gap:12px;">
+              <button type="button" class="play-circle" aria-label="เล่นเพลงที่ 5">▶</button>
+              <div>
+                <div style="font-weight:700; font-size:13.5px;">5. มุมเดิม (Same Corner) — เพลงป๊อปฟังสบาย / เปิดคลอในคาเฟ่</div>
+                <div style="font-size:12px; color:var(--text-muted);">มู้ดร้านกาแฟอบอุ่นละมุนหู สำหรับเปิดคลอในร้านค้า คาเฟ่ และรีสอร์ต</div>
+              </div>
+            </div>
+            <span style="font-size:12px; color:#0369a1; font-weight:700; white-space:nowrap;">▶ 3:06</span>
+          </div>
+
+          <div class="track-item" onclick="selectDemoTrack('QW9Zh011HHs', '6. CYBER-RANAT (ตัดสินด้วยอะไร) — ไทยฟิวชัน × Trap Beat โฆษณาไวรัล', 'แนวเพลง: Thai Traditional Ranat Ek × Modern Trap Beat • ซาวด์เอกลักษณ์โดดเด่นสำหรับโฆษณา', this)">
+            <div style="display:flex; align-items:center; gap:12px;">
+              <button type="button" class="play-circle" aria-label="เล่นเพลงที่ 6">▶</button>
+              <div>
+                <div style="font-weight:700; font-size:13.5px;">6. CYBER-RANAT (ตัดสินด้วยอะไร) — ไทยฟิวชัน × Trap Beat สุดล้ำ</div>
+                <div style="font-size:12px; color:var(--text-muted);">ผสานเสียงระนาดเอกไทยเข้ากับ Trap Beat ดิจิทัล เหมาะกับแคมเปญโฆษณาไวรัล</div>
+              </div>
+            </div>
+            <span style="font-size:12px; color:#0369a1; font-weight:700; white-space:nowrap;">▶ 2:54</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- YOUTUBE EMBEDDED SHOWCASE BY TOPIC FROM @MIXNATTANONT -->
+    <!-- YOUTUBE EMBEDDED SHOWCASE BY TOPIC FROM @MIXNATTANONT (6 CARDS GRID) -->
     <section id="youtube-gallery" style="padding: 36px 0;">
       <div class="section-header">
-        <div class="glass-pill eyebrow-badge" style="color:#dc2626;">▶ ผลงานจริงจากช่อง YouTube: @MIXNATTANONT แยกตามหัวข้อบริการ</div>
-        <h2 class="section-title">ตัวอย่างผลงานเพลงลิขสิทธิ์แท้โดย MIX NATTANON (กดฟังได้ทันที)</h2>
+        <div class="glass-pill eyebrow-badge" style="color:#dc2626;">▶ ผลงานจริงจากช่อง YouTube: @MIXNATTANONT ทั้ง 6 สไตล์ยอดนิยม</div>
+        <h2 class="section-title">ตัวอย่างผลงานเพลงลิขสิทธิ์แท้โดย MIX NATTANON (6 หัวข้อ กดฟังได้ทันที)</h2>
         <p class="section-desc">
-          ทุกบทเพลงด้านล่างเป็นผลงานผลิตจริงจากสตูดิโอ <strong>MIX IMAGE ART&amp;AUDIO (<a href="https://www.youtube.com/@MIXNATTANONT" target="_blank" rel="noopener noreferrer" style="color:#0369a1; text-decoration:underline;">youtube.com/@MIXNATTANONT</a>)</strong> คัดสรรแยกตามหัวข้อเพื่อให้คุณเลือกสไตล์ที่ตรงใจ
+          ทุกคลิปด้านล่างเป็นผลงานผลิตจริงจากช่อง <strong><a href="https://www.youtube.com/@MIXNATTANONT" target="_blank" rel="noopener noreferrer" style="color:#0369a1; text-decoration:underline;">YouTube: @MIXNATTANONT</a></strong> โดยสตูดิโอ <strong>MIX IMAGE ART&amp;AUDIO</strong> คัดสรรครบ 6 สไตล์เพื่อให้คุณเลือกแนวเพลงที่ตรงกับแบรนด์หรือโอกาสพิเศษของคุณ
         </p>
       </div>
 
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(290px, 1fr)); gap:22px;">
-        <!-- Topic 1: Funky Groove / Brand & Local Promo -->
+      <div class="grid-3">
+        <!-- Card 1: Funky Groove / Brand & Local Promo -->
         <article class="glass-panel" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between;">
           <div>
             <div style="position:relative; width:100%; aspect-ratio:16/9; border-radius:12px; overflow:hidden; margin-bottom:14px; background:#000; border:1px solid rgba(255,255,255,0.85);">
               <iframe
                 src="https://www.youtube.com/embed/SbZHmyVXPrs?rel=0&modestbranding=1"
-                title="สุขใจที่บรบือ (Borabue Funky Groove) | MIX NATTANON"
+                title="1. สุขใจที่บรบือ (Borabue Funky Groove) | MIX NATTANON"
                 loading="lazy"
                 style="position:absolute; inset:0; width:100%; height:100%; border:0;"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -847,7 +875,7 @@ section {
               </iframe>
             </div>
             <span class="glass-pill" style="padding:3px 10px; font-size:11px; color:#0369a1;">หัวข้อที่ 1 • เพลงแบรนด์ &amp; โปรโมตสถานที่/ร้านค้า</span>
-            <h3 style="font-size:17px; font-weight:700; margin:8px 0 6px;">สุขใจที่บรบือ (Borabue Funky Groove)</h3>
+            <h3 style="font-size:17px; font-weight:700; margin:8px 0 6px;">1. สุขใจที่บรบือ (Borabue Funky Groove)</h3>
             <p style="font-size:13px; color:var(--text-secondary); margin-bottom:14px;">
               จังหวะ Funky Groove สนุกสดใส จำง่าย สร้างเอกลักษณ์ให้แบรนด์ ร้านค้า หรือองค์กรท้องถิ่นได้อย่างโดดเด่น
             </p>
@@ -857,13 +885,13 @@ section {
           </button>
         </article>
 
-        <!-- Topic 2: Luk Thung / Isan Modern -->
+        <!-- Card 2: Luk Thung / Isan Modern -->
         <article class="glass-panel" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between;">
           <div>
             <div style="position:relative; width:100%; aspect-ratio:16/9; border-radius:12px; overflow:hidden; margin-bottom:14px; background:#000; border:1px solid rgba(255,255,255,0.85);">
               <iframe
                 src="https://www.youtube.com/embed/ETybTqmNsZw?rel=0&modestbranding=1"
-                title="เสียงแคน แดนบรบือ | MIX NATTANONT AI Music"
+                title="2. เสียงแคน แดนบรบือ | MIX NATTANONT AI Music"
                 loading="lazy"
                 style="position:absolute; inset:0; width:100%; height:100%; border:0;"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -872,7 +900,7 @@ section {
               </iframe>
             </div>
             <span class="glass-pill" style="padding:3px 10px; font-size:11px; color:#b45309;">หัวข้อที่ 2 • ลูกทุ่งอินดี้ &amp; อีสานโมเดิร์น</span>
-            <h3 style="font-size:17px; font-weight:700; margin:8px 0 6px;">เสียงแคน แดนบรบือ — MIX NATTANONT</h3>
+            <h3 style="font-size:17px; font-weight:700; margin:8px 0 6px;">2. เสียงแคน แดนบรบือ — MIX NATTANONT</h3>
             <p style="font-size:13px; color:var(--text-secondary); margin-bottom:14px;">
               ผสานเสียงแคนและกลิ่นอายดนตรีอีสานบ้านเฮาเข้ากับซาวด์โมเดิร์นร่วมสมัย ไพเราะกินใจและเข้าถึงผู้ฟังทุกวัย
             </p>
@@ -882,13 +910,13 @@ section {
           </button>
         </article>
 
-        <!-- Topic 3: Modern Pop / R&B / Hip-Hop MV -->
+        <!-- Card 3: Modern Pop / R&B / Hip-Hop MV -->
         <article class="glass-panel" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between;">
           <div>
             <div style="position:relative; width:100%; aspect-ratio:16/9; border-radius:12px; overflow:hidden; margin-bottom:14px; background:#000; border:1px solid rgba(255,255,255,0.85);">
               <iframe
                 src="https://www.youtube.com/embed/WlF9N4ezPws?rel=0&modestbranding=1"
-                title="เงาเสียง (Echoes of You) - Official MV | MIX NATTANON"
+                title="3. เงาเสียง (Echoes of You) - Official MV | MIX NATTANON"
                 loading="lazy"
                 style="position:absolute; inset:0; width:100%; height:100%; border:0;"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -897,7 +925,7 @@ section {
               </iframe>
             </div>
             <span class="glass-pill" style="padding:3px 10px; font-size:11px; color:#6d28d9;">หัวข้อที่ 3 • T-Pop / R&amp;B / Hip-Hop ร่วมสมัย</span>
-            <h3 style="font-size:17px; font-weight:700; margin:8px 0 6px;">เงาเสียง (Echoes of You) [Official MV]</h3>
+            <h3 style="font-size:17px; font-weight:700; margin:8px 0 6px;">3. เงาเสียง (Echoes of You) [Official MV]</h3>
             <p style="font-size:13px; color:var(--text-secondary); margin-bottom:14px;">
               เพลง Pop / R&amp;B / Hip-Hop เมโลดี้ติดหู บีตแน่นคมชัดระดับสตรีมมิ่ง พร้อมงานภาพมิวสิกวิดีโอคุณภาพสูง
             </p>
@@ -907,13 +935,13 @@ section {
           </button>
         </article>
 
-        <!-- Topic 4: Warm Gift / Family & Acoustic Song -->
+        <!-- Card 4: Warm Gift / Family & Acoustic Song -->
         <article class="glass-panel" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between;">
           <div>
             <div style="position:relative; width:100%; aspect-ratio:16/9; border-radius:12px; overflow:hidden; margin-bottom:14px; background:#000; border:1px solid rgba(255,255,255,0.85);">
               <iframe
                 src="https://www.youtube.com/embed/TJU4VN54tck?rel=0&modestbranding=1"
-                title="กลับไปซบตักแม่ - MIX NATTANON [Official Audio]"
+                title="4. กลับไปซบตักแม่ - MIX NATTANON [Official Audio]"
                 loading="lazy"
                 style="position:absolute; inset:0; width:100%; height:100%; border:0;"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -922,13 +950,63 @@ section {
               </iframe>
             </div>
             <span class="glass-pill" style="padding:3px 10px; font-size:11px; color:#15803d;">หัวข้อที่ 4 • เพลงครอบครัว &amp; ของขวัญโอกาสพิเศษ</span>
-            <h3 style="font-size:17px; font-weight:700; margin:8px 0 6px;">กลับไปซบตักแม่ — MIX NATTANON</h3>
+            <h3 style="font-size:17px; font-weight:700; margin:8px 0 6px;">4. กลับไปซบตักแม่ — MIX NATTANON</h3>
             <p style="font-size:13px; color:var(--text-secondary); margin-bottom:14px;">
               บทเพลงอบอุ่นถ่ายทอดความรักและความผูกพัน เหมาะสำหรับสั่งทำเป็นเพลงของขวัญให้ครอบครัว งานแต่งงาน วันเกิด หรือเกษียณอายุ
             </p>
           </div>
           <button type="button" class="btn btn-glass" style="width:100%; font-size:13px;" onclick="selectMusicService('เพลงของขวัญโอกาสพิเศษ + คลิปวิดีโอเนื้อเพลง (Lyric MV)', 1490)">
             สั่งทำเพลงของขวัญ + MV (1,490 ฿) →
+          </button>
+        </article>
+
+        <!-- Card 5: Cafe & Easy Listening Pop -->
+        <article class="glass-panel" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div style="position:relative; width:100%; aspect-ratio:16/9; border-radius:12px; overflow:hidden; margin-bottom:14px; background:#000; border:1px solid rgba(255,255,255,0.85);">
+              <iframe
+                src="https://www.youtube.com/embed/ooaI-Ls67gI?rel=0&modestbranding=1"
+                title="5. มุมเดิม (Same Corner) | MIX NATTANON AI Music"
+                loading="lazy"
+                style="position:absolute; inset:0; width:100%; height:100%; border:0;"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <span class="glass-pill" style="padding:3px 10px; font-size:11px; color:#0284c7;">หัวข้อที่ 5 • เพลงเปิดในร้านคาเฟ่ &amp; ฟังสบาย</span>
+            <h3 style="font-size:17px; font-weight:700; margin:8px 0 6px;">5. มุมเดิม (Same Corner) — MIX NATTANON</h3>
+            <p style="font-size:13px; color:var(--text-secondary); margin-bottom:14px;">
+              เพลงป๊อปอะคูสติกมู้ดร้านกาแฟ ฟังสบายละมุนหู เหมาะสำหรับทำเพลงเปิดคลอสร้างบรรยากาศในคาเฟ่ ร้านอาหาร โรงแรม และช่อง Vlog
+            </p>
+          </div>
+          <button type="button" class="btn btn-glass" style="width:100%; font-size:13px;" onclick="selectMusicService('เพลงเต็มเชิงพาณิชย์ 100% (แต่งเนื้อร้องใหม่ + WAV 24-bit)', 990)">
+            สั่งทำเพลงเปิดในร้าน/คาเฟ่ (990 ฿) →
+          </button>
+        </article>
+
+        <!-- Card 6: Thai Fusion x Trap Beat / Viral Commercial -->
+        <article class="glass-panel" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div style="position:relative; width:100%; aspect-ratio:16/9; border-radius:12px; overflow:hidden; margin-bottom:14px; background:#000; border:1px solid rgba(255,255,255,0.85);">
+              <iframe
+                src="https://www.youtube.com/embed/QW9Zh011HHs?rel=0&modestbranding=1"
+                title="6. CYBER-RANAT (ตัดสินด้วยอะไร) | MIX NATTANON AI Music"
+                loading="lazy"
+                style="position:absolute; inset:0; width:100%; height:100%; border:0;"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <span class="glass-pill" style="padding:3px 10px; font-size:11px; color:#be123c;">หัวข้อที่ 6 • ไทยฟิวชัน × Trap Beat (โฆษณาไวรัล)</span>
+            <h3 style="font-size:17px; font-weight:700; margin:8px 0 6px;">6. CYBER-RANAT (ตัดสินด้วยอะไร)</h3>
+            <p style="font-size:13px; color:var(--text-secondary); margin-bottom:14px;">
+              ผสานเสียงระนาดเอกไทยเข้ากับ Trap Beat ดิจิทัลสุดล้ำ ท่อนฮุกดึงดูดใจตั้งแต่วินาทีแรก เหมาะสำหรับคลิปไวรัล TikTok/Reels และเปิดตัวสินค้า
+            </p>
+          </div>
+          <button type="button" class="btn btn-glass" style="width:100%; font-size:13px;" onclick="selectMusicService('เพลงเต็มเชิงพาณิชย์ 100% (แต่งเนื้อร้องใหม่ + WAV 24-bit)', 990)">
+            สั่งทำเพลงไทยฟิวชัน/ไวรัล (990 ฿) →
           </button>
         </article>
       </div>
