@@ -742,90 +742,196 @@ section {
         </div>
       </div>
 
-      <!-- Interactive Studio Audio Showcase Player -->
-      <div class="glass-panel" id="audio-showcase" style="padding: 26px;">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+      <!-- Interactive Studio Audio Showcase Player (YouTube Embedded) -->
+      <div class="glass-panel" id="audio-showcase" style="padding: 24px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; gap:8px; flex-wrap:wrap;">
           <div>
-            <span style="font-size:12px; color:#0369a1; font-weight:700;">สตูดิโอทดลองฟังตัวอย่างเพลงและเสียง</span>
-            <h2 style="font-size:18.5px; font-weight:700;" id="nowPlayingTitle">1. เพลงโฆษณาแบรนด์สดใส (เพลงสั้นประจำร้าน)</h2>
+            <span style="font-size:12px; color:#0369a1; font-weight:700;">🎬 สตูดิโอทดลองฟังตัวอย่างเพลงจาก YouTube (คลิกเลือกหัวข้อด้านล่าง)</span>
+            <h2 style="font-size:18px; font-weight:700; margin-top:2px;" id="nowPlayingTitle">1. เพลงโฆษณาแบรนด์สดใส (เพลงสั้นประจำร้าน)</h2>
           </div>
-          <span id="playerStatusBadge" class="glass-pill" style="padding:4px 12px; font-size:12px; color:#0369a1;">พร้อมเล่นตัวอย่าง</span>
+          <span id="playerStatusBadge" class="glass-pill" style="padding:4px 12px; font-size:12px; color:#dc2626; font-weight:700;">▶ YouTube HD</span>
         </div>
 
-        <!-- Waveform Visualizer Box -->
-        <div class="glass-panel" id="waveformContainer" style="padding:16px 20px; background:rgba(226,232,240,0.85); border: 1px solid rgba(148,163,184,0.5); margin-bottom:16px;">
-          <div class="waveform-bars" id="waveformBars">
-            <div class="wave-bar" style="animation-delay:0.05s; height:35%"></div>
-            <div class="wave-bar" style="animation-delay:0.15s; height:65%"></div>
-            <div class="wave-bar" style="animation-delay:0.25s; height:45%"></div>
-            <div class="wave-bar" style="animation-delay:0.10s; height:85%"></div>
-            <div class="wave-bar" style="animation-delay:0.35s; height:50%"></div>
-            <div class="wave-bar" style="animation-delay:0.20s; height:90%"></div>
-            <div class="wave-bar" style="animation-delay:0.40s; height:40%"></div>
-            <div class="wave-bar" style="animation-delay:0.12s; height:75%"></div>
-            <div class="wave-bar" style="animation-delay:0.28s; height:60%"></div>
-            <div class="wave-bar" style="animation-delay:0.08s; height:95%"></div>
-            <div class="wave-bar" style="animation-delay:0.32s; height:55%"></div>
-            <div class="wave-bar" style="animation-delay:0.18s; height:80%"></div>
-            <div class="wave-bar" style="animation-delay:0.22s; height:45%"></div>
-            <div class="wave-bar" style="animation-delay:0.14s; height:70%"></div>
-            <div class="wave-bar" style="animation-delay:0.30s; height:38%"></div>
-            <div class="wave-bar" style="animation-delay:0.06s; height:88%"></div>
+        <!-- Embedded YouTube Player Box -->
+        <div class="glass-panel" id="waveformContainer" style="padding:12px; background:rgba(15,23,42,0.92); border: 1px solid rgba(148,163,184,0.45); margin-bottom:14px; border-radius:16px;">
+          <div style="position:relative; width:100%; aspect-ratio:16/9; border-radius:12px; overflow:hidden; background:#000; box-shadow:0 8px 24px rgba(0,0,0,0.4);">
+            <iframe
+              id="ytShowcaseIframe"
+              src="https://www.youtube.com/embed/TE688cMNFm0?rel=0&modestbranding=1"
+              title="ตัวอย่างเพลงโฆษณาแบรนด์สดใส MIX IMAGE ART&AUDIO"
+              style="position:absolute; inset:0; width:100%; height:100%; border:0;"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
           </div>
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px; font-size:12px; color:var(--text-muted); flex-wrap:wrap; gap:8px;">
-            <span id="nowPlayingMeta">แนวเพลง: ป๊อปโฆษณาติดหู • จังหวะ 120 BPM • มาสเตอริง 24-bit</span>
-            <button type="button" id="masterToggleBtn" class="btn btn-primary" style="padding:6px 16px; font-size:12.5px;" onclick="togglePreviewSynth()">
-              ▶ เล่นเสียงสาธิต
-            </button>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px; font-size:12px; color:#e2e8f0; flex-wrap:wrap; gap:8px;">
+            <span id="nowPlayingMeta" style="color:#cbd5e1 !important;">แนวเพลง: ป๊อปโฆษณาติดหู • จังหวะสนุกสดใส • เหมาะกับร้านค้า/TikTok/Reels</span>
+            <a id="ytWatchLink" href="https://www.youtube.com/watch?v=TE688cMNFm0" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding:5px 14px; font-size:12px; text-decoration:none;">
+              ↗ เปิดบน YouTube
+            </a>
           </div>
         </div>
 
-        <!-- Track List -->
+        <!-- Track List (Click to Switch Embedded YouTube Video) -->
         <div>
-          <div class="track-item active" onclick="selectDemoTrack(0, '1. เพลงโฆษณาแบรนด์สดใส (เพลงสั้นประจำร้าน)', 'แนวเพลง: ป๊อปโฆษณาติดหู • จังหวะ 120 BPM • เหมาะกับ TikTok/Reels', 523.25, this)">
+          <div class="track-item active" onclick="selectDemoTrack('TE688cMNFm0', '1. เพลงโฆษณาแบรนด์สดใส (เพลงสั้นประจำร้าน)', 'แนวเพลง: ป๊อปโฆษณาติดหู • จังหวะสนุกสดใส • เหมาะกับร้านค้า/TikTok/Reels', this)">
             <div style="display:flex; align-items:center; gap:12px;">
-              <button type="button" class="play-circle">♪</button>
+              <button type="button" class="play-circle" aria-label="เล่นเพลงที่ 1">▶</button>
               <div>
                 <div style="font-weight:700; font-size:14px;">1. เพลงโฆษณาแบรนด์สดใส (เพลงสั้นประจำร้าน)</div>
-                <div style="font-size:12px; color:var(--text-muted);">ท่อนฮุกติดหูใน 15 วินาที สำหรับโฆษณาร้านค้าและคลิปรีวิว</div>
+                <div style="font-size:12px; color:var(--text-muted);">ท่อนฮุกติดหูจำง่าย สำหรับโฆษณาร้านค้า ปักตะกร้า และคลิปรีวิวสินค้า</div>
               </div>
             </div>
-            <span style="font-size:12px; color:#0369a1; font-weight:600;">0:30</span>
+            <span style="font-size:12px; color:#dc2626; font-weight:700; white-space:nowrap;">▶ 0:57</span>
           </div>
 
-          <div class="track-item" onclick="selectDemoTrack(1, '2. เพลงลูกทุ่งอินดี้ / อีสานโมเดิร์น', 'แนวเพลง: ลูกทุ่งอินดี้ / อีสานร่วมสมัย • 108 BPM • สนุกสนานเข้าถึงง่าย', 440.0, this)">
+          <div class="track-item" onclick="selectDemoTrack('8sBQyxeeDm8', '2. เพลงลูกทุ่งอินดี้ / อีสานโมเดิร์น', 'แนวเพลง: ลูกทุ่งอินดี้ / อีสานร่วมสมัย • ผสานกลิ่นอายดนตรีพื้นบ้านกับบีตสมัยใหม่', this)">
             <div style="display:flex; align-items:center; gap:12px;">
-              <button type="button" class="play-circle">♪</button>
+              <button type="button" class="play-circle" aria-label="เล่นเพลงที่ 2">▶</button>
               <div>
                 <div style="font-weight:700; font-size:14px;">2. เพลงลูกทุ่งอินดี้ / อีสานโมเดิร์น</div>
                 <div style="font-size:12px; color:var(--text-muted);">ผสานกลิ่นอายพิณ-แคนเข้ากับบีตสมัยใหม่ เหมาะกับแบรนด์ท้องถิ่นและงานอีเวนต์</div>
               </div>
             </div>
-            <span style="font-size:12px; color:#0369a1; font-weight:600;">0:30</span>
+            <span style="font-size:12px; color:#0369a1; font-weight:700; white-space:nowrap;">▶ 3:31</span>
           </div>
 
-          <div class="track-item" onclick="selectDemoTrack(2, '3. Glow Up (รักตัวเองให้สุดทาง) — Pop Hip-Hop', 'แนวเพลง: Modern Energetic Thai Pop Hip-Hop • 104 BPM • Key: E Major', 329.63, this)">
+          <div class="track-item" onclick="selectDemoTrack('po7XUrX6DhU', '3. เพลงไทย Pop Hip-Hop / R&B ร่วมสมัย', 'แนวเพลง: Modern Thai Pop Hip-Hop & R&B • โครงสร้าง Suno v6 Pro • 808 Bass', this)">
             <div style="display:flex; align-items:center; gap:12px;">
-              <button type="button" class="play-circle">♪</button>
+              <button type="button" class="play-circle" aria-label="เล่นเพลงที่ 3">▶</button>
               <div>
-                <div style="font-weight:700; font-size:14px;">3. Glow Up (รักตัวเองให้สุดทาง) — Pop Hip-Hop</div>
-                <div style="font-size:12px; color:var(--text-muted);">โครงสร้าง Suno v6 Pro • 808 Bass • Originality 96% ป้องกันลิขสิทธิ์ซ้ำซ้อน</div>
+                <div style="font-weight:700; font-size:14px;">3. เพลงไทย Pop Hip-Hop / R&amp;B ร่วมสมัย</div>
+                <div style="font-size:12px; color:var(--text-muted);">โครงสร้าง Suno v6 Pro • 808 Bass • จังหวะเท่ทันสมัยสำหรับครีเอเตอร์และแบรนด์วัยรุ่น</div>
               </div>
             </div>
-            <span style="font-size:12px; color:#0369a1; font-weight:600;">3:08</span>
+            <span style="font-size:12px; color:#0369a1; font-weight:700; white-space:nowrap;">▶ 3:43</span>
           </div>
 
-          <div class="track-item" onclick="selectDemoTrack(3, '4. เพลงอะคูสติกอบอุ่น (เพลงของขวัญโอกาสพิเศษ)', 'แนวเพลง: อะคูสติกป๊อปอบอุ่น • 76 BPM • เพลงของขวัญวันเกิด/แต่งงาน/เกษียณ', 392.0, this)">
+          <div class="track-item" onclick="selectDemoTrack('9TDbZGVIoqM', '4. เพลงอะคูสติกอบอุ่น (เพลงของขวัญโอกาสพิเศษ)', 'แนวเพลง: AI Acoustic Pop อบอุ่น • เพลงของขวัญวันเกิด/งานแต่งงาน/วันครบรอบ', this)">
             <div style="display:flex; align-items:center; gap:12px;">
-              <button type="button" class="play-circle">♪</button>
+              <button type="button" class="play-circle" aria-label="เล่นเพลงที่ 4">▶</button>
               <div>
                 <div style="font-weight:700; font-size:14px;">4. เพลงอะคูสติกอบอุ่น (เพลงของขวัญโอกาสพิเศษ)</div>
                 <div style="font-size:12px; color:var(--text-muted);">ร้อยเรียงชื่อและเรื่องราวความทรงจำ สำหรับงานแต่งงาน วันเกิด หรือเกษียณอายุ</div>
               </div>
             </div>
-            <span style="font-size:12px; color:#0369a1; font-weight:600;">0:30</span>
+            <span style="font-size:12px; color:#0369a1; font-weight:700; white-space:nowrap;">▶ 3:16</span>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- YOUTUBE EMBEDDED SHOWCASE BY TOPIC (4 GENRES) -->
+    <section id="youtube-gallery" style="padding: 36px 0;">
+      <div class="section-header">
+        <div class="glass-pill eyebrow-badge" style="color:#dc2626;">▶ ตัวอย่างผลงานเพลงฝังจาก YouTube แยกตามหัวข้อบริการ</div>
+        <h2 class="section-title">รับฟังตัวอย่างเพลงครบทุกสไตล์ (กดเล่นได้ทันทีจากหน้าเว็บ)</h2>
+        <p class="section-desc">
+          คัดสรรตัวอย่างงานเพลงแต่ละแนวเพื่อเปรียบเทียบโทนเสียง จังหวะ และอารมณ์เพลง ก่อนสั่งบรีฟทำเพลงเฉพาะคุณ
+        </p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(290px, 1fr)); gap:22px;">
+        <!-- Topic 1 -->
+        <article class="glass-panel" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div style="position:relative; width:100%; aspect-ratio:16/9; border-radius:12px; overflow:hidden; margin-bottom:14px; background:#000; border:1px solid rgba(255,255,255,0.85);">
+              <iframe
+                src="https://www.youtube.com/embed/TE688cMNFm0?rel=0&modestbranding=1"
+                title="1. เพลงโฆษณาแบรนด์สดใส (เพลงสั้นประจำร้าน)"
+                loading="lazy"
+                style="position:absolute; inset:0; width:100%; height:100%; border:0;"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <span class="glass-pill" style="padding:3px 10px; font-size:11px; color:#0369a1;">หัวข้อที่ 1 • โฆษณาร้านค้า &amp; ปักตะกร้า</span>
+            <h3 style="font-size:17px; font-weight:700; margin:8px 0 6px;">1. เพลงโฆษณาแบรนด์สดใส (Jingle ประจำร้าน)</h3>
+            <p style="font-size:13px; color:var(--text-secondary); margin-bottom:14px;">
+              จังหวะป๊อปสนุกสนาน ท่อนฮุกจำชื่อร้านและจุดขายได้ทันที เหมาะสำหรับเปิดหน้าร้านและทำคลิปสั้น TikTok / Reels
+            </p>
+          </div>
+          <button type="button" class="btn btn-glass" style="width:100%; font-size:13px;" onclick="selectMusicService('เพลงโฆษณาสั้น / Jingle แบรนด์ (30-60 วินาที)', 590)">
+            สั่งทำเพลงแนวโฆษณาร้าน (590 ฿) →
+          </button>
+        </article>
+
+        <!-- Topic 2 -->
+        <article class="glass-panel" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div style="position:relative; width:100%; aspect-ratio:16/9; border-radius:12px; overflow:hidden; margin-bottom:14px; background:#000; border:1px solid rgba(255,255,255,0.85);">
+              <iframe
+                src="https://www.youtube.com/embed/8sBQyxeeDm8?rel=0&modestbranding=1"
+                title="2. เพลงลูกทุ่งอินดี้ / อีสานโมเดิร์น"
+                loading="lazy"
+                style="position:absolute; inset:0; width:100%; height:100%; border:0;"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <span class="glass-pill" style="padding:3px 10px; font-size:11px; color:#b45309;">หัวข้อที่ 2 • ลูกทุ่งอินดี้ &amp; อีสานร่วมสมัย</span>
+            <h3 style="font-size:17px; font-weight:700; margin:8px 0 6px;">2. เพลงลูกทุ่งอินดี้ / อีสานโมเดิร์น</h3>
+            <p style="font-size:13px; color:var(--text-secondary); margin-bottom:14px;">
+              สำเนียงลูกทุ่งอีสานร่วมสมัย ผสานเครื่องดนตรีพื้นบ้านพิณ-แคนเข้ากับซาวด์สากล เข้าถึงกลุ่มผู้ฟังทั่วประเทศได้ง่าย
+            </p>
+          </div>
+          <button type="button" class="btn btn-glass" style="width:100%; font-size:13px;" onclick="selectMusicService('เพลงเต็มเชิงพาณิชย์ 100% (แต่งเนื้อร้องใหม่ + WAV 24-bit)', 990)">
+            สั่งทำเพลงลูกทุ่ง/อีสานโมเดิร์น (990 ฿) →
+          </button>
+        </article>
+
+        <!-- Topic 3 -->
+        <article class="glass-panel" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div style="position:relative; width:100%; aspect-ratio:16/9; border-radius:12px; overflow:hidden; margin-bottom:14px; background:#000; border:1px solid rgba(255,255,255,0.85);">
+              <iframe
+                src="https://www.youtube.com/embed/po7XUrX6DhU?rel=0&modestbranding=1"
+                title="3. เพลงไทย Pop Hip-Hop / R&B ร่วมสมัย"
+                loading="lazy"
+                style="position:absolute; inset:0; width:100%; height:100%; border:0;"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <span class="glass-pill" style="padding:3px 10px; font-size:11px; color:#6d28d9;">หัวข้อที่ 3 • T-Pop / Hip-Hop R&amp;B</span>
+            <h3 style="font-size:17px; font-weight:700; margin:8px 0 6px;">3. เพลงไทย Pop Hip-Hop / R&amp;B ร่วมสมัย</h3>
+            <p style="font-size:13px; color:var(--text-secondary); margin-bottom:14px;">
+              บีตทันสมัย 808 Bass แน่นคมชัด ผสมเมโลดี้ร้องและท่อนแร็พลงตัว เหมาะกับช่อง YouTube, แบรนด์แฟชั่น และเพลงประจำตัวครีเอเตอร์
+            </p>
+          </div>
+          <button type="button" class="btn btn-glass" style="width:100%; font-size:13px;" onclick="selectMusicService('เพลงเต็มเชิงพาณิชย์ 100% (แต่งเนื้อร้องใหม่ + WAV 24-bit)', 990)">
+            สั่งทำเพลง Pop Hip-Hop (990 ฿) →
+          </button>
+        </article>
+
+        <!-- Topic 4 -->
+        <article class="glass-panel" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div style="position:relative; width:100%; aspect-ratio:16/9; border-radius:12px; overflow:hidden; margin-bottom:14px; background:#000; border:1px solid rgba(255,255,255,0.85);">
+              <iframe
+                src="https://www.youtube.com/embed/9TDbZGVIoqM?rel=0&modestbranding=1"
+                title="4. เพลงอะคูสติกอบอุ่น (เพลงของขวัญโอกาสพิเศษ)"
+                loading="lazy"
+                style="position:absolute; inset:0; width:100%; height:100%; border:0;"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <span class="glass-pill" style="padding:3px 10px; font-size:11px; color:#15803d;">หัวข้อที่ 4 • เพลงรัก &amp; ของขวัญโอกาสพิเศษ</span>
+            <h3 style="font-size:17px; font-weight:700; margin:8px 0 6px;">4. เพลงอะคูสติกอบอุ่น (เพลงของขวัญพิเศษ)</h3>
+            <p style="font-size:13px; color:var(--text-secondary); margin-bottom:14px;">
+              กีตาร์อะคูสติกเสียงละมุน ใส่ชื่อคนพิเศษและเรื่องราวความประทับใจ เหมาะสำหรับงานแต่งงาน วันครบรอบ วันเกิด และงานเกษียณ
+            </p>
+          </div>
+          <button type="button" class="btn btn-glass" style="width:100%; font-size:13px;" onclick="selectMusicService('เพลงของขวัญโอกาสพิเศษ + คลิปวิดีโอเนื้อเพลง (Lyric MV)', 1490)">
+            สั่งทำเพลงของขวัญ + MV (1,490 ฿) →
+          </button>
+        </article>
       </div>
     </section>
 
@@ -1185,68 +1291,29 @@ section {
   </div>
 
   <script>
-    // Web Audio API Demo Synthesizer for real interactive audio preview
-    let audioCtx = null;
-    let isPlaying = false;
-    let demoInterval = null;
-    let baseFreq = 523.25;
-
-    function selectDemoTrack(idx, title, meta, freq, el) {
+    // Interactive YouTube Embedded Showcase Switcher
+    function selectDemoTrack(videoId, title, meta, el) {
       document.querySelectorAll('.track-item').forEach(t => t.classList.remove('active'));
-      el.classList.add('active');
-      document.getElementById('nowPlayingTitle').textContent = title;
-      document.getElementById('nowPlayingMeta').textContent = meta;
-      baseFreq = freq;
-      if (isPlaying) {
-        stopSynth();
-        startSynth();
-      } else {
-        togglePreviewSynth();
-      }
-    }
+      if (el) el.classList.add('active');
 
-    function togglePreviewSynth() {
-      if (isPlaying) {
-        stopSynth();
-      } else {
-        startSynth();
-      }
-    }
+      const titleEl = document.getElementById('nowPlayingTitle');
+      const metaEl = document.getElementById('nowPlayingMeta');
+      const iframeEl = document.getElementById('ytShowcaseIframe');
+      const linkEl = document.getElementById('ytWatchLink');
+      const badgeEl = document.getElementById('playerStatusBadge');
 
-    function startSynth() {
-      try {
-        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        isPlaying = true;
-        document.getElementById('waveformContainer').classList.add('playing');
-        document.getElementById('masterToggleBtn').textContent = '⏸ พักเสียงสาธิต';
-        document.getElementById('playerStatusBadge').textContent = 'กำลังเล่นตัวอย่างเสียง';
-        const scale = [1, 1.25, 1.5, 1.25, 1.33, 1.5, 1.125, 1];
-        let step = 0;
-        demoInterval = setInterval(() => {
-          if (!isPlaying) return;
-          const osc = audioCtx.createOscillator();
-          const gain = audioCtx.createGain();
-          osc.type = 'triangle';
-          osc.frequency.setValueAtTime(baseFreq * scale[step % scale.length], audioCtx.currentTime);
-          gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
-          gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.32);
-          osc.connect(gain);
-          gain.connect(audioCtx.destination);
-          osc.start();
-          osc.stop(audioCtx.currentTime + 0.34);
-          step++;
-        }, 360);
-      } catch (e) {
-        showToast('เบราว์เซอร์พร้อมเล่นเสียงเมื่อคลิก');
+      if (titleEl) titleEl.textContent = title;
+      if (metaEl) metaEl.textContent = meta;
+      if (iframeEl) {
+        iframeEl.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+        iframeEl.title = title;
       }
-    }
-
-    function stopSynth() {
-      isPlaying = false;
-      if (demoInterval) clearInterval(demoInterval);
-      document.getElementById('waveformContainer').classList.remove('playing');
-      document.getElementById('masterToggleBtn').textContent = '▶ เล่นเสียงสาธิต';
-      document.getElementById('playerStatusBadge').textContent = 'พักเสียงชั่วคราว';
+      if (linkEl) {
+        linkEl.href = `https://www.youtube.com/watch?v=${videoId}`;
+      }
+      if (badgeEl) {
+        badgeEl.textContent = '▶ กำลังเล่น YouTube';
+      }
     }
 
     let musicRefFiles = [];
