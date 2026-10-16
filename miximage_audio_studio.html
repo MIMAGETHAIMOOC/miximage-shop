@@ -6,7 +6,8 @@
   <title>ร้านสร้างภาพ (MIX IMAGE ART&amp;AUDIO) | บริการรับทำเพลงและดนตรีประกอบ AI เชิงพาณิชย์ 100%</title>
   <meta name="description" content="หน้าที่ 2 บริการรับทำเพลงและดนตรีประกอบด้วย AI เชิงพาณิชย์ 100% เพลงโฆษณาแบรนด์ เพลงของขวัญโอกาสพิเศษ และบริการ AI Audio Mastering 24-bit เชื่อมต่อ LINE: miximage">
   <link rel="canonical" href="https://miximage.shop/music.html">
-  <link rel="icon" type="image/png" href="assets/images/mark-light.png">
+  <link rel="icon" type="image/png" href="assets/images/mark-light.png?v=2">
+  <link rel="apple-touch-icon" href="assets/images/mark-light.png?v=2">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -157,13 +158,12 @@ body {
 }
 
 .brand-logo-img {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  object-fit: cover;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  width: 56px;
+  height: 46px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.28));
   flex-shrink: 0;
-  background: #090a10;
+  background: transparent;
 }
 
 .brand-text-wrap {
@@ -376,12 +376,11 @@ section {
 }
 
 .hero-logo-banner img {
-  width: 76px;
-  height: 76px;
-  object-fit: cover;
-  border-radius: 16px;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
-  background: #090a10;
+  width: 96px;
+  height: 80px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.32));
+  background: transparent;
 }
 
 /* Track list and player */
@@ -671,7 +670,7 @@ section {
   <header class="site-header">
     <nav class="navbar-glass" aria-label="เมนูหลัก">
       <a href="index.html" class="brand-lockup">
-        <img src="assets/images/logo-3d.png" alt="โลโก้ MIX IMAGE ART&amp;AUDIO" class="brand-logo-img">
+        <img src="assets/images/logo-3d.png?v=2" alt="โลโก้ MIX IMAGE ART&amp;AUDIO" class="brand-logo-img">
         <div class="brand-text-wrap">
           <span class="brand-title">MIX IMAGE ART&amp;AUDIO</span>
           <span class="brand-sub">ร้านสร้างภาพ • สตูดิโอรับทำเพลงและดนตรีประกอบเชิงพาณิชย์ 100%</span>
@@ -709,7 +708,7 @@ section {
           <span style="color:#0284c7;">●</span> หน้าที่ 2: สตูดิโอเพลงและเสียง • ลิขสิทธิ์เชิงพาณิชย์ 100% • ไม่มีรายเดือน
         </div>
         <div class="hero-logo-banner">
-          <img src="assets/images/logo-3d.png" alt="MIX IMAGE ART&amp;AUDIO 3D Logo">
+          <img src="assets/images/logo-3d.png?v=2" alt="MIX IMAGE ART&amp;AUDIO 3D Logo">
           <div>
             <div style="font-size:14px; font-weight:700; color:#4c1d95;">ร้านสร้างภาพ (MIX IMAGE ART&amp;AUDIO)</div>
             <div style="font-size:12.5px; color:#334155;">สตูดิโอภาพถ่าย งานพิมพ์ และเสียงเชิงพาณิชย์ อ.บรบือ จ.มหาสารคาม</div>
@@ -742,14 +741,14 @@ section {
         </div>
       </div>
 
-      <!-- Interactive Studio Audio Showcase Player (YouTube Embedded) -->
+      <!-- Interactive Studio Audio Showcase Player (YouTube Embedded from @MIXNATTANONT) -->
       <div class="glass-panel" id="audio-showcase" style="padding: 24px;">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; gap:8px; flex-wrap:wrap;">
           <div>
-            <span style="font-size:12px; color:#0369a1; font-weight:700;">🎬 สตูดิโอทดลองฟังตัวอย่างเพลงจาก YouTube (คลิกเลือกหัวข้อด้านล่าง)</span>
-            <h2 style="font-size:18px; font-weight:700; margin-top:2px;" id="nowPlayingTitle">1. เพลงโฆษณาแบรนด์สดใส (เพลงสั้นประจำร้าน)</h2>
+            <span style="font-size:12px; color:#0369a1; font-weight:700;">🎬 ผลงานจริงจากช่อง YouTube: @MIXNATTANONT (คลิกเลือกหัวข้อด้านล่าง)</span>
+            <h2 style="font-size:18px; font-weight:700; margin-top:2px;" id="nowPlayingTitle">1. สุขใจที่บรบือ (Borabue Funky Groove) — เพลงแบรนด์/ท้องถิ่นสดใส</h2>
           </div>
-          <span id="playerStatusBadge" class="glass-pill" style="padding:4px 12px; font-size:12px; color:#dc2626; font-weight:700;">▶ YouTube HD</span>
+          <a href="https://www.youtube.com/@MIXNATTANONT" target="_blank" rel="noopener noreferrer" id="playerStatusBadge" class="glass-pill" style="padding:4px 12px; font-size:12px; color:#dc2626; font-weight:700; text-decoration:none;">▶ ช่อง @MIXNATTANONT</a>
         </div>
 
         <!-- Embedded YouTube Player Box -->
@@ -757,8 +756,8 @@ section {
           <div style="position:relative; width:100%; aspect-ratio:16/9; border-radius:12px; overflow:hidden; background:#000; box-shadow:0 8px 24px rgba(0,0,0,0.4);">
             <iframe
               id="ytShowcaseIframe"
-              src="https://www.youtube.com/embed/TE688cMNFm0?rel=0&modestbranding=1"
-              title="ตัวอย่างเพลงโฆษณาแบรนด์สดใส MIX IMAGE ART&AUDIO"
+              src="https://www.youtube.com/embed/SbZHmyVXPrs?rel=0&modestbranding=1"
+              title="สุขใจที่บรบือ (Borabue Funky Groove) | MIX NATTANON AI Music"
               style="position:absolute; inset:0; width:100%; height:100%; border:0;"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerpolicy="strict-origin-when-cross-origin"
@@ -766,80 +765,80 @@ section {
             </iframe>
           </div>
           <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px; font-size:12px; color:#e2e8f0; flex-wrap:wrap; gap:8px;">
-            <span id="nowPlayingMeta" style="color:#cbd5e1 !important;">แนวเพลง: ป๊อปโฆษณาติดหู • จังหวะสนุกสดใส • เหมาะกับร้านค้า/TikTok/Reels</span>
-            <a id="ytWatchLink" href="https://www.youtube.com/watch?v=TE688cMNFm0" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding:5px 14px; font-size:12px; text-decoration:none;">
+            <span id="nowPlayingMeta" style="color:#cbd5e1 !important;">แนวเพลง: Funky Groove / Commercial Pop สดใส • ผลงานจากช่อง MIX NATTANON</span>
+            <a id="ytWatchLink" href="https://www.youtube.com/watch?v=SbZHmyVXPrs" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding:5px 14px; font-size:12px; text-decoration:none;">
               ↗ เปิดบน YouTube
             </a>
           </div>
         </div>
 
-        <!-- Track List (Click to Switch Embedded YouTube Video) -->
+        <!-- Track List (Click to Switch Embedded YouTube Video from @MIXNATTANONT) -->
         <div>
-          <div class="track-item active" onclick="selectDemoTrack('TE688cMNFm0', '1. เพลงโฆษณาแบรนด์สดใส (เพลงสั้นประจำร้าน)', 'แนวเพลง: ป๊อปโฆษณาติดหู • จังหวะสนุกสดใส • เหมาะกับร้านค้า/TikTok/Reels', this)">
+          <div class="track-item active" onclick="selectDemoTrack('SbZHmyVXPrs', '1. สุขใจที่บรบือ (Borabue Funky Groove) — เพลงแบรนด์/ท้องถิ่นสดใส', 'แนวเพลง: Funky Groove / Commercial Pop สดใส • เหมาะกับเพลงประจำร้าน/แบรนด์/โปรโมตสถานที่', this)">
             <div style="display:flex; align-items:center; gap:12px;">
               <button type="button" class="play-circle" aria-label="เล่นเพลงที่ 1">▶</button>
               <div>
-                <div style="font-weight:700; font-size:14px;">1. เพลงโฆษณาแบรนด์สดใส (เพลงสั้นประจำร้าน)</div>
-                <div style="font-size:12px; color:var(--text-muted);">ท่อนฮุกติดหูจำง่าย สำหรับโฆษณาร้านค้า ปักตะกร้า และคลิปรีวิวสินค้า</div>
+                <div style="font-weight:700; font-size:14px;">1. สุขใจที่บรบือ (Borabue Funky Groove) — เพลงแบรนด์/โปรโมตสดใส</div>
+                <div style="font-size:12px; color:var(--text-muted);">จังหวะ Funky สดใสติดหู สำหรับเพลงประจำร้านค้า แบรนด์ และโปรโมตสถานที่</div>
               </div>
             </div>
-            <span style="font-size:12px; color:#dc2626; font-weight:700; white-space:nowrap;">▶ 0:57</span>
+            <span style="font-size:12px; color:#dc2626; font-weight:700; white-space:nowrap;">▶ 3:24</span>
           </div>
 
-          <div class="track-item" onclick="selectDemoTrack('8sBQyxeeDm8', '2. เพลงลูกทุ่งอินดี้ / อีสานโมเดิร์น', 'แนวเพลง: ลูกทุ่งอินดี้ / อีสานร่วมสมัย • ผสานกลิ่นอายดนตรีพื้นบ้านกับบีตสมัยใหม่', this)">
+          <div class="track-item" onclick="selectDemoTrack('ETybTqmNsZw', '2. เสียงแคน แดนบรบือ — เพลงลูกทุ่งอินดี้ / อีสานโมเดิร์น', 'แนวเพลง: ลูกทุ่งอีสานโมเดิร์น • ผสานเสียงแคน-พิณพื้นบ้านเข้ากับซาวด์ร่วมสมัยระดับสตูดิโอ', this)">
             <div style="display:flex; align-items:center; gap:12px;">
               <button type="button" class="play-circle" aria-label="เล่นเพลงที่ 2">▶</button>
               <div>
-                <div style="font-weight:700; font-size:14px;">2. เพลงลูกทุ่งอินดี้ / อีสานโมเดิร์น</div>
-                <div style="font-size:12px; color:var(--text-muted);">ผสานกลิ่นอายพิณ-แคนเข้ากับบีตสมัยใหม่ เหมาะกับแบรนด์ท้องถิ่นและงานอีเวนต์</div>
+                <div style="font-weight:700; font-size:14px;">2. เสียงแคน แดนบรบือ — เพลงลูกทุ่งอินดี้ / อีสานโมเดิร์น</div>
+                <div style="font-size:12px; color:var(--text-muted);">ผสานกลิ่นอายเสียงแคน-พิณอีสานเข้ากับดนตรีสมัยใหม่ โดย MIX NATTANONT</div>
               </div>
             </div>
             <span style="font-size:12px; color:#0369a1; font-weight:700; white-space:nowrap;">▶ 3:31</span>
           </div>
 
-          <div class="track-item" onclick="selectDemoTrack('po7XUrX6DhU', '3. เพลงไทย Pop Hip-Hop / R&B ร่วมสมัย', 'แนวเพลง: Modern Thai Pop Hip-Hop & R&B • โครงสร้าง Suno v6 Pro • 808 Bass', this)">
+          <div class="track-item" onclick="selectDemoTrack('WlF9N4ezPws', '3. เงาเสียง (Echoes of You) [Official MV] — Pop / R&B / Hip-Hop', 'แนวเพลง: Modern Thai Pop / R&B / Hip-Hop • โครงสร้าง Suno Pro + AI Mastering 24-bit', this)">
             <div style="display:flex; align-items:center; gap:12px;">
               <button type="button" class="play-circle" aria-label="เล่นเพลงที่ 3">▶</button>
               <div>
-                <div style="font-weight:700; font-size:14px;">3. เพลงไทย Pop Hip-Hop / R&amp;B ร่วมสมัย</div>
-                <div style="font-size:12px; color:var(--text-muted);">โครงสร้าง Suno v6 Pro • 808 Bass • จังหวะเท่ทันสมัยสำหรับครีเอเตอร์และแบรนด์วัยรุ่น</div>
+                <div style="font-weight:700; font-size:14px;">3. เงาเสียง (Echoes of You) [Official MV] — Pop / R&amp;B / Hip-Hop</div>
+                <div style="font-size:12px; color:var(--text-muted);">ซาวด์โมเดิร์น Pop R&amp;B ผสานท่อนแร็พและมิวสิกวิดีโอ AI 4K เต็มรูปแบบ</div>
               </div>
             </div>
-            <span style="font-size:12px; color:#0369a1; font-weight:700; white-space:nowrap;">▶ 3:43</span>
+            <span style="font-size:12px; color:#0369a1; font-weight:700; white-space:nowrap;">▶ 3:34</span>
           </div>
 
-          <div class="track-item" onclick="selectDemoTrack('9TDbZGVIoqM', '4. เพลงอะคูสติกอบอุ่น (เพลงของขวัญโอกาสพิเศษ)', 'แนวเพลง: AI Acoustic Pop อบอุ่น • เพลงของขวัญวันเกิด/งานแต่งงาน/วันครบรอบ', this)">
+          <div class="track-item" onclick="selectDemoTrack('TJU4VN54tck', '4. กลับไปซบตักแม่ [Official Audio] — เพลงอบอุ่น / เพลงของขวัญโอกาสพิเศษ', 'แนวเพลง: Acoustic / Warm Ballad ซึ้งอบอุ่นหัวใจ • สำหรับเพลงครอบครัวและของขวัญวันสำคัญ', this)">
             <div style="display:flex; align-items:center; gap:12px;">
               <button type="button" class="play-circle" aria-label="เล่นเพลงที่ 4">▶</button>
               <div>
-                <div style="font-weight:700; font-size:14px;">4. เพลงอะคูสติกอบอุ่น (เพลงของขวัญโอกาสพิเศษ)</div>
-                <div style="font-size:12px; color:var(--text-muted);">ร้อยเรียงชื่อและเรื่องราวความทรงจำ สำหรับงานแต่งงาน วันเกิด หรือเกษียณอายุ</div>
+                <div style="font-weight:700; font-size:14px;">4. กลับไปซบตักแม่ — เพลงอบอุ่นหัวใจ (เพลงของขวัญโอกาสพิเศษ)</div>
+                <div style="font-size:12px; color:var(--text-muted);">ร้อยเรียงเรื่องราวความผูกพันและครอบครัว สำหรับเป็นของขวัญวันสำคัญ</div>
               </div>
             </div>
-            <span style="font-size:12px; color:#0369a1; font-weight:700; white-space:nowrap;">▶ 3:16</span>
+            <span style="font-size:12px; color:#0369a1; font-weight:700; white-space:nowrap;">▶ 4:38</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- YOUTUBE EMBEDDED SHOWCASE BY TOPIC (4 GENRES) -->
+    <!-- YOUTUBE EMBEDDED SHOWCASE BY TOPIC FROM @MIXNATTANONT -->
     <section id="youtube-gallery" style="padding: 36px 0;">
       <div class="section-header">
-        <div class="glass-pill eyebrow-badge" style="color:#dc2626;">▶ ตัวอย่างผลงานเพลงฝังจาก YouTube แยกตามหัวข้อบริการ</div>
-        <h2 class="section-title">รับฟังตัวอย่างเพลงครบทุกสไตล์ (กดเล่นได้ทันทีจากหน้าเว็บ)</h2>
+        <div class="glass-pill eyebrow-badge" style="color:#dc2626;">▶ ผลงานจริงจากช่อง YouTube: @MIXNATTANONT แยกตามหัวข้อบริการ</div>
+        <h2 class="section-title">ตัวอย่างผลงานเพลงลิขสิทธิ์แท้โดย MIX NATTANON (กดฟังได้ทันที)</h2>
         <p class="section-desc">
-          คัดสรรตัวอย่างงานเพลงแต่ละแนวเพื่อเปรียบเทียบโทนเสียง จังหวะ และอารมณ์เพลง ก่อนสั่งบรีฟทำเพลงเฉพาะคุณ
+          ทุกบทเพลงด้านล่างเป็นผลงานผลิตจริงจากสตูดิโอ <strong>MIX IMAGE ART&amp;AUDIO (<a href="https://www.youtube.com/@MIXNATTANONT" target="_blank" rel="noopener noreferrer" style="color:#0369a1; text-decoration:underline;">youtube.com/@MIXNATTANONT</a>)</strong> คัดสรรแยกตามหัวข้อเพื่อให้คุณเลือกสไตล์ที่ตรงใจ
         </p>
       </div>
 
       <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(290px, 1fr)); gap:22px;">
-        <!-- Topic 1 -->
+        <!-- Topic 1: Funky Groove / Brand & Local Promo -->
         <article class="glass-panel" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between;">
           <div>
             <div style="position:relative; width:100%; aspect-ratio:16/9; border-radius:12px; overflow:hidden; margin-bottom:14px; background:#000; border:1px solid rgba(255,255,255,0.85);">
               <iframe
-                src="https://www.youtube.com/embed/TE688cMNFm0?rel=0&modestbranding=1"
-                title="1. เพลงโฆษณาแบรนด์สดใส (เพลงสั้นประจำร้าน)"
+                src="https://www.youtube.com/embed/SbZHmyVXPrs?rel=0&modestbranding=1"
+                title="สุขใจที่บรบือ (Borabue Funky Groove) | MIX NATTANON"
                 loading="lazy"
                 style="position:absolute; inset:0; width:100%; height:100%; border:0;"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -847,24 +846,24 @@ section {
                 allowfullscreen>
               </iframe>
             </div>
-            <span class="glass-pill" style="padding:3px 10px; font-size:11px; color:#0369a1;">หัวข้อที่ 1 • โฆษณาร้านค้า &amp; ปักตะกร้า</span>
-            <h3 style="font-size:17px; font-weight:700; margin:8px 0 6px;">1. เพลงโฆษณาแบรนด์สดใส (Jingle ประจำร้าน)</h3>
+            <span class="glass-pill" style="padding:3px 10px; font-size:11px; color:#0369a1;">หัวข้อที่ 1 • เพลงแบรนด์ &amp; โปรโมตสถานที่/ร้านค้า</span>
+            <h3 style="font-size:17px; font-weight:700; margin:8px 0 6px;">สุขใจที่บรบือ (Borabue Funky Groove)</h3>
             <p style="font-size:13px; color:var(--text-secondary); margin-bottom:14px;">
-              จังหวะป๊อปสนุกสนาน ท่อนฮุกจำชื่อร้านและจุดขายได้ทันที เหมาะสำหรับเปิดหน้าร้านและทำคลิปสั้น TikTok / Reels
+              จังหวะ Funky Groove สนุกสดใส จำง่าย สร้างเอกลักษณ์ให้แบรนด์ ร้านค้า หรือองค์กรท้องถิ่นได้อย่างโดดเด่น
             </p>
           </div>
           <button type="button" class="btn btn-glass" style="width:100%; font-size:13px;" onclick="selectMusicService('เพลงโฆษณาสั้น / Jingle แบรนด์ (30-60 วินาที)', 590)">
-            สั่งทำเพลงแนวโฆษณาร้าน (590 ฿) →
+            สั่งทำเพลงแบรนด์/โฆษณาสไตล์นี้ (590–990 ฿) →
           </button>
         </article>
 
-        <!-- Topic 2 -->
+        <!-- Topic 2: Luk Thung / Isan Modern -->
         <article class="glass-panel" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between;">
           <div>
             <div style="position:relative; width:100%; aspect-ratio:16/9; border-radius:12px; overflow:hidden; margin-bottom:14px; background:#000; border:1px solid rgba(255,255,255,0.85);">
               <iframe
-                src="https://www.youtube.com/embed/8sBQyxeeDm8?rel=0&modestbranding=1"
-                title="2. เพลงลูกทุ่งอินดี้ / อีสานโมเดิร์น"
+                src="https://www.youtube.com/embed/ETybTqmNsZw?rel=0&modestbranding=1"
+                title="เสียงแคน แดนบรบือ | MIX NATTANONT AI Music"
                 loading="lazy"
                 style="position:absolute; inset:0; width:100%; height:100%; border:0;"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -872,10 +871,10 @@ section {
                 allowfullscreen>
               </iframe>
             </div>
-            <span class="glass-pill" style="padding:3px 10px; font-size:11px; color:#b45309;">หัวข้อที่ 2 • ลูกทุ่งอินดี้ &amp; อีสานร่วมสมัย</span>
-            <h3 style="font-size:17px; font-weight:700; margin:8px 0 6px;">2. เพลงลูกทุ่งอินดี้ / อีสานโมเดิร์น</h3>
+            <span class="glass-pill" style="padding:3px 10px; font-size:11px; color:#b45309;">หัวข้อที่ 2 • ลูกทุ่งอินดี้ &amp; อีสานโมเดิร์น</span>
+            <h3 style="font-size:17px; font-weight:700; margin:8px 0 6px;">เสียงแคน แดนบรบือ — MIX NATTANONT</h3>
             <p style="font-size:13px; color:var(--text-secondary); margin-bottom:14px;">
-              สำเนียงลูกทุ่งอีสานร่วมสมัย ผสานเครื่องดนตรีพื้นบ้านพิณ-แคนเข้ากับซาวด์สากล เข้าถึงกลุ่มผู้ฟังทั่วประเทศได้ง่าย
+              ผสานเสียงแคนและกลิ่นอายดนตรีอีสานบ้านเฮาเข้ากับซาวด์โมเดิร์นร่วมสมัย ไพเราะกินใจและเข้าถึงผู้ฟังทุกวัย
             </p>
           </div>
           <button type="button" class="btn btn-glass" style="width:100%; font-size:13px;" onclick="selectMusicService('เพลงเต็มเชิงพาณิชย์ 100% (แต่งเนื้อร้องใหม่ + WAV 24-bit)', 990)">
@@ -883,13 +882,13 @@ section {
           </button>
         </article>
 
-        <!-- Topic 3 -->
+        <!-- Topic 3: Modern Pop / R&B / Hip-Hop MV -->
         <article class="glass-panel" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between;">
           <div>
             <div style="position:relative; width:100%; aspect-ratio:16/9; border-radius:12px; overflow:hidden; margin-bottom:14px; background:#000; border:1px solid rgba(255,255,255,0.85);">
               <iframe
-                src="https://www.youtube.com/embed/po7XUrX6DhU?rel=0&modestbranding=1"
-                title="3. เพลงไทย Pop Hip-Hop / R&B ร่วมสมัย"
+                src="https://www.youtube.com/embed/WlF9N4ezPws?rel=0&modestbranding=1"
+                title="เงาเสียง (Echoes of You) - Official MV | MIX NATTANON"
                 loading="lazy"
                 style="position:absolute; inset:0; width:100%; height:100%; border:0;"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -897,24 +896,24 @@ section {
                 allowfullscreen>
               </iframe>
             </div>
-            <span class="glass-pill" style="padding:3px 10px; font-size:11px; color:#6d28d9;">หัวข้อที่ 3 • T-Pop / Hip-Hop R&amp;B</span>
-            <h3 style="font-size:17px; font-weight:700; margin:8px 0 6px;">3. เพลงไทย Pop Hip-Hop / R&amp;B ร่วมสมัย</h3>
+            <span class="glass-pill" style="padding:3px 10px; font-size:11px; color:#6d28d9;">หัวข้อที่ 3 • T-Pop / R&amp;B / Hip-Hop ร่วมสมัย</span>
+            <h3 style="font-size:17px; font-weight:700; margin:8px 0 6px;">เงาเสียง (Echoes of You) [Official MV]</h3>
             <p style="font-size:13px; color:var(--text-secondary); margin-bottom:14px;">
-              บีตทันสมัย 808 Bass แน่นคมชัด ผสมเมโลดี้ร้องและท่อนแร็พลงตัว เหมาะกับช่อง YouTube, แบรนด์แฟชั่น และเพลงประจำตัวครีเอเตอร์
+              เพลง Pop / R&amp;B / Hip-Hop เมโลดี้ติดหู บีตแน่นคมชัดระดับสตรีมมิ่ง พร้อมงานภาพมิวสิกวิดีโอคุณภาพสูง
             </p>
           </div>
           <button type="button" class="btn btn-glass" style="width:100%; font-size:13px;" onclick="selectMusicService('เพลงเต็มเชิงพาณิชย์ 100% (แต่งเนื้อร้องใหม่ + WAV 24-bit)', 990)">
-            สั่งทำเพลง Pop Hip-Hop (990 ฿) →
+            สั่งทำเพลง Pop / Hip-Hop / R&amp;B (990 ฿) →
           </button>
         </article>
 
-        <!-- Topic 4 -->
+        <!-- Topic 4: Warm Gift / Family & Acoustic Song -->
         <article class="glass-panel" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between;">
           <div>
             <div style="position:relative; width:100%; aspect-ratio:16/9; border-radius:12px; overflow:hidden; margin-bottom:14px; background:#000; border:1px solid rgba(255,255,255,0.85);">
               <iframe
-                src="https://www.youtube.com/embed/9TDbZGVIoqM?rel=0&modestbranding=1"
-                title="4. เพลงอะคูสติกอบอุ่น (เพลงของขวัญโอกาสพิเศษ)"
+                src="https://www.youtube.com/embed/TJU4VN54tck?rel=0&modestbranding=1"
+                title="กลับไปซบตักแม่ - MIX NATTANON [Official Audio]"
                 loading="lazy"
                 style="position:absolute; inset:0; width:100%; height:100%; border:0;"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -922,16 +921,22 @@ section {
                 allowfullscreen>
               </iframe>
             </div>
-            <span class="glass-pill" style="padding:3px 10px; font-size:11px; color:#15803d;">หัวข้อที่ 4 • เพลงรัก &amp; ของขวัญโอกาสพิเศษ</span>
-            <h3 style="font-size:17px; font-weight:700; margin:8px 0 6px;">4. เพลงอะคูสติกอบอุ่น (เพลงของขวัญพิเศษ)</h3>
+            <span class="glass-pill" style="padding:3px 10px; font-size:11px; color:#15803d;">หัวข้อที่ 4 • เพลงครอบครัว &amp; ของขวัญโอกาสพิเศษ</span>
+            <h3 style="font-size:17px; font-weight:700; margin:8px 0 6px;">กลับไปซบตักแม่ — MIX NATTANON</h3>
             <p style="font-size:13px; color:var(--text-secondary); margin-bottom:14px;">
-              กีตาร์อะคูสติกเสียงละมุน ใส่ชื่อคนพิเศษและเรื่องราวความประทับใจ เหมาะสำหรับงานแต่งงาน วันครบรอบ วันเกิด และงานเกษียณ
+              บทเพลงอบอุ่นถ่ายทอดความรักและความผูกพัน เหมาะสำหรับสั่งทำเป็นเพลงของขวัญให้ครอบครัว งานแต่งงาน วันเกิด หรือเกษียณอายุ
             </p>
           </div>
           <button type="button" class="btn btn-glass" style="width:100%; font-size:13px;" onclick="selectMusicService('เพลงของขวัญโอกาสพิเศษ + คลิปวิดีโอเนื้อเพลง (Lyric MV)', 1490)">
             สั่งทำเพลงของขวัญ + MV (1,490 ฿) →
           </button>
         </article>
+      </div>
+
+      <div style="text-align:center; margin-top:24px;">
+        <a href="https://www.youtube.com/@MIXNATTANONT" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding:12px 28px; font-size:14.5px; text-decoration:none;">
+          📺 รับฟังผลงานเพลงทั้งหมดกว่า 60+ เพลงบนช่อง YouTube: @MIXNATTANONT ↗
+        </a>
       </div>
     </section>
 
