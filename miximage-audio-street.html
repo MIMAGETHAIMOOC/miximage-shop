@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>MIX IMAGE ART&amp;AUDIO | หน้า 2: บริการรับทำเพลงและดนตรีประกอบ AI เชิงพาณิชย์ 100% (Street Editorial)</title>
+<meta name="description" content="ร้านสร้างภาพ MIX IMAGE ART&AUDIO บริการรับทำเพลงโฆษณา Jingle แบรนด์ เพลงเต็มเชิงพาณิชย์ เพลงของขวัญโอกาสพิเศษ และ AI Audio Mastering 24-bit ลิขสิทธิ์แท้ 100%">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;500&family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!--
+  ===================================================================
+  MIX IMAGE ART&AUDIO — หน้าที่ 2: บริการรับทำเพลงและดนตรีประกอบ AI
+  โครงสร้าง: Street Editorial Card Architecture (_Street_Editorial_20_HTML_.html)
+  พร้อมนำไปให้ Antigravity ปรับแต่งต่อได้ทันที:
+    1. แก้สี/ธีมหลัก           -> :root CSS Variables ด้านล่าง
+    2. แก้ข้อมูลร้าน/LINE OA   -> const SHOP ใน <script>
+    3. แก้หมวดหมู่และสีการ์ด    -> const CATS ใน <script>
+    4. แก้เพลย์ลิสต์ 6 เพลงหลัก -> const TRACKS ใน <script>
+    5. เพิ่ม/ลด/แก้การ์ดทั้งหมด -> const ITEMS ใน <script> (6 ผลงาน YouTube + 4 แพ็กเกจเพลง + 4 มาตรฐานเสียง)
+  ===================================================================
+-->
+<style>
+:root{
+  --bg:#0a0a0d;
+  --line:rgba(255,255,255,.09);
+  --text:#f4f4f7;
+  --muted:#9a9aab;
+  --accent:178,128,255;
+  --lineg:6,199,85;
+  --pink:255,74,116;
+  --cyan:84,170,255;
+  --mint:38,214,164;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Kanit',system-ui,-apple-system,'Segoe UI',Tahoma,sans-serif;
+  color:var(--text);
+  line-height:1.6;
+  min-height:100vh;
+  background:
+    radial-gradient(900px 520px at 88% -8%,rgba(84,120,255,.32),transparent 62%),
+    radial-gradient(760px 520px at -8% 6%,rgba(178,128,255,.20),transparent 62%),
+    var(--bg);
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.08;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+a{color:inherit;text-decoration:none}
+.wrap{position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:20px 20px 96px}
+
+/* [ANTIGRAVITY ZONE: TOP NAVIGATION] */
+.nav{
+  position:sticky;top:12px;z-index:40;
+  display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;
+  padding:10px 16px;margin-bottom:34px;
+  border:1px solid var(--line);border-radius:16px;
+  background:rgba(12,12,16,.84);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+}
+.brand{display:flex;align-items:center;gap:10px;margin-right:auto}
+.brand img{width:46px;height:40px;object-fit:contain}
+.brand b{display:block;font:400 19px/1 'Anton',sans-serif;letter-spacing:.04em}
+.brand small{display:block;font-size:11.5px;color:var(--muted)}
+.tabs{display:inline-flex;flex-wrap:wrap;gap:4px;padding:4px;border:1px solid var(--line);border-radius:12px;background:#0c0c10}
+.tabs a{padding:7px 13px;border-radius:9px;font-size:13px;color:var(--muted);transition:.2s}
+.tabs a:hover{color:var(--text)}
+.tabs a[aria-current="page"]{background:rgb(var(--accent));color:#0a0a0d;font-weight:600;box-shadow:0 8px 20px -8px rgba(var(--accent),.9)}
+.nav-links{display:flex;flex-wrap:wrap;gap:12px;font-size:13px;color:#d0d0dc}
+.nav-links a:hover{color:rgb(var(--accent))}
+
+/* [ANTIGRAVITY ZONE: HERO 2-COLUMN] */
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:22px;align-items:stretch}
+.hero-box{
+  position:relative;display:flex;flex-direction:column;justify-content:space-between;
+  padding:28px 26px;border:1px solid var(--line);border-radius:20px;
+  background:linear-gradient(180deg,#17171d,#111116);overflow:hidden;
+}
+.hero-box::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:rgb(var(--c,var(--accent)))}
+.kicker{margin-bottom:12px;font:500 12px/1.3 'JetBrains Mono',monospace;letter-spacing:.18em;text-transform:uppercase;color:rgb(var(--accent))}
+.shop-chip{display:inline-flex;align-items:center;gap:10px;padding:8px 12px;margin-bottom:14px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.03);width:fit-content}
+.shop-chip img{width:38px;height:32px;object-fit:contain}
+.shop-chip b{display:block;font-size:13px;color:#fff}
+.shop-chip small{display:block;font-size:11.5px;color:var(--muted)}
+h1{font-family:'Anton','Kanit',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:.96;font-size:clamp(42px,6.5vw,76px)}
+h1 span{color:transparent;-webkit-text-stroke:1.5px #fff}
+.sub-headline{margin-top:10px;font-size:clamp(20px,2.6vw,27px);font-weight:600;line-height:1.25}
+.sub-headline em{font-style:normal;color:rgb(var(--accent))}
+.lead{margin-top:12px;color:#c9c9d6;font-size:15px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.pill{padding:6px 13px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.04);font-size:12.5px}
+.pill b{color:rgb(var(--accent));font-weight:600}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+
+/* Interactive Studio YouTube Player + 6-Track Playlist inside Hero Right Card */
+.player-frame{position:relative;width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#000}
+.player-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.player-meta{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin:10px 0;font-size:12px;color:var(--muted)}
+.playlist{display:grid;gap:6px;max-height:240px;overflow-y:auto;padding-right:4px}
+.titem{
+  display:flex;justify-content:space-between;align-items:center;gap:10px;
+  padding:9px 12px;border:1px solid var(--line);border-radius:11px;
+  background:#0b0b0f;cursor:pointer;transition:.2s;
+}
+.titem:hover{border-color:rgba(var(--accent),.5)}
+.titem.active{border-color:rgb(var(--accent));background:rgba(var(--accent),.14)}
+.tplay{
+  width:28px;height:28px;border-radius:50%;background:rgba(var(--pink),.18);
+  color:rgb(var(--pink));display:grid;place-items:center;font-size:11px;flex-shrink:0;
+}
+.titem.active .tplay{background:rgb(var(--accent));color:#0a0a0d;font-weight:700}
+.tdur{font:500 11.5px 'JetBrains Mono',monospace;color:rgb(var(--accent));white-space:nowrap}
+
+/* [ANTIGRAVITY ZONE: MARQUEE] */
+.marquee{overflow:hidden;margin:28px 0;padding:12px 0;border-block:1px solid var(--line);background:rgba(255,255,255,.02)}
+.track{display:flex;width:max-content;animation:slide 40s linear infinite;font:400 22px/1 'Anton','Kanit',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.24)}
+.track span{white-space:nowrap;padding-right:40px}
+.track span::after{content:"\2726";margin-left:40px;color:rgb(var(--accent))}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* [ANTIGRAVITY ZONE: SECTION HEADERS] */
+.sec{margin-top:52px;scroll-margin-top:88px}
+.sec-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px 20px;margin-bottom:16px}
+.sec-head h2{font:400 clamp(28px,4.5vw,46px)/1 'Anton','Kanit',sans-serif;text-transform:uppercase;letter-spacing:.02em}
+.sec-head h2 span{color:transparent;-webkit-text-stroke:1.2px #fff}
+.sec-head p{color:var(--muted);font-size:14px;max-width:620px}
+
+/* [ANTIGRAVITY ZONE: STREET EDITORIAL TOOLBAR & FILTERS] */
+.bar{display:grid;gap:14px;padding:18px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.035);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.lbl{margin-right:4px;font:500 12px/1 'JetBrains Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.seg{display:inline-flex;flex-wrap:wrap;gap:4px;padding:4px;border:1px solid var(--line);border-radius:13px;background:#0c0c10}
+.seg button{font:500 13.5px 'Kanit',sans-serif;color:var(--muted);background:transparent;border:0;border-radius:9px;padding:7px 14px;cursor:pointer;transition:.2s}
+.seg button:hover{color:var(--text)}
+.seg button[aria-pressed="true"]{background:rgb(var(--accent));color:#0a0a0d;font-weight:600;box-shadow:0 8px 20px -8px rgba(var(--accent),.9)}
+.note{font-size:13px;color:var(--muted)}
+.fchip{font:400 13px 'Kanit',sans-serif;color:#d9d9e2;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:999px;padding:7px 14px;cursor:pointer;transition:.2s}
+.fchip i{font-style:normal;opacity:.55;margin-left:6px}
+.fchip:hover{border-color:rgba(var(--c),.7)}
+.fchip[aria-pressed="true"]{background:rgba(var(--c),.18);border-color:rgb(var(--c));color:#fff}
+input[type=search]{flex:1 1 220px;min-width:0;padding:10px 14px;border:1px solid var(--line);border-radius:11px;background:#0c0c10;color:var(--text);font:400 14px 'Kanit',sans-serif;outline:0}
+input[type=search]:focus{border-color:rgb(var(--accent))}
+.count{font-size:13px;color:var(--muted)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font:500 14px 'Kanit',sans-serif;color:var(--text);background:#1c1c24;border:1px solid var(--line);border-radius:11px;padding:10px 16px;cursor:pointer;transition:.2s}
+.btn:hover{border-color:rgba(255,255,255,.3)}
+.btn.primary{flex:1;background:rgb(var(--c,var(--accent)));border-color:transparent;color:#0a0a0d;font-weight:600}
+.btn.primary:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.btn.primary.done{background:#35d489}
+.btn.line{background:rgb(var(--lineg));border-color:transparent;color:#fff;font-weight:600}
+.btn.line:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.btn:focus-visible,.fchip:focus-visible,.seg button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+#copyAll{margin-left:auto}
+
+/* Tips */
+.tips{margin-top:16px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.03)}
+.tips summary{cursor:pointer;padding:14px 18px;font-weight:500;list-style:none}
+.tips summary::-webkit-details-marker{display:none}
+.tips summary::before{content:"+";display:inline-block;width:22px;color:rgb(var(--accent));font-weight:600}
+.tips[open] summary::before{content:"\2013"}
+.tips ol{padding:0 22px 18px 44px;color:#cfcfda;font-size:14px}
+.tips li{margin:4px 0}
+
+/* [ANTIGRAVITY ZONE: STREET EDITORIAL CARDS (.grid > .card)] */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(340px,100%),1fr));gap:20px;margin-top:22px}
+.card{
+  position:relative;display:flex;flex-direction:column;gap:12px;
+  padding:20px 20px 18px;border:1px solid var(--line);border-radius:18px;
+  background:linear-gradient(180deg,#17171d,#111116);overflow:hidden;
+  transition:transform .25s,border-color .25s,box-shadow .25s;
+}
+.card::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:rgb(var(--c))}
+.card:hover{transform:translateY(-3px);border-color:rgba(var(--c),.55);box-shadow:0 18px 44px -22px rgba(var(--c),.75)}
+.top{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.num{font:400 30px/1 'Anton',sans-serif;letter-spacing:.02em;color:rgb(var(--c))}
+.tag{padding:6px 9px;border-radius:7px;background:rgba(var(--c),.14);color:rgb(var(--c));font:500 11px/1 'JetBrains Mono',monospace;letter-spacing:.08em;text-transform:uppercase}
+.ratio{margin-left:auto;padding:6px 9px;border:1px solid var(--line);border-radius:7px;color:#fff;font:500 11.5px/1 'JetBrains Mono',monospace}
+.thumb{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#0b0b0f}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
+.card:hover .thumb img{transform:scale(1.04)}
+.thumb.yt{cursor:pointer}
+.thumb.yt::after{
+  content:"\25B6";position:absolute;inset:50% auto auto 50%;transform:translate(-50%,-50%);
+  width:54px;height:54px;border-radius:50%;background:rgba(239,68,68,.92);color:#fff;
+  display:grid;place-items:center;font-size:20px;box-shadow:0 10px 28px rgba(0,0,0,.6);pointer-events:none;
+}
+.thumb.yt.playing::after{display:none}
+.thumb iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.dur-badge{position:absolute;right:8px;bottom:8px;z-index:2;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,.78);font:500 11px 'JetBrains Mono',monospace;color:#fff}
+.card h3{font:400 24px/1.15 'Anton','Kanit',sans-serif;letter-spacing:.02em;text-transform:uppercase}
+.th{font-size:14px;color:#c9c9d4}
+.meta{display:flex;flex-wrap:wrap;gap:6px}
+.meta span{padding:3px 11px;border-radius:999px;background:rgba(255,255,255,.07);color:#d9d9e2;font-size:12px}
+.meta span.sample{background:rgb(var(--c));color:#0a0a0d;font-weight:600}
+.prompt{
+  position:relative;max-height:178px;overflow:hidden;padding:14px 14px 8px;
+  border:1px solid var(--line);border-radius:12px;background:#0b0b0f;color:#d3d3dd;
+  font:400 12.5px/1.65 'JetBrains Mono','Kanit',monospace;transition:max-height .35s ease;
+}
+.prompt::after{content:"";position:absolute;left:0;right:0;bottom:0;height:56px;background:linear-gradient(to bottom,transparent,#0b0b0f 88%);pointer-events:none;transition:opacity .25s}
+.prompt.open,.prompt.short{max-height:1500px}
+.prompt.open::after,.prompt.short::after{opacity:0;display:none}
+.ln{display:flex;justify-content:space-between;gap:10px;margin-bottom:8px;padding-bottom:8px;border-bottom:1px dashed rgba(255,255,255,.08);word-break:break-word}
+.ln:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
+.ln b{margin-right:6px;font-weight:600;letter-spacing:.03em;color:rgb(var(--c));white-space:nowrap}
+.actions{display:flex;gap:10px;margin-top:auto}
+
+/* [ANTIGRAVITY ZONE: INTERACTIVE MUSIC BRIEF & DEPOSIT CALCULATOR] */
+.order-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:start;margin-top:22px}
+.form-card{
+  position:relative;padding:26px 24px;border:1px solid var(--line);border-radius:18px;
+  background:linear-gradient(180deg,#17171d,#111116);overflow:hidden;
+}
+.form-card::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:rgb(var(--c,var(--accent)))}
+.step-title{display:flex;align-items:center;gap:10px;font-size:17px;font-weight:600;margin:20px 0 12px}
+.step-title:first-child{margin-top:0}
+.step-num{
+  width:26px;height:26px;border-radius:7px;background:rgba(var(--accent),.18);
+  color:rgb(var(--accent));font:500 12px/1 'JetBrains Mono',monospace;
+  display:inline-grid;place-items:center;border:1px solid rgba(var(--accent),.4);
+}
+.fgroup{margin-bottom:14px}
+.flabel{display:block;font-size:13px;color:#d5d5e2;margin-bottom:6px;font-weight:500}
+.finput{
+  width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:11px;
+  background:#0b0b0f;color:var(--text);font:400 14px 'Kanit',sans-serif;outline:0;
+}
+.finput:focus{border-color:rgb(var(--accent))}
+.fgrid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fgrid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.dropzone{
+  display:block;padding:18px;text-align:center;border:1.5px dashed rgba(var(--accent),.45);
+  border-radius:14px;background:rgba(var(--accent),.05);cursor:pointer;transition:.2s;
+}
+.dropzone:hover{border-color:rgb(var(--accent));background:rgba(var(--accent),.1)}
+.preview-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px;margin-top:10px}
+.pitem{padding:6px;border:1px solid var(--line);border-radius:10px;background:#0b0b0f;font-size:11px;color:var(--muted);text-align:center}
+.pitem img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;margin-bottom:4px}
+.pay-toggle{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.pay-opt{
+  display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border:1px solid var(--line);
+  border-radius:12px;background:#0b0b0f;cursor:pointer;
+}
+.pay-opt input{margin-top:4px;accent-color:rgb(var(--accent))}
+.pp-box{
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;
+  padding:14px 16px;margin-bottom:14px;border:1px solid rgba(var(--cyan),.4);
+  border-radius:12px;background:rgba(var(--cyan),.08);
+}
+.sum-rows{display:grid;gap:8px;padding:14px 0;margin:12px 0;border-block:1px solid var(--line);font-size:14px}
+.sum-row{display:flex;justify-content:space-between;gap:10px}
+.sum-row.total{font-size:16px;padding-top:8px;border-top:1px dashed var(--line)}
+.sum-row.paynow{font-size:18px;color:#35d489;font-weight:600}
+.oa-head{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.oa-head img{width:48px;height:48px;border-radius:50%;border:2px solid rgb(var(--lineg));object-fit:cover}
+
+.empty{margin-top:40px;text-align:center;color:var(--muted)}
+.foot{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;color:var(--muted);font-size:13px}
+.toast{position:fixed;left:50%;bottom:28px;z-index:80;max-width:calc(100% - 32px);padding:12px 22px;border-radius:999px;background:#fff;color:#0a0a0d;font-weight:500;font-size:14px;box-shadow:0 14px 40px rgba(0,0,0,.55);opacity:0;pointer-events:none;transform:translate(-50%,20px);transition:.3s}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.fab{position:fixed;right:20px;bottom:20px;z-index:50;padding:12px 18px;border-radius:999px;background:rgb(var(--lineg));color:#fff;font-weight:600;box-shadow:0 14px 34px rgba(var(--lineg),.4)}
+
+@media (max-width:960px){.hero-grid,.order-grid{grid-template-columns:1fr}.nav-links{display:none}}
+@media (max-width:560px){.wrap{padding:14px 14px 90px}.card,.hero-box,.form-card{padding:18px 16px}.fgrid-2,.fgrid-3,.pay-toggle{grid-template-columns:1fr}#copyAll{margin-left:0;width:100%}}
+@media (prefers-reduced-motion:reduce){.track{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ================= TOP STICKY NAVIGATION ================= -->
+  <nav class="nav" aria-label="เมนูหลัก">
+    <a class="brand" href="#top">
+      <img id="brandLogo" src="" alt="MIX IMAGE ART&amp;AUDIO">
+      <span>
+        <b>MIX IMAGE ART&amp;AUDIO</b>
+        <small>ร้านสร้างภาพ • สตูดิโอรับทำเพลงและดนตรีประกอบเชิงพาณิชย์ 100%</small>
+      </span>
+    </a>
+    <div class="tabs" role="navigation" aria-label="สลับหน้าบริการ">
+      <a href="miximage-art-street.html">🖼️ หน้าที่ 1: งานภาพ &amp; กรอบรูปมงคล</a>
+      <a href="miximage-audio-street.html" aria-current="page">🎵 หน้าที่ 2: บริการรับทำเพลง AI</a>
+    </div>
+    <div class="nav-links">
+      <a href="#audio-showcase">ฟังเพลงตัวอย่าง</a>
+      <a href="#catalog">การ์ดเพลง &amp; บริการ</a>
+      <a href="#music-order">บรีฟเพลง/แจ้งมัดจำ</a>
+    </div>
+    <a class="btn line" href="#music-order" style="padding:8px 14px;font-size:13px">💬 สั่งทำเพลง / เชื่อม LINE</a>
+  </nav>
+
+  <!-- ================= HERO SECTION (2 COLUMNS) ================= -->
+  <header class="hero-grid" id="top">
+    <!-- Left Hero Card -->
+    <div class="hero-box" style="--c:178,128,255">
+      <div>
+        <div class="kicker">● หน้าที่ 2: สตูดิโอเพลงและเสียง · ลิขสิทธิ์เชิงพาณิชย์ 100% · ไม่มีรายเดือน</div>
+        <div class="shop-chip">
+          <img id="heroLogo" src="" alt="MIX IMAGE Logo">
+          <div>
+            <b>ร้านสร้างภาพ (MIX IMAGE ART&amp;AUDIO)</b>
+            <small>สตูดิโอภาพถ่าย งานพิมพ์ และเสียงเชิงพาณิชย์ อ.บรบือ จ.มหาสารคาม</small>
+          </div>
+        </div>
+        <h1>Mix Image <span>Art&amp;Audio</span></h1>
+        <p class="sub-headline">รับทำเพลงและดนตรีประกอบ <em>สร้างเอกลักษณ์เสียงให้แบรนด์และคนพิเศษ</em></p>
+        <p class="lead">บริการแต่งเนื้อร้อง ออกแบบโครงสร้างดนตรีด้วยเทคโนโลยี Generative AI ระดับสตูดิโอ (Suno v6 Pro Architecture) พร้อมปรับแต่งคุณภาพเสียง AI Audio Mastering 24-bit / 44.1kHz ส่งมอบสิทธิ์ใช้งานเชิงพาณิชย์ 100% สำหรับโฆษณา ร้านค้า ครีเอเตอร์ และเพลงของขวัญโอกาสพิเศษ</p>
+        <div class="pills">
+          <span class="pill"><b>TH/EN</b> แต่งเนื้อร้องเฉพาะคุณ</span>
+          <span class="pill"><b>100%</b> ลิขสิทธิ์เชิงพาณิชย์ ไม่ติดเคลม</span>
+          <span class="pill"><b>24-bit</b> Mastering WAV + MP3</span>
+          <span class="pill"><b>−14 LUFS</b> มาตรฐานสตรีมมิ่งสากล</span>
+        </div>
+      </div>
+      <div class="hero-ctas">
+        <a href="#music-order" class="btn line">🎙️ ส่งบรีฟเพลง &amp; ยืนยันมัดจำผ่าน LINE</a>
+        <a href="#catalog" class="btn">ดูราคาบริการรับทำเพลง</a>
+        <a href="miximage-art-street.html" class="btn">← กลับไปหน้าที่ 1: งานภาพ &amp; กรอบรูปมงคล</a>
+      </div>
+    </div>
+
+    <!-- Right Hero Card: Interactive YouTube Showcase Player & 6-Track Playlist -->
+    <div class="hero-box" id="audio-showcase" style="--c:255,74,116">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap;margin-bottom:10px">
+          <div>
+            <div class="kicker" style="margin-bottom:4px;color:rgb(var(--pink))">🎬 ผลงานจริงจากช่อง YouTube: @MIXNATTANONT</div>
+            <h2 id="nowPlayingTitle" style="font-size:17px;font-weight:600">1. สุขใจที่บรบือ (Borabue Funky Groove)</h2>
+          </div>
+          <a href="https://www.youtube.com/@MIXNATTANONT" target="_blank" rel="noopener" class="tag" style="--c:255,74,116">▶ @MIXNATTANONT</a>
+        </div>
+
+        <div class="player-frame">
+          <iframe
+            id="ytShowcaseIframe"
+            src="https://www.youtube.com/embed/SbZHmyVXPrs?rel=0&modestbranding=1"
+            title="สุขใจที่บรบือ (Borabue Funky Groove) | MIX NATTANON AI Music"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <div class="player-meta">
+          <span id="nowPlayingMeta">แนวเพลง: Funky Groove / Commercial Pop สดใส</span>
+          <a id="ytWatchLink" href="https://www.youtube.com/watch?v=SbZHmyVXPrs" target="_blank" rel="noopener" class="btn" style="padding:5px 12px;font-size:12px">↗ เปิดบน YouTube</a>
+        </div>
+
+        <div class="playlist" id="playlistBox"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MARQUEE ================= -->
+  <div class="marquee" aria-hidden="true"><div class="track" id="track"></div></div>
+
+  <!-- ================= STREET EDITORIAL TOOLBAR & ALL 14 CARDS ================= -->
+  <section class="sec" id="catalog" style="margin-top:0">
+    <div class="sec-head">
+      <div>
+        <div class="kicker">All Music Cards · 6 YouTube Showcases · 4 Packages · 4 Studio Standards</div>
+        <h2>Music <span>&amp; Audio</span> Cards</h2>
+      </div>
+      <p>รวมการ์ดทั้งหมดจากหน้าสตูดิโอเสียง (ตัวอย่างผลงานเพลงลิขสิทธิ์แท้ 6 หัวข้อ กดฟังได้ทันที • บริการรับทำเพลงรายชิ้น 4 แพ็กเกจ • มาตรฐานควบคุมคุณภาพเสียง 4 จุดเด่น)</p>
+    </div>
+
+    <div class="bar" aria-label="ตัวเลือกการกรองการ์ดเพลง">
+      <div class="row">
+        <span class="lbl">เป้าหมายเพลง</span>
+        <div class="seg" id="modes">
+          <button type="button" data-mode="brand" aria-pressed="true">เพลงโฆษณา / แบรนด์</button>
+          <button type="button" data-mode="gift" aria-pressed="false">เพลงของขวัญวันสำคัญ</button>
+          <button type="button" data-mode="cafe" aria-pressed="false">เพลงเปิดในร้าน / คาเฟ่</button>
+          <button type="button" data-mode="creator" aria-pressed="false">เพลงช่องครีเอเตอร์</button>
+        </div>
+      </div>
+      <p class="note" id="modeNote"></p>
+      <div class="row" id="filters"></div>
+      <div class="row">
+        <input id="q" type="search" placeholder="ค้นหาการ์ด เช่น jingle, ลูกทุ่ง, แคน, คาเฟ่, ของขวัญ, mastering, LUFS" aria-label="ค้นหาการ์ดเพลง">
+        <span class="count" id="count"></span>
+        <button class="btn" id="copyAll" type="button">คัดลอกรายการที่แสดง</button>
+      </div>
+    </div>
+
+    <details class="tips">
+      <summary>เคล็ดลับการบรีฟเพลงให้ได้ซาวด์และเนื้อร้องโดนใจ</summary>
+      <ol>
+        <li>ระบุชื่อแบรนด์ ชื่อร้าน จุดขาย สโลแกน หรือคำติดหูที่อยากให้อยู่ในท่อนฮุก (Chorus)</li>
+        <li>กดฟังการ์ดผลงานจริง #01–#06 ด้านล่าง แล้วกดปุ่มเลือกสไตล์ที่ชอบเข้าสู่ฟอร์มบรีฟได้ทันที</li>
+        <li>เลือกเสียงร้องที่ต้องการ (เสียงหญิง / เสียงชาย / ร้องคู่ ชาย–หญิง / บรรเลงล้วน)</li>
+        <li>เพลงของขวัญ: เล่าเรื่องราวความประทับใจ ชื่อผู้รับ และแนบรูปภาพสำหรับทำ Lyric MV</li>
+      </ol>
+    </details>
+
+    <main class="grid" id="grid"></main>
+    <p class="empty" id="empty" hidden>ไม่พบการ์ดที่ตรงกับคำค้นหา ลองเปลี่ยนคำหรือเลือกหมวด "ทั้งหมด"</p>
+
+    <div style="margin-top:24px;text-align:center">
+      <a href="https://www.youtube.com/@MIXNATTANONT" target="_blank" rel="noopener" class="btn primary" style="flex:initial;padding:12px 24px">
+        📺 รับฟังผลงานเพลงทั้งหมดกว่า 60+ เพลงบนช่อง YouTube: @MIXNATTANONT ↗
+      </a>
+    </div>
+  </section>
+
+  <!-- ================= INTERACTIVE MUSIC BRIEF & DEPOSIT CALCULATOR ================= -->
+  <section class="sec" id="music-order">
+    <div class="sec-head">
+      <div>
+        <div class="kicker">Music Brief Studio · Reference Upload · LINE OA @919zkplo</div>
+        <h2>ฟอร์มบรีฟสั่งทำเพลง <span>แนบเรฟอ้างอิง</span> &amp; ยืนยันมัดจำ</h2>
+      </div>
+      <p>ระบุแนวเพลง เรื่องราวที่ต้องการ แนบภาพ/ไฟล์อ้างอิง และยืนยันการโอนมัดจำ 50% หรือชำระเต็มจำนวนเพื่อส่งเข้า LINE OA: @919zkplo</p>
+    </div>
+
+    <div class="order-grid">
+      <!-- Left: 4-Step Music Brief Form -->
+      <div class="form-card" style="--c:178,128,255">
+        <form id="musicOrderForm">
+          <div class="step-title"><span class="step-num">01</span> เลือกประเภทงานเพลงและสไตล์ดนตรี</div>
+          <div class="fgroup">
+            <label class="flabel" for="musicServiceSelect">รายการบริการเพลงที่ต้องการสั่งทำ</label>
+            <select id="musicServiceSelect" class="finput">
+              <option value="590" data-name="เพลงโฆษณาสั้น / Jingle แบรนด์ (30-60 วินาที)">เพลงโฆษณาสั้น / Jingle แบรนด์ (30–60 วินาที) — 590 บาท</option>
+              <option value="990" data-name="เพลงเต็มเชิงพาณิชย์ 100% (แต่งเนื้อร้องใหม่ + WAV 24-bit)" selected>เพลงเต็มเชิงพาณิชย์ 100% (แต่งเนื้อร้องใหม่ + WAV 24-bit) — 990 บาท</option>
+              <option value="1490" data-name="เพลงของขวัญโอกาสพิเศษ + คลิปวิดีโอเนื้อเพลง (Lyric MV)">เพลงของขวัญโอกาสพิเศษ + คลิปวิดีโอเนื้อเพลง (Lyric MV) — 1,490 บาท</option>
+              <option value="350" data-name="บริการ AI Audio Mastering 24-bit & แยก Stem เสียงร้อง/ดนตรี">บริการ AI Audio Mastering 24-bit &amp; แยก Stem — 350 บาท</option>
+            </select>
+          </div>
+
+          <div class="fgrid-2">
+            <div class="fgroup">
+              <label class="flabel" for="musicGenre">แนวเพลง (Genre)</label>
+              <select id="musicGenre" class="finput">
+                <option value="Pop / T-Pop สดใสติดหู">Pop / T-Pop สดใสติดหู</option>
+                <option value="ลูกทุ่งอินดี้ / หมอลำโมเดิร์น">ลูกทุ่งอินดี้ / หมอลำโมเดิร์น</option>
+                <option value="Acoustic ซึ้งอบอุ่น / คาเฟ่">Acoustic ซึ้งอบอุ่น / คาเฟ่</option>
+                <option value="Ballad R&B โรแมนติก">Ballad R&amp;B โรแมนติก</option>
+                <option value="ไทยฟิวชัน × Trap Beat ไวรัล">ไทยฟิวชัน × Trap Beat ไวรัล</option>
+                <option value="Hip-Hop / Rap โฆษณา">Hip-Hop / Rap โฆษณา</option>
+              </select>
+            </div>
+            <div class="fgroup">
+              <label class="flabel" for="vocalType">ลักษณะเสียงร้อง</label>
+              <select id="vocalType" class="finput">
+                <option value="เสียงร้องหญิง (นุ่มใส/มีพลัง)">เสียงร้องหญิง (นุ่มใส/มีพลัง)</option>
+                <option value="เสียงร้องชาย (อบอุ่น/เท่)">เสียงร้องชาย (อบอุ่น/เท่)</option>
+                <option value="ร้องคู่ ชาย-หญิง (Duet)">ร้องคู่ ชาย–หญิง (Duet)</option>
+                <option value="ดนตรีบรรเลงล้วน (Instrumental)">ดนตรีบรรเลงล้วน (Instrumental)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="fgroup">
+            <label class="flabel" for="songStory">คำสำคัญ / ชื่อแบรนด์ / เรื่องราวที่ต้องการใส่ในเนื้อเพลง *</label>
+            <textarea id="songStory" class="finput" rows="3" placeholder="ระบุชื่อร้าน จุดขาย สโลแกน หรือชื่อคนสำคัญและเรื่องราวความประทับใจที่อยากให้อยู่ในเพลง..." required></textarea>
+          </div>
+
+          <div class="step-title"><span class="step-num">02</span> แนบภาพอ้างอิง / โลโก้ / ลิงก์เพลงตัวอย่าง (References)</div>
+          <div class="fgroup">
+            <label class="flabel" for="refLink">ลิงก์เพลงอ้างอิง YouTube / TikTok / Spotify (ถ้ามี)</label>
+            <input type="text" id="refLink" class="finput" placeholder="วางลิงก์เพลงที่ชอบมู้ดหรือจังหวะใกล้เคียง...">
+          </div>
+
+          <label class="dropzone" for="musicRefInput">
+            <div style="font-size:26px">🖼️</div>
+            <div style="font-weight:600;color:#fff">คลิกเพื่อแนบภาพอ้างอิง / ภาพสินค้า / ภาพความทรงจำสำหรับทำปกหรือ MV</div>
+            <div style="font-size:12px;color:var(--muted)">รองรับไฟล์รูปภาพและไฟล์เสียงตัวอย่าง</div>
+            <input type="file" id="musicRefInput" accept="image/*,audio/*" multiple hidden>
+          </label>
+          <div id="musicRefGrid" class="preview-list"></div>
+
+          <div class="step-title"><span class="step-num">03</span> ยืนยันการมัดจำ (50%) หรือ ชำระเงินเต็มจำนวน</div>
+          <div class="pay-toggle">
+            <label class="pay-opt">
+              <input type="radio" name="musicPayOption" value="deposit50" checked>
+              <div><b style="display:block;font-size:14px">มัดจำเริ่มแต่งเพลง 50%</b><span style="font-size:12px;color:var(--muted)">ชำระส่วนที่เหลือเมื่อฟังเดโมผ่าน</span></div>
+            </label>
+            <label class="pay-opt">
+              <input type="radio" name="musicPayOption" value="full100">
+              <div><b style="display:block;font-size:14px">ชำระเต็มจำนวน 100%</b><span style="font-size:12px;color:var(--muted)">ลัดคิวผลิตและส่งมอบไฟล์ Master</span></div>
+            </label>
+          </div>
+
+          <div class="pp-box">
+            <div>
+              <div style="font-size:11.5px;color:rgb(var(--cyan));font-weight:600">บัญชีรับโอนมัดจำ / พร้อมเพย์</div>
+              <div style="font-size:15px;font-weight:600">PromptPay: 081-592-1229 (ณัฐนนท์ วงศ์กาไสย • MIX IMAGE ART&amp;AUDIO)</div>
+            </div>
+            <button type="button" class="btn" id="copyPpBtn" style="padding:7px 12px;font-size:12.5px">📋 คัดลอกพร้อมเพย์</button>
+          </div>
+
+          <div class="fgrid-3">
+            <div class="fgroup">
+              <label class="flabel" for="musicPaidAmount">ยอดที่โอน (บาท)</label>
+              <input type="number" id="musicPaidAmount" class="finput" required>
+            </div>
+            <div class="fgroup">
+              <label class="flabel" for="musicPaidTime">เวลาโอน</label>
+              <input type="text" id="musicPaidTime" class="finput" placeholder="เช่น 15:20 น.">
+            </div>
+            <div class="fgroup">
+              <label class="flabel" for="musicSlip4">เลขท้ายสลิป 4 หลัก</label>
+              <input type="text" id="musicSlip4" class="finput" placeholder="เช่น 3910">
+            </div>
+          </div>
+
+          <div class="fgroup">
+            <label class="dropzone" for="musicSlipInput" style="padding:12px;border-color:rgba(var(--lineg),.45);background:rgba(var(--lineg),.05)">
+              <span style="font-weight:600;color:#35d489">🧾 คลิกแนบภาพสลิปโอนเงินมัดจำ/ค่าทำเพลง</span>
+              <input type="file" id="musicSlipInput" accept="image/*" hidden>
+            </label>
+            <div id="musicSlipStatus" style="margin-top:6px;font-size:12.5px;color:#35d489"></div>
+          </div>
+
+          <div class="step-title"><span class="step-num">04</span> ข้อมูลผู้สั่งทำเพลง</div>
+          <div class="fgrid-2">
+            <div class="fgroup">
+              <label class="flabel" for="musicCustName">ชื่อผู้สั่งทำเพลง / ชื่อแบรนด์</label>
+              <input type="text" id="musicCustName" class="finput" placeholder="เช่น คุณมิก / บริษัท บรบือการค้า" required>
+            </div>
+            <div class="fgroup">
+              <label class="flabel" for="musicCustPhone">เบอร์โทรศัพท์ / LINE ID</label>
+              <input type="text" id="musicCustPhone" class="finput" placeholder="08x-xxx-xxxx หรือ LINE ID" required>
+            </div>
+          </div>
+
+          <button type="submit" class="btn line" style="width:100%;padding:14px;font-size:15.5px">
+            ✅ ยืนยันมัดจำ &amp; ส่งบรีฟเพลงเข้า LINE OA (@919zkplo)
+          </button>
+        </form>
+      </div>
+
+      <!-- Right: Live Summary + Direct LINE OA Card -->
+      <div style="display:grid;gap:20px;position:sticky;top:88px">
+        <div class="form-card" style="--c:6,199,85">
+          <div class="kicker" style="color:#35d489;margin-bottom:4px">Live Brief &amp; Deposit Estimate</div>
+          <h3 style="font:400 24px/1.1 'Anton','Kanit',sans-serif">สรุปบรีฟงานเพลง &amp; ยอดมัดจำ</h3>
+          <div class="sum-rows">
+            <div class="sum-row"><span style="color:var(--muted)">แพ็กเกจงานเพลง:</span><strong id="sumMusicName" style="text-align:right">เพลงเต็มเชิงพาณิชย์ 100%</strong></div>
+            <div class="sum-row total"><span>ค่าบริการรวม:</span><strong id="sumMusicTotal">990 บาท</strong></div>
+            <div class="sum-row paynow"><span id="sumMusicPayLabel">ยอดโอนมัดจำเริ่มงาน (50%):</span><strong id="sumMusicPayNow">495 บาท</strong></div>
+          </div>
+          <div class="fgroup">
+            <label class="flabel" for="generatedMusicText">ข้อความบรีฟเพลงสำหรับส่งแชท LINE OA:</label>
+            <textarea id="generatedMusicText" class="finput" rows="7" readonly style="font:400 12px/1.6 'JetBrains Mono','Kanit',monospace"></textarea>
+          </div>
+          <div style="display:grid;gap:8px">
+            <button type="button" class="btn line" id="sendMusicLineBtn">💬 คัดลอกบรีฟเพลง &amp; เปิดแชท LINE OA (@919zkplo)</button>
+            <a href="miximage-art-street.html" class="btn">🖼️ สลับไปหน้าที่ 1: สั่งทำรูปติดบัตร / กรอบรูปมงคล</a>
+          </div>
+        </div>
+
+        <div class="form-card" style="--c:84,170,255">
+          <div class="oa-head">
+            <img id="oaAvatar" src="" alt="LINE Official Avatar">
+            <div>
+              <h3 style="font-size:17px;font-weight:600">Mix Image Art&amp;Audio</h3>
+              <span style="font-size:12px;color:#35d489;font-weight:600">LINE Official Account: @919zkplo</span>
+            </div>
+          </div>
+          <p style="font-size:13.5px;color:#cfcfda;margin-bottom:10px">
+            <b>ร้านสร้างภาพ (MIX IMAGE ART&amp;AUDIO)</b><br>
+            477 หมู่ 1 ถนนแจ้งสนิท เทศบาลตำบลบรบือ อ.บรบือ จ.มหาสารคาม 44130<br>
+            <span style="color:rgb(var(--accent))">(ข้างธนาคารกสิกรไทย สาขาบรบือ)</span>
+          </p>
+          <div style="font-size:13px;color:var(--muted);display:grid;gap:4px;margin-bottom:14px">
+            <div>🟢 <b style="color:#fff">LINE OA ID:</b> <code style="color:#35d489">@919zkplo</code></div>
+            <div>📞 <b style="color:#fff">โทรศัพท์:</b> 081-592-1229 / 081-591-2129</div>
+            <div>✉️ <b style="color:#fff">อีเมล:</b> kmz.miximage@gmail.com</div>
+            <div>🕒 <b style="color:#fff">เวลาบริการออนไลน์:</b> 10:00 – 22:00 น. ทุกวัน</div>
+          </div>
+          <a href="https://line.me/R/ti/p/@919zkplo" target="_blank" rel="noopener" class="btn line" style="width:100%">
+            แอด LINE OA: @919zkplo เพื่อคุยกับโปรดิวเซอร์
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="foot">
+    <div>
+      <b style="color:#fff">MIX IMAGE ART&amp;AUDIO (ร้านสร้างภาพ อ.บรบือ จ.มหาสารคาม)</b><br>
+      477 หมู่ 1 ถนนแจ้งสนิท ต.บรบือ อ.บรบือ จ.มหาสารคาม 44130 • LINE OA: @919zkplo • โทร 081-592-1229
+    </div>
+    <div style="display:flex;gap:10px;align-items:center">
+      <a href="#top" class="btn" style="padding:8px 14px;font-size:13px">↑ กลับขึ้นด้านบน</a>
+      <a href="miximage-art-street.html" class="btn primary" style="padding:8px 14px;font-size:13px;flex:initial">← กลับไปหน้าที่ 1: งานภาพ &amp; กรอบรูปมงคล</a>
+    </div>
+  </footer>
+</div>
+
+<a class="fab" href="https://line.me/R/ti/p/@919zkplo" target="_blank" rel="noopener">💬 LINE @919zkplo</a>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+  'use strict';
+
+  /* ===================================================================
+     [ANTIGRAVITY DATA ZONE 1: ข้อมูลร้าน & LINE OA]
+     =================================================================== */
+  const SHOP = {
+    name: 'MIX IMAGE ART&AUDIO (ร้านสร้างภาพ)',
+    lineId: '@919zkplo',
+    lineAdd: 'https://line.me/R/ti/p/@919zkplo',
+    lineMsg: 'https://line.me/R/oaMessage/@919zkplo/?',
+    avatar: 'https://profile.line-scdn.net/0hv3pOMmfGKRxNNjWtHfFWS3FzJ3E6GC9UNVAzLWxidys3BG1Nc1Blcj9lcS03VDtCdgUyc280dX9g',
+    promptpay: '0815921229',
+    assetBase: 'https://miximage.shop/' // เปลี่ยนเป็น '' หากวางไฟล์คู่กับโฟลเดอร์ assets/
+  };
+
+  /* ===================================================================
+     [ANTIGRAVITY DATA ZONE 2: หมวดหมู่การ์ด & สี RGB ประจำหมวด]
+     =================================================================== */
+  const CATS = {
+    youtube: { name: 'ผลงานเพลง YouTube (6)', rgb: '255,74,116' },
+    service: { name: 'แพ็กเกจรับทำเพลง (4)',   rgb: '178,128,255' },
+    quality: { name: 'มาตรฐานเสียงสตูดิโอ (4)', rgb: '38,214,164' }
+  };
+
+  const NOTES = {
+    brand:   'โหมดเพลงโฆษณา / แบรนด์: เน้นท่อนฮุกจำง่าย ใส่ชื่อร้าน จุดขาย สโลแกน สำหรับยิงแอด TikTok, Reels, Facebook และเปิดหน้าร้าน',
+    gift:    'โหมดเพลงของขวัญวันสำคัญ: แต่งจากเรื่องราวจริงสำหรับงานแต่งงาน วันเกิด วันครบรอบ หรือเกษียณอายุ พร้อม Lyric MV',
+    cafe:    'โหมดเพลงเปิดในร้าน / คาเฟ่: ดนตรีฟังสบายสร้างบรรยากาศในร้านกาแฟ ร้านอาหาร โรงแรม ไม่ติดลิขสิทธิ์ 100%',
+    creator: 'โหมดเพลงช่องครีเอเตอร์: เพลงประจำช่อง YouTube / TikTok / Podcast เปิดสร้างรายได้ได้เต็มรูปแบบ ไม่ติดเคลม'
+  };
+
+  /* ===================================================================
+     [ANTIGRAVITY DATA ZONE 3: เพลย์ลิสต์ 6 เพลงใน Hero Player]
+     =================================================================== */
+  const TRACKS = [
+    { yt: 'SbZHmyVXPrs', dur: '3:24', title: '1. สุขใจที่บรบือ (Borabue Funky Groove) — เพลงแบรนด์/โปรโมตสดใส', sub: 'จังหวะ Funky สดใสติดหู สำหรับเพลงประจำร้านค้า แบรนด์ และโปรโมตสถานที่', meta: 'แนวเพลง: Funky Groove / Commercial Pop สดใส • ผลงานจากช่อง MIX NATTANON' },
+    { yt: 'ETybTqmNsZw', dur: '3:31', title: '2. เสียงแคน แดนบรบือ — เพลงลูกทุ่งอินดี้ / อีสานโมเดิร์น', sub: 'ผสานกลิ่นอายเสียงแคน-พิณอีสานเข้ากับดนตรีสมัยใหม่ โดย MIX NATTANONT', meta: 'แนวเพลง: ลูกทุ่งอีสานโมเดิร์น • ผสานเสียงแคน-พิณพื้นบ้านเข้ากับซาวด์ร่วมสมัย' },
+    { yt: 'WlF9N4ezPws', dur: '3:34', title: '3. เงาเสียง (Echoes of You) [Official MV] — Pop / R&B / Hip-Hop', sub: 'ซาวด์โมเดิร์น Pop R&B ผสานท่อนแร็พและมิวสิกวิดีโอ AI 4K เต็มรูปแบบ', meta: 'แนวเพลง: Modern Thai Pop / R&B / Hip-Hop • โครงสร้าง Suno Pro + AI Mastering 24-bit' },
+    { yt: 'TJU4VN54tck', dur: '4:38', title: '4. กลับไปซบตักแม่ — เพลงอบอุ่นหัวใจ (เพลงของขวัญโอกาสพิเศษ)', sub: 'ร้อยเรียงเรื่องราวความผูกพันและครอบครัว สำหรับเป็นของขวัญวันสำคัญ', meta: 'แนวเพลง: Acoustic / Warm Ballad ซึ้งอบอุ่นหัวใจ • สำหรับเพลงครอบครัวและของขวัญ' },
+    { yt: 'ooaI-Ls67gI', dur: '3:06', title: '5. มุมเดิม (Same Corner) — เพลงป๊อปฟังสบาย / เปิดคลอในคาเฟ่', sub: 'มู้ดร้านกาแฟอบอุ่นละมุนหู สำหรับเปิดคลอในร้านค้า คาเฟ่ และรีสอร์ต', meta: 'แนวเพลง: Acoustic Cafe Pop ฟังสบาย • เหมาะสำหรับเปิดในร้านกาแฟ คาเฟ่ และช่อง Vlog' },
+    { yt: 'QW9Zh011HHs', dur: '2:54', title: '6. CYBER-RANAT (ตัดสินด้วยอะไร) — ไทยฟิวชัน × Trap Beat สุดล้ำ', sub: 'ผสานเสียงระนาดเอกไทยเข้ากับ Trap Beat ดิจิทัล เหมาะกับแคมเปญโฆษณาไวรัล', meta: 'แนวเพลง: Thai Traditional Ranat Ek × Modern Trap Beat • ซาวด์เอกลักษณ์สำหรับโฆษณา' }
+  ];
+
+  /* ===================================================================
+     [ANTIGRAVITY DATA ZONE 4: การ์ดทั้งหมด 14 การ์ด ตามต้นฉบับ]
+     =================================================================== */
+  const ITEMS = [
+    /* --- 6 การ์ดตัวอย่างผลงานเพลง YouTube --- */
+    {
+      id: 1, cat: 'youtube', ratio: '590–990 ฿', sample: true, yt: 'SbZHmyVXPrs', dur: '3:24',
+      selectPrice: 990, selectGenre: 'Pop / T-Pop สดใสติดหู',
+      en: '1. สุขใจที่บรบือ (Borabue Funky Groove)',
+      th: 'จังหวะ Funky Groove สนุกสดใส จำง่าย สร้างเอกลักษณ์ให้แบรนด์ ร้านค้า หรือองค์กรท้องถิ่นได้อย่างโดดเด่น',
+      mood: 'หัวข้อที่ 1 · เพลงแบรนด์ & โปรโมตสถานที่/ร้านค้า',
+      lines: [['สไตล์ดนตรี', 'Funky Groove / Commercial Pop'], ['ความยาว', '3:24 นาที'], ['ราคาสั่งทำสไตล์นี้', '590–990 ฿']],
+      cta: 'สั่งทำเพลงแบรนด์/โฆษณาสไตล์นี้ (590–990 ฿) →'
+    },
+    {
+      id: 2, cat: 'youtube', ratio: '990 ฿', sample: true, yt: 'ETybTqmNsZw', dur: '3:31',
+      selectPrice: 990, selectGenre: 'ลูกทุ่งอินดี้ / หมอลำโมเดิร์น',
+      en: '2. เสียงแคน แดนบรบือ — MIX NATTANONT',
+      th: 'ผสานเสียงแคนและกลิ่นอายดนตรีอีสานบ้านเฮาเข้ากับซาวด์โมเดิร์นร่วมสมัย ไพเราะกินใจและเข้าถึงผู้ฟังทุกวัย',
+      mood: 'หัวข้อที่ 2 · ลูกทุ่งอินดี้ & อีสานโมเดิร์น',
+      lines: [['สไตล์ดนตรี', 'ลูกทุ่งอินดี้ / อีสานโมเดิร์น'], ['ความยาว', '3:31 นาที'], ['ราคาสั่งทำสไตล์นี้', '990 ฿']],
+      cta: 'สั่งทำเพลงลูกทุ่ง/อีสานโมเดิร์น (990 ฿) →'
+    },
+    {
+      id: 3, cat: 'youtube', ratio: '990 ฿', sample: true, yt: 'WlF9N4ezPws', dur: '3:34',
+      selectPrice: 990, selectGenre: 'Ballad R&B โรแมนติก',
+      en: '3. เงาเสียง (Echoes of You) [Official MV]',
+      th: 'เพลง Pop / R&B / Hip-Hop เมโลดี้ติดหู บีตแน่นคมชัดระดับสตรีมมิ่ง พร้อมงานภาพมิวสิกวิดีโอคุณภาพสูง',
+      mood: 'หัวข้อที่ 3 · T-Pop / R&B / Hip-Hop ร่วมสมัย',
+      lines: [['สไตล์ดนตรี', 'T-Pop / R&B / Hip-Hop'], ['ความยาว', '3:34 นาที'], ['ราคาสั่งทำสไตล์นี้', '990 ฿']],
+      cta: 'สั่งทำเพลง Pop / Hip-Hop / R&B (990 ฿) →'
+    },
+    {
+      id: 4, cat: 'youtube', ratio: '1,490 ฿', sample: true, yt: 'TJU4VN54tck', dur: '4:38',
+      selectPrice: 1490, selectGenre: 'Acoustic ซึ้งอบอุ่น / คาเฟ่',
+      en: '4. กลับไปซบตักแม่ — MIX NATTANON',
+      th: 'บทเพลงอบอุ่นถ่ายทอดความรักและความผูกพัน เหมาะสำหรับสั่งทำเป็นเพลงของขวัญให้ครอบครัว งานแต่งงาน วันเกิด หรือเกษียณอายุ',
+      mood: 'หัวข้อที่ 4 · เพลงครอบครัว & ของขวัญโอกาสพิเศษ',
+      lines: [['สไตล์ดนตรี', 'Warm Acoustic Ballad'], ['ความยาว', '4:38 นาที'], ['ราคาเซ็ตเพลง + MV', '1,490 ฿']],
+      cta: 'สั่งทำเพลงของขวัญ + MV (1,490 ฿) →'
+    },
+    {
+      id: 5, cat: 'youtube', ratio: '990 ฿', sample: true, yt: 'ooaI-Ls67gI', dur: '3:06',
+      selectPrice: 990, selectGenre: 'Acoustic ซึ้งอบอุ่น / คาเฟ่',
+      en: '5. มุมเดิม (Same Corner) — MIX NATTANON',
+      th: 'เพลงป๊อปอะคูสติกมู้ดร้านกาแฟ ฟังสบายละมุนหู เหมาะสำหรับทำเพลงเปิดคลอสร้างบรรยากาศในคาเฟ่ ร้านอาหาร โรงแรม และช่อง Vlog',
+      mood: 'หัวข้อที่ 5 · เพลงเปิดในร้านคาเฟ่ & ฟังสบาย',
+      lines: [['สไตล์ดนตรี', 'Acoustic Cafe Pop'], ['ความยาว', '3:06 นาที'], ['ราคาสั่งทำสไตล์นี้', '990 ฿']],
+      cta: 'สั่งทำเพลงเปิดในร้าน/คาเฟ่ (990 ฿) →'
+    },
+    {
+      id: 6, cat: 'youtube', ratio: '990 ฿', sample: true, yt: 'QW9Zh011HHs', dur: '2:54',
+      selectPrice: 990, selectGenre: 'ไทยฟิวชัน × Trap Beat ไวรัล',
+      en: '6. CYBER-RANAT (ตัดสินด้วยอะไร)',
+      th: 'ผสานเสียงระนาดเอกไทยเข้ากับ Trap Beat ดิจิทัลสุดล้ำ ท่อนฮุกดึงดูดใจตั้งแต่วินาทีแรก เหมาะสำหรับคลิปไวรัล TikTok/Reels และเปิดตัวสินค้า',
+      mood: 'หัวข้อที่ 6 · ไทยฟิวชัน × Trap Beat (โฆษณาไวรัล)',
+      lines: [['สไตล์ดนตรี', 'Thai Ranat Ek × Trap Beat'], ['ความยาว', '2:54 นาที'], ['ราคาสั่งทำสไตล์นี้', '990 ฿']],
+      cta: 'สั่งทำเพลงไทยฟิวชัน/ไวรัล (990 ฿) →'
+    },
+
+    /* --- 4 การ์ดบริการรับทำเพลงและเสียงสั่งทำรายชิ้น --- */
+    {
+      id: 7, cat: 'service', ratio: '590 บาท / เพลง', selectPrice: 590,
+      en: '1. เพลงโฆษณาสั้น / Jingle แบรนด์',
+      th: 'ความยาว 30–60 วินาที เน้นท่อนฮุกจำง่าย ใส่ชื่อร้าน จุดขาย และเบอร์ติดต่อ สำหรับเปิดหน้าร้านหรือยิงแอด TikTok / Reels / Facebook',
+      mood: 'สำหรับร้านค้า & TikTok',
+      img: 'assets/images/tool-music-main.png',
+      lines: [['ความยาว', '30–60 วินาที'], ['เนื้อร้อง', 'แต่งใหม่ใส่ชื่อร้าน + จุดขาย'], ['ไฟล์ส่งมอบ', 'WAV 24-bit + MP3'], ['ราคา', '590 บาท / เพลง']],
+      cta: 'เลือกบริการนี้ →'
+    },
+    {
+      id: 8, cat: 'service', ratio: '990 บาท / เพลง', sample: true, selectPrice: 990,
+      en: '2. เพลงเต็มเชิงพาณิชย์ 100%',
+      th: 'ความยาว 2.30–4.00 นาที แต่งเนื้อร้องใหม่ 100% ครบโครงสร้าง (Intro, Verse, Pre-Chorus, Chorus, Bridge, Outro) พร้อมไฟล์ WAV 24-bit + MP3',
+      mood: 'ยอดนิยม · เพลงเต็มสมบูรณ์',
+      img: 'assets/images/tool-mastering.png',
+      lines: [['ความยาว', '2:30–4:00 นาที'], ['โครงสร้าง', 'ครบ Intro / Verse / Chorus / Outro'], ['ไฟล์ส่งมอบ', 'WAV 24-bit + MP3'], ['ราคา', '990 บาท / เพลง']],
+      cta: 'เลือกบริการนี้ →'
+    },
+    {
+      id: 9, cat: 'service', ratio: '1,490 บาท / เซ็ต', selectPrice: 1490,
+      en: '3. เพลงของขวัญ & วิดีโอเนื้อเพลง',
+      th: 'แต่งเพลงจากเรื่องราวจริงสำหรับงานแต่งงาน วันครบรอบ วันเกิด หรืองานมุทิตาจิตเกษียณอายุราชการ พร้อมทำคลิป Lyric Video ใส่ภาพความทรงจำ',
+      mood: 'ของขวัญวันสำคัญ · เพลง + Lyric MV',
+      img: 'assets/images/tool-music-result.png',
+      lines: [['เนื้อหา', 'แต่งจากเรื่องราวจริงของคุณ'], ['วิดีโอ', 'คลิป Lyric Video ใส่ภาพความทรงจำ'], ['ไฟล์ส่งมอบ', 'MP4 Full HD + WAV + MP3'], ['ราคา', '1,490 บาท / เซ็ต']],
+      cta: 'เลือกบริการนี้ →'
+    },
+    {
+      id: 10, cat: 'service', ratio: '350 บาท / เพลง', selectPrice: 350,
+      en: '4. AI Mastering & แยก Stem',
+      th: 'ยกระดับไฟล์เพลงที่มีอยู่ให้ใส มีมิติ และดังได้มาตรฐานสตรีมมิ่ง (Spotify/YouTube/TikTok) หรือแยกเสียงร้อง/ดนตรี (Backing Track)',
+      mood: 'งานเสียงคุณภาพสูง · ZeroDay DSP',
+      img: 'assets/work/loudness-guide-2026.jpg',
+      lines: [['Loudness', '−14 LUFS / −9 LUFS TikTok'], ['True Peak', '−1.0 dBTP'], ['แยกไลน์', 'Vocal / Instrumental Stem'], ['ราคา', '350 บาท / เพลง']],
+      cta: 'เลือกบริการนี้ →'
+    },
+
+    /* --- 4 การ์ดมาตรฐานควบคุมคุณภาพเสียงระดับสตูดิโอ --- */
+    {
+      id: 11, cat: 'quality', ratio: '250–500Hz', selectPrice: 350,
+      en: '🎛️ Harmonic EQ',
+      th: 'ตัดเสียงสะท้อนความถี่กวนในย่าน 250–500Hz และเพิ่มความใสโปร่งให้เสียงร้องฟังชัดทุกคำ',
+      mood: 'ZeroDay Multi-AI DSP',
+      lines: [['ย่านความถี่ที่จูน', '250–500Hz De-mud'], ['ผลลัพธ์', 'เสียงร้องใสโปร่ง ไม่ขุ่นมัว']],
+      cta: 'ปรึกษางานเสียงทาง LINE →'
+    },
+    {
+      id: 12, cat: 'quality', ratio: '−14 LUFS', selectPrice: 350,
+      en: '🔊 −14 LUFS Norm',
+      th: 'ความดังมาตรฐานสตรีมมิ่งระดับโลก (Spotify / YouTube / Apple Music) ไม่โดนระบบลดระดับเสียงอัตโนมัติ',
+      mood: 'Streaming Standard',
+      lines: [['Integrated Loudness', '−14 LUFS'], ['True Peak Ceiling', '−1.0 dBTP']],
+      cta: 'ปรึกษางานเสียงทาง LINE →'
+    },
+    {
+      id: 13, cat: 'quality', ratio: '−9 LUFS', selectPrice: 590,
+      en: '📱 −9 LUFS TikTok',
+      th: 'เร่งพลังเสียงให้พุ่งชัดเมื่อเปิดผ่านลำโพงมือถือ ไร้ปัญหาเสียงแตกพร่า ดึงดูดคนดูตั้งแต่วินาทีแรก',
+      mood: 'TikTok / Reels Loudness Boost',
+      lines: [['Target Loudness', '−9 LUFS สำหรับโซเชียล'], ['ลำโพงเป้าหมาย', 'สมาร์ตโฟน & แท็บเล็ต']],
+      cta: 'สั่งทำ Jingle ยิงแอด →'
+    },
+    {
+      id: 14, cat: 'quality', ratio: '100% Rights', selectPrice: 990,
+      en: '📜 สิทธิ์ขาด 100%',
+      th: 'ส่งมอบลิขสิทธิ์เชิงพาณิชย์เต็มตัว นำไปยิงแอดโฆษณา เผยแพร่ทุกแพลตฟอร์ม และสร้างรายได้ถาวร',
+      mood: 'Commercial License 100%',
+      lines: [['สิทธิ์การใช้งาน', 'เชิงพาณิชย์ 100% ถาวร'], ['การรับประกัน', 'ไม่ติดเคลมลิขสิทธิ์']],
+      cta: 'สั่งทำเพลงลิขสิทธิ์แท้ →'
+    }
+  ];
+
+  const state = { mode: 'brand', cat: 'all', q: '', refFiles: [], slipFile: null };
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const pad = n => String(n).padStart(2, '0');
+  const src = p => /^https?:/.test(p) ? p : SHOP.assetBase + p;
+
+  /* ---------- Hero Playlist ---------- */
+  function renderPlaylist(activeIdx = 0) {
+    $('playlistBox').innerHTML = TRACKS.map((t, i) => `
+      <div class="titem${i === activeIdx ? ' active' : ''}" data-idx="${i}">
+        <div style="display:flex;align-items:center;gap:10px;min-width:0">
+          <span class="tplay">▶</span>
+          <div style="min-width:0">
+            <div style="font-weight:600;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(t.title)}</div>
+            <div style="font-size:11.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(t.sub)}</div>
+          </div>
+        </div>
+        <span class="tdur">▶ ${esc(t.dur)}</span>
+      </div>
+    `).join('');
+  }
+
+  $('playlistBox').addEventListener('click', e => {
+    const item = e.target.closest('.titem');
+    if (!item) return;
+    const idx = Number(item.dataset.idx);
+    const t = TRACKS[idx];
+    $('nowPlayingTitle').textContent = t.title;
+    $('nowPlayingMeta').textContent = t.meta;
+    $('ytShowcaseIframe').src = `https://www.youtube.com/embed/${t.yt}?autoplay=1&rel=0&modestbranding=1`;
+    $('ytWatchLink').href = `https://www.youtube.com/watch?v=${t.yt}`;
+    renderPlaylist(idx);
+  });
+
+  /* ---------- Street Editorial Cards ---------- */
+  function visible() {
+    const q = state.q.trim().toLowerCase();
+    return ITEMS.filter(p => {
+      if (state.cat !== 'all' && p.cat !== state.cat) return false;
+      if (!q) return true;
+      return [p.en, p.th, p.mood, p.ratio, (p.lines || []).flat().join(' ')].join(' ').toLowerCase().includes(q);
+    });
+  }
+
+  function mediaHTML(p) {
+    if (p.yt) {
+      return `<div class="thumb yt" data-yt="${esc(p.yt)}">
+        <img loading="lazy" src="https://i.ytimg.com/vi/${esc(p.yt)}/hqdefault.jpg" alt="${esc(p.en)}">
+        <span class="dur-badge">▶ ${esc(p.dur || '')}</span>
+      </div>`;
+    }
+    if (p.img) {
+      return `<div class="thumb"><img loading="lazy" src="${esc(src(p.img))}" alt="${esc(p.en)}"></div>`;
+    }
+    return '';
+  }
+
+  function cardHTML(p) {
+    const c = CATS[p.cat];
+    const lines = (p.lines || []).map(([k, v]) => `<div class="ln"><span>${esc(k)}</span><b>${esc(v)}</b></div>`).join('');
+    const isLong = (p.lines || []).length > 3;
+    return `<article class="card" style="--c:${c.rgb}" data-id="${p.id}">
+      <div class="top">
+        <span class="num">${pad(p.id)}</span>
+        <span class="tag">${esc(c.name)}</span>
+        <span class="ratio">${esc(p.ratio)}</span>
+      </div>
+      ${mediaHTML(p)}
+      <h3>${esc(p.en)}</h3>
+      <p class="th">${esc(p.th)}</p>
+      <div class="meta">
+        ${p.sample ? '<span class="sample">ผลงานจริง @MIXNATTANONT</span>' : ''}
+        <span>${esc(p.mood)}</span>
+      </div>
+      <div class="prompt${isLong ? '' : ' short'}">${lines}</div>
+      <div class="actions">
+        ${isLong ? '<button class="btn more" type="button">ดูทั้งหมด</button>' : ''}
+        <button class="btn primary select-card" type="button">${esc(p.cta || 'เลือกบริการนี้ →')}</button>
+      </div>
+    </article>`;
+  }
+
+  function renderFilters() {
+    const items = [['all', 'ทั้งหมด', '178,128,255']].concat(Object.keys(CATS).map(k => [k, CATS[k].name, CATS[k].rgb]));
+    $('filters').innerHTML = items.map(([k, name, rgb]) => {
+      const n = k === 'all' ? ITEMS.length : ITEMS.filter(p => p.cat === k).length;
+      return `<button type="button" class="fchip" data-cat="${k}" style="--c:${rgb}" aria-pressed="${state.cat === k}">${esc(name)}<i>${n}</i></button>`;
+    }).join('');
+  }
+
+  function render() {
+    const list = visible();
+    $('grid').innerHTML = list.map(cardHTML).join('');
+    $('empty').hidden = list.length > 0;
+    $('count').textContent = `แสดง ${list.length} / ${ITEMS.length} การ์ด`;
+  }
+
+  async function copyText(t) {
+    try { await navigator.clipboard.writeText(t); return true; }
+    catch {
+      const ta = document.createElement('textarea');
+      ta.value = t; ta.style.cssText = 'position:fixed;opacity:0';
+      document.body.appendChild(ta); ta.select();
+      let ok = false; try { ok = document.execCommand('copy'); } catch {}
+      document.body.removeChild(ta); return ok;
+    }
+  }
+
+  let timer;
+  function toast(msg) {
+    const t = $('toast'); t.textContent = msg; t.classList.add('show');
+    clearTimeout(timer); timer = setTimeout(() => t.classList.remove('show'), 2400);
+  }
+
+  /* ---------- Music Brief Calculator ---------- */
+  function recalc() {
+    const sel = $('musicServiceSelect');
+    const opt = sel.options[sel.selectedIndex];
+    const total = Number(opt.value) || 0;
+    const name = opt.dataset.name || opt.textContent;
+    const isFull = document.querySelector('input[name="musicPayOption"]:checked')?.value === 'full100';
+    const payNow = isFull ? total : Math.ceil(total * 0.5);
+
+    $('sumMusicName').textContent = name;
+    $('sumMusicTotal').textContent = `${total.toLocaleString()} บาท`;
+    $('sumMusicPayLabel').textContent = isFull ? 'ยอดชำระเต็มจำนวน (100%):' : 'ยอดโอนมัดจำเริ่มงาน (50%):';
+    $('sumMusicPayNow').textContent = `${payNow.toLocaleString()} บาท`;
+    if (!$('musicPaidAmount').dataset.touched) $('musicPaidAmount').value = payNow;
+
+    const genre = $('musicGenre').value;
+    const vocal = $('vocalType').value;
+    const story = $('songStory').value.trim() || '-';
+    const refLink = $('refLink').value.trim() || '-';
+    const cust = $('musicCustName').value.trim() || '-';
+    const phone = $('musicCustPhone').value.trim() || '-';
+    const paid = $('musicPaidAmount').value || payNow;
+    const time = $('musicPaidTime').value.trim() || '-';
+    const slip4 = $('musicSlip4').value.trim() || '-';
+    const refs = state.refFiles.length ? state.refFiles.map(f => f.name).join(', ') : 'ไม่มี/ส่งตามในแชท';
+    const slip = state.slipFile ? state.slipFile.name : 'แนบตามในแชท LINE';
+
+    $('generatedMusicText').value = [
+      `🎵 ใบบรีฟสั่งทำเพลง (${SHOP.name})`,
+      `• แพ็กเกจ: ${name}`,
+      `• แนวเพลง: ${genre} | เสียงร้อง: ${vocal}`,
+      `• เรื่องราว/คำสำคัญในเพลง: ${story}`,
+      `• ลิงก์เรฟอ้างอิง: ${refLink}`,
+      `• ไฟล์แนบ (${state.refFiles.length} ไฟล์): ${refs}`,
+      `• ค่าบริการรวม: ${total.toLocaleString()} ฿ | ${isFull ? 'ชำระเต็ม 100%' : 'มัดจำ 50%'}: ${payNow.toLocaleString()} ฿`,
+      `• แจ้งโอน: ${paid} ฿ | เวลา: ${time} | เลขท้ายสลิป: ${slip4} (${slip})`,
+      `• ผู้สั่งทำเพลง: ${cust} (${phone})`
+    ].join('\n');
+  }
+
+  /* ---------- Events ---------- */
+  $('modes').addEventListener('click', e => {
+    const b = e.target.closest('button[data-mode]');
+    if (!b) return;
+    state.mode = b.dataset.mode;
+    $('modes').querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    $('modeNote').textContent = NOTES[state.mode];
+  });
+
+  $('filters').addEventListener('click', e => {
+    const b = e.target.closest('.fchip');
+    if (!b) return;
+    state.cat = b.dataset.cat;
+    renderFilters(); render();
+  });
+
+  $('q').addEventListener('input', e => { state.q = e.target.value; render(); });
+
+  $('grid').addEventListener('click', e => {
+    const card = e.target.closest('.card');
+    if (!card) return;
+    const p = ITEMS.find(x => x.id === Number(card.dataset.id));
+    const ytBox = e.target.closest('[data-yt]');
+    if (ytBox && !ytBox.classList.contains('playing')) {
+      ytBox.classList.add('playing');
+      ytBox.innerHTML = `<iframe src="https://www.youtube.com/embed/${ytBox.dataset.yt}?autoplay=1&rel=0&modestbranding=1" title="${esc(p.en)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+    } else if (e.target.closest('.select-card')) {
+      const sel = $('musicServiceSelect');
+      for (let i = 0; i < sel.options.length; i++) {
+        if (Number(sel.options[i].value) === Number(p.selectPrice || 990)) {
+          sel.selectedIndex = i;
+          break;
+        }
+      }
+      if (p.selectGenre) $('musicGenre').value = p.selectGenre;
+      if (p.yt) $('refLink').value = `https://youtu.be/${p.yt} (${p.en})`;
+      recalc();
+      $('music-order').scrollIntoView({ behavior: 'smooth' });
+      toast(`เลือก "${p.en}" ลงฟอร์มบรีฟเพลงแล้ว`);
+    } else if (e.target.closest('.more')) {
+      const btn = e.target.closest('.more');
+      const open = card.querySelector('.prompt').classList.toggle('open');
+      btn.textContent = open ? 'ย่อ' : 'ดูทั้งหมด';
+    }
+  });
+
+  $('copyAll').addEventListener('click', async () => {
+    const list = visible();
+    if (!list.length) return;
+    const txt = list.map(p => `#${pad(p.id)} ${p.en} (${p.ratio})\n${p.th}\n` + (p.lines || []).map(([k, v]) => `  - ${k}: ${v}`).join('\n')).join('\n\n');
+    const ok = await copyText(txt);
+    toast(ok ? `คัดลอก ${list.length} รายการแล้ว` : 'คัดลอกไม่สำเร็จ');
+  });
+
+  ['musicServiceSelect', 'musicGenre', 'vocalType', 'songStory', 'refLink', 'musicPaidAmount', 'musicPaidTime', 'musicSlip4', 'musicCustName', 'musicCustPhone'].forEach(id => {
+    $(id).addEventListener('input', e => {
+      if (id === 'musicPaidAmount') e.target.dataset.touched = '1';
+      recalc();
+    });
+    $(id).addEventListener('change', recalc);
+  });
+  document.querySelectorAll('input[name="musicPayOption"]').forEach(r => r.addEventListener('change', () => {
+    delete $('musicPaidAmount').dataset.touched;
+    recalc();
+  }));
+
+  $('musicRefInput').addEventListener('change', e => {
+    state.refFiles = Array.from(e.target.files || []);
+    $('musicRefGrid').innerHTML = state.refFiles.map(f => {
+      const isImg = f.type.startsWith('image/');
+      const u = isImg ? URL.createObjectURL(f) : '';
+      return `<div class="pitem">${isImg ? `<img src="${u}" alt="${esc(f.name)}">` : '<div style="font-size:24px;padding:12px 0">🎵</div>'}<div style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(f.name)}</div></div>`;
+    }).join('');
+    recalc();
+  });
+
+  $('musicSlipInput').addEventListener('change', e => {
+    state.slipFile = (e.target.files || [])[0] || null;
+    $('musicSlipStatus').textContent = state.slipFile ? `✓ แนบไฟล์สลิป: ${state.slipFile.name}` : '';
+    recalc();
+  });
+
+  async function dispatchMusicLine() {
+    recalc();
+    const txt = $('generatedMusicText').value;
+    await copyText(txt);
+    toast('คัดลอกบรีฟเพลงแล้ว กำลังเปิดแชท LINE OA: @919zkplo');
+    window.open(SHOP.lineMsg + encodeURIComponent(txt), '_blank', 'noopener');
+  }
+
+  $('musicOrderForm').addEventListener('submit', e => { e.preventDefault(); dispatchMusicLine(); });
+  $('sendMusicLineBtn').addEventListener('click', dispatchMusicLine);
+  $('copyPpBtn').addEventListener('click', async () => {
+    const ok = await copyText(SHOP.promptpay);
+    toast(ok ? 'คัดลอกเลขพร้อมเพย์ 0815921229 แล้ว' : '081-592-1229');
+  });
+
+  /* ---------- Init ---------- */
+  $('brandLogo').src = src('assets/images/logo-3d.png?v=2');
+  $('heroLogo').src = src('assets/images/logo-3d.png?v=2');
+  $('oaAvatar').src = SHOP.avatar;
+  renderPlaylist(0);
+  const names = ITEMS.map(p => p.en);
+  $('track').innerHTML = names.concat(names).map(n => `<span>${esc(n)}</span>`).join('');
+  $('modeNote').textContent = NOTES.brand;
+  renderFilters();
+  render();
+  recalc();
+})();
+</script>
+</body>
+</html>

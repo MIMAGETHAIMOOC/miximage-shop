@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>MIX IMAGE ART&amp;AUDIO | หน้า 1: งานภาพ รูปติดบัตร รีทัช กรอบรูปมงคล (Street Editorial)</title>
+<meta name="description" content="ร้านสร้างภาพ MIX IMAGE ART&AUDIO อ.บรบือ จ.มหาสารคาม รับทำรูปติดบัตรออนไลน์ ตัดต่อชุดข้าราชการ รีทัช ซ่อมภาพเก่า และภาพมงคลพร้อมกรอบ ส่งทั่วประเทศ">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;500&family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!--
+  ===================================================================
+  MIX IMAGE ART&AUDIO — หน้าที่ 1: งานภาพ & กรอบรูปมงคล
+  โครงสร้าง: Street Editorial Card Architecture (_Street_Editorial_20_HTML_.html)
+  พร้อมนำไปให้ Antigravity ปรับแต่งต่อได้ทันที:
+    1. แก้สี/ธีมหลัก         -> :root CSS Variables ด้านล่าง
+    2. แก้ข้อมูลร้าน/LINE OA -> const SHOP ใน <script>
+    3. แก้หมวดหมู่และสีการ์ด  -> const CATS ใน <script>
+    4. เพิ่ม/ลด/แก้การ์ดทั้งหมด -> const ITEMS ใน <script> (รองรับทั้งการ์ดบริการ, ภาพมงคล, ขนาดกรอบ, ผลงานจริง)
+    5. แก้ตารางราคากรอบรูป   -> const FRAME_TABLE ใน <script>
+  ===================================================================
+-->
+<style>
+:root{
+  --bg:#0a0a0d;
+  --line:rgba(255,255,255,.09);
+  --text:#f4f4f7;
+  --muted:#9a9aab;
+  --accent:255,98,54;
+  --lineg:6,199,85;
+  --gold:255,190,60;
+  --cyan:84,170,255;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Kanit',system-ui,-apple-system,'Segoe UI',Tahoma,sans-serif;
+  color:var(--text);
+  line-height:1.6;
+  min-height:100vh;
+  background:
+    radial-gradient(900px 520px at 88% -8%,rgba(150,28,62,.38),transparent 62%),
+    radial-gradient(760px 520px at -8% 6%,rgba(255,98,54,.16),transparent 62%),
+    var(--bg);
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.08;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+a{color:inherit;text-decoration:none}
+.wrap{position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:20px 20px 96px}
+
+/* [ANTIGRAVITY ZONE: TOP NAVIGATION] */
+.nav{
+  position:sticky;top:12px;z-index:40;
+  display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;
+  padding:10px 16px;margin-bottom:34px;
+  border:1px solid var(--line);border-radius:16px;
+  background:rgba(12,12,16,.84);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+}
+.brand{display:flex;align-items:center;gap:10px;margin-right:auto}
+.brand img{width:46px;height:40px;object-fit:contain}
+.brand b{display:block;font:400 19px/1 'Anton',sans-serif;letter-spacing:.04em}
+.brand small{display:block;font-size:11.5px;color:var(--muted)}
+.tabs{display:inline-flex;flex-wrap:wrap;gap:4px;padding:4px;border:1px solid var(--line);border-radius:12px;background:#0c0c10}
+.tabs a{padding:7px 13px;border-radius:9px;font-size:13px;color:var(--muted);transition:.2s}
+.tabs a:hover{color:var(--text)}
+.tabs a[aria-current="page"]{background:rgb(var(--accent));color:#0a0a0d;font-weight:600;box-shadow:0 8px 20px -8px rgba(var(--accent),.9)}
+.nav-links{display:flex;flex-wrap:wrap;gap:12px;font-size:13px;color:#d0d0dc}
+.nav-links a:hover{color:rgb(var(--accent))}
+
+/* [ANTIGRAVITY ZONE: HERO 2-COLUMN] */
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:stretch}
+.hero-box{
+  position:relative;display:flex;flex-direction:column;justify-content:space-between;
+  padding:28px 26px;border:1px solid var(--line);border-radius:20px;
+  background:linear-gradient(180deg,#17171d,#111116);overflow:hidden;
+}
+.hero-box::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:rgb(var(--c,var(--accent)))}
+.kicker{margin-bottom:12px;font:500 12px/1.3 'JetBrains Mono',monospace;letter-spacing:.18em;text-transform:uppercase;color:rgb(var(--accent))}
+.shop-chip{display:inline-flex;align-items:center;gap:10px;padding:8px 12px;margin-bottom:14px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.03);width:fit-content}
+.shop-chip img{width:38px;height:32px;object-fit:contain}
+.shop-chip b{display:block;font-size:13px;color:#fff}
+.shop-chip small{display:block;font-size:11.5px;color:var(--muted)}
+h1{font-family:'Anton','Kanit',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:.96;font-size:clamp(42px,6.5vw,78px)}
+h1 span{color:transparent;-webkit-text-stroke:1.5px #fff}
+.sub-headline{margin-top:10px;font-size:clamp(20px,2.6vw,28px);font-weight:600;line-height:1.25}
+.sub-headline em{font-style:normal;color:rgb(var(--accent))}
+.lead{margin-top:12px;color:#c9c9d6;font-size:15px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.pill{padding:6px 13px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.04);font-size:12.5px}
+.pill b{color:rgb(var(--accent));font-weight:600}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+
+/* Before / After Interactive Slider inside Hero Right Card */
+.ba-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.ba-head h2{font:400 22px/1.15 'Anton','Kanit',sans-serif;letter-spacing:.02em;text-transform:uppercase}
+.ba-wrap{
+  position:relative;width:100%;aspect-ratio:4/3;border-radius:14px;overflow:hidden;
+  border:1px solid var(--line);background:#09090c;user-select:none;touch-action:pan-y;cursor:ew-resize;
+}
+.ba-layer{position:absolute;inset:0;width:100%;height:100%}
+.ba-layer img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.ba-after{clip-path:inset(0 0 0 50%)}
+.ba-tag{
+  position:absolute;top:10px;z-index:3;padding:4px 10px;border-radius:999px;
+  background:rgba(10,10,13,.82);border:1px solid var(--line);
+  font:500 11px/1.2 'JetBrains Mono','Kanit',sans-serif;color:#fff;
+}
+.ba-tag.before{left:10px}
+.ba-tag.after{right:10px;border-color:rgba(var(--accent),.6);color:rgb(var(--accent))}
+.ba-handle{
+  position:absolute;top:0;bottom:0;left:50%;width:2px;background:rgb(var(--accent));
+  z-index:4;pointer-events:none;
+}
+.ba-knob{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:36px;height:36px;border-radius:50%;background:rgb(var(--accent));color:#0a0a0d;
+  display:grid;place-items:center;font-weight:700;font-size:14px;
+  box-shadow:0 6px 20px rgba(0,0,0,.6);
+}
+.ba-range{display:flex;align-items:center;gap:10px;margin-top:10px;font-size:12px;color:var(--muted)}
+.ba-range input{width:100%;accent-color:rgb(var(--accent));cursor:pointer}
+.ba-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px;text-align:center}
+.ba-stat{padding:10px 8px;border:1px solid var(--line);border-radius:12px;background:#0c0c10}
+.ba-stat b{display:block;font:400 20px/1.1 'Anton',sans-serif;color:rgb(var(--accent))}
+.ba-stat span{font-size:11px;color:var(--muted)}
+
+/* [ANTIGRAVITY ZONE: MARQUEE] */
+.marquee{overflow:hidden;margin:28px 0;padding:12px 0;border-block:1px solid var(--line);background:rgba(255,255,255,.02)}
+.track{display:flex;width:max-content;animation:slide 40s linear infinite;font:400 22px/1 'Anton','Kanit',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.24)}
+.track span{white-space:nowrap;padding-right:40px}
+.track span::after{content:"\2726";margin-left:40px;color:rgb(var(--accent))}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* [ANTIGRAVITY ZONE: SECTION HEADERS] */
+.sec{margin-top:52px;scroll-margin-top:88px}
+.sec-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px 20px;margin-bottom:16px}
+.sec-head h2{font:400 clamp(28px,4.5vw,46px)/1 'Anton','Kanit',sans-serif;text-transform:uppercase;letter-spacing:.02em}
+.sec-head h2 span{color:transparent;-webkit-text-stroke:1.2px #fff}
+.sec-head p{color:var(--muted);font-size:14px;max-width:620px}
+
+/* [ANTIGRAVITY ZONE: STREET EDITORIAL TOOLBAR & FILTERS] */
+.bar{display:grid;gap:14px;padding:18px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.035);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.lbl{margin-right:4px;font:500 12px/1 'JetBrains Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.seg{display:inline-flex;flex-wrap:wrap;gap:4px;padding:4px;border:1px solid var(--line);border-radius:13px;background:#0c0c10}
+.seg button{font:500 13.5px 'Kanit',sans-serif;color:var(--muted);background:transparent;border:0;border-radius:9px;padding:7px 14px;cursor:pointer;transition:.2s}
+.seg button:hover{color:var(--text)}
+.seg button[aria-pressed="true"]{background:rgb(var(--accent));color:#0a0a0d;font-weight:600;box-shadow:0 8px 20px -8px rgba(var(--accent),.9)}
+.note{font-size:13px;color:var(--muted)}
+.fchip{font:400 13px 'Kanit',sans-serif;color:#d9d9e2;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:999px;padding:7px 14px;cursor:pointer;transition:.2s}
+.fchip i{font-style:normal;opacity:.55;margin-left:6px}
+.fchip:hover{border-color:rgba(var(--c),.7)}
+.fchip[aria-pressed="true"]{background:rgba(var(--c),.18);border-color:rgb(var(--c));color:#fff}
+input[type=search]{flex:1 1 220px;min-width:0;padding:10px 14px;border:1px solid var(--line);border-radius:11px;background:#0c0c10;color:var(--text);font:400 14px 'Kanit',sans-serif;outline:0}
+input[type=search]:focus{border-color:rgb(var(--accent))}
+.count{font-size:13px;color:var(--muted)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font:500 14px 'Kanit',sans-serif;color:var(--text);background:#1c1c24;border:1px solid var(--line);border-radius:11px;padding:10px 16px;cursor:pointer;transition:.2s}
+.btn:hover{border-color:rgba(255,255,255,.3)}
+.btn.primary{flex:1;background:rgb(var(--c,var(--accent)));border-color:transparent;color:#0a0a0d;font-weight:600}
+.btn.primary:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.btn.primary.done{background:#35d489}
+.btn.line{background:rgb(var(--lineg));border-color:transparent;color:#fff;font-weight:600}
+.btn.line:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.btn:focus-visible,.fchip:focus-visible,.seg button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+#copyAll{margin-left:auto}
+
+/* Tips */
+.tips{margin-top:16px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.03)}
+.tips summary{cursor:pointer;padding:14px 18px;font-weight:500;list-style:none}
+.tips summary::-webkit-details-marker{display:none}
+.tips summary::before{content:"+";display:inline-block;width:22px;color:rgb(var(--accent));font-weight:600}
+.tips[open] summary::before{content:"\2013"}
+.tips ol{padding:0 22px 18px 44px;color:#cfcfda;font-size:14px}
+.tips li{margin:4px 0}
+
+/* [ANTIGRAVITY ZONE: STREET EDITORIAL CARDS (.grid > .card)] */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(340px,100%),1fr));gap:20px;margin-top:22px}
+.card{
+  position:relative;display:flex;flex-direction:column;gap:12px;
+  padding:20px 20px 18px;border:1px solid var(--line);border-radius:18px;
+  background:linear-gradient(180deg,#17171d,#111116);overflow:hidden;
+  transition:transform .25s,border-color .25s,box-shadow .25s;
+}
+.card::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:rgb(var(--c))}
+.card:hover{transform:translateY(-3px);border-color:rgba(var(--c),.55);box-shadow:0 18px 44px -22px rgba(var(--c),.75)}
+.top{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.num{font:400 30px/1 'Anton',sans-serif;letter-spacing:.02em;color:rgb(var(--c))}
+.tag{padding:6px 9px;border-radius:7px;background:rgba(var(--c),.14);color:rgb(var(--c));font:500 11px/1 'JetBrains Mono',monospace;letter-spacing:.08em;text-transform:uppercase}
+.ratio{margin-left:auto;padding:6px 9px;border:1px solid var(--line);border-radius:7px;color:#fff;font:500 11.5px/1 'JetBrains Mono',monospace}
+.thumb{position:relative;aspect-ratio:4/3;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#0b0b0f;cursor:zoom-in}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
+.card:hover .thumb img{transform:scale(1.04)}
+.card h3{font:400 24px/1.15 'Anton','Kanit',sans-serif;letter-spacing:.02em;text-transform:uppercase}
+.th{font-size:14px;color:#c9c9d4}
+.meta{display:flex;flex-wrap:wrap;gap:6px}
+.meta span{padding:3px 11px;border-radius:999px;background:rgba(255,255,255,.07);color:#d9d9e2;font-size:12px}
+.meta span.sample{background:rgb(var(--c));color:#0a0a0d;font-weight:600}
+.prompt{
+  position:relative;max-height:178px;overflow:hidden;padding:14px 14px 8px;
+  border:1px solid var(--line);border-radius:12px;background:#0b0b0f;color:#d3d3dd;
+  font:400 12.5px/1.65 'JetBrains Mono','Kanit',monospace;transition:max-height .35s ease;
+}
+.prompt::after{content:"";position:absolute;left:0;right:0;bottom:0;height:56px;background:linear-gradient(to bottom,transparent,#0b0b0f 88%);pointer-events:none;transition:opacity .25s}
+.prompt.open,.prompt.short{max-height:1500px}
+.prompt.open::after,.prompt.short::after{opacity:0;display:none}
+.ln{display:flex;justify-content:space-between;gap:10px;margin-bottom:8px;padding-bottom:8px;border-bottom:1px dashed rgba(255,255,255,.08);word-break:break-word}
+.ln:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
+.ln b{margin-right:6px;font-weight:600;letter-spacing:.03em;color:rgb(var(--c));white-space:nowrap}
+.actions{display:flex;gap:10px;margin-top:auto}
+
+/* [ANTIGRAVITY ZONE: FRAME SIZE TABLE] */
+.table-card{
+  margin-top:22px;padding:22px;border:1px solid var(--line);border-radius:18px;
+  background:linear-gradient(180deg,#17171d,#111116);overflow-x:auto;position:relative;
+}
+.table-card::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:rgb(var(--gold))}
+.table-card h3{font:400 22px/1.2 'Anton','Kanit',sans-serif;margin-bottom:14px;color:rgb(var(--gold))}
+table.ftable{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640px}
+.ftable th,.ftable td{padding:12px 12px;text-align:left;border-bottom:1px solid var(--line)}
+.ftable th{font:500 11.5px/1 'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);background:rgba(255,255,255,.03)}
+.ftable td.price{font:600 15px 'JetBrains Mono',monospace;color:rgb(var(--gold));white-space:nowrap}
+
+/* [ANTIGRAVITY ZONE: INTERACTIVE ORDER STUDIO & DEPOSIT CALCULATOR] */
+.order-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:start;margin-top:22px}
+.form-card{
+  position:relative;padding:26px 24px;border:1px solid var(--line);border-radius:18px;
+  background:linear-gradient(180deg,#17171d,#111116);overflow:hidden;
+}
+.form-card::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:rgb(var(--c,var(--accent)))}
+.step-title{display:flex;align-items:center;gap:10px;font-size:17px;font-weight:600;margin:20px 0 12px}
+.step-title:first-child{margin-top:0}
+.step-num{
+  width:26px;height:26px;border-radius:7px;background:rgba(var(--accent),.18);
+  color:rgb(var(--accent));font:500 12px/1 'JetBrains Mono',monospace;
+  display:inline-grid;place-items:center;border:1px solid rgba(var(--accent),.4);
+}
+.fgroup{margin-bottom:14px}
+.flabel{display:block;font-size:13px;color:#d5d5e2;margin-bottom:6px;font-weight:500}
+.finput{
+  width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:11px;
+  background:#0b0b0f;color:var(--text);font:400 14px 'Kanit',sans-serif;outline:0;
+}
+.finput:focus{border-color:rgb(var(--accent))}
+.fgrid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fgrid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.dropzone{
+  display:block;padding:18px;text-align:center;border:1.5px dashed rgba(var(--accent),.45);
+  border-radius:14px;background:rgba(var(--accent),.05);cursor:pointer;transition:.2s;
+}
+.dropzone:hover{border-color:rgb(var(--accent));background:rgba(var(--accent),.1)}
+.preview-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px;margin-top:10px}
+.pitem{padding:6px;border:1px solid var(--line);border-radius:10px;background:#0b0b0f;font-size:11px;color:var(--muted);text-align:center}
+.pitem img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;margin-bottom:4px}
+.pay-toggle{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.pay-opt{
+  display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border:1px solid var(--line);
+  border-radius:12px;background:#0b0b0f;cursor:pointer;
+}
+.pay-opt input{margin-top:4px;accent-color:rgb(var(--accent))}
+.pp-box{
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;
+  padding:14px 16px;margin-bottom:14px;border:1px solid rgba(var(--cyan),.4);
+  border-radius:12px;background:rgba(var(--cyan),.08);
+}
+.sum-rows{display:grid;gap:8px;padding:14px 0;margin:12px 0;border-block:1px solid var(--line);font-size:14px}
+.sum-row{display:flex;justify-content:space-between;gap:10px}
+.sum-row.total{font-size:16px;padding-top:8px;border-top:1px dashed var(--line)}
+.sum-row.paynow{font-size:18px;color:#35d489;font-weight:600}
+.oa-head{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.oa-head img{width:48px;height:48px;border-radius:50%;border:2px solid rgb(var(--lineg));object-fit:cover}
+
+.empty{margin-top:40px;text-align:center;color:var(--muted)}
+.foot{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;color:var(--muted);font-size:13px}
+.toast{position:fixed;left:50%;bottom:28px;z-index:80;max-width:calc(100% - 32px);padding:12px 22px;border-radius:999px;background:#fff;color:#0a0a0d;font-weight:500;font-size:14px;box-shadow:0 14px 40px rgba(0,0,0,.55);opacity:0;pointer-events:none;transform:translate(-50%,20px);transition:.3s}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.fab{position:fixed;right:20px;bottom:20px;z-index:50;padding:12px 18px;border-radius:999px;background:rgb(var(--lineg));color:#fff;font-weight:600;box-shadow:0 14px 34px rgba(var(--lineg),.4)}
+.lightbox{position:fixed;inset:0;z-index:90;display:grid;place-items:center;padding:24px;background:rgba(0,0,0,.88)}
+.lightbox img{max-width:min(980px,100%);max-height:80vh;border-radius:14px;border:1px solid var(--line)}
+.lightbox p{margin-top:12px;text-align:center;color:#ddd;font-size:14px}
+.lightbox button{position:absolute;top:18px;right:18px}
+
+@media (max-width:960px){.hero-grid,.order-grid{grid-template-columns:1fr}.nav-links{display:none}}
+@media (max-width:560px){.wrap{padding:14px 14px 90px}.card,.hero-box,.form-card{padding:18px 16px}.fgrid-2,.fgrid-3,.pay-toggle{grid-template-columns:1fr}#copyAll{margin-left:0;width:100%}}
+@media (prefers-reduced-motion:reduce){.track{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ================= TOP STICKY NAVIGATION ================= -->
+  <nav class="nav" aria-label="เมนูหลัก">
+    <a class="brand" href="#top">
+      <img id="brandLogo" src="" alt="MIX IMAGE ART&amp;AUDIO">
+      <span>
+        <b>MIX IMAGE ART&amp;AUDIO</b>
+        <small>ร้านสร้างภาพ • สตูดิโอภาพถ่าย งานพิมพ์ และเสียงเชิงพาณิชย์</small>
+      </span>
+    </a>
+    <div class="tabs" role="navigation" aria-label="สลับหน้าบริการ">
+      <a href="miximage-art-street.html" aria-current="page">🖼️ หน้าที่ 1: งานภาพ &amp; กรอบรูปมงคล</a>
+      <a href="miximage-audio-street.html">🎵 หน้าที่ 2: บริการรับทำเพลง AI</a>
+    </div>
+    <div class="nav-links">
+      <a href="#catalog">การ์ดบริการ</a>
+      <a href="#frame-table">ตารางกรอบรูป</a>
+      <a href="#order-studio">ส่งรูป/แจ้งมัดจำ</a>
+    </div>
+    <a class="btn line" href="#order-studio" style="padding:8px 14px;font-size:13px">💬 ส่งรูป / เชื่อม LINE</a>
+  </nav>
+
+  <!-- ================= HERO SECTION (2 COLUMNS) ================= -->
+  <header class="hero-grid" id="top">
+    <!-- Left Hero Card -->
+    <div class="hero-box" style="--c:255,98,54">
+      <div>
+        <div class="kicker">● บริการสั่งทำรายชิ้น · ไม่มีแพ็กเกจรายเดือน · จัดส่งทั่วประเทศ</div>
+        <div class="shop-chip">
+          <img id="heroLogo" src="" alt="MIX IMAGE Logo">
+          <div>
+            <b>ร้านสร้างภาพ (MIX IMAGE ART&amp;AUDIO)</b>
+            <small>สตูดิโอภาพถ่าย งานพิมพ์ และเสียงเชิงพาณิชย์ อ.บรบือ จ.มหาสารคาม</small>
+          </div>
+        </div>
+        <h1>Mix Image <span>Art&amp;Audio</span></h1>
+        <p class="sub-headline">มากกว่าแค่สร้างภาพ <em>แต่เราสร้างความรู้สึก</em></p>
+        <p class="lead">บริการงานภาพและเสียงเชิงพาณิชย์ ผสมผสานความประณีตของช่างมืออาชีพเข้ากับเทคโนโลยี Generative AI ตรวจสอบความถูกต้องตามระเบียบราชการ ดูแลงานรูปติดบัตร สิ่งพิมพ์ งานกราฟิก และผลิตเพลงโฆษณาเชิงพาณิชย์ลิขสิทธิ์แท้ — โดย ร้านถ่ายเอกสารพิศ ข้างธนาคารกสิกรไทย สาขาบรบือ จ.มหาสารคาม</p>
+        <div class="pills">
+          <span class="pill"><b>100%</b> รูปติดบัตรถูกระเบียบราชการ</span>
+          <span class="pill"><b>Retouch</b> เนียนธรรมชาติ ไม่เป็นวุ้น</span>
+          <span class="pill"><b>Canvas UV</b> กรอบรูปมงคลเคลือบกัน UV</span>
+          <span class="pill"><b>3 ชั้น</b> แพ็กกันกระแทก ส่งทั่วไทย</span>
+        </div>
+      </div>
+      <div class="hero-ctas">
+        <a href="#order-studio" class="btn line">📤 ส่งภาพอ้างอิง &amp; สั่งทำผ่านเว็บเชื่อม LINE</a>
+        <a href="#frame-table" class="btn">ดูตารางราคากรอบรูปมงคล</a>
+        <a href="miximage-audio-street.html" class="btn">🎵 ไปที่หน้า 2: บริการรับทำเพลง AI →</a>
+      </div>
+    </div>
+
+    <!-- Right Hero Card: Interactive Before / After Slider -->
+    <div class="hero-box" style="--c:84,170,255">
+      <div>
+        <div class="ba-head">
+          <div>
+            <div class="kicker" style="margin-bottom:4px;color:rgb(var(--cyan))">Before / After · 300 DPI Standard</div>
+            <h2 id="baTitle">เปรียบเทียบงานรีทัช &amp; ตัดต่อชุด</h2>
+          </div>
+          <div class="seg" id="baSwitch">
+            <button type="button" data-case="1" aria-pressed="true">รูปติดบัตร</button>
+            <button type="button" data-case="2" aria-pressed="false">กู้ภาพเก่า</button>
+          </div>
+        </div>
+
+        <div class="ba-wrap" id="baContainer" title="ลากซ้าย-ขวาเพื่อเปรียบเทียบภาพ">
+          <div class="ba-layer">
+            <img id="baBeforeImg" src="" alt="ภาพก่อนทำ">
+            <span class="ba-tag before" id="baBeforeLbl">◀ ภาพเซลฟี่เดิมก่อนทำ</span>
+          </div>
+          <div class="ba-layer ba-after" id="baAfterLayer">
+            <img id="baAfterImg" src="" alt="ภาพหลังทำ">
+            <span class="ba-tag after" id="baAfterLbl">ตัดต่อสูท + รีทัช 300 DPI ▶</span>
+          </div>
+          <div class="ba-handle" id="baHandle"><div class="ba-knob">↔</div></div>
+        </div>
+
+        <div class="ba-range">
+          <span>◀ ก่อนทำ</span>
+          <input type="range" id="baSlider" min="0" max="100" value="50" aria-label="สไลเดอร์เปรียบเทียบภาพก่อนและหลัง">
+          <span>หลังทำ ▶</span>
+        </div>
+      </div>
+
+      <div class="ba-stats">
+        <div class="ba-stat"><b>300 DPI</b><span>ความละเอียดมาตรฐานพิมพ์</span></div>
+        <div class="ba-stat"><b>แก้ฟรี 100%</b><span>หากไม่ผ่านระเบียบหน่วยงาน</span></div>
+        <div class="ba-stat"><b>10:00–22:00</b><span>รับงานออนไลน์ทุกวัน</span></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MARQUEE ================= -->
+  <div class="marquee" aria-hidden="true"><div class="track" id="track"></div></div>
+
+  <!-- ================= STREET EDITORIAL TOOLBAR & ALL 20 CARDS ================= -->
+  <section class="sec" id="catalog" style="margin-top:0">
+    <div class="sec-head">
+      <div>
+        <div class="kicker">All Cards · Services · Auspicious Frames · Portfolio</div>
+        <h2>Service &amp; <span>Portfolio</span> Cards</h2>
+      </div>
+      <p>รวมการ์ดทั้งหมดจากหน้าต้นฉบับ (บริการหลัก 3 หมวด • แคตตาล็อกภาพมงคล 4 หมวด • ขนาดกรอบรูป 5 ขนาด • ตัวอย่างผลงานจริง 8 ชิ้น) กดเลือกการ์ดเพื่อส่งเข้าฟอร์มคำนวณมัดจำด้านล่างได้ทันที</p>
+    </div>
+
+    <div class="bar" aria-label="ตัวเลือกการกรองการ์ด">
+      <div class="row">
+        <span class="lbl">รูปแบบรับงาน</span>
+        <div class="seg" id="modes">
+          <button type="button" data-mode="ship" aria-pressed="true">จัดส่งพัสดุทั่วไทย (+50฿)</button>
+          <button type="button" data-mode="line" aria-pressed="false">รับเฉพาะไฟล์ทาง LINE (0฿)</button>
+          <button type="button" data-mode="store" aria-pressed="false">รับที่หน้าร้าน อ.บรบือ (0฿)</button>
+        </div>
+      </div>
+      <p class="note" id="modeNote"></p>
+      <div class="row" id="filters"></div>
+      <div class="row">
+        <input id="q" type="search" placeholder="ค้นหาการ์ด เช่น ข้าราชการ, สูท, ซ่อมภาพ, ท้าวเวสสุวรรณ, หลุยส์, 16×20" aria-label="ค้นหาการ์ด">
+        <span class="count" id="count"></span>
+        <button class="btn" id="copyAll" type="button">คัดลอกรายการที่แสดง</button>
+      </div>
+    </div>
+
+    <details class="tips">
+      <summary>เคล็ดลับการส่งรูปให้ได้งานคมชัดตรงใจ</summary>
+      <ol>
+        <li>รูปติดบัตรออนไลน์: ถ่ายหน้าตรงในที่แสงสว่างสม่ำเสมอ มองตรงกล้อง ไม่สวมแว่นดำหรือหมวก</li>
+        <li>ตัดต่อชุดข้าราชการ: ระบุสังกัด กระทรวง ระดับชั้นยศ และสีพื้นหลัง (ฟ้า/ขาว) ในช่องรายละเอียด</li>
+        <li>ซ่อมภาพเก่าบรรพบุรุษ: ถ่ายจากมุมตรงไม่สะท้อนแสงแฟลช หรือสแกนความละเอียดสูงส่งทาง LINE</li>
+        <li>ภาพมงคลพร้อมกรอบ: เลือกขนาดกรอบจากการ์ดหรือตารางด้านล่าง แพ็กกันกระแทก 3 ชั้นรับประกันเสียหายระหว่างขนส่ง</li>
+      </ol>
+    </details>
+
+    <main class="grid" id="grid"></main>
+    <p class="empty" id="empty" hidden>ไม่พบการ์ดที่ตรงกับคำค้นหา ลองเปลี่ยนคำหรือเลือกหมวด "ทั้งหมด"</p>
+  </section>
+
+  <!-- ================= FRAME SIZE TABLE SECTION ================= -->
+  <section class="sec" id="frame-table">
+    <div class="sec-head">
+      <div>
+        <div class="kicker">Auspicious &amp; Family Frames · Ready To Hang</div>
+        <h2>Frame Size <span>&amp; Pricing</span></h2>
+      </div>
+      <p>ตารางขนาดและราคาภาพพร้อมกรอบ (รวมพิมพ์ภาพ + เข้ากรอบหลุยส์สีทองหรือกรอบโมเดิร์นพร้อมแขวน)</p>
+    </div>
+    <div class="table-card">
+      <h3>ตารางขนาดและราคาภาพพร้อมกรอบ (รวมพิมพ์ภาพ + เข้ากรอบพร้อมแขวน)</h3>
+      <table class="ftable">
+        <thead>
+          <tr>
+            <th>ขนาดกรอบรูป</th>
+            <th>วัสดุภาพและชนิดกรอบ</th>
+            <th>ความเหมาะสมในการจัดวาง</th>
+            <th>ราคาเริ่มต้น</th>
+            <th>สั่งทำทันที</th>
+          </tr>
+        </thead>
+        <tbody id="frameTableBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ================= INTERACTIVE ORDER STUDIO & DEPOSIT CALCULATOR ================= -->
+  <section class="sec" id="order-studio">
+    <div class="sec-head">
+      <div>
+        <div class="kicker">Online Order Studio · Reference Upload · LINE OA @919zkplo</div>
+        <h2>ระบบสั่งทำรูป <span>ส่งภาพอ้างอิง</span> &amp; ยืนยันมัดจำ</h2>
+      </div>
+      <p>กรอกรายละเอียด เลือกแนบภาพอ้างอิง และยืนยันการมัดจำ (50%) หรือชำระเต็มจำนวน ระบบจะสร้างใบสั่งงานพร้อมเปิดแชท LINE OA: @919zkplo ให้ทันที</p>
+    </div>
+
+    <div class="order-grid">
+      <!-- Left: 4-Step Order Form -->
+      <div class="form-card" style="--c:255,98,54">
+        <form id="artOrderForm">
+          <div class="step-title"><span class="step-num">01</span> เลือกบริการและรายละเอียดงาน</div>
+          <div class="fgroup">
+            <label class="flabel" for="serviceSelect">ประเภทบริการที่ต้องการสั่งทำ</label>
+            <select class="finput" id="serviceSelect">
+              <optgroup label="หมวดที่ 1: รูปติดบัตรออนไลน์ &amp; ตัดต่อชุด">
+                <option value="59" data-name="รูปติดบัตรชุดประหยัด (Good) อัดรูป 8-12 ใบ">รูปติดบัตรชุดประหยัด (Good) อัดรูป 8–12 ใบ — 59 บาท</option>
+                <option value="89" data-name="รูปติดบัตรชุดยอดนิยม (Better) รีทัชผิวเนียน + อัดรูป 8-12 ใบ">รูปติดบัตรชุดยอดนิยม (Better) รีทัชผิวเนียน + อัดรูป 8–12 ใบ — 89 บาท</option>
+                <option value="150" data-name="รูปติดบัตรตัดต่อชุดข้าราชการ/สูท/ครุย (รับเฉพาะไฟล์ 300 DPI)">รูปติดบัตรตัดต่อชุดข้าราชการ/สูท/ครุย (เฉพาะไฟล์ดิจิทัล 300 DPI) — 150 บาท</option>
+                <option value="220" data-name="รูปติดบัตรชุดสมบูรณ์แบบ (Best) ตัดต่อชุดราชการ/สูท + ไฟล์ HD + อัดรูป 1 โหล" selected>รูปติดบัตรชุดสมบูรณ์แบบ (Best) ตัดต่อชุดราชการ/สูท + ไฟล์ HD + อัดรูป 1 โหล — 220 บาท</option>
+              </optgroup>
+              <optgroup label="หมวดที่ 2: รีทัชภาพ &amp; ซ่อมภาพเก่าบรรพบุรุษ">
+                <option value="200" data-name="รีทัชภาพบุคคลพรีเมียม / โปรไฟล์สมัครงาน">รีทัชภาพบุคคลพรีเมียม / โปรไฟล์สมัครงาน — 200 บาท</option>
+                <option value="450" data-name="ฟื้นฟูรูปเก่ามาตรฐาน (ลบรอยขีดข่วน ปรับความคมชัด + ไฟล์ HD)">ฟื้นฟูรูปเก่ามาตรฐาน (ลบรอยขีดข่วน ปรับความคมชัด + ไฟล์ HD) — 450 บาท</option>
+                <option value="700" data-name="ฟื้นฟูรูปเก่าพรีเมียม + ลงสีธรรมชาติ">ฟื้นฟูรูปเก่าพรีเมียม (ซ่อมรอยฉีกขาด + ลงสีธรรมชาติ) — 700 บาท</option>
+                <option value="1290" data-name="แพ็กเกจรูปหน้าพิธีศพด่วน 24 ชม. + กรอบหลุยส์ 16x20 นิ้ว">แพ็กเกจรูปหน้าพิธีศพด่วน 24 ชม. + กรอบหลุยส์ 16×20 นิ้ว — 1,290 บาท</option>
+              </optgroup>
+              <optgroup label="หมวดที่ 3: ภาพมงคลพร้อมกรอบรูป (ส่งทั่วประเทศ)">
+                <option value="390" data-name="ภาพมงคล/ภาพครอบครัวพร้อมกรอบ ขนาด A4">ภาพมงคล/ภาพครอบครัวพร้อมกรอบ ขนาด A4 (8.3×11.7") — 390 บาท</option>
+                <option value="590" data-name="ภาพมงคลพร้อมกรอบหลุยส์สีทอง ขนาด 10x12 นิ้ว">ภาพมงคลพร้อมกรอบหลุยส์สีทอง ขนาด 10×12 นิ้ว — 590 บาท</option>
+                <option value="690" data-name="ภาพมงคลพร้อมกรอบ ขนาด 12x18 นิ้ว (ผ้าแคนวาสแท้)">ภาพมงคลพร้อมกรอบ ขนาด 12×18 นิ้ว (ผ้าแคนวาสแท้) — 690 บาท</option>
+                <option value="990" data-name="ภาพมงคลพร้อมกรอบหลุยส์ ขนาด 16x20 นิ้ว (แคนวาสพิมพ์ UV)">ภาพมงคลพร้อมกรอบหลุยส์ ขนาด 16×20 นิ้ว (แคนวาสพิมพ์ UV) — 990 บาท</option>
+                <option value="1490" data-name="ภาพมงคลพร้อมกรอบหลุยส์ใหญ่ ขนาด 20x30 นิ้ว (เสริมโครงเหล็ก)">ภาพมงคลพร้อมกรอบหลุยส์ใหญ่ ขนาด 20×30 นิ้ว (เสริมโครงเหล็ก) — 1,490 บาท</option>
+              </optgroup>
+              <optgroup label="หมวดที่ 4: ออกแบบกราฟิก &amp; สิ่งพิมพ์">
+                <option value="500" data-name="ออกแบบนามบัตร 2 หน้า (ไฟล์พร้อมพิมพ์)">ออกแบบนามบัตร 2 หน้า (ไฟล์พร้อมพิมพ์) — 500 บาท</option>
+                <option value="800" data-name="ออกแบบป้ายไวนิลหน้าร้าน/หน่วยงาน">ออกแบบป้ายไวนิลหน้าร้าน/หน่วยงาน — 800 บาท</option>
+              </optgroup>
+            </select>
+          </div>
+
+          <div class="fgrid-2">
+            <div class="fgroup">
+              <label class="flabel" for="orderQty">จำนวนชุด / ชิ้น</label>
+              <input type="number" id="orderQty" class="finput" min="1" max="50" value="1">
+            </div>
+            <div class="fgroup">
+              <label class="flabel" for="deliveryMethod">รูปแบบการรับงาน</label>
+              <select id="deliveryMethod" class="finput">
+                <option value="50" data-label="จัดส่งพัสดุทั่วประเทศ (+50 ฿)">🚚 จัดส่งพัสดุทั่วประเทศ (+50 ฿)</option>
+                <option value="0" data-label="รับเฉพาะไฟล์ดิจิทัลทาง LINE (ฟรีค่าส่ง)">📲 รับเฉพาะไฟล์ดิจิทัลทาง LINE (ฟรีค่าส่ง)</option>
+                <option value="0" data-label="รับที่หน้าร้าน อ.บรบือ ข้าง ธ.กสิกรไทย (0 ฿)">🏪 รับที่หน้าร้าน อ.บรบือ จ.มหาสารคาม (0 ฿)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="fgroup">
+            <label class="flabel" for="jobSpec">รายละเอียดเพิ่มเติม (ขนาดรูป 1"/1.5", ชุดราชการ/ชั้นยศ, พื้นหลังสีฟ้า/ขาว, หรือชื่อภาพมงคล)</label>
+            <textarea id="jobSpec" class="finput" rows="3" placeholder="ตัวอย่าง: ตัดต่อชุดปกติขาว ข้าราชการครู ระดับชำนาญการ พื้นหลังสีฟ้า ขนาด 1.5 นิ้ว 1 โหล..."></textarea>
+          </div>
+
+          <div class="step-title"><span class="step-num">02</span> แนบภาพต้นฉบับ / ภาพอ้างอิง (Reference Images)</div>
+          <label class="dropzone" for="refImageInput">
+            <div style="font-size:26px">📸</div>
+            <div style="font-weight:600;color:#fff">คลิกเพื่อเลือกรูปภาพต้นฉบับ / ภาพอ้างอิง (เลือกได้หลายรูป)</div>
+            <div style="font-size:12px;color:var(--muted)">รองรับ JPG, PNG, HEIC, WEBP • แสดงตัวอย่างภาพทันทีบนหน้าเว็บ</div>
+            <input type="file" id="refImageInput" accept="image/*" multiple hidden>
+          </label>
+          <div id="refPreviewGrid" class="preview-list"></div>
+
+          <div class="step-title"><span class="step-num">03</span> ยืนยันการมัดจำ หรือ ชำระเงิน (Payment &amp; Deposit)</div>
+          <div class="pay-toggle">
+            <label class="pay-opt">
+              <input type="radio" name="payOption" value="deposit50" checked>
+              <div><b style="display:block;font-size:14px">มัดจำเริ่มงาน 50%</b><span style="font-size:12px;color:var(--muted)">ชำระส่วนที่เหลือหลังตรวจแบบ</span></div>
+            </label>
+            <label class="pay-opt">
+              <input type="radio" name="payOption" value="full100">
+              <div><b style="display:block;font-size:14px">ชำระเต็มจำนวน 100%</b><span style="font-size:12px;color:var(--muted)">พร้อมจัดคิวผลิตและจัดส่งทันที</span></div>
+            </label>
+          </div>
+
+          <div class="pp-box">
+            <div>
+              <div style="font-size:11.5px;color:rgb(var(--cyan));font-weight:600">ช่องทางโอนมัดจำ / ชำระเงิน</div>
+              <div style="font-size:15px;font-weight:600">พร้อมเพย์ (PromptPay): <span id="ppNum">081-592-1229</span></div>
+              <div style="font-size:12.5px;color:var(--muted)">ชื่อบัญชี: ณัฐนนท์ วงศ์กาไสย (MIX IMAGE ART&amp;AUDIO / ร้านถ่ายเอกสารพิศ)</div>
+            </div>
+            <button type="button" class="btn" id="copyPpBtn" style="padding:7px 12px;font-size:12.5px">📋 คัดลอกพร้อมเพย์</button>
+          </div>
+
+          <div class="fgrid-3">
+            <div class="fgroup">
+              <label class="flabel" for="paidAmount">ยอดที่โอน (บาท)</label>
+              <input type="number" id="paidAmount" class="finput" required>
+            </div>
+            <div class="fgroup">
+              <label class="flabel" for="paidTime">เวลาโอน (เช่น 14:30)</label>
+              <input type="text" id="paidTime" class="finput" placeholder="เช่น 14:35 น.">
+            </div>
+            <div class="fgroup">
+              <label class="flabel" for="slipLast4">เลขท้ายสลิป 4 หลัก</label>
+              <input type="text" id="slipLast4" class="finput" maxlength="6" placeholder="เช่น 8492">
+            </div>
+          </div>
+
+          <div class="fgroup">
+            <label class="dropzone" for="slipInput" style="padding:12px;border-color:rgba(var(--lineg),.45);background:rgba(var(--lineg),.05)">
+              <span style="font-weight:600;color:#35d489">🧾 คลิกเพื่อแนบภาพสลิปโอนเงินมัดจำ/ชำระเงิน</span>
+              <input type="file" id="slipInput" accept="image/*" hidden>
+            </label>
+            <div id="slipPreviewBox" style="margin-top:6px;font-size:12.5px;color:#35d489"></div>
+          </div>
+
+          <div class="step-title"><span class="step-num">04</span> ข้อมูลติดต่อและที่อยู่จัดส่งพัสดุ</div>
+          <div class="fgrid-2">
+            <div class="fgroup">
+              <label class="flabel" for="custName">ชื่อ–นามสกุล ลูกค้า</label>
+              <input type="text" id="custName" class="finput" placeholder="ชื่อผู้สั่งงาน / ผู้รับพัสดุ" required>
+            </div>
+            <div class="fgroup">
+              <label class="flabel" for="custPhone">เบอร์โทรศัพท์ / ชื่อ LINE</label>
+              <input type="text" id="custPhone" class="finput" placeholder="08x-xxx-xxxx" required>
+            </div>
+          </div>
+          <div class="fgroup">
+            <label class="flabel" for="custAddress">ที่อยู่สำหรับจัดส่งทั่วประเทศ (กรณีรับเฉพาะไฟล์ใส่ '-' ได้เลย)</label>
+            <textarea id="custAddress" class="finput" rows="2" placeholder="บ้านเลขที่ ถนน ตำบล อำเภอ จังหวัด รหัสไปรษณีย์"></textarea>
+          </div>
+
+          <button type="submit" class="btn line" style="width:100%;padding:14px;font-size:15.5px">
+            ✅ ยืนยันข้อมูลมัดจำ &amp; สร้างใบสั่งงานส่งเข้า LINE OA (@919zkplo)
+          </button>
+        </form>
+      </div>
+
+      <!-- Right: Live Summary + Direct LINE OA Card -->
+      <div style="display:grid;gap:20px;position:sticky;top:88px">
+        <div class="form-card" style="--c:6,199,85">
+          <div class="kicker" style="color:#35d489;margin-bottom:4px">Live Estimate &amp; Order Brief</div>
+          <h3 style="font:400 24px/1.1 'Anton','Kanit',sans-serif">สรุปยอดประเมิน &amp; มัดจำ</h3>
+          <div class="sum-rows">
+            <div class="sum-row"><span style="color:var(--muted)">บริการที่เลือก:</span><strong id="summaryServiceName" style="text-align:right">รูปติดบัตรชุดสมบูรณ์แบบ (Best)</strong></div>
+            <div class="sum-row"><span style="color:var(--muted)">ค่าบริการรวมจำนวนชิ้น:</span><span id="summaryBaseCost">220 บาท</span></div>
+            <div class="sum-row"><span style="color:var(--muted)">ค่าจัดส่งพัสดุ:</span><span id="summaryShippingCost">50 บาท</span></div>
+            <div class="sum-row total"><span>ยอดรวมทั้งสิ้น:</span><strong id="summaryTotalCost">270 บาท</strong></div>
+            <div class="sum-row paynow"><span id="summaryPayTypeLabel">ยอดโอนมัดจำเริ่มงาน (50%):</span><strong id="summaryPayNow">135 บาท</strong></div>
+          </div>
+          <div class="fgroup">
+            <label class="flabel" for="generatedOrderText">ข้อความใบสั่งงานสำหรับส่งทาง LINE OA:</label>
+            <textarea id="generatedOrderText" class="finput" rows="7" readonly style="font:400 12px/1.6 'JetBrains Mono','Kanit',monospace"></textarea>
+          </div>
+          <div style="display:grid;gap:8px">
+            <button type="button" class="btn line" id="sendOrderLineBtn">💬 คัดลอกใบสั่งงาน &amp; ส่งเข้า LINE OA (@919zkplo)</button>
+            <button type="button" class="btn" id="copyOrderTextBtn">📋 คัดลอกเฉพาะข้อความใบสั่งงาน</button>
+          </div>
+        </div>
+
+        <div class="form-card" style="--c:84,170,255">
+          <div class="oa-head">
+            <img id="oaAvatar" src="" alt="LINE Official Avatar">
+            <div>
+              <h3 style="font-size:17px;font-weight:600">Mix Image Art&amp;Audio</h3>
+              <span style="font-size:12px;color:#35d489;font-weight:600">LINE Official Account: @919zkplo</span>
+            </div>
+          </div>
+          <p style="font-size:13.5px;color:#cfcfda;margin-bottom:10px">
+            <b>ร้านสร้างภาพ (MIX IMAGE ART&amp;AUDIO)</b><br>
+            477 หมู่ 1 ถนนแจ้งสนิท เทศบาลตำบลบรบือ อ.บรบือ จ.มหาสารคาม 44130<br>
+            <span style="color:rgb(var(--gold))">(ร้านถ่ายเอกสารพิศ ข้างธนาคารกสิกรไทย สาขาบรบือ)</span>
+          </p>
+          <div style="font-size:13px;color:var(--muted);display:grid;gap:4px;margin-bottom:14px">
+            <div>🟢 <b style="color:#fff">LINE OA ID:</b> <code style="color:#35d489">@919zkplo</code></div>
+            <div>📞 <b style="color:#fff">โทรศัพท์:</b> 081-592-1229 / 081-591-2129</div>
+            <div>✉️ <b style="color:#fff">อีเมล:</b> kmz.miximage@gmail.com</div>
+            <div>🕒 <b style="color:#fff">เวลาบริการออนไลน์:</b> 10:00 – 22:00 น. ทุกวัน</div>
+          </div>
+          <a id="oaDirectLink" href="https://line.me/R/ti/p/@919zkplo" target="_blank" rel="noopener" class="btn line" style="width:100%">
+            แอด LINE OA: @919zkplo เพื่อคุยกับช่างโดยตรง
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="foot">
+    <div>
+      <b style="color:#fff">MIX IMAGE ART&amp;AUDIO (ร้านสร้างภาพ อ.บรบือ จ.มหาสารคาม)</b><br>
+      477 หมู่ 1 ถนนแจ้งสนิท ต.บรบือ อ.บรบือ จ.มหาสารคาม 44130 • LINE OA: @919zkplo • โทร 081-592-1229
+    </div>
+    <div style="display:flex;gap:10px;align-items:center">
+      <a href="#top" class="btn" style="padding:8px 14px;font-size:13px">↑ กลับขึ้นด้านบน</a>
+      <a href="miximage-audio-street.html" class="btn primary" style="padding:8px 14px;font-size:13px;flex:initial">🎵 ไปที่หน้า 2: บริการรับทำเพลง AI →</a>
+    </div>
+  </footer>
+</div>
+
+<a class="fab" href="https://line.me/R/ti/p/@919zkplo" target="_blank" rel="noopener">💬 LINE @919zkplo</a>
+<div class="lightbox" id="lightbox" hidden>
+  <button class="btn" type="button" id="lbClose">ปิด ✕</button>
+  <div><img id="lbImg" src="" alt=""><p id="lbCap"></p></div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+  'use strict';
+
+  /* ===================================================================
+     [ANTIGRAVITY DATA ZONE 1: ข้อมูลร้าน & LINE OA]
+     =================================================================== */
+  const SHOP = {
+    name: 'MIX IMAGE ART&AUDIO (ร้านสร้างภาพ)',
+    lineId: '@919zkplo',
+    lineAdd: 'https://line.me/R/ti/p/@919zkplo',
+    lineMsg: 'https://line.me/R/oaMessage/@919zkplo/?',
+    avatar: 'https://profile.line-scdn.net/0hv3pOMmfGKRxNNjWtHfFWS3FzJ3E6GC9UNVAzLWxidys3BG1Nc1Blcj9lcS03VDtCdgUyc280dX9g',
+    promptpay: '0815921229',
+    assetBase: 'https://miximage.shop/' // เปลี่ยนเป็น '' หากวางไฟล์คู่กับโฟลเดอร์ assets/
+  };
+
+  /* ===================================================================
+     [ANTIGRAVITY DATA ZONE 2: หมวดหมู่การ์ด & สี RGB ประจำหมวด]
+     =================================================================== */
+  const CATS = {
+    service:    { name: 'บริการหลัก (3)',       rgb: '255,98,54' },
+    auspicious: { name: 'แคตตาล็อกภาพมงคล (4)', rgb: '255,190,60' },
+    frame:      { name: 'ขนาดกรอบรูป (5)',      rgb: '178,128,255' },
+    idphoto:    { name: 'ผลงาน: รูปติดบัตร',     rgb: '84,170,255' },
+    retouch:    { name: 'ผลงาน: ซ่อมภาพเก่า',    rgb: '38,214,164' },
+    work:       { name: 'ผลงาน: ภาพมงคล',       rgb: '255,74,116' }
+  };
+
+  const NOTES = {
+    ship:  'โหมดจัดส่งพัสดุทั่วประเทศ (+50 ฿): แพ็กกันกระแทกหนา 3 ชั้น ส่งตรงถึงบ้าน เหมาะสำหรับอัดรูปติดบัตรและกรอบรูปมงคล',
+    line:  'โหมดรับเฉพาะไฟล์ทาง LINE (ฟรีค่าส่ง): ส่งไฟล์ดิจิทัลความละเอียดสูง 300 DPI ทางแชท LINE หรืออีเมลทันทีที่งานเสร็จ',
+    store: 'โหมดรับที่หน้าร้าน อ.บรบือ (ฟรีค่าส่ง): แวะรับงานได้ที่ร้านถ่ายเอกสารพิศ ข้างธนาคารกสิกรไทย สาขาบรบือ จ.มหาสารคาม'
+  };
+
+  /* ===================================================================
+     [ANTIGRAVITY DATA ZONE 3: การ์ดทั้งหมด 20 การ์ด ตามต้นฉบับ]
+     =================================================================== */
+  const ITEMS = [
+    /* --- บริการหลัก 3 การ์ด --- */
+    {
+      id: 1, cat: 'service', ratio: '59–220 ฿', sample: true, selectPrice: 220,
+      en: '1. รูปติดบัตรออนไลน์ & ตัดต่อชุด',
+      th: 'ปรับแสง รีทัชผิวเนียนเป็นธรรมชาติ ตัดต่อชุดข้าราชการ (ปกติขาว/กากี/อินทรธนูตรงชั้นยศ) ชุดสูทสากล ชุดครุย นักเรียน–นักศึกษา และรูปวีซ่า/พาสปอร์ต',
+      mood: 'ถูกระเบียบราชการ 100% · 300 DPI',
+      img: 'assets/work/id-sample-thai-civil-man.webp',
+      lines: [
+        ['ชุดประหยัด (Good) : อัดรูป 1" หรือ 1.5" (8–12 ใบ) กระดาษด้านกันน้ำ', '59 ฿'],
+        ['ชุดยอดนิยม (Better) : อัดรูป 8–12 ใบ + รีทัชผิวเนียน ลบสิว ปรับแสงสวย', '89 ฿'],
+        ['เฉพาะไฟล์ดิจิทัลตัดต่อชุด (ข้าราชการ/สูท/ครุย + รีทัช + ไฟล์ 300 DPI)', '150 ฿'],
+        ['ชุดสมบูรณ์แบบ (Best) : ตัดต่อชุดข้าราชการ/สูท + ไฟล์ HD + อัดรูป 1 โหล', '220 ฿']
+      ]
+    },
+    {
+      id: 2, cat: 'service', ratio: '200–1,290 ฿', sample: true, selectPrice: 450,
+      en: '2. รีทัชภาพ & ซ่อมภาพเก่าบรรพบุรุษ',
+      th: 'รีทัชภาพโปรไฟล์สมัครงาน/พอร์ตโฟลิโอ และฟื้นฟูภาพถ่ายเก่าที่ฉีกขาด มีคราบเชื้อรา หรือสีซีดจาง รวมถึงเปลี่ยนภาพขาวดำเป็นภาพสีธรรมชาติและทำรูปหน้าพิธีด่วน',
+      mood: 'งานฝีมือประณีต · แก้ไขจนพึงพอใจ',
+      img: 'assets/work/zip-restore-family.webp',
+      lines: [
+        ['รีทัชภาพบุคคลพรีเมียม (ปรับผิวเนียน แสงเงา โครงหน้าธรรมชาติ)', '200 ฿'],
+        ['ฟื้นฟูรูปเก่ามาตรฐาน (ลบรอยขีดข่วน คราบด่าง ปรับสีชัด + ไฟล์ HD)', '450 ฿'],
+        ['ฟื้นฟูรูปเก่าพรีเมียม + เติมสี (ซ่อมรอยขาด/แหว่ง + ลงสีธรรมชาติ)', '700 ฿'],
+        ['รูปหน้าพิธีศพด่วน 24 ชม. (รีทัชสง่างาม + ไฟล์ + อัด 16×20" กรอบหลุยส์)', '1,290 ฿']
+      ]
+    },
+    {
+      id: 3, cat: 'service', ratio: '390–1,490 ฿', sample: true, selectPrice: 590,
+      en: '3. ภาพมงคลพร้อมกรอบ & งานสิ่งพิมพ์',
+      th: 'บริการจัดทำภาพมงคลพร้อมกรอบหลุยส์สีทองและกรอบโมเดิร์น พิมพ์ลงผ้าแคนวาสหรือโฟโต้พรีเมียมเคลือบกัน UV ห่อกันกระแทกหนา 3 ชั้น ส่งทั่วไทย พร้อมรับทำป้ายไวนิลและนามบัตร',
+      mood: 'เสริมสิริมงคล · จัดส่งทั่วประเทศ',
+      img: 'assets/work/zip-auspicious-frame-01.webp',
+      lines: [
+        ['ขนาด A4 (8.3×11.7") กรอบโมเดิร์น / ไม้ / อลูมิเนียม', '390 ฿'],
+        ['ขนาด 10×12 นิ้ว กรอบหลุยส์สีทองคลาสสิก', '590 ฿'],
+        ['ขนาด 12×18 นิ้ว ผ้าแคนวาสแท้ + กรอบโมเดิร์นลอย / หลุยส์', '690 ฿'],
+        ['ขนาด 16×20 นิ้ว / 20×30 นิ้ว แคนวาสพิมพ์ UV + กรอบหลุยส์ใหญ่', '990 / 1,490 ฿']
+      ]
+    },
+
+    /* --- แคตตาล็อกภาพมงคล 4 การ์ด --- */
+    {
+      id: 4, cat: 'auspicious', ratio: 'เริ่ม 390 ฿', selectPrice: 590,
+      en: 'ท้าวเวสสุวรรณ & พระพิฆเนศ',
+      th: 'เสริมบารมี ปกป้องคุ้มครอง แคล้วคลาด และประทานความสำเร็จด้านการค้าขายและโชคลาภ',
+      mood: 'พุทธศิลป์ · เสริมบารมี',
+      img: 'assets/work/auspicious-sacred-g5-1.webp',
+      lines: [['วัสดุ', 'ผ้าแคนวาส / โฟโต้เคลือบ UV'], ['กรอบ', 'หลุยส์สีทอง / โมเดิร์น']]
+    },
+    {
+      id: 5, cat: 'auspicious', ratio: 'เริ่ม 390 ฿', selectPrice: 590,
+      en: 'พระเกจิอาจารย์สายอีสาน',
+      th: 'ภาพหลวงปู่มั่น ภูริทัตโต, หลวงปู่มหาศิลา, หลวงพ่อคูณ, หลวงปู่ชา คมชัดระดับหิ้งบูชา',
+      mood: 'หิ้งบูชา · ห้องพระ',
+      img: 'assets/work/auspicious-dragon-g5-1.webp',
+      lines: [['ความคมชัด', '300 DPI คมชัดทุกเส้นสาย'], ['กรอบ', 'หลุยส์สีทองคลาสสิก']]
+    },
+    {
+      id: 6, cat: 'auspicious', ratio: 'เริ่ม 390 ฿', selectPrice: 690,
+      en: 'ปลาคาร์ฟ 8 ตัว & สำเภาทอง',
+      th: 'สัญลักษณ์ฮวงจุ้ยเรียกทรัพย์ การค้าขายราบรื่น มั่งคั่งร่ำรวย เหมาะติดห้องรับแขกและหน้าร้าน',
+      mood: 'ฮวงจุ้ยเรียกทรัพย์ · ค้าขายรุ่งเรือง',
+      img: 'assets/work/auspicious-koi-g5-1.webp',
+      lines: [['เหมาะสำหรับ', 'ห้องรับแขก / หน้าร้าน / สำนักงาน'], ['ขนาดแนะนำ', '12×18" ถึง 20×30"']]
+    },
+    {
+      id: 7, cat: 'auspicious', ratio: 'เริ่ม 390 ฿', selectPrice: 590,
+      en: 'อัดภาพครอบครัว & รับปริญญา',
+      th: 'ส่งไฟล์ภาพของคุณมาให้ร้านรีทัชปรับแสงสี แล้วอัดใส่กรอบหลุยส์หรือกรอบลอยโมเดิร์นพร้อมส่ง',
+      mood: 'ของขวัญทรงคุณค่า · รีทัชฟรีเบื้องต้น',
+      img: 'assets/work/wedding-sunset-veil.webp',
+      lines: [['บริการเสริม', 'ปรับแสงสีและรีทัชผิวเบื้องต้นฟรี'], ['การจัดส่ง', 'ห่อกันกระแทก 3 ชั้นทั่วไทย']]
+    },
+
+    /* --- ขนาดกรอบรูป 5 การ์ด --- */
+    {
+      id: 8, cat: 'frame', ratio: '390 ฿', selectPrice: 390,
+      en: 'กรอบรูปขนาด A4 (8.3 × 11.7 นิ้ว)',
+      th: 'กระดาษโฟโต้พรีเมียม / แคนวาสบาง + กรอบโมเดิร์น / ไม้ / อลูมิเนียม',
+      mood: 'ตั้งโต๊ะทำงาน · หิ้งพระคอนโด · ของขวัญที่ระลึก',
+      lines: [['ขนาด', 'A4 (8.3 × 11.7 นิ้ว)'], ['ราคาพร้อมกรอบ', '390 ฿']]
+    },
+    {
+      id: 9, cat: 'frame', ratio: '590 ฿', selectPrice: 590,
+      en: 'กรอบรูปขนาด 10 × 12 นิ้ว',
+      th: 'กระดาษโฟโต้เคลือบด้าน / แคนวาส + กรอบหลุยส์สีทองคลาสสิก',
+      mood: 'หิ้งบูชา · ห้องพระ · มอบเป็นของขวัญผู้ใหญ่',
+      lines: [['ขนาด', '10 × 12 นิ้ว'], ['ราคาพร้อมกรอบ', '590 ฿']]
+    },
+    {
+      id: 10, cat: 'frame', ratio: '690 ฿', selectPrice: 690,
+      en: 'กรอบรูปขนาด 12 × 18 นิ้ว',
+      th: 'ผ้าแคนวาสแท้หนาปานกลาง + กรอบโมเดิร์นลอย / กรอบหลุยส์',
+      mood: 'ผนังห้องรับแขก · ห้องทำงาน · เคาน์เตอร์ร้านค้า',
+      lines: [['ขนาด', '12 × 18 นิ้ว'], ['ราคาพร้อมกรอบ', '690 ฿']]
+    },
+    {
+      id: 11, cat: 'frame', ratio: '990 ฿', selectPrice: 990,
+      en: 'กรอบรูปขนาด 16 × 20 นิ้ว',
+      th: 'ผ้าแคนวาสพิมพ์ยูวีความละเอียดสูง + กรอบหลุยส์สีทองโครงแข็ง',
+      mood: 'โถงบ้าน · ห้องประชุม · ภาพบรรพบุรุษ · ขึ้นบ้านใหม่',
+      lines: [['ขนาด', '16 × 20 นิ้ว'], ['ราคาพร้อมกรอบ', '990 ฿']]
+    },
+    {
+      id: 12, cat: 'frame', ratio: '1,490 ฿', selectPrice: 1490,
+      en: 'กรอบรูปขนาด 20 × 30 นิ้ว',
+      th: 'ผ้าแคนวาสผืนใหญ่เคลือบกัน UV + กรอบหลุยส์สีทองอลังการเสริมเหล็ก',
+      mood: 'ผนังหลักบ้าน · อาคารสำนักงาน · ของขวัญเปิดกิจการ',
+      lines: [['ขนาด', '20 × 30 นิ้ว'], ['ราคาพร้อมกรอบ', '1,490 ฿']]
+    },
+
+    /* --- ตัวอย่างผลงานจริง 8 การ์ด --- */
+    {
+      id: 13, cat: 'idphoto', ratio: 'ก.พ. 300 DPI', selectPrice: 220,
+      en: 'ข้าราชการพลเรือนชาย',
+      th: 'จัดแสงไฟสตูดิโอ 3 จุด ล็อกโครงหน้าเดิม ตรวจสอบชั้นยศและระเบียบ ก.พ.',
+      mood: 'ชุดปกติขาว · ถูกระเบียบ 100%',
+      img: 'assets/work/id-sample-thai-civil-man.webp',
+      lines: [['หมวดงาน', 'รูปติดบัตร & ชุดราชการ'], ['ความละเอียด', '300 DPI มาตรฐานราชการ']]
+    },
+    {
+      id: 14, cat: 'idphoto', ratio: 'ระเบียบ ก.พ.', selectPrice: 220,
+      en: 'ข้าราชการพลเรือนหญิง',
+      th: 'อินทรธนูตรงตำแหน่ง ผิวพรรณสดใสเป็นธรรมชาติ ไม่หลอกตา',
+      mood: 'ชุดปกติขาวหญิง · รีทัชธรรมชาติ',
+      img: 'assets/work/id-sample-thai-civil-woman.webp',
+      lines: [['หมวดงาน', 'รูปติดบัตร & ชุดราชการ'], ['การรับประกัน', 'แก้ไขฟรีหากไม่ผ่านระเบียบ']]
+    },
+    {
+      id: 15, cat: 'idphoto', ratio: 'สูทสากล', selectPrice: 150,
+      en: 'สูทสากลสมัครงาน / วีซ่า',
+      th: 'ตัดต่อสูทเนี๊ยบระดับผู้บริหาร คมชัด 300 DPI สำหรับสมัครงาน วีซ่า และพาสปอร์ต',
+      mood: 'สมัครงาน · วีซ่า · พาสปอร์ต',
+      img: 'assets/work/id-sample-thai-woman-suit.webp',
+      lines: [['หมวดงาน', 'ชุดสูทสากลผู้บริหาร'], ['ไฟล์ที่ได้รับ', 'JPG/PNG 300 DPI พร้อมอัดรูป']]
+    },
+    {
+      id: 16, cat: 'retouch', ratio: 'ลงสีธรรมชาติ', selectPrice: 700,
+      en: 'บูรณะภาพเก่าคู่ขาวดำ',
+      th: 'ลบรอยฉีกขาด ซ่อมรอยพับและคราบจาง คืนมิติสีผิวบรรพบุรุษอย่างสมจริง 100%',
+      mood: 'กู้ภาพเก่า · ลงสีเสมือนจริง',
+      img: 'assets/work/zip-restore-couple.webp',
+      lines: [['หมวดงาน', 'รีทัช & ซ่อมภาพเก่าพรีเมียม'], ['ราคาประเมิน', '700 ฿']]
+    },
+    {
+      id: 17, cat: 'retouch', ratio: 'Ultra-HD', selectPrice: 450,
+      en: 'ฟื้นฟูภาพถ่ายครอบครัว',
+      th: 'ลบรอยด่างและเชื้อรา เพิ่มความคมชัดระดับ HD ขยายขนาดใส่กรอบรูปใหญ่ได้',
+      mood: 'ภาพครอบครัว · คมชัดสูง',
+      img: 'assets/work/zip-restore-family.webp',
+      lines: [['หมวดงาน', 'ฟื้นฟูภาพถ่ายครอบครัว'], ['ราคาประเมิน', '450–700 ฿']]
+    },
+    {
+      id: 18, cat: 'work', ratio: 'แคนวาสแท้', selectPrice: 690,
+      en: 'มังกรทองเหินเวหา',
+      th: 'สัญลักษณ์ความเจริญก้าวหน้า ลายเส้นวิจิตร เสริมอำนาจบารมีและการค้า',
+      mood: 'ศิลปะมงคล · ฮวงจุ้ย',
+      img: 'assets/work/auspicious-dragon-g5-1.webp',
+      lines: [['หมวดงาน', 'ภาพมงคลพร้อมกรอบ'], ['วัสดุ', 'แคนวาสแท้เคลือบกัน UV']]
+    },
+    {
+      id: 19, cat: 'work', ratio: 'พุทธศิลป์', selectPrice: 590,
+      en: 'ท้าวเวสสุวรรณโณ มหาราช',
+      th: 'พิมพ์ผ้าใบแคนวาสสีทองสดใส มหาเทพแห่งขุมทรัพย์และการปกป้องคุ้มครอง',
+      mood: 'มหาเทพแห่งขุมทรัพย์ · ปกป้องคุ้มครอง',
+      img: 'assets/work/auspicious-sacred-g5-1.webp',
+      lines: [['หมวดงาน', 'ภาพมงคลพร้อมกรอบ'], ['กรอบแนะนำ', 'กรอบหลุยส์สีทอง']]
+    },
+    {
+      id: 20, cat: 'work', ratio: 'ฮวงจุ้ยการค้า', selectPrice: 690,
+      en: 'ปลาคาร์ฟมงคล 8 เซียน',
+      th: 'สัญลักษณ์การเงินไหลมาเทมา เรียกเงินเรียกทอง ติดหน้าร้านหรือห้องทำงาน',
+      mood: 'เรียกทรัพย์ · การเงินมั่งคั่ง',
+      img: 'assets/work/auspicious-koi-g5-1.webp',
+      lines: [['หมวดงาน', 'ภาพมงคลพร้อมกรอบ'], ['ตำแหน่งติดตั้ง', 'หน้าร้าน / ห้องรับแขก']]
+    }
+  ];
+
+  const FRAME_TABLE = [
+    { size: 'A4 (8.3 × 11.7 นิ้ว)', mat: 'กระดาษโฟโต้พรีเมียม / แคนวาสบาง + กรอบโมเดิร์น / ไม้ / อลูมิเนียม', use: 'ตั้งโต๊ะทำงาน หิ้งพระคอนโด ของขวัญที่ระลึก', price: 390, btn: 'เลือกขนาด A4' },
+    { size: '10 × 12 นิ้ว', mat: 'กระดาษโฟโต้เคลือบด้าน / แคนวาส + กรอบหลุยส์สีทองคลาสสิก', use: 'หิ้งบูชา ห้องพระ มอบเป็นของขวัญผู้ใหญ่', price: 590, btn: 'เลือก 10×12"' },
+    { size: '12 × 18 นิ้ว', mat: 'ผ้าแคนวาสแท้หนาปานกลาง + กรอบโมเดิร์นลอย / กรอบหลุยส์', use: 'ผนังห้องรับแขก ห้องทำงาน เคาน์เตอร์ร้านค้า', price: 690, btn: 'เลือก 12×18"' },
+    { size: '16 × 20 นิ้ว', mat: 'ผ้าแคนวาสพิมพ์ยูวีความละเอียดสูง + กรอบหลุยส์สีทองโครงแข็ง', use: 'โถงบ้าน ห้องประชุม ภาพบรรพบุรุษ / ของขวัญขึ้นบ้านใหม่', price: 990, btn: 'เลือก 16×20"' },
+    { size: '20 × 30 นิ้ว', mat: 'ผ้าแคนวาสผืนใหญ่เคลือบกัน UV + กรอบหลุยส์สีทองอลังการเสริมเหล็ก', use: 'ผนังหลักบ้าน/อาคารสำนักงาน ของขวัญเปิดกิจการมงคล', price: 1490, btn: 'เลือก 20×30"' }
+  ];
+
+  const state = { mode: 'ship', cat: 'all', q: '', refFiles: [], slipFile: null };
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const pad = n => String(n).padStart(2, '0');
+  const src = p => /^https?:/.test(p) ? p : SHOP.assetBase + p;
+
+  /* ---------- Before / After Slider ---------- */
+  const BA_CASES = {
+    1: {
+      before: 'assets/work/ba-id-woman-before.webp',
+      after:  'assets/work/ba-id-woman-after.webp',
+      lblB:   '◀ ภาพเซลฟี่เดิมก่อนทำ',
+      lblA:   'ตัดต่อสูท + รีทัช 300 DPI ▶',
+      title:  'เปรียบเทียบงานรีทัช & ตัดต่อชุด'
+    },
+    2: {
+      before: 'assets/work/ba-restore-flower-before.webp',
+      after:  'assets/work/ba-restore-flower-after.webp',
+      lblB:   '◀ ภาพเก่าชำรุด / สีซีดจาง',
+      lblA:   'บูรณะคมชัดสีธรรมชาติ ▶',
+      title:  'เปรียบเทียบงานฟื้นฟู & กู้ภาพเก่า'
+    }
+  };
+
+  function setBAPos(pct) {
+    const v = Math.max(0, Math.min(100, Number(pct)));
+    $('baAfterLayer').style.clipPath = `inset(0 0 0 ${v}%)`;
+    $('baHandle').style.left = v + '%';
+    $('baSlider').value = v;
+  }
+
+  function setBACase(n) {
+    const c = BA_CASES[n];
+    $('baBeforeImg').src = src(c.before);
+    $('baAfterImg').src  = src(c.after);
+    $('baBeforeLbl').textContent = c.lblB;
+    $('baAfterLbl').textContent  = c.lblA;
+    $('baTitle').textContent     = c.title;
+    setBAPos(50);
+  }
+
+  $('baSwitch').addEventListener('click', e => {
+    const b = e.target.closest('button[data-case]');
+    if (!b) return;
+    $('baSwitch').querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    setBACase(b.dataset.case);
+  });
+  $('baSlider').addEventListener('input', e => setBAPos(e.target.value));
+  (() => {
+    const box = $('baContainer');
+    let down = false;
+    const move = e => {
+      if (!down) return;
+      const r = box.getBoundingClientRect();
+      const x = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
+      setBAPos((x / r.width) * 100);
+    };
+    box.addEventListener('mousedown', e => { down = true; move(e); });
+    window.addEventListener('mousemove', move);
+    window.addEventListener('mouseup', () => { down = false; });
+    box.addEventListener('touchstart', e => { down = true; move(e); }, { passive: true });
+    box.addEventListener('touchmove', move, { passive: true });
+    box.addEventListener('touchend', () => { down = false; });
+  })();
+
+  /* ---------- Street Editorial Cards ---------- */
+  function visible() {
+    const q = state.q.trim().toLowerCase();
+    return ITEMS.filter(p => {
+      if (state.cat !== 'all' && p.cat !== state.cat) return false;
+      if (!q) return true;
+      return [p.en, p.th, p.mood, p.ratio, (p.lines || []).flat().join(' ')].join(' ').toLowerCase().includes(q);
+    });
+  }
+
+  function cardHTML(p) {
+    const c = CATS[p.cat];
+    const lines = (p.lines || []).map(([k, v]) => `<div class="ln"><span>${esc(k)}</span><b>${esc(v)}</b></div>`).join('');
+    const isLong = (p.lines || []).length > 2;
+    return `<article class="card" style="--c:${c.rgb}" data-id="${p.id}">
+      <div class="top">
+        <span class="num">${pad(p.id)}</span>
+        <span class="tag">${esc(c.name)}</span>
+        <span class="ratio">${esc(p.ratio)}</span>
+      </div>
+      ${p.img ? `<div class="thumb" data-zoom><img loading="lazy" src="${esc(src(p.img))}" alt="${esc(p.en)}"></div>` : ''}
+      <h3>${esc(p.en)}</h3>
+      <p class="th">${esc(p.th)}</p>
+      <div class="meta">
+        ${p.sample ? '<span class="sample">บริการหลักยอดนิยม</span>' : ''}
+        <span>${esc(p.mood)}</span>
+      </div>
+      <div class="prompt${isLong ? '' : ' short'}">${lines}</div>
+      <div class="actions">
+        ${isLong ? '<button class="btn more" type="button">ดูทั้งหมด</button>' : ''}
+        <button class="btn primary select-card" type="button">เลือกรายการนี้ &amp; ส่งรูป →</button>
+      </div>
+    </article>`;
+  }
+
+  function renderFilters() {
+    const items = [['all', 'ทั้งหมด', '255,98,54']].concat(Object.keys(CATS).map(k => [k, CATS[k].name, CATS[k].rgb]));
+    $('filters').innerHTML = items.map(([k, name, rgb]) => {
+      const n = k === 'all' ? ITEMS.length : ITEMS.filter(p => p.cat === k).length;
+      return `<button type="button" class="fchip" data-cat="${k}" style="--c:${rgb}" aria-pressed="${state.cat === k}">${esc(name)}<i>${n}</i></button>`;
+    }).join('');
+  }
+
+  function render() {
+    const list = visible();
+    $('grid').innerHTML = list.map(cardHTML).join('');
+    $('empty').hidden = list.length > 0;
+    $('count').textContent = `แสดง ${list.length} / ${ITEMS.length} การ์ด`;
+  }
+
+  function renderFrameTable() {
+    $('frameTableBody').innerHTML = FRAME_TABLE.map(r => `
+      <tr>
+        <td><b>${esc(r.size)}</b></td>
+        <td>${esc(r.mat)}</td>
+        <td style="color:var(--muted)">${esc(r.use)}</td>
+        <td class="price">${r.price.toLocaleString()} ฿</td>
+        <td><button type="button" class="btn select-frame" data-price="${r.price}" data-spec="สั่งทำกรอบรูปขนาด ${esc(r.size)}" style="padding:6px 12px;font-size:12.5px">${esc(r.btn)}</button></td>
+      </tr>
+    `).join('');
+  }
+
+  async function copyText(t) {
+    try { await navigator.clipboard.writeText(t); return true; }
+    catch {
+      const ta = document.createElement('textarea');
+      ta.value = t; ta.style.cssText = 'position:fixed;opacity:0';
+      document.body.appendChild(ta); ta.select();
+      let ok = false; try { ok = document.execCommand('copy'); } catch {}
+      document.body.removeChild(ta); return ok;
+    }
+  }
+
+  let timer;
+  function toast(msg) {
+    const t = $('toast'); t.textContent = msg; t.classList.add('show');
+    clearTimeout(timer); timer = setTimeout(() => t.classList.remove('show'), 2400);
+  }
+
+  /* ---------- Order Calculator & Brief Generator ---------- */
+  function recalc() {
+    const sel = $('serviceSelect');
+    const opt = sel.options[sel.selectedIndex];
+    const unit = Number(opt.value) || 0;
+    const name = opt.dataset.name || opt.textContent;
+    const qty = Math.max(1, Number($('orderQty').value) || 1);
+    const delSel = $('deliveryMethod');
+    const delOpt = delSel.options[delSel.selectedIndex];
+    const ship = Number(delOpt.value) || 0;
+    const delLabel = delOpt.dataset.label || delOpt.textContent;
+    const base = unit * qty;
+    const total = base + ship;
+    const isFull = document.querySelector('input[name="payOption"]:checked')?.value === 'full100';
+    const payNow = isFull ? total : Math.ceil(total * 0.5);
+
+    $('summaryServiceName').textContent = name;
+    $('summaryBaseCost').textContent = `${base.toLocaleString()} บาท (${qty} ชิ้น)`;
+    $('summaryShippingCost').textContent = `${ship.toLocaleString()} บาท`;
+    $('summaryTotalCost').textContent = `${total.toLocaleString()} บาท`;
+    $('summaryPayTypeLabel').textContent = isFull ? 'ยอดชำระเต็มจำนวน (100%):' : 'ยอดโอนมัดจำเริ่มงาน (50%):';
+    $('summaryPayNow').textContent = `${payNow.toLocaleString()} บาท`;
+    if (!$('paidAmount').dataset.touched) $('paidAmount').value = payNow;
+
+    const spec = $('jobSpec').value.trim() || '-';
+    const cust = $('custName').value.trim() || '-';
+    const phone = $('custPhone').value.trim() || '-';
+    const addr = $('custAddress').value.trim() || '-';
+    const paid = $('paidAmount').value || payNow;
+    const time = $('paidTime').value.trim() || '-';
+    const last4 = $('slipLast4').value.trim() || '-';
+    const refs = state.refFiles.length ? state.refFiles.map(f => f.name).join(', ') : 'ส่งตามในแชท LINE';
+    const slip = state.slipFile ? state.slipFile.name : 'แนบตามในแชท LINE';
+
+    $('generatedOrderText').value = [
+      `🟢 ใบสั่งงานร้านสร้างภาพ (${SHOP.name})`,
+      `• บริการ: ${name}`,
+      `• จำนวน: ${qty} ชุด/ชิ้น | การรับงาน: ${delLabel}`,
+      `• รายละเอียดงาน: ${spec}`,
+      `• ไฟล์ภาพอ้างอิง (${state.refFiles.length} รูป): ${refs}`,
+      `• ยอดรวม: ${total.toLocaleString()} ฿ | ${isFull ? 'ชำระเต็ม 100%' : 'มัดจำ 50%'}: ${payNow.toLocaleString()} ฿`,
+      `• แจ้งโอน: ${paid} ฿ | เวลา: ${time} | เลขท้ายสลิป: ${last4} (${slip})`,
+      `• ลูกค้า: ${cust} (${phone})`,
+      `• ที่อยู่จัดส่ง: ${addr}`
+    ].join('\n');
+  }
+
+  function selectCardToOrder(price, specText) {
+    const sel = $('serviceSelect');
+    for (let i = 0; i < sel.options.length; i++) {
+      if (Number(sel.options[i].value) === Number(price)) {
+        sel.selectedIndex = i;
+        break;
+      }
+    }
+    if (specText) $('jobSpec').value = specText;
+    recalc();
+    $('order-studio').scrollIntoView({ behavior: 'smooth' });
+    toast(`เลือกรายการ "${specText}" ลงฟอร์มสั่งทำแล้ว`);
+  }
+
+  /* ---------- Events ---------- */
+  $('modes').addEventListener('click', e => {
+    const b = e.target.closest('button[data-mode]');
+    if (!b) return;
+    state.mode = b.dataset.mode;
+    $('modes').querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    $('modeNote').textContent = NOTES[state.mode];
+    const delSel = $('deliveryMethod');
+    delSel.selectedIndex = state.mode === 'ship' ? 0 : state.mode === 'line' ? 1 : 2;
+    recalc();
+  });
+
+  $('filters').addEventListener('click', e => {
+    const b = e.target.closest('.fchip');
+    if (!b) return;
+    state.cat = b.dataset.cat;
+    renderFilters(); render();
+  });
+
+  $('q').addEventListener('input', e => { state.q = e.target.value; render(); });
+
+  $('grid').addEventListener('click', e => {
+    const card = e.target.closest('.card');
+    if (!card) return;
+    const p = ITEMS.find(x => x.id === Number(card.dataset.id));
+    if (e.target.closest('[data-zoom]')) {
+      $('lbImg').src = src(p.img); $('lbImg').alt = p.en;
+      $('lbCap').textContent = `${p.en} — ${p.th}`;
+      $('lightbox').hidden = false;
+    } else if (e.target.closest('.select-card')) {
+      selectCardToOrder(p.selectPrice || 220, `${p.en} (${p.ratio})`);
+    } else if (e.target.closest('.more')) {
+      const btn = e.target.closest('.more');
+      const open = card.querySelector('.prompt').classList.toggle('open');
+      btn.textContent = open ? 'ย่อ' : 'ดูทั้งหมด';
+    }
+  });
+
+  $('frameTableBody').addEventListener('click', e => {
+    const b = e.target.closest('.select-frame');
+    if (!b) return;
+    selectCardToOrder(Number(b.dataset.price), b.dataset.spec);
+  });
+
+  $('copyAll').addEventListener('click', async () => {
+    const list = visible();
+    if (!list.length) return;
+    const txt = list.map(p => `#${pad(p.id)} ${p.en} (${p.ratio})\n${p.th}\n` + (p.lines || []).map(([k, v]) => `  - ${k}: ${v}`).join('\n')).join('\n\n');
+    const ok = await copyText(txt);
+    toast(ok ? `คัดลอก ${list.length} รายการแล้ว` : 'คัดลอกไม่สำเร็จ');
+  });
+
+  ['serviceSelect', 'orderQty', 'deliveryMethod', 'jobSpec', 'paidAmount', 'paidTime', 'slipLast4', 'custName', 'custPhone', 'custAddress'].forEach(id => {
+    $(id).addEventListener('input', e => {
+      if (id === 'paidAmount') e.target.dataset.touched = '1';
+      recalc();
+    });
+    $(id).addEventListener('change', recalc);
+  });
+  document.querySelectorAll('input[name="payOption"]').forEach(r => r.addEventListener('change', () => {
+    delete $('paidAmount').dataset.touched;
+    recalc();
+  }));
+
+  $('refImageInput').addEventListener('change', e => {
+    state.refFiles = Array.from(e.target.files || []);
+    $('refPreviewGrid').innerHTML = state.refFiles.map(f => {
+      const u = URL.createObjectURL(f);
+      return `<div class="pitem"><img src="${u}" alt="${esc(f.name)}"><div style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(f.name)}</div></div>`;
+    }).join('');
+    recalc();
+  });
+
+  $('slipInput').addEventListener('change', e => {
+    state.slipFile = (e.target.files || [])[0] || null;
+    $('slipPreviewBox').textContent = state.slipFile ? `✓ แนบไฟล์สลิป: ${state.slipFile.name}` : '';
+    recalc();
+  });
+
+  async function dispatchLine() {
+    recalc();
+    const txt = $('generatedOrderText').value;
+    await copyText(txt);
+    toast('คัดลอกใบสั่งงานแล้ว กำลังเปิดแชท LINE OA: @919zkplo');
+    window.open(SHOP.lineMsg + encodeURIComponent(txt), '_blank', 'noopener');
+  }
+
+  $('artOrderForm').addEventListener('submit', e => { e.preventDefault(); dispatchLine(); });
+  $('sendOrderLineBtn').addEventListener('click', dispatchLine);
+  $('copyOrderTextBtn').addEventListener('click', async () => {
+    const ok = await copyText($('generatedOrderText').value);
+    toast(ok ? 'คัดลอกข้อความใบสั่งงานเรียบร้อยแล้ว' : 'คัดลอกไม่สำเร็จ');
+  });
+  $('copyPpBtn').addEventListener('click', async () => {
+    const ok = await copyText(SHOP.promptpay);
+    toast(ok ? 'คัดลอกเลขพร้อมเพย์ 0815921229 แล้ว' : '081-592-1229');
+  });
+
+  const closeLb = () => { $('lightbox').hidden = true; };
+  $('lbClose').addEventListener('click', closeLb);
+  $('lightbox').addEventListener('click', e => { if (e.target.id === 'lightbox') closeLb(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+
+  /* ---------- Init ---------- */
+  $('brandLogo').src = src('assets/images/logo-3d.png?v=2');
+  $('heroLogo').src = src('assets/images/logo-3d.png?v=2');
+  $('oaAvatar').src = SHOP.avatar;
+  setBACase(1);
+  const names = ITEMS.map(p => p.en);
+  $('track').innerHTML = names.concat(names).map(n => `<span>${esc(n)}</span>`).join('');
+  $('modeNote').textContent = NOTES.ship;
+  renderFilters();
+  render();
+  renderFrameTable();
+  recalc();
+})();
+</script>
+</body>
+</html>
