@@ -225,6 +225,160 @@ input[type=search]:focus{border-color:rgb(var(--accent))}
 .ln b{margin-right:6px;font-weight:600;letter-spacing:.03em;color:rgb(var(--c));white-space:nowrap}
 .actions{display:flex;gap:10px;margin-top:auto}
 
+
+/* [ANTIGRAVITY ZONE: CARD SLIDER SYSTEM] */
+.card-slider {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: radial-gradient(circle at 50% 35%, rgba(var(--c), .18), #09090d 82%);
+  user-select: none;
+  touch-action: pan-y;
+}
+.card-slider .slide-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.card-slider .slide-item {
+  position: absolute;
+  inset: 0;
+  padding: 8px 8px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.96);
+  transition: opacity .35s ease, transform .35s ease;
+  pointer-events: none;
+}
+.card-slider .slide-item.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  pointer-events: auto;
+}
+.card-slider .slide-item img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 9px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .62);
+  cursor: zoom-in;
+  transition: transform .3s ease;
+}
+.card-slider:hover .slide-item.active img {
+  transform: scale(1.02);
+}
+.card-slider .slide-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(12, 14, 20, .85);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, .24);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 5;
+  transition: all .2s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.card-slider .slide-btn:hover {
+  background: rgb(var(--c));
+  color: #0b0b0f;
+  border-color: rgb(var(--c));
+  transform: translateY(-50%) scale(1.12);
+  box-shadow: 0 4px 16px rgba(var(--c), .6);
+}
+.card-slider .slide-btn.prev { left: 8px; }
+.card-slider .slide-btn.next { right: 8px; }
+.card-slider .slide-badge {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  z-index: 4;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(10, 12, 18, .88);
+  border: 1px solid rgba(255, 255, 255, .18);
+  font: 500 11.5px/1.3 'JetBrains Mono', 'Kanit', sans-serif;
+  color: #e6e6ee;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  max-width: calc(100% - 90px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card-slider .slide-badge b { color: rgb(var(--c)); font-weight: 700; }
+.card-slider .slide-dots {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.card-slider .slide-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  border: none;
+  padding: 0;
+  background: rgba(255, 255, 255, .35);
+  cursor: pointer;
+  transition: all .25s ease;
+}
+.card-slider .slide-dot.active {
+  width: 18px;
+  background: rgb(var(--c));
+  box-shadow: 0 0 10px rgba(var(--c), .7);
+}
+.card-slider .slide-zoom-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 5;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(10, 12, 18, .82);
+  border: 1px solid rgba(255, 255, 255, .2);
+  color: #f0f0f5;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  backdrop-filter: blur(8px);
+  transition: all .2s;
+}
+.card-slider .slide-zoom-btn:hover {
+  background: rgba(255, 255, 255, .2);
+  color: #fff;
+  border-color: rgba(255, 255, 255, .5);
+}
+
 /* [ANTIGRAVITY ZONE: FRAME SIZE TABLE] */
 .table-card{
   margin-top:22px;padding:22px;border:1px solid var(--line);border-radius:18px;
@@ -403,7 +557,11 @@ table.ftable{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640p
   <section class="sec" id="catalog" style="margin-top:0">
     <div class="sec-head">
       <div>
-        <div class="kicker">All Cards · Services · Auspicious Frames · Portfolio</div>
+        <div class="kicker">Showcase Carousel · 6 Core Categories with Interactive Slides</div>
+        <h2>6 บริการหลัก <span>&amp; สไลด์ตัวอย่างผลงาน</span></h2>
+      </div>
+      <p>คัดกรองผลงานจริงแบ่งเป็น 6 หมวดหลักอย่างเป็นระเบียบ พร้อมระบบสไลด์ภาพตัวอย่างให้เลือกชมในแต่ละการ์ด (รูปติดบัตรทั่วไป • ชุดราชการ • วีซ่า • รีทัช • แต่งด้วย AI • ภาพมงคล) กดสไลด์ดูภาพ หรือกดเลือกการ์ดเพื่อคำนวณมัดจำได้ทันที</p>
+    </div>
         <h2>Service &amp; <span>Portfolio</span> Cards</h2>
       </div>
       <p>รวมการ์ดทั้งหมดจากหน้าต้นฉบับ (บริการหลัก 3 หมวด • แคตตาล็อกภาพมงคล 4 หมวด • ขนาดกรอบรูป 5 ขนาด • ตัวอย่างผลงานจริง 8 ชิ้น) กดเลือกการ์ดเพื่อส่งเข้าฟอร์มคำนวณมัดจำด้านล่างได้ทันที</p>
@@ -485,28 +643,38 @@ table.ftable{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640p
           <div class="fgroup">
             <label class="flabel" for="serviceSelect">ประเภทบริการที่ต้องการสั่งทำ</label>
             <select class="finput" id="serviceSelect">
-              <optgroup label="หมวดที่ 1: รูปติดบัตรออนไลน์ &amp; ตัดต่อชุด">
-                <option value="59" data-name="รูปติดบัตรชุดประหยัด (Good) อัดรูป 8-12 ใบ">รูปติดบัตรชุดประหยัด (Good) อัดรูป 8–12 ใบ — 59 บาท</option>
-                <option value="89" data-name="รูปติดบัตรชุดยอดนิยม (Better) รีทัชผิวเนียน + อัดรูป 8-12 ใบ">รูปติดบัตรชุดยอดนิยม (Better) รีทัชผิวเนียน + อัดรูป 8–12 ใบ — 89 บาท</option>
-                <option value="150" data-name="รูปติดบัตรตัดต่อชุดข้าราชการ/สูท/ครุย (รับเฉพาะไฟล์ 300 DPI)">รูปติดบัตรตัดต่อชุดข้าราชการ/สูท/ครุย (เฉพาะไฟล์ดิจิทัล 300 DPI) — 150 บาท</option>
-                <option value="220" data-name="รูปติดบัตรชุดสมบูรณ์แบบ (Best) ตัดต่อชุดราชการ/สูท + ไฟล์ HD + อัดรูป 1 โหล" selected>รูปติดบัตรชุดสมบูรณ์แบบ (Best) ตัดต่อชุดราชการ/สูท + ไฟล์ HD + อัดรูป 1 โหล — 220 บาท</option>
+              <optgroup label="1. รูปติดบัตรทั่วไป &amp; ชุดสูทสากล">
+                <option value="59" data-name="รูปติดบัตรชุดประหยัด (Good) อัดรูป 8–12 ใบ">รูปติดบัตรชุดประหยัด (Good) อัดรูป 8–12 ใบ — 59 บาท</option>
+                <option value="89" data-name="รูปติดบัตรชุดยอดนิยม (Better) รีทัชผิวเนียน + อัดรูป 8–12 ใบ">รูปติดบัตรชุดยอดนิยม (Better) รีทัชผิวเนียน + อัดรูป 8–12 ใบ — 89 บาท</option>
+                <option value="150" data-name="รูปติดบัตรตัดต่อสูทสากล (เฉพาะไฟล์ดิจิทัล 300 DPI)">รูปติดบัตรตัดต่อสูทสากล (เฉพาะไฟล์ดิจิทัล 300 DPI) — 150 บาท</option>
+                <option value="220" data-name="รูปติดบัตรสูทสากลสมบูรณ์แบบ (ตัดต่อสูท + ไฟล์ HD + อัดรูป 1 โหล)" selected>รูปติดบัตรสูทสากลสมบูรณ์แบบ (ตัดต่อสูท + ไฟล์ HD + อัดรูป 1 โหล) — 220 บาท</option>
               </optgroup>
-              <optgroup label="หมวดที่ 2: รีทัชภาพ &amp; ซ่อมภาพเก่าบรรพบุรุษ">
-                <option value="200" data-name="รีทัชภาพบุคคลพรีเมียม / โปรไฟล์สมัครงาน">รีทัชภาพบุคคลพรีเมียม / โปรไฟล์สมัครงาน — 200 บาท</option>
-                <option value="450" data-name="ฟื้นฟูรูปเก่ามาตรฐาน (ลบรอยขีดข่วน ปรับความคมชัด + ไฟล์ HD)">ฟื้นฟูรูปเก่ามาตรฐาน (ลบรอยขีดข่วน ปรับความคมชัด + ไฟล์ HD) — 450 บาท</option>
-                <option value="700" data-name="ฟื้นฟูรูปเก่าพรีเมียม + ลงสีธรรมชาติ">ฟื้นฟูรูปเก่าพรีเมียม (ซ่อมรอยฉีกขาด + ลงสีธรรมชาติ) — 700 บาท</option>
-                <option value="1290" data-name="แพ็กเกจรูปหน้าพิธีศพด่วน 24 ชม. + กรอบหลุยส์ 16x20 นิ้ว">แพ็กเกจรูปหน้าพิธีศพด่วน 24 ชม. + กรอบหลุยส์ 16×20 นิ้ว — 1,290 บาท</option>
+              <optgroup label="2. ชุดราชการ (ปกติขาว / สีกากี / ครู / ตำรวจ / ทหาร)">
+                <option value="150" data-name="ตัดต่อชุดราชการปกติขาว/กากี (เฉพาะไฟล์ 300 DPI ตรงระเบียบ ก.พ.)">ตัดต่อชุดราชการปกติขาว/กากี (เฉพาะไฟล์ 300 DPI ตรงระเบียบ ก.พ.) — 150 บาท</option>
+                <option value="220" data-name="ชุดราชการสมบูรณ์แบบ (ตัดต่อชุด + ไฟล์ HD + อัดรูป 1 โหล)">ชุดราชการสมบูรณ์แบบ (ตัดต่อชุด + ไฟล์ HD + อัดรูป 1 โหล) — 220 บาท</option>
               </optgroup>
-              <optgroup label="หมวดที่ 3: ภาพมงคลพร้อมกรอบรูป (ส่งทั่วประเทศ)">
-                <option value="390" data-name="ภาพมงคล/ภาพครอบครัวพร้อมกรอบ ขนาด A4">ภาพมงคล/ภาพครอบครัวพร้อมกรอบ ขนาด A4 (8.3×11.7") — 390 บาท</option>
-                <option value="590" data-name="ภาพมงคลพร้อมกรอบหลุยส์สีทอง ขนาด 10x12 นิ้ว">ภาพมงคลพร้อมกรอบหลุยส์สีทอง ขนาด 10×12 นิ้ว — 590 บาท</option>
-                <option value="690" data-name="ภาพมงคลพร้อมกรอบ ขนาด 12x18 นิ้ว (ผ้าแคนวาสแท้)">ภาพมงคลพร้อมกรอบ ขนาด 12×18 นิ้ว (ผ้าแคนวาสแท้) — 690 บาท</option>
-                <option value="990" data-name="ภาพมงคลพร้อมกรอบหลุยส์ ขนาด 16x20 นิ้ว (แคนวาสพิมพ์ UV)">ภาพมงคลพร้อมกรอบหลุยส์ ขนาด 16×20 นิ้ว (แคนวาสพิมพ์ UV) — 990 บาท</option>
-                <option value="1490" data-name="ภาพมงคลพร้อมกรอบหลุยส์ใหญ่ ขนาด 20x30 นิ้ว (เสริมโครงเหล็ก)">ภาพมงคลพร้อมกรอบหลุยส์ใหญ่ ขนาด 20×30 นิ้ว (เสริมโครงเหล็ก) — 1,490 บาท</option>
+              <optgroup label="3. วีซ่า &amp; พาสปอร์ต (US Visa, เชงเก้น, จีน, ญี่ปุ่น)">
+                <option value="150" data-name="ไฟล์ดิจิทัลรูปวีซ่าตามขนาดสถานทูต (US / เชงเก้น / ญี่ปุ่น / จีน)">ไฟล์ดิจิทัลรูปวีซ่าตามขนาดสถานทูต (US / เชงเก้น / ญี่ปุ่น / จีน) — 150 บาท</option>
+                <option value="220" data-name="แพ็กเกจรูปวีซ่า (ไฟล์ดิจิทัล + อัดรูปตามขนาดสถานทูตกำหนด 1 ชุด)">แพ็กเกจรูปวีซ่า (ไฟล์ดิจิทัล + อัดรูปตามขนาดสถานทูตกำหนด 1 ชุด) — 220 บาท</option>
               </optgroup>
-              <optgroup label="หมวดที่ 4: ออกแบบกราฟิก &amp; สิ่งพิมพ์">
-                <option value="500" data-name="ออกแบบนามบัตร 2 หน้า (ไฟล์พร้อมพิมพ์)">ออกแบบนามบัตร 2 หน้า (ไฟล์พร้อมพิมพ์) — 500 บาท</option>
-                <option value="800" data-name="ออกแบบป้ายไวนิลหน้าร้าน/หน่วยงาน">ออกแบบป้ายไวนิลหน้าร้าน/หน่วยงาน — 800 บาท</option>
+              <optgroup label="4. รีทัชภาพ &amp; ซ่อมภาพเก่าบรรพบุรุษ">
+                <option value="200" data-name="รีทัชภาพบุคคลพรีเมียม / ปรับผิวเนียน แสงเงาสตูดิโอ">รีทัชภาพบุคคลพรีเมียม / ปรับผิวเนียน แสงเงาสตูดิโอ — 200 บาท</option>
+                <option value="450" data-name="ฟื้นฟูรูปเก่ามาตรฐาน (ลบรอยขีดข่วน คราบด่าง ปรับสีชัด + ไฟล์ HD)">ฟื้นฟูรูปเก่ามาตรฐาน (ลบรอยขีดข่วน คราบด่าง ปรับสีชัด + ไฟล์ HD) — 450 บาท</option>
+                <option value="700" data-name="ฟื้นฟูรูปเก่าพรีเมียม + ลงสีธรรมชาติ (ซ่อมรอยฉีกขาด + คืนสีสมจริง)">ฟื้นฟูรูปเก่าพรีเมียม + ลงสีธรรมชาติ (ซ่อมรอยฉีกขาด + คืนสีสมจริง) — 700 บาท</option>
+                <option value="1290" data-name="แพ็กเกจรูปหน้าพิธีศพด่วน 24 ชม. + กรอบหลุยส์ 16×20 นิ้ว">แพ็กเกจรูปหน้าพิธีศพด่วน 24 ชม. + กรอบหลุยส์ 16×20 นิ้ว — 1,290 บาท</option>
+              </optgroup>
+              <optgroup label="5. แต่งภาพด้วย AI (โปรไฟล์สตูดิโอ &amp; ภาพศิลปะ 4K)">
+                <option value="250" data-name="สร้างภาพโปรไฟล์สตูดิโอ AI (เปลี่ยนฉากหลัง / ปรับลุคพรีเมียม)">สร้างภาพโปรไฟล์สตูดิโอ AI (เปลี่ยนฉากหลัง / ปรับลุคพรีเมียม) — 250 บาท</option>
+                <option value="350" data-name="ภาพบุคคล AI สไตล์พรีเวดดิ้ง / แฟนตาซี คมชัดระดับ 4K">ภาพบุคคล AI สไตล์พรีเวดดิ้ง / แฟนตาซี คมชัดระดับ 4K — 350 บาท</option>
+                <option value="450" data-name="ออกแบบโปสเตอร์ / ภาพศิลปะ AI ตกแต่งห้อง">ออกแบบโปสเตอร์ / ภาพศิลปะ AI ตกแต่งห้อง — 450 บาท</option>
+                <option value="890" data-name="แพ็กเกจภาพลักษณ์ธุรกิจ &amp; แบรนด์ดิ้งผู้บริหาร Luxury AI">แพ็กเกจภาพลักษณ์ธุรกิจ &amp; แบรนด์ดิ้งผู้บริหาร Luxury AI — 890 บาท</option>
+              </optgroup>
+              <optgroup label="6. ภาพมงคลเสริมฮวงจุ้ยพร้อมกรอบรูป (ส่งทั่วประเทศ)">
+                <option value="390" data-name="ภาพมงคล/ภาพครอบครัวพร้อมกรอบ ขนาด A4 (8.3×11.7 นิ้ว)">ภาพมงคล/ภาพครอบครัวพร้อมกรอบ ขนาด A4 (8.3×11.7") — 390 บาท</option>
+                <option value="590" data-name="ภาพมงคลพร้อมกรอบหลุยส์สีทอง ขนาด 10×12 นิ้ว">ภาพมงคลพร้อมกรอบหลุยส์สีทอง ขนาด 10×12 นิ้ว — 590 บาท</option>
+                <option value="690" data-name="ภาพมงคลพร้อมกรอบ ขนาด 12×18 นิ้ว (ผ้าแคนวาสแท้)">ภาพมงคลพร้อมกรอบ ขนาด 12×18 นิ้ว (ผ้าแคนวาสแท้) — 690 บาท</option>
+                <option value="990" data-name="ภาพมงคลพร้อมกรอบหลุยส์ ขนาด 16×20 นิ้ว (แคนวาสพิมพ์ UV)">ภาพมงคลพร้อมกรอบหลุยส์ ขนาด 16×20 นิ้ว (แคนวาสพิมพ์ UV) — 990 บาท</option>
+                <option value="1490" data-name="ภาพมงคลพร้อมกรอบหลุยส์ใหญ่ ขนาด 20×30 นิ้ว (เสริมโครงเหล็ก)">ภาพมงคลพร้อมกรอบหลุยส์ใหญ่ ขนาด 20×30 นิ้ว (เสริมโครงเหล็ก) — 1,490 บาท</option>
               </optgroup>
             </select>
           </div>
@@ -693,15 +861,15 @@ table.ftable{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640p
   };
 
   /* ===================================================================
-     [ANTIGRAVITY DATA ZONE 2: หมวดหมู่การ์ด & สี RGB ประจำหมวด]
+     [ANTIGRAVITY DATA ZONE 2: หมวดหมู่การ์ด 6 หมวด & สี RGB ประจำหมวด]
      =================================================================== */
   const CATS = {
-    service:    { name: 'บริการหลัก (3)',       rgb: '255,98,54' },
-    auspicious: { name: 'แคตตาล็อกภาพมงคล (4)', rgb: '255,190,60' },
-    frame:      { name: 'ขนาดกรอบรูป (5)',      rgb: '178,128,255' },
-    idphoto:    { name: 'ผลงาน: รูปติดบัตร',     rgb: '84,170,255' },
-    retouch:    { name: 'ผลงาน: ซ่อมภาพเก่า',    rgb: '38,214,164' },
-    work:       { name: 'ผลงาน: ภาพมงคล',       rgb: '255,74,116' }
+    idphoto:    { name: '1. รูปติดบัตรทั่วไป', rgb: '84,170,255' },
+    civil:      { name: '2. ชุดราชการ',        rgb: '255,190,60' },
+    visa:       { name: '3. วีซ่า & พาสปอร์ต', rgb: '38,214,164' },
+    retouch:    { name: '4. รีทัชภาพเก่า',    rgb: '255,98,54' },
+    aiart:      { name: '5. แต่งด้วย AI',      rgb: '178,128,255' },
+    auspicious: { name: '6. ภาพมงคล & กรอบ',   rgb: '255,74,116' }
   };
 
   const NOTES = {
@@ -711,268 +879,153 @@ table.ftable{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640p
   };
 
   /* ===================================================================
-     [ANTIGRAVITY DATA ZONE 3: การ์ดทั้งหมด 20 การ์ด ตามต้นฉบับ]
+     [ANTIGRAVITY DATA ZONE 3: การ์ด 6 หมวดหลัก พร้อมสไลด์โชว์ผลงานจริง]
      =================================================================== */
   const ITEMS = [
-    /* --- บริการหลัก 3 การ์ด --- */
     {
-      id: 1, cat: 'service', ratio: '59–220 ฿', sample: true, selectPrice: 220,
-      en: '1. รูปติดบัตรออนไลน์ & ตัดต่อชุด',
-      th: 'ปรับแสง รีทัชผิวเนียนเป็นธรรมชาติ ตัดต่อชุดข้าราชการ (ปกติขาว/กากี/อินทรธนูตรงชั้นยศ) ชุดสูทสากล ชุดครุย นักเรียน–นักศึกษา และรูปวีซ่า/พาสปอร์ต',
-      mood: 'ถูกระเบียบราชการ 100% · 300 DPI',
-      img: 'assets/work/id-sample-thai-civil-man.webp',
+      id: 1,
+      cat: 'idphoto',
+      ratio: 'เริ่ม 59–220 ฿',
+      selectPrice: 89,
+      en: '1. รูปติดบัตรทั่วไป',
+      sub: 'Student, General & Business ID Photos',
+      th: 'บริการถ่ายและแต่งรูปติดบัตรออนไลน์ นักเรียน นักศึกษา สมัครงานเอกสารทั่วไป ลบสิว ฝ้า ปรับผิวเนียน ล็อกโครงหน้าเดิม แสงเงาคมชัด 300 DPI พร้อมอัดรูปหรือรับเฉพาะไฟล์',
+      mood: 'สมัครงาน · นักเรียน · บุคคลทั่วไป · 300 DPI',
+      slides: [
+        { img: 'assets/work/id-sample-thai-man-suit.webp', title: 'สูทสากลชายมาตรฐานสมัครงาน' },
+        { img: 'assets/work/id-sample-thai-woman-suit.webp', title: 'สูทสากลหญิงสุภาพเรียบร้อย' },
+        { img: 'assets/work/id-sample-woman-after.webp', title: 'นักเรียน นักศึกษา และบุคคลทั่วไป' },
+        { img: 'assets/work/id-sample-before-after.webp', title: 'เปรียบเทียบก่อน-หลังเซลฟี่มือถือ' }
+      ],
       lines: [
-        ['ชุดประหยัด (Good) : อัดรูป 1" หรือ 1.5" (8–12 ใบ) กระดาษด้านกันน้ำ', '59 ฿'],
-        ['ชุดยอดนิยม (Better) : อัดรูป 8–12 ใบ + รีทัชผิวเนียน ลบสิว ปรับแสงสวย', '89 ฿'],
-        ['เฉพาะไฟล์ดิจิทัลตัดต่อชุด (ข้าราชการ/สูท/ครุย + รีทัช + ไฟล์ 300 DPI)', '150 ฿'],
-        ['ชุดสมบูรณ์แบบ (Best) : ตัดต่อชุดข้าราชการ/สูท + ไฟล์ HD + อัดรูป 1 โหล', '220 ฿']
+        ['ชุดประหยัด (Good)', 'อัดรูป 1" หรือ 1.5" (8–12 ใบ) กระดาษโฟโต้ด้านกันน้ำ (59 ฿)'],
+        ['ชุดยอดนิยม (Better)', 'อัดรูป 8–12 ใบ + รีทัชผิวเนียน ลบสิว ปรับแสงสตูดิโอ (89 ฿)'],
+        ['เฉพาะไฟล์ตัดต่อสูท', 'ตัดต่อสูทสากล + รีทัชหน้าเนียน + ไฟล์ 300 DPI (150 ฿)'],
+        ['ชุดสมบูรณ์แบบ (Best)', 'ตัดต่อสูท + ไฟล์ HD 300 DPI + อัดรูป 1 โหล (220 ฿)']
       ]
     },
     {
-      id: 2, cat: 'service', ratio: '200–1,290 ฿', sample: true, selectPrice: 450,
-      en: '2. รีทัชภาพ & ซ่อมภาพเก่าบรรพบุรุษ',
-      th: 'รีทัชภาพโปรไฟล์สมัครงาน/พอร์ตโฟลิโอ และฟื้นฟูภาพถ่ายเก่าที่ฉีกขาด มีคราบเชื้อรา หรือสีซีดจาง รวมถึงเปลี่ยนภาพขาวดำเป็นภาพสีธรรมชาติและทำรูปหน้าพิธีด่วน',
-      mood: 'งานฝีมือประณีต · แก้ไขจนพึงพอใจ',
-      img: 'assets/work/zip-restore-family.webp',
+      id: 2,
+      cat: 'civil',
+      ratio: 'ระเบียบ ก.พ. 100% · 150–220 ฿',
+      selectPrice: 220,
+      en: '2. ชุดราชการ',
+      sub: 'Thai Civil Official Uniforms & Regalia',
+      th: 'ตัดต่อชุดข้าราชการพลเรือนปกติขาว ชุดสีกากี ชุดครู ชุดตำรวจ ชุดทหาร และชุดครุย ตรวจสอบอินทรธนูและเครื่องราชฯ ตรงสังกัดและระดับชั้นยศอย่างแม่นยำ รับประกันแก้ไขฟรี 100%',
+      mood: 'ปกติขาว · สีกากี · ครู-ตำรวจ-ทหาร · แก้ไขฟรี 100%',
+      slides: [
+        { img: 'assets/work/id-sample-thai-civil-man.webp', title: 'ข้าราชการพลเรือนชายปกติขาว' },
+        { img: 'assets/work/id-sample-thai-civil-woman.webp', title: 'ข้าราชการพลเรือนหญิงปกติขาว' },
+        { img: 'assets/work/ba-id-woman-after.webp', title: 'จัดแสงสตูดิโอ 3 จุด ล็อกโครงหน้า' }
+      ],
       lines: [
-        ['รีทัชภาพบุคคลพรีเมียม (ปรับผิวเนียน แสงเงา โครงหน้าธรรมชาติ)', '200 ฿'],
-        ['ฟื้นฟูรูปเก่ามาตรฐาน (ลบรอยขีดข่วน คราบด่าง ปรับสีชัด + ไฟล์ HD)', '450 ฿'],
-        ['ฟื้นฟูรูปเก่าพรีเมียม + เติมสี (ซ่อมรอยขาด/แหว่ง + ลงสีธรรมชาติ)', '700 ฿'],
-        ['รูปหน้าพิธีศพด่วน 24 ชม. (รีทัชสง่างาม + ไฟล์ + อัด 16×20" กรอบหลุยส์)', '1,290 ฿']
+        ['เฉพาะไฟล์ดิจิทัล 300 DPI', 'ตัดต่อชุดปกติขาว/กากี + เช็คอินทรธนูตรงยศ (150 ฿)'],
+        ['ชุดสมบูรณ์แบบ (Best)', 'ตัดต่อชุดราชการ + ส่งไฟล์ HD + อัดรูป 1 โหล (220 ฿)'],
+        ['ครอบคลุมทุกสังกัด', 'ก.พ. / ครู / ตำรวจ / ทหาร / เทศบาล / อบต.'],
+        ['การรับประกันผลงาน', 'แก้ไขฟรีทันทีหากไม่ผ่านเกณฑ์ระเบียบหน่วยงาน']
       ]
     },
     {
-      id: 3, cat: 'service', ratio: '390–1,490 ฿', sample: true, selectPrice: 590,
-      en: '3. ภาพมงคลพร้อมกรอบ & งานสิ่งพิมพ์',
-      th: 'บริการจัดทำภาพมงคลพร้อมกรอบหลุยส์สีทองและกรอบโมเดิร์น พิมพ์ลงผ้าแคนวาสหรือโฟโต้พรีเมียมเคลือบกัน UV ห่อกันกระแทกหนา 3 ชั้น ส่งทั่วไทย พร้อมรับทำป้ายไวนิลและนามบัตร',
-      mood: 'เสริมสิริมงคล · จัดส่งทั่วประเทศ',
-      img: 'assets/work/zip-auspicious-frame-01.webp',
+      id: 3,
+      cat: 'visa',
+      ratio: 'มาตรฐานสถานทูต · 150–220 ฿',
+      selectPrice: 150,
+      en: '3. วีซ่า & พาสปอร์ต',
+      sub: 'Embassy Visa & Passport Photo Standards',
+      th: 'รูปถ่ายขอวีซ่าและพาสปอร์ตตามระเบียบสถานทูตทั่วโลก สัดส่วนใบหน้า 70–80% ตามมาตรฐาน ICAO ฉากหลังขาวบริสุทธิ์ ไร้เงาสะท้อน ถูกต้องแม่นยำสำหรับยื่นออนไลน์และยื่นเล่ม',
+      mood: 'US Visa 2×2" · เชงเก้น · ญี่ปุ่น · จีน · รับประกันผ่าน 100%',
+      slides: [
+        { img: 'assets/work/id-sample-thai-woman-suit.webp', title: 'US Visa 2×2 นิ้ว (ฉากขาวบริสุทธิ์)' },
+        { img: 'assets/work/id-sample-thai-man-suit.webp', title: 'วีซ่าเชงเก้น / ยุโรป 35×45 มม.' },
+        { img: 'assets/work/id-sample-woman-after.webp', title: 'วีซ่าญี่ปุ่น / จีน / พาสปอร์ตสากล' },
+        { img: 'assets/work/id-sample-before-after.webp', title: 'สัดส่วนใบหน้า 70–80% ตามมาตรฐาน ICAO' }
+      ],
       lines: [
-        ['ขนาด A4 (8.3×11.7") กรอบโมเดิร์น / ไม้ / อลูมิเนียม', '390 ฿'],
-        ['ขนาด 10×12 นิ้ว กรอบหลุยส์สีทองคลาสสิก', '590 ฿'],
-        ['ขนาด 12×18 นิ้ว ผ้าแคนวาสแท้ + กรอบโมเดิร์นลอย / หลุยส์', '690 ฿'],
-        ['ขนาด 16×20 นิ้ว / 20×30 นิ้ว แคนวาสพิมพ์ UV + กรอบหลุยส์ใหญ่', '990 / 1,490 ฿']
+        ['เฉพาะไฟล์ยื่นวีซ่าออนไลน์', 'ปรับขนาดพิกเซล KB และสัดส่วนตามสถานทูตกำหนด (150 ฿)'],
+        ['แพ็กเกจวีซ่ายื่นเล่ม', 'ไฟล์ดิจิทัล + อัดรูปขนาดสถานทูตกำหนด 1 ชุด (220 ฿)'],
+        ['มาตรฐานที่รองรับ', 'สหรัฐอเมริกา (2×2"), เชงเก้น (3.5×4.5 ซม.), จีน, ญี่ปุ่น'],
+        ['การันตีความถูกต้อง', 'แก้ไขฟรี 100% หากระบบสถานทูตปฏิเสธไฟล์']
       ]
     },
-
-    /* --- แคตตาล็อกภาพมงคล 4 การ์ด --- */
     {
-      id: 4, cat: 'auspicious', ratio: 'เริ่ม 390 ฿', selectPrice: 590,
-      en: 'ท้าวเวสสุวรรณ & พระพิฆเนศ',
-      th: 'เสริมบารมี ปกป้องคุ้มครอง แคล้วคลาด และประทานความสำเร็จด้านการค้าขายและโชคลาภ',
-      mood: 'พุทธศิลป์ · เสริมบารมี',
-      img: 'assets/work/auspicious-sacred-g5-1.webp',
-      lines: [['วัสดุ', 'ผ้าแคนวาส / โฟโต้เคลือบ UV'], ['กรอบ', 'หลุยส์สีทอง / โมเดิร์น']]
+      id: 4,
+      cat: 'retouch',
+      ratio: 'ช่างฝีมือ · 200–1,290 ฿',
+      selectPrice: 450,
+      en: '4. รีทัช & ซ่อมภาพเก่า',
+      sub: 'Photo Retouching & Ancestor Restoration',
+      th: 'ฟื้นฟูรูปถ่ายเก่าที่ชำรุด ฉีกขาด โดนน้ำ ปลวกแทะ หรือซีดจาง คืนมิติสีผิวบรรพบุรุษจากขาวดำเป็นภาพสีธรรมชาติ เพิ่มความคมชัดระดับ Ultra-HD และรับทำรูปหน้าพิธีด่วน 24 ชม.',
+      mood: 'กู้ภาพเก่า · ซ่อมรอยพับ · ลงสีเสมือนจริง · รูปหน้าพิธี 24 ชม.',
+      slides: [
+        { img: 'assets/work/zip-restore-family.webp', title: 'ฟื้นฟูภาพถ่ายครอบครัวเก่า ลบรอยด่างและเชื้อรา' },
+        { img: 'assets/work/zip-restore-couple.webp', title: 'บูรณะภาพคู่ขาวดำ คืนมิติสีผิวธรรมชาติ 100%' },
+        { img: 'assets/work/ba-restore-flower-after.webp', title: 'กู้ภาพเก่าชำรุด คืนความคมชัด 300 DPI' },
+        { img: 'assets/work/zip-restore-beforeafter-3x2.webp', title: 'ตัวอย่างงานรีทัชและบูรณะภาพ 6 รูปแบบ' }
+      ],
+      lines: [
+        ['รีทัชภาพบุคคลพรีเมียม', 'ปรับผิวเนียน ลบสิว จัดแสง ปรับโครงหน้า (200 ฿)'],
+        ['ฟื้นฟูรูปเก่ามาตรฐาน', 'ลบรอยขีดข่วน คราบด่าง ปรับสีชัด + ไฟล์ HD (450 ฿)'],
+        ['บูรณะรูปเก่า + ลงสีธรรมชาติ', 'ซ่อมรอยขาด/พับ + คืนมิติสีผิวเสมือนจริง (700 ฿)'],
+        ['รูปหน้าพิธีศพด่วน 24 ชม.', 'รีทัชสง่างาม + อัด 16×20" กรอบหลุยส์พร้อมส่ง (1,290 ฿)']
+      ]
     },
     {
-      id: 5, cat: 'auspicious', ratio: 'เริ่ม 390 ฿', selectPrice: 590,
-      en: 'พระเกจิอาจารย์สายอีสาน',
-      th: 'ภาพหลวงปู่มั่น ภูริทัตโต, หลวงปู่มหาศิลา, หลวงพ่อคูณ, หลวงปู่ชา คมชัดระดับหิ้งบูชา',
-      mood: 'หิ้งบูชา · ห้องพระ',
-      img: 'assets/work/auspicious-dragon-g5-1.webp',
-      lines: [['ความคมชัด', '300 DPI คมชัดทุกเส้นสาย'], ['กรอบ', 'หลุยส์สีทองคลาสสิก']]
+      id: 5,
+      cat: 'aiart',
+      ratio: 'Gen-AI 4K · 250–890 ฿',
+      selectPrice: 350,
+      en: '5. แต่งภาพด้วย AI',
+      sub: 'Gen-AI Studio Portraits & Modern Creative Art',
+      th: 'เนรมิตภาพถ่ายบุคคลสตูดิโอด้วยเทคโนโลยี AI ระดับโปร เปลี่ยนฉากหลัง สลับสไตล์เสื้อผ้า ทำภาพพรีเวดดิ้งแนวแฟนตาซี ภาพโปสเตอร์อาร์ต และงานภาพลักษณ์ธุรกิจ คมชัดระดับ 4K',
+      mood: 'โปรไฟล์ AI · พรีเวดดิ้ง AI · สตูดิโอ 4K · งานอาร์ตโมเดิร์น',
+      slides: [
+        { img: 'assets/work/wedding-sunset-veil.webp', title: 'ภาพถ่ายบุคคลและพรีเวดดิ้งสไตล์โรแมนติก AI' },
+        { img: 'assets/work/wedding-lake-heart.webp', title: 'ภาพบุคคล AI ริมทะเลสาบ แสงสีธรรมชาติสตูดิโอ' },
+        { img: 'assets/work/wedding-poster-packages.webp', title: 'แพ็กเกจโปสเตอร์ AI เวดดิ้ง & งานศิลปะ' },
+        { img: 'assets/work/design-business-card-luxury.webp', title: 'งานออกแบบกราฟิก AI & แบรนด์ดิ้งหรู' }
+      ],
+      lines: [
+        ['ภาพโปรไฟล์สตูดิโอ AI', 'เปลี่ยนฉากหลัง จัดแสงสตูดิโอ ปรับลุคพรีเมียม (250 ฿)'],
+        ['ภาพบุคคล AI สไตล์พรีเวดดิ้ง/อาร์ต', 'เนรมิตภาพศิลปะและภาพแต่งงาน 4K คมชัดสูง (350 ฿)'],
+        ['ออกแบบโปสเตอร์ / ภาพศิลปะ AI', 'ภาพประดับตกแต่งห้อง หรือปกพอร์ตโฟลิโอ (450 ฿)'],
+        ['แพ็กเกจแบรนดิ้ง & คอร์ปอเรต AI', 'เซ็ตภาพลักษณ์ธุรกิจและผู้บริหารระดับ Luxury (890 ฿)']
+      ]
     },
     {
-      id: 6, cat: 'auspicious', ratio: 'เริ่ม 390 ฿', selectPrice: 690,
-      en: 'ปลาคาร์ฟ 8 ตัว & สำเภาทอง',
-      th: 'สัญลักษณ์ฮวงจุ้ยเรียกทรัพย์ การค้าขายราบรื่น มั่งคั่งร่ำรวย เหมาะติดห้องรับแขกและหน้าร้าน',
-      mood: 'ฮวงจุ้ยเรียกทรัพย์ · ค้าขายรุ่งเรือง',
-      img: 'assets/work/auspicious-koi-g5-1.webp',
-      lines: [['เหมาะสำหรับ', 'ห้องรับแขก / หน้าร้าน / สำนักงาน'], ['ขนาดแนะนำ', '12×18" ถึง 20×30"']]
-    },
-    {
-      id: 7, cat: 'auspicious', ratio: 'เริ่ม 390 ฿', selectPrice: 590,
-      en: 'อัดภาพครอบครัว & รับปริญญา',
-      th: 'ส่งไฟล์ภาพของคุณมาให้ร้านรีทัชปรับแสงสี แล้วอัดใส่กรอบหลุยส์หรือกรอบลอยโมเดิร์นพร้อมส่ง',
-      mood: 'ของขวัญทรงคุณค่า · รีทัชฟรีเบื้องต้น',
-      img: 'assets/work/wedding-sunset-veil.webp',
-      lines: [['บริการเสริม', 'ปรับแสงสีและรีทัชผิวเบื้องต้นฟรี'], ['การจัดส่ง', 'ห่อกันกระแทก 3 ชั้นทั่วไทย']]
-    },
-
-    /* --- ขนาดกรอบรูป 5 การ์ด --- */
-    {
-      id: 8, cat: 'frame', ratio: '390 ฿', selectPrice: 390,
-      en: 'กรอบรูปขนาด A4 (8.3 × 11.7 นิ้ว)',
-      th: 'กระดาษโฟโต้พรีเมียม / แคนวาสบาง + กรอบโมเดิร์น / ไม้ / อลูมิเนียม',
-      mood: 'ตั้งโต๊ะทำงาน · หิ้งพระคอนโด · ของขวัญที่ระลึก',
-      lines: [['ขนาด', 'A4 (8.3 × 11.7 นิ้ว)'], ['ราคาพร้อมกรอบ', '390 ฿']]
-    },
-    {
-      id: 9, cat: 'frame', ratio: '590 ฿', selectPrice: 590,
-      en: 'กรอบรูปขนาด 10 × 12 นิ้ว',
-      th: 'กระดาษโฟโต้เคลือบด้าน / แคนวาส + กรอบหลุยส์สีทองคลาสสิก',
-      mood: 'หิ้งบูชา · ห้องพระ · มอบเป็นของขวัญผู้ใหญ่',
-      lines: [['ขนาด', '10 × 12 นิ้ว'], ['ราคาพร้อมกรอบ', '590 ฿']]
-    },
-    {
-      id: 10, cat: 'frame', ratio: '690 ฿', selectPrice: 690,
-      en: 'กรอบรูปขนาด 12 × 18 นิ้ว',
-      th: 'ผ้าแคนวาสแท้หนาปานกลาง + กรอบโมเดิร์นลอย / กรอบหลุยส์',
-      mood: 'ผนังห้องรับแขก · ห้องทำงาน · เคาน์เตอร์ร้านค้า',
-      lines: [['ขนาด', '12 × 18 นิ้ว'], ['ราคาพร้อมกรอบ', '690 ฿']]
-    },
-    {
-      id: 11, cat: 'frame', ratio: '990 ฿', selectPrice: 990,
-      en: 'กรอบรูปขนาด 16 × 20 นิ้ว',
-      th: 'ผ้าแคนวาสพิมพ์ยูวีความละเอียดสูง + กรอบหลุยส์สีทองโครงแข็ง',
-      mood: 'โถงบ้าน · ห้องประชุม · ภาพบรรพบุรุษ · ขึ้นบ้านใหม่',
-      lines: [['ขนาด', '16 × 20 นิ้ว'], ['ราคาพร้อมกรอบ', '990 ฿']]
-    },
-    {
-      id: 12, cat: 'frame', ratio: '1,490 ฿', selectPrice: 1490,
-      en: 'กรอบรูปขนาด 20 × 30 นิ้ว',
-      th: 'ผ้าแคนวาสผืนใหญ่เคลือบกัน UV + กรอบหลุยส์สีทองอลังการเสริมเหล็ก',
-      mood: 'ผนังหลักบ้าน · อาคารสำนักงาน · ของขวัญเปิดกิจการ',
-      lines: [['ขนาด', '20 × 30 นิ้ว'], ['ราคาพร้อมกรอบ', '1,490 ฿']]
-    },
-
-    /* --- ตัวอย่างผลงานจริง 8 การ์ด --- */
-    {
-      id: 13, cat: 'idphoto', ratio: 'ก.พ. 300 DPI', selectPrice: 220,
-      en: 'ข้าราชการพลเรือนชาย',
-      th: 'จัดแสงไฟสตูดิโอ 3 จุด ล็อกโครงหน้าเดิม ตรวจสอบชั้นยศและระเบียบ ก.พ.',
-      mood: 'ชุดปกติขาว · ถูกระเบียบ 100%',
-      img: 'assets/work/id-sample-thai-civil-man.webp',
-      lines: [['หมวดงาน', 'รูปติดบัตร & ชุดราชการ'], ['ความละเอียด', '300 DPI มาตรฐานราชการ']]
-    },
-    {
-      id: 14, cat: 'idphoto', ratio: 'ระเบียบ ก.พ.', selectPrice: 220,
-      en: 'ข้าราชการพลเรือนหญิง',
-      th: 'อินทรธนูตรงตำแหน่ง ผิวพรรณสดใสเป็นธรรมชาติ ไม่หลอกตา',
-      mood: 'ชุดปกติขาวหญิง · รีทัชธรรมชาติ',
-      img: 'assets/work/id-sample-thai-civil-woman.webp',
-      lines: [['หมวดงาน', 'รูปติดบัตร & ชุดราชการ'], ['การรับประกัน', 'แก้ไขฟรีหากไม่ผ่านระเบียบ']]
-    },
-    {
-      id: 15, cat: 'idphoto', ratio: 'สูทสากล', selectPrice: 150,
-      en: 'สูทสากลสมัครงาน / วีซ่า',
-      th: 'ตัดต่อสูทเนี๊ยบระดับผู้บริหาร คมชัด 300 DPI สำหรับสมัครงาน วีซ่า และพาสปอร์ต',
-      mood: 'สมัครงาน · วีซ่า · พาสปอร์ต',
-      img: 'assets/work/id-sample-thai-woman-suit.webp',
-      lines: [['หมวดงาน', 'ชุดสูทสากลผู้บริหาร'], ['ไฟล์ที่ได้รับ', 'JPG/PNG 300 DPI พร้อมอัดรูป']]
-    },
-    {
-      id: 16, cat: 'retouch', ratio: 'ลงสีธรรมชาติ', selectPrice: 700,
-      en: 'บูรณะภาพเก่าคู่ขาวดำ',
-      th: 'ลบรอยฉีกขาด ซ่อมรอยพับและคราบจาง คืนมิติสีผิวบรรพบุรุษอย่างสมจริง 100%',
-      mood: 'กู้ภาพเก่า · ลงสีเสมือนจริง',
-      img: 'assets/work/zip-restore-couple.webp',
-      lines: [['หมวดงาน', 'รีทัช & ซ่อมภาพเก่าพรีเมียม'], ['ราคาประเมิน', '700 ฿']]
-    },
-    {
-      id: 17, cat: 'retouch', ratio: 'Ultra-HD', selectPrice: 450,
-      en: 'ฟื้นฟูภาพถ่ายครอบครัว',
-      th: 'ลบรอยด่างและเชื้อรา เพิ่มความคมชัดระดับ HD ขยายขนาดใส่กรอบรูปใหญ่ได้',
-      mood: 'ภาพครอบครัว · คมชัดสูง',
-      img: 'assets/work/zip-restore-family.webp',
-      lines: [['หมวดงาน', 'ฟื้นฟูภาพถ่ายครอบครัว'], ['ราคาประเมิน', '450–700 ฿']]
-    },
-    {
-      id: 18, cat: 'work', ratio: 'แคนวาสแท้', selectPrice: 690,
-      en: 'มังกรทองเหินเวหา',
-      th: 'สัญลักษณ์ความเจริญก้าวหน้า ลายเส้นวิจิตร เสริมอำนาจบารมีและการค้า',
-      mood: 'ศิลปะมงคล · ฮวงจุ้ย',
-      img: 'assets/work/auspicious-dragon-g5-1.webp',
-      lines: [['หมวดงาน', 'ภาพมงคลพร้อมกรอบ'], ['วัสดุ', 'แคนวาสแท้เคลือบกัน UV']]
-    },
-    {
-      id: 19, cat: 'work', ratio: 'พุทธศิลป์', selectPrice: 590,
-      en: 'ท้าวเวสสุวรรณโณ มหาราช',
-      th: 'พิมพ์ผ้าใบแคนวาสสีทองสดใส มหาเทพแห่งขุมทรัพย์และการปกป้องคุ้มครอง',
-      mood: 'มหาเทพแห่งขุมทรัพย์ · ปกป้องคุ้มครอง',
-      img: 'assets/work/auspicious-sacred-g5-1.webp',
-      lines: [['หมวดงาน', 'ภาพมงคลพร้อมกรอบ'], ['กรอบแนะนำ', 'กรอบหลุยส์สีทอง']]
-    },
-    {
-      id: 20, cat: 'work', ratio: 'ฮวงจุ้ยการค้า', selectPrice: 690,
-      en: 'ปลาคาร์ฟมงคล 8 เซียน',
-      th: 'สัญลักษณ์การเงินไหลมาเทมา เรียกเงินเรียกทอง ติดหน้าร้านหรือห้องทำงาน',
-      mood: 'เรียกทรัพย์ · การเงินมั่งคั่ง',
-      img: 'assets/work/auspicious-koi-g5-1.webp',
-      lines: [['หมวดงาน', 'ภาพมงคลพร้อมกรอบ'], ['ตำแหน่งติดตั้ง', 'หน้าร้าน / ห้องรับแขก']]
+      id: 6,
+      cat: 'auspicious',
+      ratio: 'พร้อมกรอบหรู · 390–1,490 ฿',
+      selectPrice: 590,
+      en: '6. ภาพมงคลเสริมฮวงจุ้ย',
+      sub: 'Auspicious Sacred Art & Luxury Frames',
+      th: 'ภาพมงคลเสริมฮวงจุ้ย เสริมบารมี การค้า และโชคลาภ (มังกรทอง, ปลาคาร์ป 8 เซียน, ม้ามงคล, เรือสำเภา, ท้าวเวสสุวรรณ) พิมพ์บนผ้าแคนวาสแท้เคลือบกัน UV เข้ากรอบหลุยส์สีทองคลาสสิกหรือกรอบโมเดิร์น แพ็กกันกระแทก 3 ชั้นส่งทั่วไทย',
+      mood: 'มังกรทอง · ปลาคาร์ป 8 · สำเภา · ท้าวเวสสุวรรณ · กรอบหลุยส์',
+      slides: [
+        { img: 'assets/work/auspicious-dragon-g5-1.webp', title: 'มังกรทองเหินเวหา เสริมบารมีอำนาจการค้า' },
+        { img: 'assets/work/auspicious-koi-g5-1.webp', title: 'ปลาคาร์ฟ 8 เซียน เรียกทรัพย์เงินทองไหลมา' },
+        { img: 'assets/work/auspicious-horse-g5-1.webp', title: 'ม้ามงคล 8 ตัว ธุรกิจก้าวหน้ารวดเร็วไร้อุปสรรค' },
+        { img: 'assets/work/auspicious-ship-g5-1.webp', title: 'เรือสำเภาทอง ค้าขายราบรื่นกำไรมั่งคั่ง' },
+        { img: 'assets/work/auspicious-sacred-g5-1.webp', title: 'ท้าวเวสสุวรรณโณ มหาราช ขุมทรัพย์คุ้มครอง' },
+        { img: 'assets/work/auspicious-peacock-g5-1.webp', title: 'นกยูงคู่มงคล เสริมความรัก ความสง่างาม' },
+        { img: 'assets/work/zip-auspicious-frame-01.webp', title: 'ภาพมงคลเข้ากรอบหลุยส์สีทองหรูพร้อมแขวน' }
+      ],
+      lines: [
+        ['ขนาด A4 (8.3×11.7")', 'กรอบโมเดิร์น / ไม้ / อลูมิเนียม ตั้งโต๊ะหรือหิ้งพระ (390 ฿)'],
+        ['ขนาด 10×12 นิ้ว', 'กรอบหลุยส์สีทองคลาสสิก สำหรับหิ้งบูชา/ของขวัญ (590 ฿)'],
+        ['ขนาด 12×18 นิ้ว', 'ผ้าแคนวาสแท้ + กรอบโมเดิร์นลอย / กรอบหลุยส์ (690 ฿)'],
+        ['ขนาด 16×20" / 20×30"', 'แคนวาส UV ผืนใหญ่ + กรอบหลุยส์ใหญ่โครงเหล็ก (990 / 1,490 ฿)']
+      ]
     }
   ];
 
-  const FRAME_TABLE = [
-    { size: 'A4 (8.3 × 11.7 นิ้ว)', mat: 'กระดาษโฟโต้พรีเมียม / แคนวาสบาง + กรอบโมเดิร์น / ไม้ / อลูมิเนียม', use: 'ตั้งโต๊ะทำงาน หิ้งพระคอนโด ของขวัญที่ระลึก', price: 390, btn: 'เลือกขนาด A4' },
-    { size: '10 × 12 นิ้ว', mat: 'กระดาษโฟโต้เคลือบด้าน / แคนวาส + กรอบหลุยส์สีทองคลาสสิก', use: 'หิ้งบูชา ห้องพระ มอบเป็นของขวัญผู้ใหญ่', price: 590, btn: 'เลือก 10×12"' },
-    { size: '12 × 18 นิ้ว', mat: 'ผ้าแคนวาสแท้หนาปานกลาง + กรอบโมเดิร์นลอย / กรอบหลุยส์', use: 'ผนังห้องรับแขก ห้องทำงาน เคาน์เตอร์ร้านค้า', price: 690, btn: 'เลือก 12×18"' },
-    { size: '16 × 20 นิ้ว', mat: 'ผ้าแคนวาสพิมพ์ยูวีความละเอียดสูง + กรอบหลุยส์สีทองโครงแข็ง', use: 'โถงบ้าน ห้องประชุม ภาพบรรพบุรุษ / ของขวัญขึ้นบ้านใหม่', price: 990, btn: 'เลือก 16×20"' },
-    { size: '20 × 30 นิ้ว', mat: 'ผ้าแคนวาสผืนใหญ่เคลือบกัน UV + กรอบหลุยส์สีทองอลังการเสริมเหล็ก', use: 'ผนังหลักบ้าน/อาคารสำนักงาน ของขวัญเปิดกิจการมงคล', price: 1490, btn: 'เลือก 20×30"' }
-  ];
-
-  const state = { mode: 'ship', cat: 'all', q: '', refFiles: [], slipFile: null };
-  const $ = id => document.getElementById(id);
-  const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const pad = n => String(n).padStart(2, '0');
-  const src = p => /^https?:/.test(p) ? p : SHOP.assetBase + p;
-
-  /* ---------- Before / After Slider ---------- */
-  const BA_CASES = {
-    1: {
-      before: 'assets/work/ba-id-woman-before.webp',
-      after:  'assets/work/ba-id-woman-after.webp',
-      lblB:   '◀ ภาพเซลฟี่เดิมก่อนทำ',
-      lblA:   'ตัดต่อสูท + รีทัช 300 DPI ▶',
-      title:  'เปรียบเทียบงานรีทัช & ตัดต่อชุด'
-    },
-    2: {
-      before: 'assets/work/ba-restore-flower-before.webp',
-      after:  'assets/work/ba-restore-flower-after.webp',
-      lblB:   '◀ ภาพเก่าชำรุด / สีซีดจาง',
-      lblA:   'บูรณะคมชัดสีธรรมชาติ ▶',
-      title:  'เปรียบเทียบงานฟื้นฟู & กู้ภาพเก่า'
-    }
-  };
-
-  function setBAPos(pct) {
-    const v = Math.max(0, Math.min(100, Number(pct)));
-    $('baAfterLayer').style.clipPath = `inset(0 0 0 ${v}%)`;
-    $('baHandle').style.left = v + '%';
-    $('baSlider').value = v;
-  }
-
-  function setBACase(n) {
-    const c = BA_CASES[n];
-    $('baBeforeImg').src = src(c.before);
-    $('baAfterImg').src  = src(c.after);
-    $('baBeforeLbl').textContent = c.lblB;
-    $('baAfterLbl').textContent  = c.lblA;
-    $('baTitle').textContent     = c.title;
-    setBAPos(50);
-  }
-
-  $('baSwitch').addEventListener('click', e => {
-    const b = e.target.closest('button[data-case]');
-    if (!b) return;
-    $('baSwitch').querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
-    setBACase(b.dataset.case);
-  });
-  $('baSlider').addEventListener('input', e => setBAPos(e.target.value));
-  (() => {
-    const box = $('baContainer');
-    let down = false;
-    const move = e => {
-      if (!down) return;
-      const r = box.getBoundingClientRect();
-      const x = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
-      setBAPos((x / r.width) * 100);
-    };
-    box.addEventListener('mousedown', e => { down = true; move(e); });
-    window.addEventListener('mousemove', move);
-    window.addEventListener('mouseup', () => { down = false; });
-    box.addEventListener('touchstart', e => { down = true; move(e); }, { passive: true });
-    box.addEventListener('touchmove', move, { passive: true });
-    box.addEventListener('touchend', () => { down = false; });
-  })();
-
-  /* ---------- Street Editorial Cards ---------- */
+  /* ---------- Street Editorial Cards with Interactive Slider ---------- */
   function visible() {
     const q = state.q.trim().toLowerCase();
     return ITEMS.filter(p => {
       if (state.cat !== 'all' && p.cat !== state.cat) return false;
       if (!q) return true;
-      return [p.en, p.th, p.mood, p.ratio, (p.lines || []).flat().join(' ')].join(' ').toLowerCase().includes(q);
+      const slideTitles = (p.slides || []).map(s => s.title).join(' ');
+      return [p.en, p.sub, p.th, p.mood, p.ratio, slideTitles, (p.lines || []).flat().join(' ')].join(' ').toLowerCase().includes(q);
     });
   }
 
@@ -980,29 +1033,142 @@ table.ftable{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640p
     const c = CATS[p.cat];
     const lines = (p.lines || []).map(([k, v]) => `<div class="ln"><span>${esc(k)}</span><b>${esc(v)}</b></div>`).join('');
     const isLong = (p.lines || []).length > 2;
+    const slides = p.slides || [];
+
+    const slidesHTML = slides.map((s, idx) => `
+      <div class="slide-item${idx === 0 ? ' active' : ''}" data-index="${idx}">
+        <img loading="lazy" src="${esc(src(s.img))}" alt="${esc(s.title)}" title="คลิกดูภาพขยาย: ${esc(s.title)}">
+      </div>
+    `).join('');
+
+    const dotsHTML = slides.map((_, idx) => `
+      <button type="button" class="slide-dot${idx === 0 ? ' active' : ''}" data-index="${idx}" aria-label="สไลด์ ${idx + 1}"></button>
+    `).join('');
+
     return `<article class="card" style="--c:${c.rgb}" data-id="${p.id}">
       <div class="top">
         <span class="num">${pad(p.id)}</span>
         <span class="tag">${esc(c.name)}</span>
         <span class="ratio">${esc(p.ratio)}</span>
       </div>
-      ${p.img ? `<div class="thumb" data-zoom><img loading="lazy" src="${esc(src(p.img))}" alt="${esc(p.en)}"></div>` : ''}
+
+      <div class="card-slider" data-card-id="${p.id}" aria-label="สไลด์ตัวอย่างผลงาน ${esc(p.en)}">
+        <div class="slide-track">${slidesHTML}</div>
+        <button type="button" class="slide-btn prev" aria-label="ภาพก่อนหน้า">‹</button>
+        <button type="button" class="slide-btn next" aria-label="ภาพถัดไป">›</button>
+        <div class="slide-badge">
+          <b>สไลด์ <span class="badge-cur">1</span>/${slides.length}</b>
+          <span class="badge-title">${esc(slides[0]?.title || '')}</span>
+        </div>
+        <div class="slide-dots">${dotsHTML}</div>
+        <button type="button" class="slide-zoom-btn" title="คลิกดูภาพขยายเต็มจอ">🔍 ดูภาพใหญ่</button>
+      </div>
+
       <h3>${esc(p.en)}</h3>
       <p class="th">${esc(p.th)}</p>
       <div class="meta">
-        ${p.sample ? '<span class="sample">บริการหลักยอดนิยม</span>' : ''}
+        <span class="sample">${slides.length} สไลด์ผลงาน</span>
         <span>${esc(p.mood)}</span>
       </div>
       <div class="prompt${isLong ? '' : ' short'}">${lines}</div>
       <div class="actions">
-        ${isLong ? '<button class="btn more" type="button">ดูทั้งหมด</button>' : ''}
-        <button class="btn primary select-card" type="button">เลือกรายการนี้ &amp; ส่งรูป →</button>
+        ${isLong ? '<button class="btn more" type="button">ดูรายละเอียดเพิ่ม</button>' : ''}
+        <button class="btn primary select-card" type="button" data-id="${p.id}" data-price="${p.selectPrice}" data-name="${esc(p.en)}">เลือกสั่งหมวดนี้ &amp; ส่งรูป →</button>
       </div>
     </article>`;
   }
 
+  /* Slider Controller: auto-play, touch swipe, manual controls, and modal lightbox zoom */
+  const activeSliderTimers = [];
+  function initSliders() {
+    activeSliderTimers.forEach(t => clearInterval(t));
+    activeSliderTimers.length = 0;
+
+    document.querySelectorAll('.card-slider').forEach(slider => {
+      const cardId = Number(slider.dataset.cardId);
+      const item = ITEMS.find(x => x.id === cardId);
+      if (!item || !item.slides || item.slides.length <= 1) return;
+
+      const slides = slider.querySelectorAll('.slide-item');
+      const dots = slider.querySelectorAll('.slide-dot');
+      const curBadge = slider.querySelector('.badge-cur');
+      const titleBadge = slider.querySelector('.badge-title');
+      const prevBtn = slider.querySelector('.slide-btn.prev');
+      const nextBtn = slider.querySelector('.slide-btn.next');
+      const zoomBtn = slider.querySelector('.slide-zoom-btn');
+
+      let current = 0;
+      let timer = null;
+
+      function goTo(n) {
+        current = (n + slides.length) % slides.length;
+        slides.forEach((sl, idx) => sl.classList.toggle('active', idx === current));
+        dots.forEach((dt, idx) => dt.classList.toggle('active', idx === current));
+        if (curBadge) curBadge.textContent = current + 1;
+        if (titleBadge) titleBadge.textContent = item.slides[current]?.title || '';
+      }
+
+      function startAuto() {
+        stopAuto();
+        timer = setInterval(() => goTo(current + 1), 4500);
+        activeSliderTimers.push(timer);
+      }
+      function stopAuto() {
+        if (timer) {
+          clearInterval(timer);
+          const i = activeSliderTimers.indexOf(timer);
+          if (i !== -1) activeSliderTimers.splice(i, 1);
+        }
+      }
+
+      prevBtn?.addEventListener('click', e => { e.stopPropagation(); goTo(current - 1); startAuto(); });
+      nextBtn?.addEventListener('click', e => { e.stopPropagation(); goTo(current + 1); startAuto(); });
+
+      dots.forEach(dt => {
+        dt.addEventListener('click', e => {
+          e.stopPropagation();
+          goTo(Number(dt.dataset.index));
+          startAuto();
+        });
+      });
+
+      function zoomCurrent() {
+        const activeImg = slides[current]?.querySelector('img');
+        if (activeImg) {
+          $('lbImg').src = activeImg.src;
+          $('lbCap').textContent = `${item.en} — ${item.slides[current].title}`;
+          $('lightbox').hidden = false;
+        }
+      }
+
+      zoomBtn?.addEventListener('click', e => { e.stopPropagation(); zoomCurrent(); });
+      slider.querySelectorAll('.slide-item img').forEach(img => {
+        img.addEventListener('click', e => { e.stopPropagation(); zoomCurrent(); });
+      });
+
+      slider.addEventListener('mouseenter', stopAuto);
+      slider.addEventListener('mouseleave', startAuto);
+
+      let startX = 0;
+      slider.addEventListener('touchstart', e => {
+        startX = e.changedTouches[0].clientX;
+        stopAuto();
+      }, { passive: true });
+      slider.addEventListener('touchend', e => {
+        const diffX = e.changedTouches[0].clientX - startX;
+        if (Math.abs(diffX) > 35) {
+          if (diffX > 0) goTo(current - 1);
+          else goTo(current + 1);
+        }
+        startAuto();
+      }, { passive: true });
+
+      startAuto();
+    });
+  }
+
   function renderFilters() {
-    const items = [['all', 'ทั้งหมด', '255,98,54']].concat(Object.keys(CATS).map(k => [k, CATS[k].name, CATS[k].rgb]));
+    const items = [['all', 'ทั้งหมด (6 หมวด)', '255,98,54']].concat(Object.keys(CATS).map(k => [k, CATS[k].name, CATS[k].rgb]));
     $('filters').innerHTML = items.map(([k, name, rgb]) => {
       const n = k === 'all' ? ITEMS.length : ITEMS.filter(p => p.cat === k).length;
       return `<button type="button" class="fchip" data-cat="${k}" style="--c:${rgb}" aria-pressed="${state.cat === k}">${esc(name)}<i>${n}</i></button>`;
@@ -1014,6 +1180,7 @@ table.ftable{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640p
     $('grid').innerHTML = list.map(cardHTML).join('');
     $('empty').hidden = list.length > 0;
     $('count').textContent = `แสดง ${list.length} / ${ITEMS.length} การ์ด`;
+    initSliders();
   }
 
   function renderFrameTable() {
@@ -1128,6 +1295,32 @@ table.ftable{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640p
   $('q').addEventListener('input', e => { state.q = e.target.value; render(); });
 
   $('grid').addEventListener('click', e => {
+
+    const selBtn = e.target.closest('.select-card');
+    if (selBtn) {
+      const cardId = Number(selBtn.dataset.id);
+      const cardPrice = Number(selBtn.dataset.price);
+      const cardName = selBtn.dataset.name;
+      
+      const sel = $('serviceSelect');
+      let matched = false;
+      for (let i = 0; i < sel.options.length; i++) {
+        if (Number(sel.options[i].value) === cardPrice) {
+          sel.selectedIndex = i;
+          matched = true;
+          break;
+        }
+      }
+      if (!matched && cardPrice) {
+        sel.value = String(cardPrice);
+      }
+      $('orderNotes').value = `สั่งทำหมวด: ${cardName} (จากการ์ดที่ ${cardId})`;
+      recalc();
+      toast(`เลือกหมวด "${cardName}" เรียบร้อย เลื่อนลงไปกรอกข้อมูลได้เลย`);
+      $('order-studio').scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
+
     const card = e.target.closest('.card');
     if (!card) return;
     const p = ITEMS.find(x => x.id === Number(card.dataset.id));
