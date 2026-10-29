@@ -906,21 +906,28 @@ table.ftable{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640p
   /* ===================================================================
      [ANTIGRAVITY DATA ZONE 3: การ์ด 6 หมวดหลัก พร้อมสไลด์โชว์ผลงานจริง]
      =================================================================== */
-  const ITEMS = [
+    const ITEMS = [
     {
       id: 1,
       cat: 'idphoto',
       ratio: 'เริ่ม 59–220 ฿',
       selectPrice: 89,
-      en: '1. รูปติดบัตรทั่วไป',
+      en: '1. รูปติดบัตรทั่วไป & สูทสากล',
       sub: 'Student, General & Business ID Photos',
-      th: 'บริการถ่ายและแต่งรูปติดบัตรออนไลน์ นักเรียน นักศึกษา สมัครงานเอกสารทั่วไป ลบสิว ฝ้า ปรับผิวเนียน ล็อกโครงหน้าเดิม แสงเงาคมชัด 300 DPI พร้อมอัดรูปหรือรับเฉพาะไฟล์',
+      th: 'บริการถ่ายและตัดต่อรูปติดบัตรออนไลน์ นักเรียน นักศึกษา สมัครงานเอกสารทั่วไป สูทสากล ลบสิว ฝ้า ปรับผิวเนียน แสงสตูดิโอคมชัด 300 DPI พร้อมอัดรูปหรือรับเฉพาะไฟล์',
       mood: 'สมัครงาน · นักเรียน · บุคคลทั่วไป · 300 DPI',
       slides: [
-        { img: 'assets/work/id-sample-thai-man-suit.webp', title: 'สูทสากลชายมาตรฐานสมัครงาน' },
-        { img: 'assets/work/id-sample-thai-woman-suit.webp', title: 'สูทสากลหญิงสุภาพเรียบร้อย' },
-        { img: 'assets/work/id-sample-woman-after.webp', title: 'นักเรียน นักศึกษา และบุคคลทั่วไป' },
-        { img: 'assets/work/id-sample-before-after.webp', title: 'เปรียบเทียบก่อน-หลังเซลฟี่มือถือ' }
+        { img: 'assets/gallery/01-00-cover.webp', title: 'ปกบริการรูปติดบัตรออนไลน์ สตูดิโอมืออาชีพ' },
+        { img: 'assets/gallery/01-03.webp', title: 'รูปติดบัตรนักศึกษา ฉากหลังฟ้ามาตรฐาน' },
+        { img: 'assets/gallery/01-04.webp', title: 'รูปสมัครงานสูทสีกรมท่า' },
+        { img: 'assets/gallery/01-05.webp', title: 'รูปสมัครงานสูทสีดำ ทางการ' },
+        { img: 'assets/gallery/01-07.webp', title: 'ตัวอย่างเปลี่ยนชุดลำลองเป็นสูทสมัครงาน' },
+        { img: 'assets/gallery/01-08.webp', title: 'ตัวอย่างรีทัชผิวหน้าและปรับแสงสตูดิโอ' },
+        { img: 'assets/gallery/15-01.webp', title: 'สูทดำพื้นหลังฟ้า สมัครงาน' },
+        { img: 'assets/gallery/15-02.webp', title: 'สูทสีกรมท่า ผู้บริหาร' },
+        { img: 'assets/gallery/15-04.webp', title: 'รูปโปรไฟล์ LinkedIn / ทางการ' },
+        { img: 'assets/gallery/15-05.webp', title: 'รูปติด Resume สมัครงาน' },
+        { img: 'assets/gallery/15-07.webp', title: 'Mockup เอกสารสมัครงาน' }
       ],
       lines: [
         ['ชุดประหยัด (Good)', 'อัดรูป 1" หรือ 1.5" (8–12 ใบ) กระดาษโฟโต้ด้านกันน้ำ (59 ฿)'],
@@ -934,14 +941,22 @@ table.ftable{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640p
       cat: 'civil',
       ratio: 'ระเบียบ ก.พ. 100% · 150–220 ฿',
       selectPrice: 220,
-      en: '2. ชุดราชการ',
+      en: '2. ชุดราชการ (ชาย/หญิง)',
       sub: 'Thai Civil Official Uniforms & Regalia',
       th: 'ตัดต่อชุดข้าราชการพลเรือนปกติขาว ชุดสีกากี ชุดครู ชุดตำรวจ ชุดทหาร และชุดครุย ตรวจสอบอินทรธนูและเครื่องราชฯ ตรงสังกัดและระดับชั้นยศอย่างแม่นยำ รับประกันแก้ไขฟรี 100%',
-      mood: 'ปกติขาว · สีกากี · ครู-ตำรวจ-ทหาร · แก้ไขฟรี 100%',
+      mood: 'ปกติขาว · สีกากี · ชาย/หญิง · ระเบียบ ก.พ. 100%',
       slides: [
-        { img: 'assets/work/id-sample-thai-civil-man.webp', title: 'ข้าราชการพลเรือนชายปกติขาว' },
-        { img: 'assets/work/id-sample-thai-civil-woman.webp', title: 'ข้าราชการพลเรือนหญิงปกติขาว' },
-        { img: 'assets/work/ba-id-woman-after.webp', title: 'จัดแสงสตูดิโอ 3 จุด ล็อกโครงหน้า' }
+        { img: 'assets/gallery/13-00-cover.webp', title: 'ปกบริการตัดต่อชุดข้าราชการชาย' },
+        { img: 'assets/gallery/14-00-cover.webp', title: 'ปกบริการตัดต่อชุดข้าราชการหญิง' },
+        { img: 'assets/gallery/01-01.webp', title: 'ข้าราชการชาย ชุดสีกากี ฉากฟ้ามาตรฐาน' },
+        { img: 'assets/gallery/01-02.webp', title: 'ข้าราชการหญิง ชุดสีกากี ฉากฟ้ามาตรฐาน' },
+        { img: 'assets/gallery/13-03.webp', title: 'ชุดปกติขาวชาย ถูกระเบียบ ก.พ.' },
+        { img: 'assets/gallery/14-03.webp', title: 'ชุดปกติขาวหญิง ถูกระเบียบ ก.พ.' },
+        { img: 'assets/gallery/13-04.webp', title: 'ตัวอย่างเปลี่ยนเสื้อยืดเป็นชุดราชการ' },
+        { img: 'assets/gallery/14-04.webp', title: 'ตัวอย่างเปลี่ยนชุดลำลองเป็นชุดราชการหญิง' },
+        { img: 'assets/gallery/13-01.webp', title: 'ข้าราชการชายครึ่งตัว คมชัด 300 DPI' },
+        { img: 'assets/gallery/14-01.webp', title: 'ข้าราชการหญิงครึ่งตัว คมชัด 300 DPI' },
+        { img: 'assets/gallery/13-05.webp', title: 'ตัวอย่างรีทัชภาพข้าราชการ' }
       ],
       lines: [
         ['เฉพาะไฟล์ดิจิทัล 300 DPI', 'ตัดต่อชุดปกติขาว/กากี + เช็คอินทรธนูตรงยศ (150 ฿)'],
@@ -960,10 +975,12 @@ table.ftable{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640p
       th: 'รูปถ่ายขอวีซ่าและพาสปอร์ตตามระเบียบสถานทูตทั่วโลก สัดส่วนใบหน้า 70–80% ตามมาตรฐาน ICAO ฉากหลังขาวบริสุทธิ์ ไร้เงาสะท้อน ถูกต้องแม่นยำสำหรับยื่นออนไลน์และยื่นเล่ม',
       mood: 'US Visa 2×2" · เชงเก้น · ญี่ปุ่น · จีน · รับประกันผ่าน 100%',
       slides: [
-        { img: 'assets/work/id-sample-thai-woman-suit.webp', title: 'US Visa 2×2 นิ้ว (ฉากขาวบริสุทธิ์)' },
-        { img: 'assets/work/id-sample-thai-man-suit.webp', title: 'วีซ่าเชงเก้น / ยุโรป 35×45 มม.' },
-        { img: 'assets/work/id-sample-woman-after.webp', title: 'วีซ่าญี่ปุ่น / จีน / พาสปอร์ตสากล' },
-        { img: 'assets/work/id-sample-before-after.webp', title: 'สัดส่วนใบหน้า 70–80% ตามมาตรฐาน ICAO' }
+        { img: 'assets/gallery/15-00-cover.webp', title: 'ปกบริการรูปสมัครงานและวีซ่าทางการ' },
+        { img: 'assets/gallery/15-06.webp', title: 'รูปสมัครวีซ่า สัดส่วนสถานทูตกำหนด' },
+        { img: 'assets/gallery/15-01.webp', title: 'สูทดำฉากฟ้า/ขาวสำหรับยื่นวีซ่า' },
+        { img: 'assets/gallery/15-02.webp', title: 'สูทสีกรมท่า ทางการสากล' },
+        { img: 'assets/gallery/15-03.webp', title: 'สูทสีเทา สุภาพเรียบร้อย' },
+        { img: 'assets/gallery/01-04.webp', title: 'สูทมาตรฐานสากล 300 DPI' }
       ],
       lines: [
         ['เฉพาะไฟล์ยื่นวีซ่าออนไลน์', 'ปรับขนาดพิกเซล KB และสัดส่วนตามสถานทูตกำหนด (150 ฿)'],
@@ -982,10 +999,13 @@ table.ftable{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640p
       th: 'ฟื้นฟูรูปถ่ายเก่าที่ชำรุด ฉีกขาด โดนน้ำ ปลวกแทะ หรือซีดจาง คืนมิติสีผิวบรรพบุรุษจากขาวดำเป็นภาพสีธรรมชาติ เพิ่มความคมชัดระดับ Ultra-HD และรับทำรูปหน้าพิธีด่วน 24 ชม.',
       mood: 'กู้ภาพเก่า · ซ่อมรอยพับ · ลงสีเสมือนจริง · รูปหน้าพิธี 24 ชม.',
       slides: [
-        { img: 'assets/work/zip-restore-family.webp', title: 'ฟื้นฟูภาพถ่ายครอบครัวเก่า ลบรอยด่างและเชื้อรา' },
-        { img: 'assets/work/zip-restore-couple.webp', title: 'บูรณะภาพคู่ขาวดำ คืนมิติสีผิวธรรมชาติ 100%' },
-        { img: 'assets/work/ba-restore-flower-after.webp', title: 'กู้ภาพเก่าชำรุด คืนความคมชัด 300 DPI' },
-        { img: 'assets/work/zip-restore-beforeafter-3x2.webp', title: 'ตัวอย่างงานรีทัชและบูรณะภาพ 6 รูปแบบ' }
+        { img: 'assets/gallery/02-00-cover.webp', title: 'ปกเปรียบเทียบภาพเก่าก่อนซ่อมและหลังซ่อม' },
+        { img: 'assets/gallery/02-01.webp', title: 'ภาพเก่าขาวดำก่อนซ่อม' },
+        { img: 'assets/gallery/02-02.webp', title: 'ภาพเก่าหลังซ่อมบูรณะสมบูรณ์' },
+        { img: 'assets/gallery/02-03.webp', title: 'ภาพขาวดำแปลงเป็นภาพสีธรรมชาติ' },
+        { img: 'assets/gallery/02-04.webp', title: 'ภาพแตกเบลอก่อนเพิ่มความคมชัด' },
+        { img: 'assets/gallery/02-05.webp', title: 'ภาพบรรพบุรุษฟื้นฟูคุณภาพสูง' },
+        { img: 'assets/gallery/02-06.webp', title: 'ตัวอย่างซ่อมรอยขาด รอยพับ และคราบ' }
       ],
       lines: [
         ['รีทัชภาพบุคคลพรีเมียม', 'ปรับผิวเนียน ลบสิว จัดแสง ปรับโครงหน้า (200 ฿)'],
@@ -997,23 +1017,26 @@ table.ftable{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640p
     {
       id: 5,
       cat: 'aiart',
-      ratio: 'Gen-AI 4K · 250–890 ฿',
+      ratio: 'สตูดิโอ & ครอบครัว · 250–890 ฿',
       selectPrice: 350,
-      en: '5. แต่งภาพด้วย AI',
-      sub: 'Gen-AI Studio Portraits & Modern Creative Art',
-      th: 'เนรมิตภาพถ่ายบุคคลสตูดิโอด้วยเทคโนโลยี AI ระดับโปร เปลี่ยนฉากหลัง สลับสไตล์เสื้อผ้า ทำภาพพรีเวดดิ้งแนวแฟนตาซี ภาพโปสเตอร์อาร์ต และงานภาพลักษณ์ธุรกิจ คมชัดระดับ 4K',
-      mood: 'โปรไฟล์ AI · พรีเวดดิ้ง AI · สตูดิโอ 4K · งานอาร์ตโมเดิร์น',
+      en: '5. แต่งภาพ AI & ครอบครัว/รับปริญญา',
+      sub: 'Family, Graduation & AI Studio Portraits',
+      th: 'อัดภาพครอบครัว รับปริญญา และภาพบุคคลสตูดิโอ AI สร้างความทรงจำสำคัญของชีวิตในโทนอุ่นระดับพรีเมียม ปรับแสงสตูดิโอ รีทัชผิวเนียน และภาพหมู่หลายเจเนอเรชัน',
+      mood: 'ภาพครอบครัว · รับปริญญา · สตูดิโอพรีเมียม · คมชัดสูง',
       slides: [
-        { img: 'assets/work/wedding-sunset-veil.webp', title: 'ภาพถ่ายบุคคลและพรีเวดดิ้งสไตล์โรแมนติก AI' },
-        { img: 'assets/work/wedding-lake-heart.webp', title: 'ภาพบุคคล AI ริมทะเลสาบ แสงสีธรรมชาติสตูดิโอ' },
-        { img: 'assets/work/wedding-poster-packages.webp', title: 'แพ็กเกจโปสเตอร์ AI เวดดิ้ง & งานศิลปะ' },
-        { img: 'assets/work/design-business-card-luxury.webp', title: 'งานออกแบบกราฟิก AI & แบรนด์ดิ้งหรู' }
+        { img: 'assets/gallery/07-00-cover.webp', title: 'ปกภาพครอบครัวและภาพรับปริญญา' },
+        { img: 'assets/gallery/07-01.webp', title: 'ภาพครอบครัวกลางแจ้ง บรรยากาศธรรมชาติ' },
+        { img: 'assets/gallery/07-02.webp', title: 'ภาพครอบครัวในสตูดิโอ แสงอบอุ่น' },
+        { img: 'assets/gallery/07-03.webp', title: 'ภาพครอบครัวหลายเจเนอเรชัน' },
+        { img: 'assets/gallery/07-04.webp', title: 'ภาพรับปริญญาเดี่ยว คมชัดสง่างาม' },
+        { img: 'assets/gallery/07-05.webp', title: 'ภาพรับปริญญาร่วมกับครอบครัว' },
+        { img: 'assets/gallery/07-06.webp', title: 'ภาพหมู่เพื่อนรับปริญญา' }
       ],
       lines: [
         ['ภาพโปรไฟล์สตูดิโอ AI', 'เปลี่ยนฉากหลัง จัดแสงสตูดิโอ ปรับลุคพรีเมียม (250 ฿)'],
         ['ภาพบุคคล AI สไตล์พรีเวดดิ้ง/อาร์ต', 'เนรมิตภาพศิลปะและภาพแต่งงาน 4K คมชัดสูง (350 ฿)'],
-        ['ออกแบบโปสเตอร์ / ภาพศิลปะ AI', 'ภาพประดับตกแต่งห้อง หรือปกพอร์ตโฟลิโอ (450 ฿)'],
-        ['แพ็กเกจแบรนดิ้ง & คอร์ปอเรต AI', 'เซ็ตภาพลักษณ์ธุรกิจและผู้บริหารระดับ Luxury (890 ฿)']
+        ['อัดภาพครอบครัว / รับปริญญา', 'ปรับแสงสี รีทัชหน้าเนียน พร้อมพิมพ์ภาพพรีเมียม (390–590 ฿)'],
+        ['เซ็ตภาพครอบครัวพร้อมกรอบหลุยส์', 'ภาพหลายเจเนอเรชันพร้อมกรอบใหญ่ทรงคุณค่า (890–1,490 ฿)']
       ]
     },
     {
@@ -1021,23 +1044,32 @@ table.ftable{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640p
       cat: 'auspicious',
       ratio: 'พร้อมกรอบหรู · 390–1,490 ฿',
       selectPrice: 590,
-      en: '6. ภาพมงคลเสริมฮวงจุ้ย',
+      en: '6. ภาพมงคลเสริมฮวงจุ้ย & กรอบรูป',
       sub: 'Auspicious Sacred Art & Luxury Frames',
-      th: 'ภาพมงคลเสริมฮวงจุ้ย เสริมบารมี การค้า และโชคลาภ (มังกรทอง, ปลาคาร์ป 8 เซียน, ม้ามงคล, เรือสำเภา, ท้าวเวสสุวรรณ) พิมพ์บนผ้าแคนวาสแท้เคลือบกัน UV เข้ากรอบหลุยส์สีทองคลาสสิกหรือกรอบโมเดิร์น แพ็กกันกระแทก 3 ชั้นส่งทั่วไทย',
-      mood: 'มังกรทอง · ปลาคาร์ป 8 · สำเภา · ท้าวเวสสุวรรณ · กรอบหลุยส์',
+      th: 'ภาพมงคลเสริมบารมี โชคลาภ และการค้า: ท้าวเวสสุวรรณ, พระพิฆเนศ, เกจิอาจารย์สายอีสาน (หลวงปู่ศิลา, หลวงพ่อคูณ, หลวงปู่มั่น), ปลาคาร์พ 8 ตัวในลำธารทอง พร้อมกรอบรูปทุกขนาด A4 ถึง 20×30 นิ้ว',
+      mood: 'ท้าวเวสสุวรรณ · พระพิฆเนศ · เกจิอีสาน · ปลาคาร์พ 8 · กรอบหรู',
       slides: [
-        { img: 'assets/work/auspicious-dragon-g5-1.webp', title: 'มังกรทองเหินเวหา เสริมบารมีอำนาจการค้า' },
-        { img: 'assets/work/auspicious-koi-g5-1.webp', title: 'ปลาคาร์ฟ 8 เซียน เรียกทรัพย์เงินทองไหลมา' },
-        { img: 'assets/work/auspicious-horse-g5-1.webp', title: 'ม้ามงคล 8 ตัว ธุรกิจก้าวหน้ารวดเร็วไร้อุปสรรค' },
-        { img: 'assets/work/auspicious-ship-g5-1.webp', title: 'เรือสำเภาทอง ค้าขายราบรื่นกำไรมั่งคั่ง' },
-        { img: 'assets/work/auspicious-sacred-g5-1.webp', title: 'ท้าวเวสสุวรรณโณ มหาราช ขุมทรัพย์คุ้มครอง' },
-        { img: 'assets/work/auspicious-peacock-g5-1.webp', title: 'นกยูงคู่มงคล เสริมความรัก ความสง่างาม' },
-        { img: 'assets/work/zip-auspicious-frame-01.webp', title: 'ภาพมงคลเข้ากรอบหลุยส์สีทองหรูพร้อมแขวน' }
+        { img: 'assets/gallery/03-00-cover.webp', title: 'ปกภาพมงคลแขวนผนังพร้อมกรอบสีทองหรูหรา' },
+        { img: 'assets/gallery/04-00-cover.webp', title: 'ท้าวเวสสุวรรณและพระพิฆเนศวิมานทอง' },
+        { img: 'assets/gallery/04-01.webp', title: 'ท้าวเวสสุวรรณถือกระบองทอง เสริมอำนาจ' },
+        { img: 'assets/gallery/04-04.webp', title: 'พระพิฆเนศประทานพร มหาเทพแห่งความสำเร็จ' },
+        { img: 'assets/gallery/05-00-cover.webp', title: 'รวมพระเกจิอาจารย์สายอีสานในพลังศรัทธาทองคำ' },
+        { img: 'assets/gallery/05-01.webp', title: 'หลวงปู่ศิลา สิริจันโท' },
+        { img: 'assets/gallery/05-02.webp', title: 'หลวงพ่อคูณ ปริสุทโธ' },
+        { img: 'assets/gallery/05-03.webp', title: 'หลวงปู่มั่น ภูริทัตโต' },
+        { img: 'assets/gallery/06-00-cover.webp', title: 'ปลาคาร์พ 8 ตัวว่ายในลำธารทอง มั่งคั่งร่ำรวย' },
+        { img: 'assets/gallery/06-01.webp', title: 'ปลาคาร์พ 8 ตัว ฮวงจุ้ยเรียกทรัพย์' },
+        { img: 'assets/gallery/06-03.webp', title: 'ปลาคาร์พว่ายทวนน้ำ ก้าวหน้ารวดเร็ว' },
+        { img: 'assets/gallery/08-00-cover.webp', title: 'กรอบรูปขนาด A4 สีทองหรูติดผนัง' },
+        { img: 'assets/gallery/09-00-cover.webp', title: 'กรอบรูป 10×12 นิ้ว พร้อมภาพมงคล' },
+        { img: 'assets/gallery/10-00-cover.webp', title: 'กรอบรูป 12×18 นิ้ว แขวนห้องรับแขก' },
+        { img: 'assets/gallery/11-00-cover.webp', title: 'กรอบรูป 16×20 นิ้ว แขวนในห้องพระ' },
+        { img: 'assets/gallery/12-00-cover.webp', title: 'กรอบรูป 20×30 นิ้ว โถงบ้านหรู เสริมบารมี' }
       ],
       lines: [
         ['ขนาด A4 (8.3×11.7")', 'กรอบโมเดิร์น / ไม้ / อลูมิเนียม ตั้งโต๊ะหรือหิ้งพระ (390 ฿)'],
         ['ขนาด 10×12 นิ้ว', 'กรอบหลุยส์สีทองคลาสสิก สำหรับหิ้งบูชา/ของขวัญ (590 ฿)'],
-        ['ขนาด 12×18 นิ้ว', 'ผ้าแคนวาสแท้ + กรอบโมเดิร์นลอย / กรอบหลุยส์ (690 ฿)'],
+        ['ขนาด 12×18 นิ้ว', 'ผ้าแคนวาสแท้ + กรอบโมเดิร์นลอย / หลุยส์ (690 ฿)'],
         ['ขนาด 16×20" / 20×30"', 'แคนวาส UV ผืนใหญ่ + กรอบหลุยส์ใหญ่โครงเหล็ก (990 / 1,490 ฿)']
       ]
     }
