@@ -1075,6 +1075,76 @@ table.ftable{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640p
     }
   ];
 
+
+  const state = { mode: 'ship', cat: 'all', q: '', refFiles: [], slipFile: null };
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const pad = n => String(n).padStart(2, '0');
+  const src = p => /^https?:/.test(p) ? p : SHOP.assetBase + p;
+
+  /* ---------- Before / After Slider ---------- */
+  const BA_CASES = {
+    1: {
+      before: 'assets/gallery/01-06.webp',
+      after:  'assets/gallery/01-01.webp',
+      lblB:   '◀ เปลี่ยนชุดลำลองเดิม',
+      lblA:   'ชุดข้าราชการ ก.พ. 300 DPI ▶',
+      title:  'เปรียบเทียบงานตัดต่อชุดข้าราชการ'
+    },
+    2: {
+      before: 'assets/gallery/02-01.webp',
+      after:  'assets/gallery/02-02.webp',
+      lblB:   '◀ ภาพเก่าขาวดำชำรุด',
+      lblA:   'บูรณะสมบูรณ์ คมชัดสูง ▶',
+      title:  'เปรียบเทียบงานฟื้นฟู & กู้ภาพเก่า'
+    }
+  };
+
+  function setBAPos(pct) {
+    const v = Math.max(0, Math.min(100, Number(pct)));
+    if ($('baAfterLayer')) $('baAfterLayer').style.clipPath = `inset(0 0 0 ${v}%)`;
+    if ($('baHandle')) $('baHandle').style.left = v + '%';
+    if ($('baSlider')) $('baSlider').value = v;
+  }
+
+  function setBACase(n) {
+    const c = BA_CASES[n];
+    if (!c) return;
+    if ($('baBeforeImg')) $('baBeforeImg').src = src(c.before);
+    if ($('baAfterImg'))  $('baAfterImg').src  = src(c.after);
+    if ($('baBeforeLbl')) $('baBeforeLbl').textContent = c.lblB;
+    if ($('baAfterLbl'))  $('baAfterLbl').textContent  = c.lblA;
+    if ($('baTitle'))     $('baTitle').textContent     = c.title;
+    setBAPos(50);
+  }
+
+  function initBASlider() {
+    $('baSwitch')?.addEventListener('click', e => {
+      const b = e.target.closest('button[data-case]');
+      if (!b) return;
+      $('baSwitch').querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+      setBACase(b.dataset.case);
+    });
+    $('baSlider')?.addEventListener('input', e => setBAPos(e.target.value));
+    (() => {
+      const box = $('baContainer');
+      if (!box) return;
+      let down = false;
+      const move = e => {
+        if (!down) return;
+        const r = box.getBoundingClientRect();
+        const x = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
+        setBAPos((x / r.width) * 100);
+      };
+      box.addEventListener('mousedown', e => { down = true; move(e); });
+      window.addEventListener('mousemove', move);
+      window.addEventListener('mouseup', () => { down = false; });
+      box.addEventListener('touchstart', e => { down = true; move(e); }, { passive: true });
+      box.addEventListener('touchmove', move, { passive: true });
+      box.addEventListener('touchend', () => { down = false; });
+    })();
+  }
+
   /* ---------- Street Editorial Cards with Interactive Slider ---------- */
   function visible() {
     const q = state.q.trim().toLowerCase();
@@ -1240,10 +1310,24 @@ table.ftable{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640p
     initSliders();
   }
 
+
+  const FRAME_TABLE = [
+    { size: 'A4 (8.3 × 11.7 นิ้ว)', img: 'assets/gallery/08-00-cover.webp', mat: 'กระดาษโฟโต้พรีเมียม / แคนวาสบาง + กรอบโมเดิร์น / ไม้ / อลูมิเนียม', use: 'ตั้งโต๊ะทำงาน หิ้งพระคอนโด ของขวัญที่ระลึก', price: 390, btn: 'เลือกขนาด A4' },
+    { size: '10 × 12 นิ้ว', img: 'assets/gallery/09-00-cover.webp', mat: 'กระดาษโฟโต้เคลือบด้าน / แคนวาส + กรอบหลุยส์สีทองคลาสสิก', use: 'หิ้งบูชา ห้องพระ มอบเป็นของขวัญผู้ใหญ่', price: 590, btn: 'เลือก 10×12"' },
+    { size: '12 × 18 นิ้ว', img: 'assets/gallery/10-00-cover.webp', mat: 'ผ้าแคนวาสแท้หนาปานกลาง + กรอบโมเดิร์นลอย / กรอบหลุยส์', use: 'ผนังห้องรับแขก ห้องทำงาน เคาน์เตอร์ร้านค้า', price: 690, btn: 'เลือก 12×18"' },
+    { size: '16 × 20 นิ้ว', img: 'assets/gallery/11-00-cover.webp', mat: 'ผ้าแคนวาสพิมพ์ยูวีความละเอียดสูง + กรอบหลุยส์สีทองโครงแข็ง', use: 'โถงบ้าน ห้องประชุม ภาพบรรพบุรุษ / ของขวัญขึ้นบ้านใหม่', price: 990, btn: 'เลือก 16×20"' },
+    { size: '20 × 30 นิ้ว', img: 'assets/gallery/12-00-cover.webp', mat: 'ผ้าแคนวาสผืนใหญ่เคลือบกัน UV + กรอบหลุยส์สีทองอลังการเสริมเหล็ก', use: 'ผนังหลักบ้าน/อาคารสำนักงาน ของขวัญเปิดกิจการมงคล', price: 1490, btn: 'เลือก 20×30"' }
+  ];
+
   function renderFrameTable() {
     $('frameTableBody').innerHTML = FRAME_TABLE.map(r => `
       <tr>
-        <td><b>${esc(r.size)}</b></td>
+        <td>
+          <div style="display:flex;align-items:center;gap:10px">
+            <img src="${esc(src(r.img))}" alt="${esc(r.size)}" style="width:48px;height:48px;border-radius:8px;object-fit:cover;box-shadow:0 2px 8px rgba(0,0,0,.5);cursor:zoom-in" onclick="$('lbImg').src=this.src;$('lbCap').textContent='ตัวอย่างกรอบรูปขนาด ${esc(r.size)}';$('lightbox').hidden=false;">
+            <b>${esc(r.size)}</b>
+          </div>
+        </td>
         <td>${esc(r.mat)}</td>
         <td style="color:var(--muted)">${esc(r.use)}</td>
         <td class="price">${r.price.toLocaleString()} ฿</td>
@@ -1272,14 +1356,15 @@ table.ftable{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640p
   /* ---------- Order Calculator & Brief Generator ---------- */
   function recalc() {
     const sel = $('serviceSelect');
-    const opt = sel.options[sel.selectedIndex];
+    if (!sel || !sel.options || sel.selectedIndex < 0) return;
+    const opt = sel.options[sel.selectedIndex] || {};
     const unit = Number(opt.value) || 0;
-    const name = opt.dataset.name || opt.textContent;
-    const qty = Math.max(1, Number($('orderQty').value) || 1);
+    const name = opt.dataset?.name || opt.textContent || '';
+    const qty = Math.max(1, Number($('orderQty')?.value) || 1);
     const delSel = $('deliveryMethod');
-    const delOpt = delSel.options[delSel.selectedIndex];
+    const delOpt = delSel?.options?.[delSel.selectedIndex] || {};
     const ship = Number(delOpt.value) || 0;
-    const delLabel = delOpt.dataset.label || delOpt.textContent;
+    const delLabel = delOpt.dataset?.label || delOpt.textContent || '';
     const base = unit * qty;
     const total = base + ship;
     const isFull = document.querySelector('input[name="payOption"]:checked')?.value === 'full100';
@@ -1463,6 +1548,7 @@ table.ftable{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640p
   $('brandLogo').src = src('assets/images/logo-art.jpg?v=3');
   $('heroLogo').src = src('assets/images/logo-art.jpg?v=3');
   $('oaAvatar').src = SHOP.avatar;
+  initBASlider();
   setBACase(1);
   const names = ITEMS.map(p => p.en);
   $('track').innerHTML = names.concat(names).map(n => `<span>${esc(n)}</span>`).join('');
